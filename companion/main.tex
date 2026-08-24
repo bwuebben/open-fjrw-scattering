@@ -1,0 +1,1000 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[margin=1.2in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\emergencystretch=1.5em
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Crit}{\operatorname{Crit}}
+\newcommand{\Bal}{\operatorname{Balanced}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Mbar}{\overline{\mathcal{M}}}
+\newcommand{\gfrak}{\mathfrak{g}}
+\newcommand{\chat}{\hat{c}}
+\DeclareMathOperator{\Aut}{Aut}
+
+\hyphenation{de-scen-dent de-scen-dents wall-cross-ing sin-gu-lar-i-ty}
+
+\title[The central-charge threshold for wall-crossing in open FJRW theory]{The
+central-charge threshold for wall-crossing\\ in two-variable open FJRW theory}
+
+\author{Bernd Johannes Wuebben}
+\subjclass[2020]{14N35 (primary); 14J33, 53D45, 14B05 (secondary)}
+\keywords{Open FJRW theory, Landau--Ginzburg models, wall-crossing,
+central charge, simple singularities, boundary conditions}
+\date{August 24, 2026}
+\hypersetup{
+  pdftitle={The central-charge threshold for wall-crossing in two-variable open FJRW theory},
+  pdfauthor={Bernd Johannes Wuebben},
+  pdfsubject={Open FJRW wall-crossing and the central-charge threshold},
+  pdfkeywords={open FJRW theory, Landau--Ginzburg models, wall-crossing, central charge}
+}
+
+\begin{document}
+
+\begin{abstract}
+Gross, Kelly and Tessler constructed genus-zero open FJRW invariants for
+$(x^r+y^s,\mu_r\times\mu_s)$ whose values can depend on boundary conditions.
+We prove that the primary invariants are independent of those choices exactly
+when the central charge is less than one, equivalently for the simple Fermat
+singularities $A_{n-1}$, $D_4$, $E_6$, and $E_8$.  The least number of primary
+interior insertions producing dependence satisfies an explicit trichotomy; two
+insertions first suffice for $x^4+y^4$.  By contrast, one interior insertion
+with one descendent produces dependence for every model.
+
+If a critical graph, the combinatorial type indexing a codimension-one wall,
+has $p$ and $q$ boundary markings of the two types, its
+wall-crossing vector field is the Hamiltonian vector field of $x^p y^q$ for
+$dx\wedge dy$.  The resulting determinant bracket identifies the
+wall-crossing Lie algebra with a graded subalgebra of the tropical vertex Lie
+algebra after an exponent shift.  At central charge one the first critical
+graph has one boundary marking of each type, Hamiltonian $xy$, and vector field
+$x\partial_x-y\partial_y$.  This one-dimensional torus direction is omitted from the
+wall-crossing algebra as stated by Gross--Kelly--Tessler.  This is the first appearance of the
+simply-elliptic cases in the open theory.  The threshold agrees with a more
+general result of Maher.
+\end{abstract}
+
+\maketitle
+\enlargethispage{3pt}
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection*{Background}
+For a nondegenerate quasi-homogeneous polynomial $W$ and a group $G$ of diagonal
+symmetries, FJRW theory \cite{FJR13} assigns to the Landau--Ginzburg model
+$(W,G)$ a cohomological field theory: a genus-zero $A$-model built from moduli
+of $W$-spin curves and the Euler class of a Witten bundle. In their monograph
+\cite{GKT}, Gross, Kelly and Tessler construct the \emph{open} analogue for the
+two-variable Fermat model
+\[
+W=x^{r}+y^{s},\qquad G=\mu_{r}\times\mu_{s},\qquad r,s\geq 2,
+\]
+replacing closed $W$-spin curves by $W$-spin disks. The resulting open FJRW
+invariants are integrals of multisections of a descendent Witten bundle over
+moduli spaces that are real orbifolds with corners, and their central output is
+an open mirror theorem: a generating function of the open invariants is a versal
+deformation of $W$ whose oscillatory period integrals recover the closed
+extended FJRW invariants, with the deformation parameters already flat
+\cite[Theorem~0.3]{GKT}.
+
+A structural feature distinguishes the open theory from its closed counterpart
+and from the open $r$-spin theory of Buryak--Clader--Tessler
+\cite{BCT21,BCT18}: the invariants are \emph{not} canonical. Boundary conditions
+for the Witten bundle over the corners of moduli space are constrained, but not
+determined, by the positivity requirements of \cite{GKT}; the residual freedom
+makes the open invariants jump as the boundary data cross certain walls. Gross,
+Kelly and Tessler organize these jumps into a pro-nilpotent Landau--Ginzburg
+wall-crossing group $G^{r,s}$ acting on the set of possible systems of
+invariants, and prove that this action is faithful and transitive
+\cite[Theorems~0.7 and~4.27]{GKT}: the systems of open invariants form a single
+torsor, while the period integrals -- hence the closed theory -- are constant
+along it.
+
+The source of every wall is a \emph{critical graph}: a stable $W$-spin
+graph~$\Lambda$ whose Witten bundle has rank one above the dimension of its
+moduli space, $\rank E_{\Lambda}(\mathbf d)=\dim\Mbar^{W}_{\Lambda}+1$
+\cite[Definition~2.33]{GKT}. Such a graph indexes a one-parameter family of
+codimension-one boundary strata through which zeros of the multisection can
+escape. The formally defined wall-crossing Lie algebra $\gfrak^{r,s}$ is a
+direct sum of one-dimensional pieces indexed by critical graphs of nonzero
+bidegree \cite[Definition~4.23]{GKT}. The excluded bidegree $(0,0)$ is spanned
+by $x\partial_x-y\partial_y$.  We adjoin that direction explicitly in
+\eqref{eq:enlargedgroup}, while keeping GKT's original algebra and group
+distinct from the enlarged objects used here.
+
+\subsection*{The prediction}
+Whether critical graphs exist depends on $(r,s)$ and on whether one allows
+descendents. In the descendent-free (\emph{primary}) theory,
+\cite[Remark~0.9]{GKT} predicts that wall-crossing is absent exactly for the
+simple singularities, and asserts this for an explicit list of pairs. As stated,
+that remark contains a discrepancy between its list and its naming, which we
+record and correct below. The prediction itself -- that the primary open FJRW
+invariants are canonical if and only if $W$ is a simple singularity -- is left
+open in \cite{GKT} and is reiterated as such in the survey \cite{GKTsurvey}.
+
+\subsection*{Results}
+We prove the prediction and recast it as a clean invariant-theoretic threshold.
+Recall that the \emph{central charge} of $W=x^{r}+y^{s}$, whose variables carry
+weights $q_{x}=1/r$ and $q_{y}=1/s$, is
+\begin{equation}
+\label{eq:centralcharge}
+\chat_{W}\;=\;(1-2q_{x})+(1-2q_{y})\;=\;2-\frac{2}{r}-\frac{2}{s}.
+\end{equation}
+
+Fix a finite set $I$ of labeled interior markings, each label $i$ carrying a
+twist $(a_i,b_i)$ with $0\le a_i\le r-2$ and $0\le b_i\le s-2$.  A family of
+GKT canonical boundary conditions is called \emph{symmetric} if it is invariant
+under permutations of labels with the same twist.  For a nonempty subset
+$J\subseteq I$ and descendent degrees $\mathbf d=(d_i)_{i\in J}$, set
+\begin{gather}
+ r(J)\equiv\sum_{i\in J}a_i\pmod r,\quad 0\le r(J)<r,
+ \qquad
+ s(J)\equiv\sum_{i\in J}b_i\pmod s,\quad 0\le s(J)<s,\label{eq:residues}\\
+ m(J,\mathbf d)
+ =rs+\sum_{i\in J}\bigl(sa_i+rb_i+rs(d_i-1)\bigr),
+ \qquad w(J,\mathbf d)=m(J,\mathbf d)-rs.\label{eq:massweight}
+\end{gather}
+Here $m$ is GKT's mass and $w$ is the \emph{Euler weight}.  Write
+$t_{a,b,d}$ for the deformation variable associated with an insertion
+$\tau_d^{(a,b)}$ and
+$u_{J,\mathbf d}=\prod_{i\in J}t_{a_i,b_i,d_i}$.  The coefficient ring
+$A_{I,\mathrm{sym}}$ is the symmetric GKT deformation ring in which the total
+multiplicity of each twist is bounded by the number of labels of that twist
+in $I$; in particular every positive-degree element is nilpotent.
+
+A critical graph with data $(J,\mathbf d)$ and $k_1+1$, respectively
+$k_2+1$, boundary markings of the two types satisfies
+\begin{equation}
+ sk_1+rk_2=w(J,\mathbf d).
+ \label{eq:criticalweight-intro}
+\end{equation}
+GKT's Lie algebra $\gfrak^{r,s}$ contains the corresponding generators when
+$(k_1,k_2)\ne(0,0)$ but excludes bidegree $(0,0)$
+\cite[Def.~4.23]{GKT}.  We call a critical graph of Euler weight zero
+\emph{marginal}; by \eqref{eq:criticalweight-intro} its vector field is
+$x\partial_x-y\partial_y$.  The \emph{marginally enlarged} algebra and group
+over $A_{I,\mathrm{sym}}$ are
+\begin{equation}
+\begin{aligned}
+ \widetilde{\gfrak}^{\,r,s}_{A_{I,\mathrm{sym}}}
+ &=\gfrak^{r,s}_{A_{I,\mathrm{sym}}}
+ \oplus\!\!\bigoplus_{\substack{\varnothing\ne J\subseteq I,\;\mathbf d\ge0\\
+ w(J,\mathbf d)=0,\;r(J)=s(J)=0}}
+ \QQ\,u_{J,\mathbf d}(x\partial_x-y\partial_y),\\
+ \widetilde G^{r,s}_{A_{I,\mathrm{sym}}}
+ &=\exp\bigl(\widetilde{\gfrak}^{\,r,s}_{A_{I,\mathrm{sym}}}\bigr).
+\end{aligned}
+\label{eq:enlargedgroup}
+\end{equation}
+The exponential is finite over $A_{I,\mathrm{sym}}$.  This notation keeps
+GKT's original positive-weight group distinct from the enlargement used here.
+
+\begin{proposition}[Marginal enlargement of the GKT action]
+\label{prop:enlargedaction}
+The group \eqref{eq:enlargedgroup} acts on the systems of symmetric canonical
+open FJRW invariants with marking set $I$, preserves that set, and acts
+transitively.  The jump automorphisms in the proof of
+\cite[Thm.~5.9]{GKT} belong to this enlarged group.
+\end{proposition}
+
+\begin{theorem}[Central-charge criterion]
+\label{thm:main}
+Let $W=x^{r}+y^{s}$ with $r,s\geq2$ and central charge $\chat_{W}$ as
+in~\eqref{eq:centralcharge}. The following are equivalent.
+\begin{enumerate}
+\item[(i)] $\chat_{W}<1$.
+\item[(ii)] $\dfrac1r+\dfrac1s>\dfrac12$.
+\item[(iii)] $W$ is a simple singularity: up to interchange of $x$ and $y$,
+\[
+(r,s)\in\{(n,2):n\geq2\}\cup\{(3,3),(3,4),(3,5)\},
+\]
+of type $A_{n-1}$, $D_{4}$, $E_{6}$, $E_{8}$ respectively.
+\item[(iv)] For every finite labeled marking set $I$ as above, the genus-zero primary
+open FJRW invariants of $(x^{r}+y^{s},\mu_{r}\times\mu_{s})$ are independent of
+the choice of symmetric canonical boundary conditions.
+\end{enumerate}
+When these fail, that is when $\chat_{W}\geq1$, there is a finite marking set
+$I$ for which the primary invariants genuinely depend on the boundary
+conditions.
+\end{theorem}
+
+
+The equivalence (i)$\Leftrightarrow$(ii)$\Leftrightarrow$(iii) is elementary and
+classical; the content is (iv). The threshold $\chat_{W}=1$ is exactly the
+boundary between the simple singularities ($\chat_{W}<1$) and the parabolic
+(simple-elliptic, $\chat_{W}=1$) and hyperbolic ($\chat_{W}>1$) regimes. Thus
+the presence of primary wall-crossing detects, through open enumerative
+geometry, the classical ADE threshold.
+
+Beyond the dichotomy, the same count determines \emph{when} wall-crossing first
+appears. For an interior insertion the relevant twists lie in the range
+$0\leq a\leq r-2$, $0\leq b\leq s-2$; write $n$ for the number of interior
+insertions.
+
+\begin{theorem}[First wall]
+\label{thm:firstwall}
+Let $n_{*}(r,s)$ be the least number of primary interior insertions admitting a
+critical graph. Then
+\[
+n_{*}(r,s)=
+\begin{cases}
+\infty, & \tfrac1r+\tfrac1s>\tfrac12\quad(\text{simple}),\\[2pt]
+2, & \min(r,s)\geq 4,\\[2pt]
+3, & \min(r,s)=3\ \text{and}\ \max(r,s)\geq 6.
+\end{cases}
+\]
+The case $n_{*}=2$ is first realized by $W=x^{4}+y^{4}$ with two interior
+insertions of twist $(2,2)$, the example of \cite[\S6]{GKTsurvey}.
+\end{theorem}
+
+Finally, descendents change the picture entirely: they generate walls in every
+case, including the simple singularities, as \cite[Remark~0.9]{GKT} anticipates.
+The first such wall is universal.
+
+\begin{proposition}[First descendent wall]
+\label{prop:descendent}
+For every $(r,s)$ with $r,s\geq2$, the data of a single interior insertion of
+descendent degree one admit exactly one critical graph. Hence the open FJRW invariants with descendents
+exhibit wall-crossing for every two-variable Fermat model, simple or not.
+\end{proposition}
+
+Where walls do occur, their generators have a uniform Hamiltonian description.
+Gross, Kelly and Tessler write the wall-crossing Lie algebra in terms of the
+vector fields
+$X_{a,b}=x^{a}y^{b}\bigl((b{+}1)x\partial_{x}-(a{+}1)y\partial_{y}\bigr)$
+\cite[eqn.~(4.19)]{GKT} and observe that they preserve $dx\wedge dy$
+\cite[p.~89]{GKT}. We name the Hamiltonian and read off the consequence.  The
+bracket below is computed for the affine-plane form $dx\wedge dy$; after the
+exponent shift by $(1,1)$ it is the usual determinant bracket for the torus
+form $d\log x\wedge d\log y$ (Remark~\ref{rem:tropical}).
+
+\begin{proposition}[Hamiltonian wall generators]
+\label{prop:ham}
+For $\omega=dx\wedge dy$ and $H_{a,b}=x^{a+1}y^{b+1}$, the wall generator
+$X_{a,b}$ is the Hamiltonian vector field of $H_{a,b}$; in particular it is
+divergence-free. The assignment $H_{a,b}\mapsto X_{a,b}$ is an isomorphism of
+graded Lie algebras from the Poisson algebra on the monomials $x^{p}y^{q}$,
+$p,q\geq1$, onto its image, under which the bracket is the tropical-vertex
+determinant
+\[
+[X_{a,b},X_{c,d}]=\bigl((b{+}1)(c{+}1)-(a{+}1)(d{+}1)\bigr)\,X_{a+c,\,b+d}.
+\]
+It restricts to an isomorphism onto the wall-crossing Lie algebra
+$\mathfrak g^{r,s}$ of \cite{GKT} after retaining the positive-weight critical
+Hamiltonians, and onto $\widetilde{\gfrak}^{\,r,s}$ after also adjoining
+the marginal Hamiltonian $xy$. Thus the enlarged algebra is the graded
+Hamiltonian subalgebra spanned by the critical Hamiltonians
+$\{H_{\Lambda}=x^{k_{1}+1}y^{k_{2}+1}\}$, where the critical graph $\Lambda$ has
+$k_{1}{+}1$ and $k_{2}{+}1$ boundary marked points of the two types, so that
+$H_{\Lambda}$ is obtained by recording those two boundary-marking counts as
+the exponents of $x$ and $y$.
+The $(s,r)$-weighted degree of $H_{\Lambda}$ equals $w(\Lambda)+r+s$, with
+$w$ the Euler weight of \eqref{eq:massweight}; marginal graphs
+($H_{\Lambda}=xy$) contribute the adjoined torus direction of
+\eqref{eq:enlargedgroup}. This makes the tropical-vertex analogy of
+\cite[Remarks~0.8 and~4.20]{GKT} an explicit map.
+\end{proposition}
+
+Proposition~\ref{prop:ham} completes the program the criterion was part of: an
+ADE/central-charge classification of when walls exist, a determination of the
+first wall, and a Hamiltonian normal form for the wall generators. The one
+structure it does \emph{not} supply --- a slope-ordered factorization whose rays
+are indexed by the shifted boundary degrees $(k_1+1,k_2+1)$ of critical graphs
+--- is constructed in the companion paper \cite{companion}, for which the
+classification here is the starting point; see
+\S\ref{sec:hamiltonian} and the closing section.
+
+\subsection*{Method}
+Nothing here rebuilds the machinery of \cite{GKT}. Theorem~\ref{thm:main}
+combines the closed-form count of critical graphs
+\cite[Notation~2.40]{GKT}, GKT's positive-weight wall algebra and faithful
+action \cite[Definition~4.23 and Theorem~4.27]{GKT}, and the local marginal
+extension of Proposition~\ref{prop:enlargedaction}. The arithmetic core is a
+single inequality, Lemma~\ref{lem:bound}, bounding the
+graph count by $n\,\chat_{W}$. All numerical claims (the ADE list, the trichotomy
+$n_{*}(r,s)$, the first-wall classification with its marginal/positive-weight split, and the
+universal descendent wall) are proved in
+\S\S\ref{sec:proof}--\ref{sec:parabolic}; finite exact checks are described in
+\S\ref{sec:cert}.
+
+\subsection*{Relation to prior work}
+The uniqueness of the primitive form for simple singularities is classical
+\cite{Saito83,NoumiYamada98}, and is the closed-mirror shadow of the statement
+that these are the potentials without wall-crossing. On the open side,
+Basalaev--Buryak constructed open Saito potentials for the $A$- and $D$-series
+by solving the open WDVV equations \cite{BB21}; the present criterion explains,
+uniformly, why the primary open theory is unambiguous on the whole ADE locus,
+including the $E$-cases, for which no closed-form potential has yet been
+computed. The wall-crossing group of \cite{GKT} is drawn, ``in spirit,'' by analogy
+with the tropical vertex group of Kontsevich--Soibelman \cite{KS06} and its role
+in Fano mirror symmetry \cite{Gross10} (\cite[Remark~0.8]{GKT}); separately, a
+tropical version of open FJRW theory is raised as an open problem in
+\cite[\S6]{GKTsurvey}, there through tropical moduli. The classification of critical
+graphs organized here is a prerequisite for a scattering-diagram form combining
+the two, carried out in \cite{companion}. After this note was drafted we
+learned that Maher's thesis establishes the threshold in substantially greater
+generality, for invertible polynomials, via the (non)triviality of the
+primary wall-crossing group \cite[Proposition~1.0.5]{Maher}; we keep the
+present treatment for its elementary Fermat-case proof, the explicit first-wall
+classification, and the Hamiltonian normal form, on which the scattering construction
+builds directly.
+
+\section{The count of critical graphs}
+\label{sec:count}
+
+We recall only what is needed and refer to \cite{GKT} for all definitions. Fix
+$W=x^{r}+y^{s}$. A genus-zero smooth $(r,s)$-disk carries interior marked points
+with twists $(a_{i},b_{i})$, $0\leq a_{i}\leq r-1$, $0\leq b_{i}\leq s-1$, and a
+descendent vector $\mathbf d=(d_{i})\in\ZZ_{\geq0}$. The interior insertions
+contributing to the primary potential lie in the Neveu--Schwarz range
+$0\leq a_{i}\leq r-2$, $0\leq b_{i}\leq s-2$ \cite[eqn.~(0.5)]{GKT}.
+
+Given a set $J$ of interior markings with twists $(a_{i},b_{i})_{i\in J}$ and
+descendents $\mathbf d=(d_{i})_{i\in J}$, define, following
+\cite[Notation~2.30]{GKT},
+\begin{equation}
+\label{eq:ells}
+\sum_{i\in J}a_{i}=r(J)+\ell_{1}r,\qquad
+\sum_{i\in J}b_{i}=s(J)+\ell_{2}s,
+\end{equation}
+where $r(J)\in\{0,\dots,r-1\}$ and $s(J)\in\{0,\dots,s-1\}$ are the residues, so
+that
+\begin{equation}
+\label{eq:elldef}
+\ell_{1}=\Big\lfloor\tfrac{1}{r}\textstyle\sum_{i\in J}a_{i}\Big\rfloor,\qquad
+\ell_{2}=\Big\lfloor\tfrac{1}{s}\textstyle\sum_{i\in J}b_{i}\Big\rfloor.
+\end{equation}
+The classification of balanced and critical graphs with interior markings
+exactly $J$ is \cite[Notation~2.40]{GKT}: setting
+\begin{equation}
+\label{eq:N}
+N(J,\mathbf d)\;=\;\ell_{1}+\ell_{2}-|J|+1+\sum_{i\in J}d_{i},
+\end{equation}
+one has $\bigl|\Bal(J,\mathbf d)\bigr|=N(J,\mathbf d)+1$ and
+\begin{equation}
+\label{eq:critcount}
+\bigl|\Crit(J,\mathbf d)\bigr|=\max\bigl(N(J,\mathbf d),\,0\bigr).
+\end{equation}
+Here the balanced graphs are the disk types whose invariants occur as
+coefficients of the open potential; the critical graphs index the possible
+codimension-one jumps between those coefficients.
+In particular a critical graph with interior markings $J$ and descendent vector
+$\mathbf d$ exists if and only if $N(J,\mathbf d)\geq1$. (Throughout,
+$J\neq\emptyset$. For $J=\emptyset$, the balanced equation has precisely the
+solutions $(k_{1},k_{2})=(r,0),(0,s)$, the two boundary-only graphs appearing
+in \cite[Example~3.4]{GKT}; the critical equation forces $(0,0)$, whose two
+boundary markings are unstable. Thus \eqref{eq:critcount} is not asserted in
+the boundary-only case.)
+
+\begin{proof}[Proof of Proposition~\ref{prop:enlargedaction}]
+In the proof of \cite[Thm.~5.9]{GKT}, the set
+$Q_0(A,\mathbf d)$ indexes precisely the interior marking data whose critical
+strata acquire isolated zeros during a homotopy of boundary conditions.  Its
+dimension constraint is \eqref{eq:criticalweight-intro}; hence the resulting
+jump elements consist of GKT's positive-weight summands together with the
+marginal summands in \eqref{eq:enlargedgroup}.
+
+It remains to check preservation and transitivity on realizable systems.  The
+chamber-index equations of \cite[Def.~3.47]{GKT} are Gamma-weighted polynomial
+relations among the balanced-disk coefficients; they encode the period and
+open-recursion constraints, together with the one-marking normalizations.
+Take $\hbar<0$ and expand, coefficientwise, the positive-quadrant Laplace
+integral
+\[
+ \mathcal L_\hbar(W)=\int_0^\infty\!\int_0^\infty e^{W/\hbar}\,dx\,dy.
+\]
+Its monomial moments are Gamma factors; consequently its
+$u_{J,\mathbf d}$-coefficient is a fixed nonzero multiple of GKT's polynomial
+$\mathcal A(J,\mathbf d,\nu)$.  Every enlarged generator is divergence-free
+and tangent to the coordinate axes (Lemma~\ref{lem:hamvf}), so integration by parts gives
+$\mathcal L_\hbar(e^vW)=\mathcal L_\hbar(W)$.  Thus all the
+$\mathcal A$-conditions are preserved, including the residue classes not
+detected by the distinguished oscillatory periods.  The normalizations in
+Definition~3.47 are also preserved: a primary critical monomial has at least
+two markings, and a descendent singleton does not change the primary
+normalization.  The realization theorem
+\cite[Thm.~5.13 and Cor.~5.14]{GKT} identifies the solutions of these equations
+with the systems arising from canonical boundary conditions, which proves
+preservation.
+
+For transitivity, let $S$ be a finite set of deformation monomials that contains
+every divisor of each of its elements, and pass to the quotient that retains
+exactly the coefficients indexed by $S$.  Order $S$ by a linear extension of
+proper divisibility.  Fix $u=u_{J,\mathbf d}\in S$ and write
+$N=N(J,\mathbf d)$.  The balanced disk types over $(J,\mathbf d)$ are indexed
+by $0\le p\le N$ and have boundary degrees
+\[
+ (r(J)+pr,\ s(J)+(N-p)s).
+\]
+Let $V_u=\bigoplus_{p=0}^{N}\QQ e_p$ be their coefficient space, where $e_p$
+changes only the coefficient of the $p$th balanced type.  Once two systems
+agree on every proper divisor of $u$, every term of
+$\mathcal A(J,\mathbf d,-)$ involving a partition into two or more deformation
+monomials already agrees.  Their difference in $V_u$ therefore lies in the
+kernel of the remaining one-part term, a nonzero linear functional
+$L_u:V_u\to\QQ$ whose coefficients are the Gamma factors computed above.
+Thus $\dim\ker L_u=N$.
+
+For $1\le p\le N$, the critical graph between the $(p-1)$st and $p$th
+balanced types acts on $V_u$ by
+\[
+ w_p=a_pe_p-b_pe_{p-1},\qquad
+ a_p=r\bigl(s(J)+(N-p)s+1\bigr),\qquad
+ b_p=s\bigl(r(J)+(p-1)r+1\bigr).
+\]
+Both coefficients are positive.  The Laplace-invariance calculation above
+gives $L_u(w_p)=0$, while reading successively the
+$e_N,e_{N-1},\ldots,e_1$ coordinates shows that the $w_p$ are independent.
+They therefore form a basis of $\ker L_u$.  If the diagonal is marginal, the
+weight equation forces $N=1$ and $r(J)=s(J)=0$; its only wall vector is
+$w_1=re_1-se_0$, precisely the torus vector adjoined in
+\eqref{eq:enlargedgroup}.  Hence in every case a unique combination of the
+critical-graph generators with coefficient $u$ removes the difference in
+$V_u$.  Acting by that combination can alter only coefficients indexed by
+strict multiples of $u$, so it does not disturb earlier steps.  Induction
+proves transitivity in the quotient defined by $S$.  These corrections are
+compatible when $S$ is enlarged, and the symmetric formal coefficient ring is
+the inverse limit of these finite divisor-closed quotients; passing to that
+limit proves transitivity over $A_{I,\mathrm{sym}}$.
+\end{proof}
+
+The reduction from invariants to graph counts is the following consequence of
+\cite{GKT}, which we isolate for use in both directions of
+Theorem~\ref{thm:main}.
+
+\begin{proposition}
+\label{prop:reduction}
+Fix a finite marking set $I\subseteq\NN$ and work over the coefficient ring
+$A_{I,\mathrm{sym}}=\QQ[t_{a,b,d}\,]/\mathrm{Ideal}(I)$ of \cite{GKT} (the
+ideal caps each twist $(a,b)$ at the number of labels of $I$ carrying it). Let
+$\mathbf d=\mathbf 0$.
+\begin{enumerate}
+\item[(a)] If no critical graph with descendent vector $\mathbf0$ has interior
+markings contained in $I$, then
+$\widetilde G^{r,s}_{A_{I,\mathrm{sym}}}$ fixes every primary open FJRW
+invariant; the primary invariants are canonical.
+\item[(b)] If some critical graph with descendent vector $\mathbf0$ has interior
+markings contained in $I$, then two systems of symmetric canonical open FJRW
+invariants over $I$ differ in a primary invariant.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By \cite[Definition~4.23]{GKT}, the original wall-crossing Lie algebra
+$\gfrak^{r,s}_{A_{I,\mathrm{sym}}}$ is spanned by the summands
+corresponding to critical graphs with $(k_{1},k_{2})\ne(0,0)$.
+Equation~\eqref{eq:enlargedgroup} adds the omitted $(0,0)$ summands. After passage
+to symmetric coefficients, critical graphs with the same twist--descendent
+multiset determine the same summand. For a critical graph with interior
+markings $J$, descendents $\mathbf d$, and boundary degrees
+$(k_{1},k_{2})$, its generator is
+\begin{equation}
+\label{eq:generator}
+v_{\Lambda}=u_{J,\mathbf d}\,x^{k_{1}}y^{k_{2}}
+\bigl((k_{2}+1)x\partial_{x}-(k_{1}+1)y\partial_{y}\bigr),\qquad
+u_{J,\mathbf d}=\prod_{i\in J}t_{a_{i},b_{i},d_{i}} .
+\end{equation}
+Here $(k_{1},k_{2})$ is the bidegree used in
+\cite[Definition~4.23]{GKT}: the critical graph has $k_{1}{+}1$ boundary
+marked points of type $\sigma_{1}$ and $k_{2}{+}1$ of type $\sigma_{2}$
+\cite[eqn.~(2.31), Proposition~2.39]{GKT}, and
+the index satisfies the critical condition
+$sk_{1}+rk_{2}=w(J,\mathbf d)$ of \eqref{eq:criticalweight-intro}. Positive
+weight gives a summand of $\gfrak^{r,s}$, while $(k_{1},k_{2})=(0,0)$ gives the
+adjoined marginal torus direction. GKT's group
+$G^{r,s}_{A_{I,\mathrm{sym}}}=\exp(\gfrak^{r,s}_{A_{I,\mathrm{sym}}})$ acts on
+the chamber indices $\Upsilon^{\mathrm{sym}}_{r,s}(I)$ of
+\cite[Definition~3.47]{GKT} by
+$g(W^{\nu})=W^{g(\nu)}$ \cite[Theorem~4.27]{GKT};
+Proposition~\ref{prop:enlargedaction} extends the action transitively to
+$\widetilde G^{r,s}_{A_{I,\mathrm{sym}}}$.
+
+For (a): if there is no $\mathbf0$-critical graph, every generator
+\eqref{eq:generator} has some $d_{i}>0$, hence $u_{J,\mathbf d}$ is divisible by
+a variable $t_{a,b,d}$ with $d>0$. Acting on a potential
+$W^{\nu}=x^{r}+y^{s}+\sum_{0\le a\le r-2,\ 0\le b\le s-2}t_{a,b,0}\,x^{a}y^{b}+\cdots$
+\cite[eqn.~(0.5)]{GKT}, such a generator raises the total degree in the
+positive-descendent variables and therefore leaves unchanged the coefficients of
+the purely primary monomials $u_{J',\mathbf 0}\,x^{\alpha}y^{\beta}$. Since
+each primary open invariant $\nu_{\Gamma,\mathbf 0}$, the coefficient attached
+to a graph $\Gamma$ in \cite[eqns.~(0.4)--(0.5)]{GKT}, is, up to the fixed
+nonzero sign and automorphism factor in the symmetric potential, such a
+coefficient, it is fixed by every generator, hence by
+$\widetilde G^{r,s}_{A_{I,\mathrm{sym}}}$. Transitivity of the enlarged action
+then makes these primary invariants equal in every system.
+
+For (b): a $\mathbf 0$-critical graph $\Lambda$ furnishes a nonzero generator
+$v_{\Lambda}$ with $u_{J,\mathbf 0}=\prod_{i\in J}t_{a_{i},b_{i},0}$ a monomial
+in primary variables only. Fix any system
+$\nu$ of symmetric canonical invariants, which exists by
+\cite[Theorem~0.1]{GKT}. The coefficient of the deformation monomial
+$u_{J,\mathbf0}$ in
+$\exp(v_{\Lambda})(W^{\nu})-W^{\nu}$ is exactly
+$v_{\Lambda}(x^{r}+y^{s})$, namely
+\[
+u_{J,\mathbf 0}\,\bigl(r(k_{2}+1)\,x^{k_{1}+r}y^{k_{2}}
+-s(k_{1}+1)\,x^{k_{1}}y^{k_{2}+s}\bigr),
+\]
+which is nonzero. Proposition~\ref{prop:enlargedaction} ensures that
+$\exp(v_{\Lambda})\cdot\nu$ is another system of symmetric canonical invariants
+over $I$. The two systems therefore differ in a primary
+invariant.
+\end{proof}
+
+\section{Proof of the central-charge criterion}
+\label{sec:proof}
+
+The equivalences (i)$\Leftrightarrow$(ii)$\Leftrightarrow$(iii) are immediate:
+\eqref{eq:centralcharge} gives $\chat_{W}<1\Leftrightarrow\frac2r+\frac2s>1$, and
+$\frac1r+\frac1s>\frac12$ characterizes the two-variable Fermat simple
+singularities, whose only types are $A_{n-1}=(n,2)$, $D_{4}=(3,3)$,
+$E_{6}=(3,4)$ and $E_{8}=(3,5)$ (there is no Fermat $E_{7}$, as $E_{7}=x^{3}+xy^{3}$
+is not of the form $x^{r}+y^{s}$; likewise $D_{n}=x^{n-1}+xy^{2}$ is Fermat only
+for $n=4$, where $x^{3}+y^{3}\cong D_{4}$). It remains to prove
+(i)$\Leftrightarrow$(iv), for which, by Proposition~\ref{prop:reduction}, it
+suffices to decide the existence of a primary ($\mathbf d=\mathbf0$) critical
+graph. The whole matter rests on one inequality.
+
+\begin{lemma}
+\label{lem:bound}
+Let $J$ be a set of $n=|J|$ interior markings with Neveu--Schwarz twists,
+$0\leq a_{i}\leq r-2$ and $0\leq b_{i}\leq s-2$. Then, with $\ell_{1},\ell_{2}$
+as in \eqref{eq:elldef},
+\[
+\ell_{1}+\ell_{2}\;\leq\;n\,\chat_{W}.
+\]
+Consequently the primary count \eqref{eq:N} obeys
+$N(J,\mathbf 0)\leq 1-n(1-\chat_{W})$.
+\end{lemma}
+
+\begin{proof}
+Dropping the floor functions and using the twist bounds,
+\[
+\ell_{1}+\ell_{2}
+=\Big\lfloor\tfrac1r\textstyle\sum a_{i}\Big\rfloor
++\Big\lfloor\tfrac1s\textstyle\sum b_{i}\Big\rfloor
+\leq\frac{\sum a_{i}}{r}+\frac{\sum b_{i}}{s}
+\leq\frac{n(r-2)}{r}+\frac{n(s-2)}{s}
+=n\Big(2-\tfrac2r-\tfrac2s\Big)=n\,\chat_{W}.
+\]
+The second claim is $N(J,\mathbf 0)=\ell_{1}+\ell_{2}-n+1\leq n\chat_{W}-n+1$.
+\end{proof}
+
+\begin{proof}[Proof of (i)$\Rightarrow$(iv)]
+Assume $\chat_{W}<1$. For any $J$ with $n=|J|\geq1$ interior markings,
+Lemma~\ref{lem:bound} gives $\ell_{1}+\ell_{2}\leq n\chat_{W}<n$; as
+$\ell_{1}+\ell_{2}$ is an integer strictly below the integer $n$, we get
+$\ell_{1}+\ell_{2}\leq n-1$, i.e.\ $N(J,\mathbf 0)\leq0$. By
+\eqref{eq:critcount} there is no primary critical graph, for any $J$ and any
+finite $I$. Proposition~\ref{prop:reduction}(a) then says the primary invariants
+are canonical for every $I$. (The case $n=0$ is vacuous: there is no interior
+marking to twist, and $N=1$ corresponds to the two boundary-only balanced graphs
+of \cite[Example~3.4]{GKT}, which are not critical.)
+\end{proof}
+
+\begin{proof}[Proof of $\neg$(i)$\Rightarrow\neg$(iv)]
+Assume $\chat_{W}\geq1$, i.e.\ $\frac2r+\frac2s\leq1$; in particular
+$r,s\geq3$ and not both equal to $3$, so $r,s\geq3$ with $\max(r,s)\geq4$, and
+we may take all interior twists maximal, $(a_{i},b_{i})=(r-2,s-2)$. With $n$ such
+markings,
+\begin{equation}
+\label{eq:maxN}
+N=\Big\lfloor\tfrac{n(r-2)}{r}\Big\rfloor+\Big\lfloor\tfrac{n(s-2)}{s}\Big\rfloor-n+1
+=\Big(n-\big\lceil\tfrac{2n}{r}\big\rceil\Big)
++\Big(n-\big\lceil\tfrac{2n}{s}\big\rceil\Big)-n+1
+=n-\big\lceil\tfrac{2n}{r}\big\rceil-\big\lceil\tfrac{2n}{s}\big\rceil+1,
+\end{equation}
+using $\lfloor n(r-2)/r\rfloor=\lfloor n-2n/r\rfloor=n-\lceil2n/r\rceil$. We
+exhibit $n$ with $N\geq1$, i.e.\ $\lceil2n/r\rceil+\lceil2n/s\rceil\leq n$.
+
+If $\frac2r+\frac2s<1$ (the hyperbolic regime $\chat_{W}>1$), then
+$\lceil2n/r\rceil+\lceil2n/s\rceil\leq\frac{2n}{r}+\frac{2n}{s}+2
+=n\bigl(\frac2r+\frac2s\bigr)+2$, which is $\leq n$ once
+$n\bigl(1-\frac2r-\frac2s\bigr)\geq2$; such $n$ exists since
+$1-\frac2r-\frac2s>0$.
+
+If $\frac2r+\frac2s=1$ (the parabolic regime $\chat_{W}=1$: the pairs $(4,4)$,
+$(3,6)$, $(6,3)$), choose $n$ with $r\mid2n$ and $s\mid2n$, e.g.\
+$n=\operatorname{lcm}(r,s)/2$, an integer for all three parabolic pairs; then
+$\lceil2n/r\rceil+\lceil2n/s\rceil=\frac{2n}{r}+\frac{2n}{s}=n$,
+so $N=1$.
+
+In either case a primary critical graph exists once $I$ contains $n$ interior
+labels of maximal twist, which is possible because each twist is realized
+infinitely often in the marking data \cite[\S2.4]{GKT}. By
+Proposition~\ref{prop:reduction}(b) the primary invariants over such an $I$
+depend on the boundary conditions. This proves $\neg$(iv), and with it
+Theorem~\ref{thm:main}.
+\end{proof}
+
+\begin{remark}[On Remark~0.9 of \cite{GKT}]
+\label{rem:erratum}
+\cite[Remark~0.9]{GKT} states that the pairs
+$(r,s)\in\{(n,2),(2,n),(3,3),(3,4),(4,3)\}$ give simple singularities
+``$A_{n-1}$, $E_{6}$, and $E_{8}$''. Two adjustments reconcile the list with the
+naming. First, $(3,3)$ appears in the list but $D_{4}$ is not named; $x^{3}+y^{3}$
+is the $D_{4}$ singularity (three distinct lines, Milnor number $4$). Second,
+$E_{8}$ is named but its pairs $(3,5),(5,3)$ are absent from the list; these are
+$x^{3}+y^{5}$, Milnor number $8$. The corrected wall-crossing-free set is
+\[
+\{(n,2),(2,n):n\geq2\}\cup\{(3,3),(3,4),(4,3),(3,5),(5,3)\},
+\]
+of types $A_{n-1},D_{4},E_{6},E_{8}$, exactly as in Theorem~\ref{thm:main}(iii).
+The theorem shows this list is not merely a set of examples but the complete
+answer to the prediction.
+\end{remark}
+
+\section{The first wall and the descendent wall}
+\label{sec:firstwall}
+
+\begin{proof}[Proof of Theorem~\ref{thm:firstwall}]
+The simple case $n_{*}=\infty$ is Theorem~\ref{thm:main}. Assume $\chat_{W}\geq1$
+and use \eqref{eq:maxN}, which gives the maximal $N$ over size-$n$ primary
+multisets, since $N$ is nondecreasing in the twists and maximal at
+$(r-2,s-2)$. Thus $n_{*}(r,s)$ is the least $n$ with
+$\lceil2n/r\rceil+\lceil2n/s\rceil\leq n$.
+
+\emph{$\min(r,s)\geq4$.} For $n=1$, $\lceil2/r\rceil+\lceil2/s\rceil=1+1=2>1$
+(each $2/r,2/s\leq\frac12$). For $n=2$ and $r,s\geq4$,
+$\lceil4/r\rceil+\lceil4/s\rceil=1+1=2=n$, so $N=1$ and $n_{*}=2$.
+
+\emph{$\min(r,s)=3$, say $r=3$, with $\max=s\geq6$.} Here $a_{i}\leq1$, so
+$\ell_{1}=\lfloor n/3\rfloor$. For $n=2$,
+$\lceil4/3\rceil+\lceil4/s\rceil=2+1=3>2$. For $n=3$,
+$\lceil6/3\rceil+\lceil6/s\rceil=2+1=3=n$ (using $s\geq6$), so $N=1$ and
+$n_{*}=3$. For $3\le s\le5$ the pair is simple and $n_{*}=\infty$, already
+covered.
+
+Finally $\min(r,s)=2$ forces the $A$-type simple case, $n_{*}=\infty$. This
+exhausts all $(r,s)$. For $x^{4}+y^{4}$, the witnessing multiset is two
+insertions of twist $(r-2,s-2)=(2,2)$, giving $N=1$: the example of
+\cite[\S6]{GKTsurvey}.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:descendent}]
+Take $|J|=1$ with any twist. Then $\ell_{1}=\ell_{2}=0$ and, by \eqref{eq:N},
+$N(J,\mathbf d)=0+0-1+1+d=d$, where $d$ is the descendent degree of the single
+insertion. Hence $d=1$ gives $N=1$: exactly one critical graph, for every
+$(r,s)$. Proposition~\ref{prop:reduction}(b) is stated for
+$\mathbf d=\mathbf 0$, but its proof uses only preservation by the enlarged
+action and the exact coefficient computation. Applied to the descendent-$1$
+generator, that computation produces a monomial divisible by $t_{a,b,1}$ with
+nonzero coefficient, so two systems of invariants differ in a descendent
+invariant. Hence the descendent theory wall-crosses in every case.
+\end{proof}
+
+\begin{remark}
+The trichotomy of Theorem~\ref{thm:firstwall} shows the $x^{4}+y^{4}$ example of
+\cite{GKTsurvey} is not isolated: two interior insertions already force a wall
+for every $(r,s)$ with $r,s\geq4$, and three suffice whenever
+$\min(r,s)=3\leq\frac12\max(r,s)$. Combined with
+Proposition~\ref{prop:descendent}, the qualitative picture is complete: the
+descendent-free theory is canonical exactly on the ADE locus, while switching on
+a single descendent breaks canonicity everywhere.
+\end{remark}
+
+\section{The wall generators are Hamiltonian}
+\label{sec:hamiltonian}
+
+We now prove Proposition~\ref{prop:ham}. Throughout, $\omega=dx\wedge dy$, and
+for a bivariate polynomial $H$ the Hamiltonian vector field is
+$X_{H}:=(\partial_{y}H)\,\partial_{x}-(\partial_{x}H)\,\partial_{y}$, so that
+$\iota_{X_{H}}\omega=dH$. In the rank-two case the marginally enlarged
+wall-crossing Lie algebra $\widetilde{\gfrak}^{\,r,s}$ is a sum of
+one-dimensional spaces spanned by
+\begin{equation}
+\label{eq:Xab}
+X_{a,b}=x^{a}y^{b}\bigl((b+1)x\partial_{x}-(a+1)y\partial_{y}\bigr)
+=(b+1)x^{a+1}y^{b}\,\partial_{x}-(a+1)x^{a}y^{b+1}\,\partial_{y},
+\end{equation}
+one for each critical graph, the exponents $(a,b)=(k_{1},k_{2})$ being the
+bidegree used in \cite[Definition~4.23]{GKT}: the graph has $k_{1}{+}1$ and
+$k_{2}{+}1$
+boundary marked points of the two types, so the Hamiltonian
+$H_{k_{1},k_{2}}=x^{k_{1}+1}y^{k_{2}+1}$ of Lemma~\ref{lem:hamvf} below is its
+boundary monomial.
+
+\begin{lemma}
+\label{lem:hamvf}
+For all $a,b\geq0$, $X_{a,b}=X_{H_{a,b}}$ with $H_{a,b}=x^{a+1}y^{b+1}$. In
+particular $\operatorname{div}X_{a,b}=0$, so $X_{a,b}$ preserves $\omega$.
+\end{lemma}
+
+\begin{proof}
+$\partial_{y}H_{a,b}=(b+1)x^{a+1}y^{b}$ and
+$\partial_{x}H_{a,b}=(a+1)x^{a}y^{b+1}$, so
+$X_{H_{a,b}}=(b+1)x^{a+1}y^{b}\partial_{x}-(a+1)x^{a}y^{b+1}\partial_{y}$, which is
+\eqref{eq:Xab}. A Hamiltonian vector field is divergence-free:
+$\operatorname{div}X_{a,b}=\partial_{x}\partial_{y}H_{a,b}-\partial_{y}\partial_{x}H_{a,b}=0$,
+recovering the volume-preservation of \cite[p.~89]{GKT}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:bracket}
+For all $a,b,c,d\geq0$,
+\begin{equation}
+\label{eq:bracketid}
+[X_{a,b},X_{c,d}]=\bigl((b+1)(c+1)-(a+1)(d+1)\bigr)\,X_{a+c,\,b+d}.
+\end{equation}
+Equivalently, with the Poisson bracket $\{H,K\}:=X_{H}(K)$ induced by $\omega$,
+\[
+\{H_{a,b},H_{c,d}\}=\bigl((b+1)(c+1)-(a+1)(d+1)\bigr)\,H_{a+c,\,b+d}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $X_{a,b}=f\partial_{x}+g\partial_{y}$ with $f=(b+1)x^{a+1}y^{b}$,
+$g=-(a+1)x^{a}y^{b+1}$, and $X_{c,d}=F\partial_{x}+G\partial_{y}$ similarly. A
+direct computation of
+$[X_{a,b},X_{c,d}]=(X_{a,b}F-X_{c,d}f)\partial_{x}+(X_{a,b}G-X_{c,d}g)\partial_{y}$
+gives, for the $\partial_{x}$-coefficient,
+\[
+X_{a,b}F-X_{c,d}f
+=(b+d+1)\bigl[(b+1)(c+1)-(a+1)(d+1)\bigr]\,x^{a+c+1}y^{b+d},
+\]
+which is $\bigl((b+1)(c+1)-(a+1)(d+1)\bigr)$ times the $\partial_{x}$-coefficient
+$(b+d+1)x^{a+c+1}y^{b+d}$ of $X_{a+c,b+d}$; the $\partial_{y}$-coefficient matches
+identically. For the Poisson form,
+$\{H_{a,b},H_{c,d}\}=X_{a,b}(H_{c,d})
+=(b+1)(c+1)x^{a+c+1}y^{b+d+1}-(a+1)(d+1)x^{a+c+1}y^{b+d+1}$, and
+$X_{H_{a+c,b+d}}=X_{a+c,b+d}$ by Lemma~\ref{lem:hamvf} shows the two identities
+agree.
+\end{proof}
+
+The determinant $\langle(a,b),(c,d)\rangle=(b+1)(c+1)-(a+1)(d+1)$ appearing
+in~\eqref{eq:bracketid} is the structure constant of the tropical vertex Lie
+algebra of Kontsevich--Soibelman \cite{KS06}; see \cite{Gross10}. Assembling
+Lemmas~\ref{lem:hamvf} and~\ref{lem:bracket} proves Proposition~\ref{prop:ham}:
+$H_{a,b}\mapsto X_{a,b}$ is a Lie-algebra isomorphism from the Poisson algebra on
+$\{x^{p}y^{q}:p,q\geq1\}$ onto its image, restricting to an isomorphism onto
+$\widetilde{\gfrak}^{\,r,s}$ once one keeps only the Hamiltonians
+$H_{\Lambda}$ of critical graphs. Restricting to positive weight recovers
+GKT's $\mathfrak g^{r,s}$. The grading is immediate from the critical
+condition.
+
+\begin{proposition}
+\label{prop:grading}
+Let $\Lambda$ be a critical graph with interior markings $J$, descendents
+$\mathbf d$, and index $(k_{1},k_{2})$, and set
+$m(\Lambda)=m(J,\mathbf d)=rs+\sum_{i\in J}(sa_{i}+rb_{i}+rs(d_{i}-1))$
+\cite[Notation~2.30]{GKT}. Then the Hamiltonian $H_{\Lambda}=x^{k_{1}+1}y^{k_{2}+1}$
+has $(s,r)$-weighted degree
+\[
+s(k_{1}+1)+r(k_{2}+1)=m(\Lambda)+r+s-rs .
+\]
+Thus $\widetilde{\gfrak}^{\,r,s}$ is graded by the $(s,r)$-weighted degree of
+the wall Hamiltonian, and the degree records the mass of the critical graph
+(equivalently its Euler weight $w(\Lambda)=m(\Lambda)-rs$ of
+\eqref{eq:massweight}).
+\end{proposition}
+
+\begin{proof}
+The critical condition is $sk_{1}+rk_{2}=m(\Lambda)-rs$
+\cite[Proposition~2.39]{GKT}; add $r+s$.
+\end{proof}
+
+\begin{remark}[Relation to the tropical vertex algebra]
+\label{rem:tropical}
+The tropical vertex Lie algebra is the Hamiltonian algebra of the \emph{torus}
+form $d\log x\wedge d\log y$, for which
+$\{x^{u},x^{v}\}=\langle u,v\rangle\,x^{u+v}$ with $\langle u,v\rangle$ the
+determinant, so that Hamiltonians add exponents. Proposition~\ref{prop:ham} uses
+instead the \emph{affine-plane} form $dx\wedge dy=xy\,(d\log x\wedge d\log y)$,
+under which $\{x^{u},x^{v}\}=\langle u,v\rangle\,x^{u+v-(1,1)}$. The two Poisson
+structures, hence the two Lie algebras, are intertwined by the exponent shift
+$u\mapsto u-(1,1)$ induced by this factor $xy$ -- the same change of primitive
+form that makes $dx\wedge dy$ the natural volume in \cite[Theorem~0.3]{GKT}. So
+$\widetilde{\gfrak}^{\,r,s}$ is an affine-plane realization of the
+tropical-vertex bracket, restricted to critical Hamiltonians.  This makes
+explicit the analogy that \cite[Remarks~0.8 and~4.20]{GKT} draw ``in spirit''
+with the Kontsevich--Soibelman group.  The companion paper \cite{companion}
+groups the corresponding automorphisms by the rays spanned by
+$(k_1+1,k_2+1)$, orders those ray factors by slope, and uses their products to
+transport the open potentials.  No result of the present note depends on that
+construction.
+The tropical open FJRW theory called for in \cite[\S6]{GKTsurvey} is posed
+there through tropical moduli, a priori a distinct route to the same tropical
+picture.
+\end{remark}
+
+\section{The first wall at the parabolic boundary}
+\label{sec:parabolic}
+
+The threshold $\chat_{W}=1$ is not only where wall-crossing begins across the
+family; the walls it produces have a uniform shape. By the \emph{first wall}
+of $(r,s)$ we mean the set of critical graphs over interior multisets of the
+minimal size $n_{*}(r,s)$. Combining the count
+\eqref{eq:critcount} with the Hamiltonian dictionary of \S\ref{sec:hamiltonian}
+gives a complete classification of the first wall for each $(r,s)$; at the
+parabolic boundary it collapses to a single wall.
+
+\begin{proposition}[Parabolic first wall]
+\label{prop:parabolic}
+For any interior multiset $J$ with $N(J,\mathbf 0)=1$, the index of its unique
+critical graph is $(k_{1},k_{2})=(r(J),s(J))$, of Euler weight
+$s\,r(J)+r\,s(J)$. For the
+three parabolic pairs, $(r,s)\in\{(4,4),(3,6),(6,3)\}$ with $\chat_{W}=1$, the
+first wall consists of exactly one critical graph, its multiset forced to be
+the maximal-twist one: two copies of $(2,2)$ for $(4,4)$, three copies of
+$(1,4)$ for $(3,6)$, three copies of $(4,1)$ for $(6,3)$. Its residues vanish,
+so its index is $(0,0)$, its weight is zero, and its direction is the
+\emph{marginal torus direction} $x\partial_{x}-y\partial_{y}$ of
+\eqref{eq:enlargedgroup}, with Hamiltonian $xy$. By contrast, for the
+hyperbolic pairs of Table~\ref{tab:census} the first wall comprises several
+critical graphs, both genuine positive-weight walls and marginal torus
+directions.
+\end{proposition}
+
+\begin{proof}
+If $N(J,\mathbf 0)=1$ there is a unique critical graph and, by
+\cite[Notation~2.40, eqn.~(2.31)]{GKT} read in the indexing of
+\eqref{eq:generator}, its index is $(k_{1},k_{2})=(r(J),s(J))$; the weight
+statement is the critical condition \eqref{eq:criticalweight-intro}. For each parabolic pair
+the minimal critical multiset is uniquely the maximal-twist one: at $n=n_{*}$
+the inequality $\ell_{1}+\ell_{2}\geq n$ is attained only with equality and
+only at $(a_{i},b_{i})=(r-2,s-2)$ (for $(4,4)$, $\ell_{1},\ell_{2}\leq1$ force
+$a_{i}=b_{i}=2$; for $(3,6)$, $\ell_{1}\leq1,\ell_{2}\leq2$ force
+$a_{i}=1,b_{i}=4$). There the residues vanish, so $(k_{1},k_{2})=(0,0)$: the
+torus direction, with Hamiltonian $H_{0,0}=xy$ (Lemma~\ref{lem:hamvf}). The
+hyperbolic data is the direct enumeration recorded in Table~\ref{tab:census}.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccccccl}
+\toprule
+$(r,s)$ & $\chat_{W}$ & regime & $n_{*}$ & graphs & marginal & wall Hamiltonians\\
+\midrule
+$(4,4)$ & $1$ & parabolic & $2$ & $1$ & $1$ & --- (torus $xy$ only)\\
+$(3,6)$ & $1$ & parabolic & $3$ & $1$ & $1$ & --- (torus $xy$ only)\\
+$(6,3)$ & $1$ & parabolic & $3$ & $1$ & $1$ & --- (torus $xy$ only)\\
+$(4,5)$ & $11/10$ & hyperbolic & $2$ & $2$ & $1$ & $xy^{2}$\\
+$(3,7)$ & $22/21$ & hyperbolic & $3$ & $2$ & $1$ & $xy^{2}$\\
+$(4,6)$ & $7/6$ & hyperbolic & $2$ & $4$ & $2$ & $xy^{2},\,xy^{3}$\\
+$(5,5)$ & $6/5$ & hyperbolic & $2$ & $5$ & $2$ & $xy^{2},\,x^{2}y,\,x^{2}y^{2}$\\
+\bottomrule
+\end{tabular}
+\caption{The first wall of $x^{r}+y^{s}$: the number of critical graphs at
+$n=n_{*}(r,s)$, how many are marginal (index $(0,0)$, the torus direction with
+Hamiltonian $xy$), and the boundary monomials $x^{k_{1}+1}y^{k_{2}+1}$
+Hamiltonian to the genuine wall generators. At the parabolic boundary the
+first wall is purely marginal; genuine walls appear only in the hyperbolic
+regime. Computed exactly; see \S\ref{sec:cert}.}
+\label{tab:census}
+\end{table}
+
+The parabolic pairs are the two-variable Fermat \emph{simply-elliptic}
+singularities ($x^{4}+y^{4}=\widetilde E_{7}$, $x^{3}+y^{6}=\widetilde E_{8}$),
+for which the primitive form ceases to be $dx\wedge dy$ and becomes a period of
+an elliptic curve; the marginal torus direction is where that transition first
+registers in the open theory: the elliptic wall-crossing group of
+\cite[\S5.2.2]{Maher} is exactly this torus factor, and the explicit jumping of
+the $x^{4}+y^{4}$ invariants in \cite[Example~4.9]{GKTsurvey} is its action.
+Genuine (pro-nilpotent) walls appear precisely in the hyperbolic regime. The
+first \emph{symmetric} hyperbolic Fermat pair is $x^{5}+y^{5}$, with boundary
+monomials $xy^{2},x^{2}y,x^{2}y^{2}$ in Table~\ref{tab:census}; its wall
+functions and scattering diagram are computed in \cite{companion}.
+
+\section{Finite exact checks}
+\label{sec:cert}
+
+The proofs above are uniform in $r$ and $s$; the following finite calculations
+serve only as independent reproducibility checks.  Substitution in
+\eqref{eq:N} for every $2\le r,s\le40$ reproduces the ADE list and the
+trichotomy of Theorem~\ref{thm:firstwall}.  The absence assertion outside this
+finite range is supplied by Lemma~\ref{lem:bound}, not by enumeration.  The
+same calculation reproduces the first-wall data printed in
+Table~\ref{tab:census}, including the zero-weight/positive-weight distinction,
+and the single-descendent indices of Proposition~\ref{prop:descendent}.
+Finally, direct polynomial differentiation verifies
+Lemma~\ref{lem:hamvf} and identity~\eqref{eq:bracketid} for symbolic
+$a,b,c,d$; evaluation for $0\le a,b,c,d\le4$ provides a finite numerical
+check.\footnote{The exact-arithmetic files are \texttt{src/census.py} and
+\texttt{src/gkt\_algebra.py} in the repository cited in \cite{companion}.}
+\section*{Concluding remarks and open directions}
+\addcontentsline{toc}{section}{Concluding remarks and open directions}
+
+The companion paper \cite{companion} continues the Hamiltonian identification
+by grouping the automorphisms on rays of boundary degree and factoring them in
+slope order.  Two further directions remain open for the threshold problem
+itself.
+
+\begin{enumerate}
+\item \emph{Explicit ADE potentials.} On the wall-crossing-free locus the
+primary potential is unambiguous; computing it in closed form for $D_{4}$,
+$E_{6}$, $E_{8}$ (matching the $D$-series potentials of \cite{BB21} and
+extending them to the $E$-cases) and relating the coefficients to
+Coxeter/root-system data is a concrete computational program.
+\item \emph{The parabolic boundary.} Proposition~\ref{prop:parabolic} pins the
+first wall of the parabolic pairs to the marginal torus direction. What
+remains is the analytic side: these are the simply-elliptic singularities
+$\widetilde E_{7},\widetilde E_{8}$, whose primitive form is a period of an
+elliptic curve, so the flat structure is governed by modular forms rather than
+polynomials \cite[\S4.2.2]{Maher}. Identifying the modular period map on the
+torus factor, beyond the $x^{4}+y^{4}$ jumping of
+\cite[Example~4.9]{GKTsurvey}, is the first genuinely transcendental case of
+the theory.
+\end{enumerate}
+
+\begin{thebibliography}{GKT26}
+
+\bibitem[BB21]{BB21} A.~Basalaev, A.~Buryak,
+\emph{Open Saito theory for $A$ and $D$ singularities},
+Int.\ Math.\ Res.\ Not.\ 2021, no.~7, 5460--5491. arXiv:1909.00598.
+
+\bibitem[BCT22]{BCT18} A.~Buryak, E.~Clader, R.~J.~Tessler,
+\emph{Open $r$-spin theory I: Foundations},
+Int.\ Math.\ Res.\ Not.\ 2022, no.~14, 10458--10532. arXiv:2003.01082.
+
+\bibitem[BCT24]{BCT21} A.~Buryak, E.~Clader, R.~J.~Tessler,
+\emph{Open $r$-spin theory II: The analogue of Witten's conjecture for $r$-spin
+disks}, J.\ Differential Geom.\ 128 (2024), no.~1, 1--75. arXiv:1809.02536.
+
+\bibitem[FJR13]{FJR13} H.~Fan, T.~Jarvis, Y.~Ruan,
+\emph{The Witten equation, mirror symmetry, and quantum singularity theory},
+Ann.\ of Math.\ 178 (2013), no.~1, 1--106.
+
+\bibitem[GKT22]{GKT} M.~Gross, T.~L.~Kelly, R.~J.~Tessler,
+\emph{Open FJRW theory and mirror symmetry},
+arXiv:2203.02435v3 (2022; revised 2026), to appear in Geom.~Topol.
+
+\bibitem[GKT26]{GKTsurvey} M.~Gross, T.~L.~Kelly, R.~J.~Tessler,
+\emph{Open enumerative geometries for Landau--Ginzburg models},
+arXiv:2602.12707v1 (2026).
+
+\bibitem[Gro10]{Gross10} M.~Gross,
+\emph{Mirror symmetry for $\mathbb{P}^{2}$ and tropical geometry},
+Adv.\ Math.\ 224 (2010), no.~1, 169--245.
+
+\bibitem[KS06]{KS06} M.~Kontsevich, Y.~Soibelman,
+\emph{Affine structures and non-Archimedean analytic spaces},
+in \emph{The unity of mathematics}, Progr.\ Math.\ 244, Birkh\"auser (2006),
+321--385.
+
+\bibitem[Mah24]{Maher} R.~Maher,
+\emph{Predictions in open Fan--Jarvis--Ruan--Witten theory via mirror symmetry,
+modularity, and wall-crossing}, Ph.D.\ thesis, University of Birmingham, 2024.
+\texttt{etheses.bham.ac.uk/id/eprint/15556}.
+
+\bibitem[NY98]{NoumiYamada98} M.~Noumi, Y.~Yamada,
+\emph{Notes on the flat structures associated with simple and simply elliptic
+singularities}, in \emph{Integrable systems and algebraic geometry}, World Sci.\
+(1998), 373--383.
+
+\bibitem[Sai83]{Saito83} K.~Saito,
+\emph{Period mapping associated to a primitive form},
+Publ.\ Res.\ Inst.\ Math.\ Sci.\ 19 (1983), no.~3, 1231--1264.
+
+\bibitem[Wue26]{companion} B.~J.~Wuebben,
+\emph{Boundary-ray factorization and geometric wall-crossing in open FJRW theory
+of $x^{r}+y^{s}$},
+paper and accompanying computations,
+\url{https://github.com/bwuebben/open-fjrw-scattering} (2026).
+
+\end{thebibliography}
+
+\bigskip
+\noindent{\sc Bernd J. Wuebben, New York, NY,} \texttt{wuebben@gmail.com}
+
+\end{document}
