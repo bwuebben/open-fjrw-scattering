@@ -1,0 +1,86 @@
+\begin{tikzpicture}[
+  line cap=round,
+  line join=round,
+  >=Latex,
+  every node/.style={font=\scriptsize},
+  singletonone/.style={blue!75!black,very thick},
+  singletontwo/.style={red!70!black,very thick,densely dashed},
+  completion/.style={black!70,thick,-{Latex[length=2mm]}},
+  branch/.style={black!45,densely dotted},
+  focus/.style={circle,draw=black,fill=white,inner sep=1.8pt,line width=.6pt}
+]
+% A small explicit margin keeps the full lower boundary visible after the
+% standalone checker applies its paper-width adjustbox.
+\draw[white] (-1.35,-1.45) rectangle (8.95,1.75);
+% Exact plus-cofactor chart.
+\begin{scope}[x=1.13cm,y=1.13cm]
+  \coordinate (pA) at (-1,-1);
+  \coordinate (pB) at (-1,1);
+  \coordinate (pC) at (3,-1);
+  \coordinate (O) at (0,0);
+  \fill[black!3] (pA)--(pB)--(pC)--cycle;
+  \draw[black!65,thick] (pA)--(pB)--(pC)--cycle;
+
+  \draw[branch] (-.5,-.5)--(1.5,-.5);
+  \node[focus,label={[black!70]below left:$A$}] at (-.5,-.5) {};
+  \node[focus,label={[black!70]below right:$C$}] at (1.5,-.5) {};
+
+  \draw[singletonone] (-1,.75)--(O)--(1.333,-1);
+  \draw[singletontwo] (-.5,.75)--(O)--(.667,-1);
+  \fill[blue!75!black] (.667,-.5) circle (1.25pt);
+  \fill[red!70!black] (.333,-.5) circle (1.25pt);
+
+  \draw[completion] (O)--(-1,.90);
+  \draw[completion] (O)--(-.80,.90);
+  \draw[completion] (O)--(-.50,.50);
+  \draw[black!35,densely dotted] (-.50,.50)--(pB);
+  \node[focus,label={[black!70]right:$B$}] at (-.50,.50) {};
+
+  \fill[black] (O) circle (1.45pt);
+  \node[below right=1pt] at (O) {$O$};
+  \node[left=1pt] at (-1,.75) {$(-1,\frac34)$};
+  \node[above right=0pt] at (-.5,.75) {$(-\frac12,\frac34)$};
+  \node[above right=1pt] at (1.333,-1) {$(\frac43,-1)$};
+  \node[above left=1pt] at (.667,-1) {$(\frac23,-1)$};
+  \node[above left=0pt] at (pB) {$p_B$};
+  \node[anchor=south] at (1,1.22)
+    {\textbf{(a)} exact plus cofactor chart};
+\end{scope}
+
+% Topological annular lift.  Horizontal edges are deleted boundary circles;
+% vertical edges are identified.
+\begin{scope}[x=1.05cm,y=1.22cm]
+  \draw[black!50,densely dashed] (4.35,-1)--(8.35,-1);
+  \draw[black!50,densely dashed] (4.35,1)--(8.35,1);
+  \draw[black!65] (4.35,-1)--(4.35,1);
+  \draw[black!65] (8.35,-1)--(8.35,1);
+  \node[left=2pt] at (4.35,0) {$\sim$};
+  \node[right=2pt] at (8.35,0) {$\sim$};
+
+  \coordinate (Ozero) at (5.35,-.12);
+  \coordinate (Oone) at (7.35,.12);
+
+  \draw[singletonone] (4.58,-1)--(Ozero)--(4.58,1);
+  \draw[singletontwo] (5.76,-1)--(Ozero)--(5.76,1);
+  \draw[completion] (Ozero)--(4.88,1);
+  \draw[completion] (Ozero)--(5.10,.64);
+  \draw[completion] (Ozero)--(5.53,1);
+  \node[focus,label={[black!70]right:$B_0$}] at (5.10,.64) {};
+
+  \draw[singletonone] (6.94,-1)--(Oone)--(6.94,1);
+  \draw[singletontwo] (8.12,-1)--(Oone)--(8.12,1);
+  \draw[completion] (Oone)--(7.10,1);
+  \draw[completion] (Oone)--(7.56,.70);
+  \draw[completion] (Oone)--(7.82,1);
+  \node[focus,label={[black!70]right:$B_1$}] at (7.56,.70) {};
+
+  \node[focus,label={[black!70]above:$A$}] at (6.08,-.62) {};
+  \node[focus,label={[black!70]above:$C$}] at (6.61,-.62) {};
+  \fill[black] (Ozero) circle (1.45pt);
+  \fill[black] (Oone) circle (1.45pt);
+  \node[below right=0pt] at (Ozero) {$O_0$};
+  \node[above left=0pt] at (Oone) {$O_1$};
+  \node[anchor=south] at (6.35,1.22)
+    {\textbf{(b)} two disjoint lifts in $\mathcal A^\circ$};
+\end{scope}
+\end{tikzpicture}

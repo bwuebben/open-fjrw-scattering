@@ -1,0 +1,1570 @@
+\section{The descendent broken-line correspondence}
+\label{sec:descendent-correspondence}
+
+We now construct the class in
+Theorem~\ref{thm:intro-descendent} and the cellular model of
+Definition~\ref{def:intro-relative-pl-bordism}.  Fix a finite labelled window
+$S=(I,P,\mathcal E)$ as in
+Definition~\ref{def:intro-finite-window}, a deformation order $N$, the finite
+root stage, and a framed compact annular corridor defined there.  All coefficients are
+taken in the finite Artin ring $R_{S,N}$ of
+\eqref{eq:intro-window-ring}.  The closure conditions on $\mathcal E$ retain
+every proper support, every open boundary graph and bundle map in
+\eqref{eq:intro-exact-open-datum}, and every closed-component splitting,
+including those whose Euler rank does not equal the dimension of its compact
+moduli factor.
+All spaces below are therefore finite-dimensional and compact.  The virtual
+chains are rational PL branched zero loci of finite orbibundle sections; no
+analytic infinite-window virtual class is used.
+
+The construction has four parts.  First, a relative twisted de~Rham complex
+for the Fermat polynomial supplies a residue cocycle compatible with the two
+coordinate divisors.  Second, a deformation retract of this complex gives
+coherent primitives for the factorization faces of tropical forests.  Third,
+the Witten-bundle splitting realizes insertion of a cotangent class by a
+parameterized Euler chain.  Finally, these data are assembled on a compactified
+incidence space of tropical forests and $W$-spin curves.  The boundary
+stratification of that compactification gives the two cotangent recursions by
+Stokes' formula.
+
+The chain-level argument has the following conceptual order:
+\[
+\begin{tikzcd}[column sep=2.0em,row sep=1.7em]
+\text{relative residue complex}\arrow[r] &
+\text{forest primitives}\arrow[r] &
+\text{incidence zero chain}\arrow[d] \\
+\text{GKT moments} &
+\text{cotangent recursions}\arrow[l] &
+\text{boundary strata}\arrow[l]
+\end{tikzcd}
+\]
+Here a broken-line chain is a cellular chain whose strata parametrize
+decorated tropical forests together with their $W$-spin data; it is not a
+single Gross--Siebert broken line.
+
+\subsection{Relative contact Stokes}
+
+Put $W_0=X^4+Y^4$, $\Omega=dX\wedge dY$, and
+$D_0=\hbar d+dW_0\wedge$.  Let
+$\mathsf D_x=\{X=0\}$, $\mathsf D_y=\{Y=0\}$, and
+$\mathsf D_{xy}=\mathsf D_x\cap\mathsf D_y$.  On the two divisors and their
+intersection put
+\[
+ D_x=\hbar d+d(Y^4)\wedge,\qquad
+ D_y=\hbar d+d(X^4)\wedge,\qquad D_{xy}=0.
+\]
+Let $\mathcal B_A,\mathcal B_x,\mathcal B_y,$ and
+$\mathcal B_{xy}=\QQ[\hbar]$ be the corresponding twisted polynomial
+de~Rham complexes, and let $r_x,r_y,r_{xy}^x,r_{xy}^y$ be their ordinary
+restriction maps.  Define
+\begin{equation}
+ \mathcal B_{\mathrm{con}}^k
+ =\mathcal B_A^k\oplus\mathcal B_x^{k-1}
+  \oplus\mathcal B_y^{k-1}\oplus\mathcal B_{xy}^{k-2}
+ \label{eq:des-contact-complex}
+\end{equation}
+with differential
+\begin{equation}
+\begin{aligned}
+ \delta(\omega,\eta_x,\eta_y,\xi)
+ =\bigl(&D_0\omega,r_x\omega-D_x\eta_x,r_y\omega-D_y\eta_y,\\
+ &r_{xy}^x\eta_x-r_{xy}^y\eta_y+D_{xy}\xi\bigr).
+\end{aligned}
+\label{eq:des-contact-differential}
+\end{equation}
+The restriction square commutes, so $\delta^2=0$.
+
+For $0\leq r\leq3$, set
+\begin{equation}
+ G_r(p)=\prod_{j=0}^{p-1}\frac{r+1+4j}{4},\qquad G_r(0)=1.
+ \label{eq:des-gamma-weight}
+\end{equation}
+The bulk, divisor, and corner traces are
+\begin{equation}
+\begin{aligned}
+ \tau_A(X^{r+4p}Y^{s+4q}\Omega)&=(-\hbar)^{p+q}G_r(p)G_s(q),\\
+ \tau_x(Y^{s+4q}dY)&=4(-\hbar)^qG_s(q),\\
+ \tau_y(X^{r+4p}dX)&=-4(-\hbar)^pG_r(p),\qquad
+ \tau_{xy}(c)=16c.
+\end{aligned}
+\label{eq:des-contact-traces}
+\end{equation}
+The factors $4$ and $16$ are the inverse traces of $B\mu _4$ and
+$B(\mu _4^2)$.  Set
+\begin{equation}
+ \operatorname{Tr}_{\mathrm{con}}(\omega,\eta_x,\eta_y,\xi)
+ =\tau_A(\omega)-\tau_x(\eta_x)-\tau_y(\eta_y)-\tau_{xy}(\xi).
+ \label{eq:des-total-trace}
+\end{equation}
+
+Let $\widetilde R_{S,N}$ be the finite $R_{S,N}$-algebra obtained by
+adjoining the roots occurring at the chosen root stage.  Fix a chamber
+$\Gamma_0$ in which the developed coordinates are $(X,Y)$ and the reference
+polynomial is $W_0=X^4+Y^4$; this is the \emph{reference Fermat chamber}.
+For any chamber frame $\Gamma$, let
+$\mathsf T_{\Gamma\Gamma_0}$ be the ordered composition of the wall and
+root-chart maps along its framed path, and define
+\begin{equation}
+ \mathcal B_{\Gamma,\mathrm{con}}
+ :=\mathsf T_{\Gamma\Gamma_0}
+   (\mathcal B_{\mathrm{con}}\otimes_{\QQ}
+    \widetilde R_{S,N}),\quad
+ \delta_\Gamma:=\mathsf T_{\Gamma\Gamma_0}\delta
+  \mathsf T_{\Gamma\Gamma_0}^{-1},\quad
+ \operatorname{Tr}_\Gamma:=\operatorname{Tr}_{\mathrm{con}}
+  \mathsf T_{\Gamma\Gamma_0}^{-1}.
+ \label{eq:des-transported-contact-complex}
+\end{equation}
+Thus Laurent and root-valued expressions live in the transported complex,
+not in the original polynomial presentation.  If $\Gamma'$ is another
+frame, then
+$\mathsf T_{\Gamma'\Gamma}:=\mathsf T_{\Gamma'\Gamma_0}
+\mathsf T_{\Gamma\Gamma_0}^{-1}$ is a chain isomorphism and
+\begin{equation}
+ \operatorname{Tr}_{\Gamma'}\mathsf T_{\Gamma'\Gamma}
+ =\operatorname{Tr}_\Gamma.
+ \label{eq:des-trace-transport}
+\end{equation}
+The transported coordinate divisors are part of
+$\mathcal B_{\Gamma,\mathrm{con}}$; no wall map is required to preserve the
+original pair $\{X=0\}\cup\{Y=0\}$.
+
+\begin{proposition}[Relative contact Stokes formula]
+\label{prop:des-contact-stokes}
+One has $\operatorname{Tr}_{\mathrm{con}}\delta=0$.  Moreover,
+\eqref{eq:des-contact-complex} has a coordinate-equivariant deformation
+retract onto
+\begin{equation}
+ \bigoplus_{0\leq r,s\leq3}\QQ[\hbar]X^rY^s\Omega.
+ \label{eq:des-relative-normal-form}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The recurrence
+$G_r(p+1)=\frac{r+1+4p}{4}G_r(p)$ gives
+\begin{equation}
+ \tau_A(D_0H)=\tau_x(r_xH)+\tau_y(r_yH),\quad
+ \tau_x(D_xf)=16f(0),\quad \tau_y(D_yg)=-16g(0).
+ \label{eq:des-integration-by-parts}
+\end{equation}
+Substitution in \eqref{eq:des-contact-differential} proves the Stokes
+identity.  In one variable, let $R_4$ send $t^{r+4p}dt$ to
+$(-\hbar)^pG_r(p)t^r dt$, and put
+$R_{\mathrm{rel}}(gdt,c\epsilon)=R_4(gdt)-4ct^3dt$.  The recursive primitive
+\begin{equation}
+ s_4(t^a)=\frac14t^{a-3}
+ -\hbar\frac{a-3}{4}s_4(t^{a-4})\quad(a\geq4),
+ \label{eq:des-one-variable-homotopy}
+\end{equation}
+with $s_4(t^a)=0$ for $a\leq3$, satisfies the contraction identity.  The
+full relative homotopy sends $(gdt,c\epsilon)$ to $s_4(g)+c$; together with
+the displayed reduction it satisfies the degreewise contraction identity
+$\delta h_{\mathrm{rel}}+h_{\mathrm{rel}}\delta
+=1-\iota R_{\mathrm{rel}}$.  The oriented tensor product of the two contractions gives
+\eqref{eq:des-relative-normal-form}; averaging its two orders makes it
+coordinate equivariant.
+\end{proof}
+
+This relative complex is necessary.  Although
+$D_0(\frac14dY)=X^3\Omega$ in the plane complex, in
+\eqref{eq:des-contact-complex} the complete boundary is
+\begin{equation}
+ \delta(\tfrac14dY,0,0,0)
+ =(X^3\Omega,\tfrac14dY,0,0).
+ \label{eq:des-residue-three}
+\end{equation}
+The bulk and divisor traces both equal one and cancel.  Thus residue-three
+contact data survive without assigning a nonzero trace to an ordinary exact
+form.
+
+\subsection{Factorization chains for tropical forests}
+
+For a finite nonempty set $A$, put
+$V_A=\ker(\QQ^A\xrightarrow{\sum}\QQ)$.  If $F$ is a rooted forest with
+leaves $I$, write $R(F)$ for its root clusters and
+$\operatorname{In}(v)$ for the child clusters entering an internal vertex.
+The block-sum exact sequences
+\begin{equation}
+ 0\longrightarrow\bigoplus_{B\in\operatorname{In}(v)}V_B
+ \longrightarrow V_{\coprod B}\longrightarrow
+ V_{\operatorname{In}(v)}\longrightarrow0
+ \label{eq:des-block-sum}
+\end{equation}
+give a determinant isomorphism
+\begin{equation}
+ \mathfrak o_F=
+ \det\left(V_{R(F)}\oplus\bigoplus_{v}V_{\operatorname{In}(v)}\right)
+ \xrightarrow{\ \Phi_F\ }\det V_I.
+ \label{eq:des-forest-orientation}
+\end{equation}
+Children, vertices, and roots are ordered by least label.  Cutting two edges
+in opposite orders changes $\Phi_F$ by the exchange of the two outward
+metric normals, exactly the cubical boundary sign.
+
+For a nonempty cluster $C\subseteq I$, use the twist representatives fixed
+in Definition~\ref{def:intro-finite-window} and write
+\begin{equation}
+ \sum_{i\in C}a_i=r_C+4\ell_C,\qquad
+ \sum_{i\in C}b_i=s_C+4m_C,\qquad 0\leq r_C,s_C\leq3.
+ \label{eq:des-cluster-residues}
+\end{equation}
+Its balanced exponent at position $p$ is
+\begin{equation}
+ \mathbf b_{C,p}=(r_C+4p,s_C+4(N_C-p)),\qquad 0\leq p\leq N_C.
+ \label{eq:des-cluster-profile}
+\end{equation}
+Every vertex $v$ of a decorated forest records a cluster and either one of
+these profiles or the exponent of a specified wall Hamiltonian.  Denote that
+explicit exponent by
+$\mathbf b_v=(b_{v,x},b_{v,y})\in\NN^2$.  Its scalar
+$c_v\in\widetilde R_{S,N}$ is the displayed coefficient of that Hamiltonian
+or of the normalized fourth-root collar.  A closed $W$-spin factor is not
+put into $c_v$: it remains a geometric Euler factor in the incidence space
+below.  Thus, beyond the two specified singleton Hamiltonian normalizations,
+no higher-support GKT open invariant, endpoint coefficient, or
+cotangent-recursion value enters a vertex scalar.
+
+A \emph{decorated tropical forest} $h$ is a stable labelled forest together with
+these choices at all of its vertices and the ordered wall word on each edge.
+The coefficient associated with $h$ is the single bulk form
+\begin{equation}
+ \beta_h=c_hX^{A_h}Y^{B_h}\Omega,\qquad
+ c_h=\prod_vc_v,\qquad
+ (A_h,B_h)=\sum_v\mathbf b_v.
+ \label{eq:des-single-seed}
+\end{equation}
+All wall, contact, and homotopy operators thereafter act linearly on this
+one element of $\mathcal B_{\mathrm{con}}$; forms from distinct vertices are
+never multiplied.
+
+For $\mathbf b=(r+4p,s+4q)$ with $0\leq r,s\leq3$, put
+\begin{equation}
+ w(\mathbf b)=G_r(p)G_s(q).
+ \label{eq:des-contact-weight}
+\end{equation}
+Let $\pi$ be a partition of a label set $J$, with $a=|\pi|$.  Choose one
+profile \eqref{eq:des-cluster-profile} on each block and set
+$\mathbf b_\pi=\sum_{C\in\pi}\mathbf b_C$.  The parent profile
+$\mathbf b_J$ has the same two residues and the factorization degree one
+lower at each new forest edge; hence uniquely
+$\mathbf b_\pi=\mathbf b_J+4(c_x,c_y)$ with
+$c_x+c_y=a-1$.  Let $c$ be the product of all vertex scalars outside this
+contracted corolla and of the corolla's displayed wall coefficients.  Define
+\begin{equation}
+\begin{aligned}
+ \lambda_{J,\pi}&=-\frac{w(\mathbf b_\pi)}{w(\mathbf b_J)},\\
+ \beta^{\mathrm{sp}}_{J,\pi}
+   &=cX^{(\mathbf b_\pi)_x}Y^{(\mathbf b_\pi)_y}\Omega,\\
+ \beta^{\mathrm{par}}_{J,\pi}
+   &=c(-\hbar)^{a-1}\lambda_{J,\pi}
+     X^{(\mathbf b_J)_x}Y^{(\mathbf b_J)_y}\Omega.
+\end{aligned}
+ \label{eq:des-split-parent-seeds}
+\end{equation}
+If $\mathbf b_J=(r+4p,s+4q)$, the Gamma recurrence gives the explicit
+cancellation
+\begin{equation}
+ \operatorname{Tr}_{\mathrm{con}}
+ \bigl(\beta^{\mathrm{sp}}_{J,\pi}
+      +\beta^{\mathrm{par}}_{J,\pi},0,0,0\bigr)
+ =c(-\hbar)^{p+q+a-1}
+ \bigl(w(\mathbf b_\pi)+\lambda_{J,\pi}w(\mathbf b_J)\bigr)=0.
+ \label{eq:des-split-parent-trace}
+\end{equation}
+
+Let $R_{\mathrm{con}}$ and $h_{\mathrm{con}}$ denote the projection and
+homotopy in the tensor-product deformation retract of
+Proposition~\ref{prop:des-contact-stokes}.  The same calculation takes place
+before applying the trace: both monomials reduce to the same basis vector in
+\eqref{eq:des-relative-normal-form}, with coefficients in the parenthesis in
+\eqref{eq:des-split-parent-trace}.  Consequently
+\begin{equation}
+ R_{\mathrm{con}}
+ (\beta^{\mathrm{sp}}_{J,\pi}+\beta^{\mathrm{par}}_{J,\pi},0,0,0)=0.
+ \label{eq:des-split-parent-projection}
+\end{equation}
+This includes residue-three sectors because the relative normal form retains
+all sixteen residues.
+
+Let
+\begin{equation}
+ G^{\mathrm{con}}_{J,\pi}
+ =h_{\mathrm{con}}(\beta^{\mathrm{sp}}_{J,\pi}
+                  +\beta^{\mathrm{par}}_{J,\pi}),\qquad
+ \delta G^{\mathrm{con}}_{J,\pi}
+ =\beta^{\mathrm{sp}}_{J,\pi}
+  +\beta^{\mathrm{par}}_{J,\pi}.
+ \label{eq:des-corolla-filler}
+\end{equation}
+For the oriented interval $e=[v_0,v_1]$, define
+\begin{equation}
+ \kappa_{J,\pi}
+ =e\otimes\beta^{\mathrm{sp}}_{J,\pi}
+  +v_0\otimes G^{\mathrm{con}}_{J,\pi}.
+ \label{eq:des-corolla-chain}
+\end{equation}
+For the tensor differential
+$d(c\otimes\alpha)=\partial c\otimes\alpha
++(-1)^{\dim c}c\otimes\delta\alpha$, one has
+\begin{equation}
+ d\kappa_{J,\pi}
+ =v_1\otimes\beta^{\mathrm{sp}}_{J,\pi}
+  +v_0\otimes\beta^{\mathrm{par}}_{J,\pi}.
+ \label{eq:des-corolla-boundary}
+\end{equation}
+
+Let $Q_F=[0,1]^{E_{\mathrm{int}}(F)}$.  The standard cellular contraction of
+$Q_F$ to its all-zero vertex, tensored with the two-variable contraction
+$(R_{\mathrm{con}},\iota,h_{\mathrm{con}})$ of
+Proposition~\ref{prop:des-contact-stokes}, gives an operator $H_F$ with
+\begin{equation}
+ dH_F+H_Fd=1-\iota_F\Pi_F.
+ \label{eq:des-forest-contraction}
+\end{equation}
+We now give the coherent extension, rather than choosing a primitive on each
+square independently.  Order the nonempty faces of $Q_F$ first by dimension
+and then lexicographically by their sets of free coordinates.  On vertices
+and edges use the coefficients \eqref{eq:des-split-parent-seeds} and the corolla chain
+\eqref{eq:des-corolla-chain}.  Suppose chains have been assigned to all
+proper faces of a $k$-face $G$ and agree on their intersections.  Their
+oriented sum is a cycle $Z_G$.  At the all-zero vertex, every refinement
+order has the same block-sum exponent and product of vertex scalars.  On all
+other terms \eqref{eq:des-split-parent-projection} gives zero normal-form
+projection.  Thus
+\begin{equation}
+ dZ_G=0,\qquad \Pi_FZ_G=0,\qquad d(H_FZ_G)=Z_G.
+ \label{eq:des-coherent-face-induction}
+\end{equation}
+Assign $H_FZ_G$ to $G$.  This recursion extends the chain across every face
+and automatically uses the already fixed primitive on every proper face.  Because the order,
+$H_F$, and the block-sum maps are fixed and equivariant, the construction
+commutes with relabelling, coordinate transposition, restriction to a
+subforest, and transport of the coefficient complex.  In particular, a
+refinement cube receives one coherent extension, rather than unrelated
+primitives on its squares; all higher compatibility follows from the induction in
+\eqref{eq:des-coherent-face-induction}.
+
+Define $C_*^{\mathrm{fac}}(F)$ to be the smallest differential submodule of
+$C_*^{\mathrm{cell}}(Q_F)\otimes
+\mathcal B_{\mathrm{con}}\otimes\mathfrak o_F$ containing every vertex coefficient,
+every corolla chain \eqref{eq:des-corolla-chain}, and every recursively
+assigned chain $H_FZ_G$, and closed under restriction to faces.  Identify a
+length-one face with its cut forest through
+\eqref{eq:des-forest-orientation}.  Its differential is
+\begin{equation}
+ d_{\mathrm{fac}}(c\otimes\alpha)
+ =\partial_{\mathrm{cell}}c\otimes\alpha
+  +(-1)^{\dim c}c\otimes\delta\alpha.
+ \label{eq:des-factorization-differential}
+\end{equation}
+For a target frame $\Gamma$, transport the assembled coefficient into
+$\mathcal B_{\Gamma,\mathrm{con}}$.  Define $\mu_\Gamma$ to be zero off
+total degree zero and, on a zero-dimensional boundary cell, by
+\begin{equation}
+ \mu_\Gamma(c\otimes\alpha)
+ =\operatorname{Tr}_\Gamma(\alpha).
+ \label{eq:des-factorization-moment}
+\end{equation}
+Equations \eqref{eq:des-split-parent-trace},
+\eqref{eq:des-corolla-boundary}, and
+\eqref{eq:des-forest-contraction} prove
+\begin{equation}
+ \mu_\Gamma d_{\mathrm{fac}}=0.
+ \label{eq:des-factorization-cocycle}
+\end{equation}
+
+\subsection{The cotangent-line zero cobordism}
+
+Fix an exact open datum $\delta\in\mathcal E$, a distinguished label
+$j_1\in I(\delta)$, and write
+\begin{equation}
+ \mathcal M_\delta=\mathcal{PM}_{\Gamma_\delta},\qquad
+ E_\delta^-=\mathbb E_{\Gamma_\delta}(\mathbf d),\qquad
+ E_\delta^+=\mathbb E_{\Gamma_\delta}(\mathbf d+\mathbf e_{j_1})
+ \simeq E_\delta^-\oplus\mathcal L_{j_1}.
+ \label{eq:des-open-bundles}
+\end{equation}
+The last isomorphism is the Witten-bundle splitting
+\eqref{eq:intro-cotangent-splitting}.  Choose, simultaneously on the finite
+boundary diagram of $\delta$, compatible equivariant rational PL
+multisections $\sigma_\delta^-$ of $E_\delta^-$ and $s_\delta^+$ of
+$\mathcal L_{j_1}$.  They are chosen by induction from the deepest boundary
+strata, using relative PL extension on each finite proper-etale atlas.  Thus
+their restrictions are the exterior sums prescribed by the bundle maps
+$\phi_{\Lambda\Gamma}$, and no numerical Euler count is used in their
+choice.
+
+For every retained marking or boundary flag $w$, let
+$t_{j_1,w}$ be the standard section of $\mathcal L_{j_1}$ obtained by
+evaluating at $z_{j_1}$ the normalized meromorphic differential with residues
+$+1$ at $w$ and $-1$ at the conjugate of $z_{j_1}$
+\cite[Notation~6.1]{grossetal2022open}.  Relative PL extension gives a
+transverse homotopy
+\begin{equation}
+ H_{\delta,w}:[0,1]\times\mathcal M_\delta
+ \longrightarrow E_\delta^-\oplus\mathcal L_{j_1},
+ \quad
+ H_{\delta,w}(0)=\sigma_\delta^-\oplus t_{j_1,w},
+ \quad
+ H_{\delta,w}(1)=\sigma_\delta^-\oplus s_\delta^+.
+ \label{eq:des-cotangent-homotopy}
+\end{equation}
+The construction is relative to every face where the sections are already
+fixed.  On a boundary map that contracts the component carrying $j_1$, the
+tautological morphism need not be invertible; that collar is retained as a
+relative stop and is disjoint from the zero set by the rank and positivity
+condition included in the exact datum.  On every other face,
+\eqref{eq:des-cotangent-homotopy} pulls back under
+$F_{\Lambda\Gamma}$ and $\phi_{\Lambda\Gamma}$.
+
+Let $\mathcal Z_{\delta,w}$ be the determinant-oriented rational PL zero
+chain of \eqref{eq:des-cotangent-homotopy}.  Its ordinary parameterized Euler
+boundary is
+\begin{equation}
+ \partial\mathcal Z_{\delta,w}
+ =[Z(\sigma_\delta^-\oplus s_\delta^+)]
+ -[Z(\sigma_\delta^-\oplus t_{j_1,w})]
+ +[Z(H_{\delta,w}|_{[0,1]\times\partial\mathcal M_\delta})].
+ \label{eq:des-cotangent-zero-boundary}
+\end{equation}
+The first term is the Euler chain for descendent degree
+$\mathbf d+\mathbf e_{j_1}$, by \eqref{eq:des-open-bundles}.  The divisor of
+$t_{j_1,w}$ is the sum of open--closed boundary divisors on which $j_1$ lies
+on the closed component and, when $w$ is an interior marking, $w$ remains on
+the open component \cite[Lem.~6.4]{grossetal2022open}.  The local equation is
+$u z^4$ in the quartic root coordinate, with $u$ a unit.  Intersecting with
+$\sigma_\delta^-$ leaves exactly the rank-matched splittings $N_A=-1$; the
+others remain as residual-degree faces with zero degree-zero pushforward.
+Thus the degree shift and the open--closed term in the recursion are both
+geometric terms of \eqref{eq:des-cotangent-zero-boundary}.
+
+The signed coefficients introduced below do not weight branches of a
+multisection.  They weight separate chains $\mathcal Z_{\delta,w}$.  Because
+their sum is one, all copies of the high endpoint in
+\eqref{eq:des-cotangent-zero-boundary} combine to the single canonical Euler
+chain $Z(\sigma_\delta^-\oplus s_\delta^+)$.  Negative coefficients are
+therefore legitimate rational-chain coefficients and never PL-multisection
+weights.
+
+\subsection{Compactified annular incidence spaces}
+
+\subsubsection{Compactified incidence types}
+
+The geometric source of the correspondence is a compactification of a
+fiber product.  Its open stratum parametrizes a stable labelled tropical
+forest in the annular corridor, together with an open quartic $W$-spin curve
+at each root and a closed quartic $W$-spin curve at each detached component.
+The evaluation positions satisfy the affine edge and wall-incidence
+equations, while the Witten sections vanish on the corresponding moduli
+factors.  The coefficient of a forest is the relative twisted de~Rham class
+constructed above.
+
+The compactification records each geometric degeneration rather than
+identifying it numerically.  Zero and infinite forest lengths give
+contractions and cuts; wall crossings acquire their Cartan homotopies;
+colliding directions are resolved by Fulton--MacPherson spaces; the universal
+boundary circle records the pointing direction; and fourth-root collars
+record the normal direction to an open--closed splitting.  The usual compact
+open and closed $W$-spin spaces supply their own boundary strata.  Auxiliary
+length caps are placed beyond the incidence locus.  These constructions give
+the following local model.
+
+\begin{definition}[Stable resolved type and incidence section]
+\label{def:des-resolved-type}
+A \emph{stable resolved labelled type} $\tau$ consists of the following
+finite data.
+\begin{enumerate}
+\item It has a rooted forest with leaf set contained in $I$.  Every internal
+vertex is either at least trivalent or carries one of the following specified
+geometric events: crossing a retained wall; identifying two affine-chart
+copies on an overlap; contracting or cutting an internal forest edge;
+colliding two tangent directions; moving the pointing flag on the compactified
+boundary circle; or splitting off a closed $W$-spin component.  In
+particular, unmarked bivalent wall-free vertices are suppressed.  Each open
+root component names an exact datum $\delta$ of
+\eqref{eq:intro-exact-open-datum}, including its boundary maps and Witten
+bundles.
+\item Every oriented segment $e$ has a fixed integral slope $v_e$, a
+nonnegative length $\lambda_e$, and an ordered word in the finitely many
+walls retained modulo $\mathfrak m_S^N$.  Each nonidentity bend has positive
+deformation order, and the sum of the orders on a path is less than $N$.
+\item Every detached component names its compact quartic $W$-spin base
+$\mathcal{PM}_{\delta}$ and Euler bundle $\mathbb E_{\delta}$ from
+$\mathcal E$.  Every coincident set of directions names the corresponding
+Fulton--MacPherson factor.  At a vertex carrying $j_1$, the oriented real
+blowup of its tangent-direction configuration is the compactified universal
+boundary circle.  Its named vertices are the root flag, retained markings,
+the two Fermat phase flags, wall directions, collision directions, and
+closed-component directions.  A type chooses one closed cell $M_\tau$ of
+this circle and one cotangent-homotopy interval
+$[0,1]_{\psi,\delta,w}$ from \eqref{eq:des-cotangent-homotopy}; without a
+distinguished label these factors are points.  Adjacent cells are identified
+at their common endpoints in the face category below.
+\item The type contains a nondegenerate composable chain of $q$ boundary or
+overlap maps from \eqref{eq:intro-exact-open-datum}, and an ordered word of
+$b$ retained wall maps.  Boundary arrows strictly lower the graph-complexity
+order of Appendix~\ref{app:gkt-completion}.  For overlaps, fix a finite
+ordered corridor cover and retain only the strictly increasing \v{C}ech chains of
+distinct chart indices.  The inverse transition is the coefficient map on
+the same overlap, not a second nerve arrow; identities and repeated indices
+are omitted.  Mixed chains use the product normalization: a boundary arrow
+retains the ordered overlap multi-index, and an overlap arrow retains the
+graph type.  The corresponding simplices
+$\Delta^q_{\mathrm{nerve}}$ and $\Delta^b_{\mathrm{bar}}$ record composition
+of the boundary maps and the ordered Cartan homotopy, respectively.  Every
+affine overlap constraint records as part of $\tau$ the restriction
+$(A_j,c_j)$ of the fixed integral-affine transition
+$x^+=A_jx^-+c_j$ between its two corridor cells.
+\end{enumerate}
+
+Let $\mathcal V_\tau$ be the position vertices, $\mathcal S_\tau$ the
+segments, $\mathcal H_\tau$ the affine-overlap parameters,
+$\mathcal E_\tau$ the internal forest edges, $\mathcal W_\tau$ the prescribed
+wall incidences, $\mathcal M_\tau$ the overlap and common-vertex matching
+constraints, and $\mathcal D_\tau$ the closed-component smoothing roots.  Let
+$\mathcal E_\tau^{\mathrm{op}}$ and
+$\mathcal E_\tau^{\mathrm{cl}}$ be the named open and closed moduli data.
+$\mathcal Q_\tau$ is the set of chosen pairs $(\delta,w)$ carrying a
+cotangent homotopy.
+A constraint $j\in\mathcal M_\tau$ has
+dimension $d_j\in\{1,2\}$.  In a chamber $\mathfrak c$, put
+\begin{equation}
+ A_{\tau,\mathfrak c}=
+ \left\{(x_v,\lambda_e):
+ \begin{array}{ll}
+ x_v\in\RR^2 &(v\in\mathcal V_\tau),\\
+ 0\leq\lambda_e\leq L_e &(e\in\mathcal S_\tau),\\
+ \epsilon_{\mathfrak c h}\ell_h(x_{v(h)})\geq0
+   &(h\text{ a corridor side})
+ \end{array}\right\}.
+ \label{eq:des-position-polytope}
+\end{equation}
+The cap $L_e$ lies beyond the incidence zero set.  For the specified chains
+of lengths $q$ and $b$, define
+\begin{equation}
+\begin{aligned}
+ P_\tau={}&A_{\tau,\mathfrak c}
+ \times[0,1]^{\mathcal H_\tau}
+ \times[0,1]^{\mathcal E_\tau}\\
+ &\times\Delta^q_{\mathrm{nerve}}
+ \times\Delta^b_{\mathrm{bar}}
+ \times\prod_C\operatorname{FM}(C)\\
+ &\times M_\tau
+ \times\prod_{(\delta,w)\in\mathcal Q_\tau}[0,1]_{\psi,\delta,w}
+ \times\prod_{D\in\mathcal D_\tau}
+   \bigl([\mathbb D_R/\mu_4]\times[0,1]_D\bigr)
+ \times\prod_{\delta\in\mathcal E_\tau^{\mathrm{op}}}
+   \mathcal M_\delta
+ \times\prod_{\delta\in\mathcal E_\tau^{\mathrm{cl}}}
+   \mathcal{PM}_{\delta}.
+\end{aligned}
+ \label{eq:des-ambient-product}
+\end{equation}
+Each factor in
+\eqref{eq:des-ambient-product} occurs once.
+
+The oriented equation orbibundle $E_\tau\to P_\tau$ and its section
+$s_\tau$ are the following ordered direct sums:
+\begin{equation}
+\begin{array}{c|c|c}
+\text{index}&\text{bundle summand}&\text{component of }s_\tau\\ \hline
+e\in\mathcal S_\tau&\RR^2&x_{h(e)}-x_{t(e)}-\lambda_ev_e\\
+h\in\mathcal W_\tau&\RR&\ell_h(x_{v(h)})\\
+j\in\mathcal M_\tau&\RR^{d_j}&x_j^+-A_jx_j^--c_j\\
+D\in\mathcal D_\tau&\CC&z_D^4-t_D\\
+\delta\in\mathcal E_\tau^{\mathrm{op}}&
+ E_\delta^-\oplus\mathcal L_{j_1}&H_{\delta,w}(u_\psi)\\
+\delta\in\mathcal E_\tau^{\mathrm{cl}}&
+ \mathbb E_\delta&s_\delta^{\mathrm{Euler}}.
+\end{array}
+ \label{eq:des-incidence-section}
+\end{equation}
+For a common-vertex constraint $(A_j,c_j)=(1,0)$; for an overlap constraint
+it is the integral-affine transition recorded in Item~(4).  The open-bundle
+component is
+\eqref{eq:des-cotangent-homotopy}, so its $u_\psi=1$ restriction is the
+degree-$\mathbf d+\mathbf e_{j_1}$ Euler section and its $u_\psi=0$
+restriction contains the pointing divisor.  Thus every component map and
+its real rank are specified.  Put
+\begin{equation}
+\begin{aligned}
+ d_\tau^{\mathrm{op}}
+ &=\sum_{\delta\in\mathcal E_\tau^{\mathrm{op}}}
+   \dim_{\RR}\mathcal M_\delta,\\
+ d_\tau^{\mathrm{cl}}
+ &=\sum_{\delta\in\mathcal E_\tau^{\mathrm{cl}}}
+   \dim_{\RR}\mathcal{PM}_\delta,\\
+ r_\tau^{\mathrm{mod}}
+ &=\sum_{\delta\in\mathcal E_\tau^{\mathrm{op}}}
+   \operatorname{rank}_{\RR}(E_\delta^-\oplus\mathcal L_{j_1})
+   +\sum_{\delta\in\mathcal E_\tau^{\mathrm{cl}}}
+   \operatorname{rank}_{\RR}\mathbb E_\delta.
+\end{aligned}
+ \label{eq:des-moduli-dimensions}
+\end{equation}
+In particular,
+\begin{equation}
+\begin{aligned}
+ \operatorname{vdim}(\tau)={}&
+ 2|\mathcal V_\tau|+|\mathcal S_\tau|+|\mathcal H_\tau|
+ +|\mathcal E_\tau|+q+b+\sum_C\dim\operatorname{FM}(C)
+ +\dim M_\tau+|\mathcal Q_\tau|\\
+ &+3|\mathcal D_\tau|
+ +d_\tau^{\mathrm{op}}+d_\tau^{\mathrm{cl}}
+ -2|\mathcal S_\tau|-|\mathcal W_\tau|-\sum_jd_j
+ -2|\mathcal D_\tau|
+ -r_\tau^{\mathrm{mod}},
+ \label{eq:des-virtual-dimension}
+\end{aligned}
+\end{equation}
+and its orientation line is
+\begin{equation}
+ \mathfrak o_\tau=\det TP_\tau\otimes(\det E_\tau)^\vee.
+ \label{eq:des-incidence-orientation}
+\end{equation}
+All subsequent chain identities are degreewise in this virtual grading.
+\end{definition}
+
+There are only finitely many stable types.  Indeed, a stable forest on a
+fixed finite leaf set has finitely many unmarked vertices; every remaining
+vertex carries one of the finite named events, and a path has at most $N-1$
+positive-order bends.  The finite wall list, finite dependency closure,
+finite profile sequence \eqref{eq:intro-balanced-profiles}, and finite
+subdivisions then leave a finite set of choices.  Moreover, the length $q$
+is bounded by the sum of the number of graph-complexity levels and the number
+of charts in the ordered corridor cover, because every nonidentity step
+strictly advances one of these two finite ranks.  Hence the normalized
+\v{C}ech--boundary chains also leave only finitely many choices.
+
+\begin{proposition}[Boundary stratification]
+\label{prop:des-boundary-stratification}
+Every real codimension-one stratum of the compactified incidence space is one
+of the following: an annular endpoint; a contraction or cut of a tropical
+edge; a wall, joint, or affine-overlap stratum; a collision of tangent
+directions; an endpoint of the cotangent homotopy or the fourth-root normal
+collar; or a boundary stratum of an open or closed $W$-spin moduli factor.
+The auxiliary caps and disk boundaries are disjoint from the perturbed zero
+locus.  After the canonical identifications on paired faces, the exterior
+boundary consists precisely of the canonical cotangent face, open--closed
+splittings, wall crossings, cotangent contractions, pairwise exchanges, and
+closed factors of nonzero Euler degree, together with the two annular
+restrictions.
+\end{proposition}
+
+\begin{proof}
+Every facet $D\subset P_\tau$ is obtained by placing one factor in
+\eqref{eq:des-ambient-product} on a codimension-one face.  It has a resolved
+type $\tau_D$ and a map $f_D:P_{\tau_D}\to D$.  The following table records
+the local chart map and its normal-bundle comparison.  A ``trivial summand''
+is a coordinate together with a constraint on which the displayed
+elimination is an oriented isomorphism.
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}
+ >{\raggedright\arraybackslash}p{.21\textwidth}
+ >{\raggedright\arraybackslash}p{.25\textwidth}
+ >{\raggedright\arraybackslash}X@{}}
+\toprule
+Facet of $P_\tau$ & Target type $\tau_D$ & Map and normal-bundle comparison\\
+\midrule
+$\lambda_e=0$ or an overlap-cylinder end & contracted or stabilized tree & substitute $x_{h(e)}=x_{t(e)}$ or $x^+=A_jx^-+c_j$ and delete the corresponding trivial summand\\
+$\lambda_e=L_e$ or a corridor end & empty, respectively $\partial_{\mathrm{ann}}^\pm$ & the auxiliary cap is disjoint from the zero set; corridor ends are retained for the restriction maps $e^\pm$\\
+forest metric $t_e=0,1$ & corolla, respectively cut forest & at $0$ use \eqref{eq:des-corolla-chain}; at $1$ use $\Phi_F$ and delete the matching trivial summand\\
+wall-side equality & wall, joint, tangency, or bend-collision type & conjugate the affine constraints by the labelled transition; use the bracket square at a joint\\
+boundary-map simplex face & first/last map or composite of adjacent maps & restrict, delete, or compose the corresponding geometric maps\\
+ordered wall-homotopy face & shorter wall word or bracket joint & apply the chain map $\mathsf T_H$ or the homotopy $\mathsf P_H$ defined below\\
+collision scale $0$ & exchanged pair or collision block & restrict to the real blowup face and split off its oriented normal\\
+moving-circle vertex & root, pointing, contraction, wall, or closed-splitting direction & restrict the same open bundle and pointing section to the named vertex of $M_\tau$\\
+cotangent parameter $u_\psi=0,1$ & pointing divisor, respectively degree-$\mathbf d+\mathbf e_{j_1}$ Euler chain & use the two endpoint sections in \eqref{eq:des-cotangent-homotopy}\\
+root parameter $t_D=0,1$ & closed splitting, respectively pointing face & restrict $z_D^4-t_D$ to the indicated endpoint\\
+open-moduli boundary & the named boundary graph $\Lambda$ & apply $(F_{\Lambda\Gamma},\phi_{\Lambda\Gamma})$ from \eqref{eq:intro-exact-open-datum}\\
+closed degeneration & the named dependent closed datum in $\mathcal E$ & apply its stated boundary map and restrict the single Euler bundle already present\\
+\bottomrule
+\end{tabularx}
+\end{center}
+Auxiliary caps and disk boundaries are disjoint from the zero set.  The
+closed orbifold bases and moving circles have no other real
+codimension-one faces.
+
+The stable cancellations used in these local comparisons are
+\begin{equation}
+\begin{array}{c|c|c}
+\text{facet}&\text{substitution}&\text{eliminated coordinate and constraint}\\ \hline
+\lambda_e=0&x_{h(e)}=x_{t(e)}&(x_{h(e)},\ x_{h(e)}-x_{t(e)})\\
+\text{overlap end}&x^+=A_jx^-+c_j&(x^+,\ x^+-A_jx^--c_j)\\
+t_e=1&\text{cut the forest at }e&(t_e,\text{ matching constraint})\\
+z_D^4=t_D& t_D=z_D^4&(t_D,\ z_D^4-t_D).
+\end{array}
+\label{eq:des-row-eliminations}
+\end{equation}
+The determinant of each displayed coordinate-to-constraint derivative is
+positive in the listed order.  At $t_e=0$, the coefficient constraint is not removed: it is the
+boundary of \eqref{eq:des-corolla-chain}.  At an open or closed moduli face,
+the oriented bundle comparison is the explicitly included map
+$\phi_{\Lambda\Gamma}$.
+
+Restricting the ordered components of \eqref{eq:des-incidence-section} along a
+facet gives a stable oriented identification
+\begin{equation}
+ f_D^*(E_\tau|_D)\oplus\underline{\RR}^{\,a_D}
+ \simeq E_{\tau_D}\oplus\underline{\RR}^{\,b_D},
+ \label{eq:des-stable-face-bundle}
+\end{equation}
+where the trivial summands are precisely the stable cancellations in
+\eqref{eq:des-row-eliminations}.  The maps around a codimension-two face are
+equal because affine substitution is associative, the exact-data maps obey
+their actual composition identities, and the coherent forest primitives are
+defined on the whole refinement cube by
+\eqref{eq:des-coherent-face-induction}.  Taking
+determinants removes one outward normal.  Interchanging two facet normals
+reverses their exterior product and proves the two-face boundary sign even
+when the rank of $ds_\tau$ changes.
+At a partition face, permutation of incoming affine blocks acts by the sign
+character on \eqref{eq:des-incidence-orientation}; the same character acts
+on $\mathfrak o_F$ in \eqref{eq:des-forest-orientation}.  Their tensor is
+therefore relabelling invariant.
+The displayed product has no further kinds of codimension-one face, which
+proves the asserted exhaustion.
+\end{proof}
+
+\subsubsection{Virtual PL zero loci}
+
+Choose simultaneous equivariant triangulations of the finite proper
+etale atlases, the bundles, the sections, and all face maps.  After relative
+simplicial approximation, $s_\tau$ is PL in each stable bundle chart.  A
+rational PL multisection on a chart is a finite set of PL branches with
+positive rational weights summing to one.  On overlaps, replace two branch
+sets by their finite weighted common refinement; at isotropy include the
+complete finite orbit with equal subdivided weights, and at product corners
+take Cartesian products of branch sets.
+
+These positive numbers are used only to perturb the incidence section.
+They are distinct from the signed rational coefficients of the moving-circle
+chains used in the cotangent recursions below.
+
+Induct on face depth and simplex dimension.  Prescribed branches on a
+downward-closed family of faces extend across each new simplex, and their
+new vertex values can be chosen outside the finite union of affine
+subspaces for which a branch fails PL general position.  The stable
+identifications \eqref{eq:des-stable-face-bundle} make the choices agree
+across every face and orbifold chart.  The same induction on
+$[0,1]\times P_\tau$ joins any two systems relative to the prescribed faces.
+Thus compatible arbitrarily small multisections $\nu_\tau$ exist and
+\begin{equation}
+ [Z_\tau]^{\mathrm{vir}}=[(s_\tau+\nu_\tau)^{-1}(0)]
+ \label{eq:des-virtual-zero}
+\end{equation}
+is a compact determinant-oriented rational branched PL chain of dimension
+$\operatorname{vdim}(\tau)$ whose boundary is its intersection with the
+ambient facets.
+
+\subsubsection{Wall, joint, and gluing homotopies}
+
+For completeness, the coefficient homotopies used on wall facets are fixed
+as follows.  If $H$ is a retained wall Hamiltonian, contraction with its
+Hamiltonian vector field gives a degree-one operator $\mathsf K_H$ on the
+transported contact complex.  Put
+\begin{equation}
+ \boldsymbol\Delta_H=[\delta,\mathsf K_H],\qquad
+ \mathsf T_H=\exp(\boldsymbol\Delta_H),\qquad
+ \mathsf P_H=\sum_{n=0}^{N-1}
+   \frac{\mathsf K_H\boldsymbol\Delta_H^n}{(n+1)!}.
+ \label{eq:des-explicit-wall-homotopy}
+\end{equation}
+All sums are finite modulo $\mathfrak m_S^N$, and the Cartan commutator
+identity gives
+\begin{equation}
+ \delta\mathsf P_H+\mathsf P_H\delta
+ =\mathsf T_H-\operatorname{id}.
+ \label{eq:des-wall-homotopy}
+\end{equation}
+For an ordered word $H_1\cdots H_b$, use the telescoping homotopy
+\begin{equation}
+ \mathsf P_{H_b\cdots H_1}
+ =\sum_{i=1}^b
+  \mathsf T_{H_b}\cdots\mathsf T_{H_{i+1}}
+  \mathsf P_{H_i}.
+ \label{eq:des-word-homotopy}
+\end{equation}
+At a two-wall joint the two boundary words have equal transport by scattering
+consistency.  Let $Z$ be the difference of their two instances of
+\eqref{eq:des-word-homotopy}.  It is a degree $-1$ cycle in the endomorphism
+complex of the contracted contact complex.  The retract
+\eqref{eq:des-relative-normal-form} is concentrated in cohomological degree
+$2$, while the contact complex has no terms above degree $2$; hence
+$R_{\mathrm{con}}Z=0$.  The contraction identity now gives
+$[\delta,h_{\mathrm{con}}Z]=Z$, so $h_{\mathrm{con}}Z$ is the specified
+square primitive.  At a joint of codimension $r\geq3$, the oriented sum of
+the already assigned proper faces is a cycle of degree $1-r$.  Its projection
+to the normal form again vanishes by degree, and the same contraction fills
+it.  Induction over the ordered faces, exactly as in
+\eqref{eq:des-coherent-face-induction}, therefore supplies a compatible
+cubical primitive.  This defines the source, target, and signs of every wall
+and joint map used below.
+
+\subsubsection{The cellular coend}
+
+Choose the simultaneous subdivisions so that every map in the
+boundary-stratification table is
+cellular.  Let $\mathcal K_{I,\mathbf d,N}$ be their finite face category.
+Its objects are pairs $(\tau,\sigma)$, and a generating arrow
+\begin{equation}
+ f:(\tau_D,\sigma_D)\longrightarrow(\tau,\sigma)
+ \label{eq:des-face-arrow}
+\end{equation}
+is either the inclusion of an ordinary codimension-one subdivision face
+$\sigma_D\subset\sigma$ with $\tau_D=\tau$, or the inclusion of a cell lying
+in one of the ambient facets $D$ in the table followed by its stated map.
+The coefficient map for the first kind is the identity.  Composites are the
+actual composites of restrictions, exact-data maps, and the fixed primitives
+above.  Hence the two arrows obtained from a codimension-two corner are equal,
+rather than imposed by an unnamed relation.  Dimension strictly increases
+along a nonidentity arrow, so the category is direct; its finiteness follows
+from the finiteness proved after Definition~\ref{def:des-resolved-type}.
+
+Let $\mathcal G_{\tau,\sigma}$ be the rational PL branched-chain group on
+$Z_\tau^{\mathrm{vir}}\cap\sigma$, relative to its intersections with the two
+corridor-end facets $\partial_{\mathrm{ann}}^-\cup
+\partial_{\mathrm{ann}}^+$.  Collar restriction to either relative facet is
+retained as a separate map $e^\pm$ below.  In the transported contact complex,
+let
+$\mathcal B^{\mathrm{sel}}_{\tau,\sigma}$ be the smallest differential
+submodule containing the selected coefficient $\alpha_\tau$, all restrictions of
+the coherent forest primitives, all operators
+\eqref{eq:des-explicit-wall-homotopy}--\eqref{eq:des-word-homotopy} applied to
+those elements, and all their root, open-boundary, and closed-boundary images.
+It is finite at the chosen deformation order.  If
+$\Gamma(\tau,\sigma)$ is the chamber frame, set
+\begin{equation}
+ \mathcal C_{\tau,\sigma}
+ =\mathcal B^{\mathrm{sel}}_{\tau,\sigma}
+  \otimes\mathfrak o_{F_\tau}.
+ \label{eq:des-cell-coefficient-complex}
+\end{equation}
+This is the differential subcomplex generated by every coefficient and
+primitive used in the construction, not the line spanned by one selected
+coefficient.
+The arrow \eqref{eq:des-face-arrow} induces
+$f_*:\mathcal G_{\tau_D,\sigma_D}\to\mathcal G_{\tau,\sigma}$ and a chain
+map
+\begin{equation}
+ f^\#:\mathcal C_{\tau,\sigma}\longrightarrow
+       \mathcal C_{\tau_D,\sigma_D}.
+ \label{eq:des-coefficient-pullback}
+\end{equation}
+For an ordinary subdivision face it is the identity.  For an ambient facet it
+is restriction followed, according to the table, by chamber transport, the
+determinant map $\Phi_F$, the exact-data bundle map
+$\phi_{\Lambda\Gamma}$, or the stated root or closed-boundary map.  On a
+metric-zero generator it uses $G^{\mathrm{con}}$ from
+\eqref{eq:des-corolla-filler}; on a metric-one generator it uses the cut-forest
+element.  The source module was closed under exactly these images, so the map
+is defined on every generator and extends linearly.  Equations
+\eqref{eq:des-trace-transport}, \eqref{eq:des-corolla-boundary},
+\eqref{eq:des-wall-homotopy}, and the exact-data composition identities prove
+$f^\#\delta=\delta f^\#$ and equality on every composite.
+
+Define
+\begin{equation}
+ \mathsf C^{\mathrm{tot}}_{I,\mathbf d,N}
+ =\left(\bigoplus_{(\tau,\sigma)\in\mathcal K_{I,\mathbf d,N}}
+ \mathcal G_{\tau,\sigma}\otimes\mathcal C_{\tau,\sigma}\right)
+ \Big/\langle[f_*z,\alpha]-[z,f^\#\alpha]\rangle_f.
+ \label{eq:des-coend}
+\end{equation}
+The closed factor, metric cube, boundary-map simplex, and ordered
+wall-homotopy simplex occur in the branch polyhedron once; they are not
+repeated in the coefficient.  The differential
+is
+\begin{equation}
+ d[z,\alpha]=[\partial_{\mathcal K}z,\alpha]
+ +(-1)^{\dim z}[z,\delta\alpha],
+ \label{eq:des-total-differential}
+\end{equation}
+where $\partial_{\mathcal K}$ is the ordinary outward-normal-first cellular
+boundary followed by the corresponding subdivision or ambient-facet arrow
+\eqref{eq:des-face-arrow}.  This
+is an endomorphism because \eqref{eq:des-cell-coefficient-complex} is closed
+under $\delta$ and \eqref{eq:des-coefficient-pullback} is a chain map.  The
+ordinary two-face cancellation gives $\partial_{\mathcal K}^2=0$; the Koszul
+sign cancels the mixed terms.  Hence $d^2=0$ on the displayed quotient.
+
+\subsubsection{Root thimbles and exterior faces}
+
+The remaining root-normal collar is explicit.  The four radial branches of
+$z^4=t$, $0\leq t\leq1$, descend to a chain $\mathfrak T_4$ with
+\begin{equation}
+ \partial[\mathfrak T_4]=[\mathrm{pt}]-4[B\mu _4].
+ \label{eq:des-thimble}
+\end{equation}
+Since $[B\mu _4]$ pushes forward to $\frac14[\mathrm{pt}]$, its normalized
+low endpoint has coefficient one.  On the already present closed and
+continuing annular factors, this gives a thimble with boundary
+$\partial_{\mathrm{pt}}-\partial_{\mathrm{oc}}$.
+
+The wall and joint cylinders are the explicit Cartan homotopies
+\eqref{eq:des-explicit-wall-homotopy}--\eqref{eq:des-word-homotopy} and their
+coherent square primitives.  A multiple-collision cone is the radial cone over
+the corresponding Fulton--MacPherson exceptional face; its bottom has
+smaller dimension and hence zero cellular pushforward.
+
+The named boundary chains are the following oriented sums:
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.20\textwidth}X@{}}
+\toprule
+Chain & Defining codimension-one faces \\
+\midrule
+$\partial_{\mathrm{can}}$ & the $u_\psi=1$ zero chain of $\sigma_\delta^-\oplus s_\delta^+$, representing descendent degree $\mathbf d+\mathbf e_{j_1}$ \\
+$\partial_{\mathrm{pt}}$ & the $u_\psi=0$ pointing-section divisor before the radial root collar is added \\
+$\partial_{\mathrm{oc}}$ & the low root-thimble endpoint, multiplied by the compact closed factor and the continuing open factor \\
+$\partial_{\mathrm{wall}}$ & critical open-moduli boundary graphs carrying the Cartan wall homotopy \\
+$\partial_{\psi}$ & contraction boundary graphs of the cotangent homotopy, weighted by the one- or two-marking pointing chain \\
+$\partial_{\mathrm{exch}}$ & the pair of cyclic orders on a two-direction collision face \\
+$\partial_{\mathrm{deg}}$ & closed-factor faces whose Euler degree is incompatible with the required zero-dimensional pushforward \\
+\bottomrule
+\end{tabularx}
+\end{center}
+Metric-zero faces are filled by
+\eqref{eq:des-corolla-chain}, metric-one faces are glued to cut forests,
+structural-nerve faces cancel through the coend, wall and joint faces are
+filled by \eqref{eq:des-word-homotopy} and its coherent square version, and
+multiple collisions are filled by their radial cones.  Auxiliary caps and
+root-chart boundaries are disjoint from the zero locus for all sufficiently
+small perturbations: compactness gives a positive lower bound for
+$\lVert s_\tau\rVert$ there.  These are all facets because
+\eqref{eq:des-ambient-product} is a finite product of the half-space
+polytope \eqref{eq:des-position-polytope}, cubes, simplices,
+Fulton--MacPherson spaces, cotangent and root intervals, and the compact open
+and closed orbifold factors in \eqref{eq:des-ambient-product}.
+
+\subsubsection{Assembly and the boundary theorem}
+
+For each resolved type, let $\alpha_\tau$ be the transported coefficient
+assembled from its decorated tropical forest by
+\eqref{eq:des-single-seed}.  A
+\emph{compatible moving-circle chain} $\mathfrak p$ assigns a signed rational
+coefficient $w_\tau(\mathfrak p)$ to every oriented cell $M_\tau$, with equal
+coefficients on identified subdivisions.  With product orientation ordered
+as in \eqref{eq:des-ambient-product}, define
+\begin{equation}
+ \Psi^{\mathrm{raw}}_{I,\mathbf d,N}[\mathfrak p]
+ =\sum_\tau w_\tau(\mathfrak p)
+   [Z_\tau^{\mathrm{vir}},\alpha_\tau].
+ \label{eq:des-raw-chain}
+\end{equation}
+Here the open-bundle component of $Z_\tau^{\mathrm{vir}}$ is the
+parameterized zero chain $\mathcal Z_{\delta,w}$ of
+\eqref{eq:des-cotangent-zero-boundary}.  Hence its named outward boundary is
+$\partial_{\mathrm{can}}-\partial_{\mathrm{pt}}
++\partial_{\mathrm{wall}}+\partial_{\psi}
++\partial_{\mathrm{exch}}+\partial_{\mathrm{deg}}$; its remaining faces are precisely
+the internal faces listed above.  Add to \eqref{eq:des-raw-chain} the wall
+and joint prisms, corolla and refinement primitives, collision cones, and
+radial thimbles, each with the sign opposite to its incident internal face.
+Denote the resulting finite sum by $\Psi_{I,\mathbf d,N}[\mathfrak p]$.
+
+\begin{theorem}[Cotangent-homotopy boundary]
+\label{thm:des-absolute-boundary}
+For every compatible moving-circle chain $\mathfrak p$, the chain
+$\Psi_{I,\mathbf d,N}[\mathfrak p]$ is well defined in
+\eqref{eq:des-coend} and satisfies
+\begin{equation}
+ \partial\Psi_{I,\mathbf d,N}[\mathfrak p]
+ =\partial_{\mathrm{can}}-\partial_{\mathrm{oc}}
+  +\partial_{\mathrm{wall}}+\partial_{\psi}
+  +\partial_{\mathrm{exch}}+\partial_{\mathrm{deg}}.
+ \label{eq:des-absolute-boundary}
+\end{equation}
+Its relative PL bordism class is independent of all triangulations,
+multisections, auxiliary primitives, and chosen root arcs, and is natural under window
+restriction, deformation-order reduction, finite-root refinement,
+relabelling, target-frame re-expansion, coordinate transposition, and
+common-enlargement transport by $K$.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:des-cotangent-zero-boundary} supplies
+$\partial_{\mathrm{can}}-\partial_{\mathrm{pt}}$ and the open-moduli side
+faces.  The ordinary cellular boundary of $\mathfrak p$ gives their signed
+pointing and contraction coefficients.  The chain-homotopy identity
+\eqref{eq:des-wall-homotopy} cancels each wall
+face, and its two-parameter form cancels each joint face.  Equations
+\eqref{eq:des-corolla-boundary} and
+\eqref{eq:des-factorization-cocycle} fill zero-length forest faces and glue
+length-one faces.  The two cyclic orders at a pair collision have opposite
+outward-normal orientations and form the displayed exchange pair.  For a collision
+of at least three directions, the bottom of the radial cone has smaller
+dimension and zero cellular pushforward; nested cone sides cancel in pairs.
+Simplicial boundary-map, affine-overlap, and stabilization faces cancel by the defining
+coend relation.  Coefficient-order terms in $\mathfrak m_S^N$ vanish, while
+closed degree mismatches are retained in $\partial_{\mathrm{deg}}$.  The
+corridor-end faces are relative and are recorded by $e^\pm$.  Finally,
+\eqref{eq:des-thimble} changes the raw boundary
+$\partial_{\mathrm{can}}-\partial_{\mathrm{pt}}$ into
+$\partial_{\mathrm{can}}-\partial_{\mathrm{oc}}$, with coefficient
+$4\cdot\frac14=1$.  The product-facet classification preceding
+\eqref{eq:des-raw-chain} proves that no other codimension-one face remains.
+
+For window restriction, deformation reduction, or finite-root refinement,
+the smaller face diagram is a downward-closed subdiagram of the larger one.
+Choose the multisections by relative extension along a nested cofinal
+exhaustion.  Relabelling signs cancel between
+\eqref{eq:des-incidence-orientation} and
+\eqref{eq:des-forest-orientation}; coordinate transposition is obtained by
+taking the two-element branch orbit.  Transport to another target frame and
+core transport after common enlargement carry the incidence equations, the
+open Witten-bundle diagram, the relative contact complex, and every chosen primitive by
+chain isomorphisms.  These maps therefore
+commute with \eqref{eq:des-total-differential}.  The parameterized
+multisection construction gives the claimed compatible cobordisms and
+independence of the exhaustion.
+\end{proof}
+
+\subsection{Cotangent recursions}
+
+Let $i^\pm:C^\pm\hookrightarrow C$ be the incoming and outgoing facets of
+the compact corridor.  Restriction of branch polyhedra along $i^\pm$ and the
+coefficient pullback \eqref{eq:des-coefficient-pullback} define chain maps
+\begin{equation}
+ e^\pm:\mathsf C^{\mathrm{tot}}_{I,\mathbf d,N}
+ \longrightarrow\mathsf C^{\mathrm{end},\pm}_{I,\mathbf d,N}.
+ \label{eq:des-endpoint-maps}
+\end{equation}
+Here $\mathsf C^{\mathrm{end},\pm}_{I,\mathbf d,N}$ is the same coend
+\eqref{eq:des-coend} over the full subcategory of cells in
+$\partial_{\mathrm{ann}}^\pm$; hence its objects, differential, and
+coefficient maps are explicit restrictions of those already defined.  Both
+targets are transported to the fixed frame $\Gamma$ using
+\eqref{eq:des-transported-contact-complex}.
+
+For any descendent vector $\mathbf d$, let
+$\mathcal E^\pm_{I,\mathbf d,N}$ be the restriction to the corresponding
+annular end of the canonical Euler zero chain
+$Z(\mathbb E_\Gamma(\mathbf d),\sigma_\Gamma(\mathbf d))$.  Relative
+extension makes these choices compatible in $\mathbf d$ and in the finite
+window.  In particular, the canonical cotangent-homotopy boundary satisfies
+\begin{equation}
+ e^\pm(\partial_{\mathrm{can}}
+       \Psi_{I,\mathbf d,N}[\mathfrak p])
+ =\mathcal E^\pm_{I,\mathbf d+\mathbf e_{j_1},N}.
+ \label{eq:des-endpoint-degree-shift}
+\end{equation}
+The moving-circle primitive has zero collar restriction, so the right side
+does not depend on that primitive.  Define the annular moment by
+\begin{equation}
+ \mathcal A_{\mathrm{ann}}(I,\mathbf d)
+ =\mu_\Gamma(\mathcal E^-_{I,\mathbf d,N}).
+ \label{eq:des-annular-moment}
+\end{equation}
+Wall transport is a chain map, $\mu_\Gamma$ is a cocycle, and the intervening
+relative chain has boundary \eqref{eq:des-absolute-boundary}; the wall,
+exchange, and residual-degree terms have zero contact trace as proved below.
+Thus the greatest-slope endpoint gives the same scalar after transport to the
+same target frame.  The empty endpoint is the unit:
+$\mathcal A_{\mathrm{ann}}(\varnothing,0)=1$.
+
+For $A\subseteq I$, write
+\begin{equation}
+ \sum_{i\in A}a_i=r_A+4\ell_A,\qquad
+ \sum_{i\in A}b_i=s_A+4m_A,
+ \qquad
+ N_A=\ell_A+m_A-|A|+1+\sum_{i\in A}d_i,
+ \label{eq:des-threshold}
+\end{equation}
+with $0\leq r_A,s_A\leq3$.  When $N_A=-1$, let $z_A$ be the
+degree-zero open half-node of twist $(r_A,s_A)$ and set
+$Q_A=(I\setminus A)\sqcup\{z_A\}$.  Its compact closed partner has the
+complementary twist $(2-r_A,2-s_A)$, interpreted modulo $4$.  Denote its
+Frobenius-normalized Euler pushforward, including the degrees
+$\mathbf d|_A$, by
+\begin{equation}
+ \mathcal C_A^{\mathrm{ext}}
+ =16\int_{[\mathfrak C_A]}e(\mathbb E_A^{\mathrm{cl}}).
+ \label{eq:des-closed-factor}
+\end{equation}
+The factor \eqref{eq:des-closed-factor} is an input from the compact closed
+quartic $W$-spin moduli problem, not a value of an open invariant.
+
+The wall-crossing trace vanishes by the primitive
+\begin{equation}
+ \mathcal K_{u,v}=(u+1)X^uY^{v+1}dX+(v+1)X^{u+1}Y^vdY,
+ \label{eq:des-wc-primitive}
+\end{equation}
+whose differential is
+\begin{equation}
+ D_{W_0}\mathcal K_{u,v}
+ =4(v+1)X^{u+4}Y^v\Omega-4(u+1)X^uY^{v+4}\Omega.
+ \label{eq:des-wc-boundary}
+\end{equation}
+Indeed, the two terms in \eqref{eq:des-wc-boundary} have traces
+$4(v+1)w(u+4,v)$ and $4(u+1)w(u,v+4)$, which agree by
+\eqref{eq:des-gamma-weight}.  The complete relative differential also
+contains its divisor restrictions, so Proposition~\ref{prop:des-contact-stokes}
+annihilates every wall-crossing face.  The exchange trace vanishes because exchange of the
+two directions reverses the real face orientation and preserves its
+coefficient.
+
+\subsubsection{Pointing chains}
+
+We next define the two moving-circle chains and compute their contributions.
+A rooted critical decomposition is
+\[
+ Q=((I_0,u,v);(I_1,p_1,q_1),\ldots,(I_h,p_h,q_h)),
+\]
+where $j_1\in I_0$, the root profile $(u,v)$ is critical, and the other
+profiles are balanced.  Its two quartic phase faces and its $j$th
+contraction face are
+\begin{equation}
+\begin{aligned}
+ P_X(Q)&=\{(I_0,u+4,v),(I_1,p_1,q_1),\ldots,(I_h,p_h,q_h)\},\\
+ P_Y(Q)&=\{(I_0,u,v+4),(I_1,p_1,q_1),\ldots,(I_h,p_h,q_h)\},\\
+ P_j(Q)&=\{(I_0\sqcup I_j,u+p_j,v+q_j)\}
+          \cup\{(I_i,p_i,q_i):i\ne0,j\}.
+\end{aligned}
+ \label{eq:des-pointing-faces}
+\end{equation}
+Put
+\begin{equation}
+\begin{gathered}
+ \beta_X(j)=\frac{p_j}{u+p_j},\qquad
+ \beta_Y(j)=\frac{q_j}{v+q_j},\\
+ A_Q=\frac{1+u+\sum_jp_j}{u+4},\qquad
+ B_Q=\frac{1+v+\sum_jq_j}{v+4}.
+\end{gathered}
+ \label{eq:des-pointing-degrees}
+\end{equation}
+A zero numerator gives the value zero in the first line.  For a balanced
+decomposition $P$, introduce signed rational cellular coefficients
+$(a_P,b_P,c_P,d_P)$, summing to one, at the $X$-flag, $Y$-flag, root flag,
+and second distinguished marking of its moving circle.  They are not
+multisection weights.
+
+The \emph{one-marking pointing chain} uses only the first distinguished marking: set $d_P=0$
+and define, inductively on the number of components,
+\begin{equation}
+ R_Q^{(1)}=1+\sum_{j=1}^h
+ \bigl(\beta_X(j)a_{P_j(Q)}+\beta_Y(j)b_{P_j(Q)}\bigr).
+ \label{eq:des-qone-gauge}
+\end{equation}
+The \emph{two-marking pointing chain} also retains $j_2\ne j_1$: put
+$(a_P,b_P,c_P,d_P)=(0,0,0,1)$ when $j_1$ and $j_2$ lie in the same block.
+Otherwise set $d_P=0$ and
+\begin{equation}
+ R_Q^{(2)}=1+\sum_{\substack{1\leq j\leq h\\j_2\notin I_j}}
+ \bigl(\beta_X(j)a_{P_j(Q)}+\beta_Y(j)b_{P_j(Q)}\bigr).
+ \label{eq:des-qtwo-gauge}
+\end{equation}
+In either case impose
+$A_Qa_{P_X(Q)}+B_Qb_{P_Y(Q)}=R_Q^{(\ell)}$ by the symmetric solution
+\begin{equation}
+ a_{P_X(Q)}=\frac{A_QR_Q^{(\ell)}}{A_Q^2+B_Q^2},
+ \qquad
+ b_{P_Y(Q)}=\frac{B_QR_Q^{(\ell)}}{A_Q^2+B_Q^2},
+ \qquad c_P=1-a_P-b_P.
+ \label{eq:des-pointing-gauge}
+\end{equation}
+The right sides involve one fewer detached component.  The root block
+determines $Q$, so no new variable occurs in two equations at the same level.
+Thus \eqref{eq:des-pointing-gauge} defines rational, permutation-natural
+coefficients without using a GKT coefficient.  They need not be positive;
+for example, $h=u=v=0$ gives $(a,b,c)=(2,2,-3)$.  This is permitted for a
+rational cellular chain.
+
+For the one-marking chain, the resulting contraction identity is
+\begin{equation}
+ \sum_{j=1}^h
+ \bigl(\beta_X(j)a_{P_j(Q)}+\beta_Y(j)b_{P_j(Q)}\bigr)
+ -A_Qa_{P_X(Q)}-B_Qb_{P_Y(Q)}=-1.
+ \label{eq:des-qone-row}
+\end{equation}
+For the two-marking chain, if $j_2\notin I_0$, the same difference omits the unique block
+containing $j_2$ and the marked-pointing branch contributes $+1$; the sum is
+$-1+1=0$.  If $j_2\in I_0$, the defining same-component case sets all these
+coefficients to zero.
+
+We now realize these identities as actual cellular boundaries.  List the named
+points of the oriented moving circle in cyclic order as
+$p_0,p_1,\ldots,p_{m-1}$, with $p_0$ the root direction, and let $e_i$ be
+the arc from $p_i$ to $p_{i+1}$, indices modulo $m$.  The one-marking signed
+zero-chain is
+\begin{equation}
+ z_Q^{(1)}=p_0
+ +\sum_{j=1}^h
+  (\beta_X(j)a_{P_j(Q)}+\beta_Y(j)b_{P_j(Q)})p_j
+ -A_Qa_{P_X(Q)}p_X-B_Qb_{P_Y(Q)}p_Y,
+ \label{eq:des-qone-zero-chain}
+\end{equation}
+where coincident named points are combined.  Equation
+\eqref{eq:des-qone-row} says that its total coefficient is zero.  If
+$j_2\notin I_0$, define $z_Q^{(2)}$ by omitting the terms with
+$j_2\in I_j$ and adding the marked point with coefficient one; if
+$j_2\in I_0$, put $z_Q^{(2)}=0$.  The preceding two-marking calculation again gives
+total coefficient zero.
+
+For any zero-chain $z=\sum_i\zeta_ip_i$ of total coefficient zero, set
+\begin{equation}
+ \mathcal P_{p_0}(z)=\sum_{j=1}^{m-1}
+   \left(-\sum_{i=1}^{j}\zeta_i\right)e_j,
+ \qquad \partial\mathcal P_{p_0}(z)=z.
+ \label{eq:des-moving-circle-primitive}
+\end{equation}
+The boundary formula follows from $\partial e_i=p_{i+1}-p_i$.  It is the
+unique primitive whose coefficient on the root arc is zero.  Compatibility
+with the complete face diagram is the following direct calculation:
+\begin{equation}
+ F_*z_Q^{(\ell)}=z_{FQ}^{(\ell)},\qquad
+ F_*\mathcal P_{p_0}(z_Q^{(\ell)})
+ =\mathcal P_{F(p_0)}(z_{FQ}^{(\ell)}).
+ \label{eq:des-pointing-face-naturality}
+\end{equation}
+For a collision, coincident named points are combined and both adjacent arc
+coefficients are repeated.  For a forest contraction, substitution of
+\eqref{eq:des-qone-gauge} or \eqref{eq:des-qtwo-gauge} is exactly the
+coefficient of the contracted point.  A closed splitting deletes its named
+block and leaves the lower-support formula occurring on the right side of the
+same recursion.  Wall and affine-overlap maps preserve the pointing flags and
+act only on the transported coefficient.  Stabilization deletes a zero
+coefficient at an unstable flag, while forgetting and relabelling merely
+reindex the cyclic list.  These are all cases in
+Proposition~\ref{prop:des-boundary-stratification}, so they prove
+\eqref{eq:des-pointing-face-naturality}; it is not inferred from subdivision
+naturality alone.  Summing the primitives over all critical decompositions
+gives compatible moving-circle chains
+$\mathfrak p^{(1)}$ and $\mathfrak p^{(2)}$.  Put
+\begin{equation}
+ \Psi^{(\ell)}_{I,\mathbf d,N}
+ :=\Psi_{I,\mathbf d,N}[\mathfrak p^{(\ell)}],\qquad \ell=1,2.
+ \label{eq:des-two-pointing-chains}
+\end{equation}
+For each named flag $w$, the corresponding cell is fibered over the actual
+cotangent zero cobordism $\mathcal Z_{\delta,w}$ from
+\eqref{eq:des-cotangent-zero-boundary}.  The coefficients sum to one, so the
+$u_\psi=1$ facets combine to one copy of the
+degree-$\mathbf d+\mathbf e_{j_1}$ Euler chain.  The positive-weight PL
+perturbations are the same in both constructions; only the signed rational
+coefficients on the separate cotangent cobordisms differ.
+
+On a contraction facet, the exact-data bundle map restricts $E_\delta^-$ to
+the lower-descendent Euler chain $\mathcal E_{I,\mathbf d}$, while the degree
+of the pointing map is the corresponding coefficient $\beta_X(j)$,
+$\beta_Y(j)$, $A_Q$, or $B_Q$ in
+\eqref{eq:des-pointing-degrees}.  Applying the boundary pushforward and then
+$\mu_\Gamma$ therefore multiplies every term in
+\eqref{eq:des-qone-row} by the common scalar
+$\mathcal A_{\mathrm{ann}}(I,\mathbf d)$.  The resulting contraction moment
+is $-\mathcal A_{\mathrm{ann}}(I,\mathbf d)$ for the one-marking chain and
+zero for the two-marking chain.  Outward-normal-first orientation reverses
+this induced moving-circle boundary.  Hence the geometric $\partial_{\psi}$ term in
+\eqref{eq:des-absolute-boundary} has one- and two-marking moments
+$+\mathcal A_{\mathrm{ann}}(I,\mathbf d)$ and zero, respectively.
+
+Finally, the normalized radial thimble restricts to a zero-dimensional
+closed factor exactly when the Euler rank
+$\ell_A+m_A+\sum_{i\in A}d_i$ equals the closed dimension $|A|-2$,
+which is equivalent to $N_A=-1$.  Equations
+\eqref{eq:des-thimble} and \eqref{eq:des-closed-factor} then give coefficient
+$4\cdot\frac14=1$ and the product
+$\mathcal C_A^{\mathrm{ext}}\mathcal A_{\mathrm{ann}}(Q_A,
+\mathbf d|_{I\setminus A})$.  If the ranks do not agree, the closed Euler
+pushforward has nonzero residual degree; coefficient-order terms lie in
+$\mathfrak m_S^N$.  These are precisely the residual-degree faces, and their
+degree-zero moment is zero.
+
+\subsubsection{Stokes evaluation and support reduction}
+
+Apply the contact cocycle to the two explicitly constructed chains
+\eqref{eq:des-moving-circle-primitive}.  The degree-zero values of every
+term in \eqref{eq:des-absolute-boundary} are
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}
+ >{\raggedright\arraybackslash}p{.14\textwidth}
+ >{\raggedright\arraybackslash}p{.40\textwidth}
+ >{\raggedright\arraybackslash}X@{}}
+\toprule
+Face & one-marking value & two-marking value\\
+\midrule
+$\partial_{\mathrm{can}}$ &
+$\mathcal A_{\mathrm{ann}}(I,\mathbf d+\mathbf e_{j_1})$ & same\\
+$\partial_{\mathrm{oc}}$ & threshold sum over $j_1\in A$ & threshold sum over $j_1\in A$, $j_2\notin A$\\
+$\partial_{\mathrm{wall}}$ & $0$ by \eqref{eq:des-wc-boundary} & $0$\\
+$\partial_{\psi}$ & $\mathcal A_{\mathrm{ann}}(I,\mathbf d)$ & $0$\\
+$\partial_{\mathrm{exch}}$ & $0$ by orientation reversal & $0$\\
+$\partial_{\mathrm{deg}}$ & $0$ by degree or truncation & $0$\\
+\bottomrule
+\end{tabularx}
+\end{center}
+Since the contact trace kills a total boundary, this table and the sign
+$\partial_{\mathrm{can}}-\partial_{\mathrm{oc}}$ give
+\begin{equation}
+\begin{aligned}
+ \mathcal A_{\mathrm{ann}}(I,\mathbf d+\mathbf e_{j_1})
+ ={}&\sum_{\substack{A\subseteq I,\ j_1\in A,\ |A|\geq2\\N_A=-1}}
+ \mathcal C_A^{\mathrm{ext}}
+ \mathcal A_{\mathrm{ann}}(Q_A,\mathbf d|_{I\setminus A})
+ -\mathcal A_{\mathrm{ann}}(I,\mathbf d),
+\end{aligned}
+\label{eq:des-qone}
+\end{equation}
+and, for $j_2\ne j_1$,
+\begin{equation}
+\begin{aligned}
+ \mathcal A_{\mathrm{ann}}(I,\mathbf d+\mathbf e_{j_1})
+ ={}&\sum_{\substack{A\subseteq I,\ j_1\in A,\ j_2\notin A,
+                         \ |A|\geq2\\N_A=-1}}
+ \mathcal C_A^{\mathrm{ext}}
+ \mathcal A_{\mathrm{ann}}(Q_A,\mathbf d|_{I\setminus A}).
+\end{aligned}
+\label{eq:des-qtwo}
+\end{equation}
+The vacuum value is the empty broken-line chain.  For a singleton at
+descendent degree zero, the normalized root thimble followed by
+\eqref{eq:des-contact-traces} gives one.  Since no subset of a singleton has
+cardinality at least two, \eqref{eq:des-qone} then gives
+$\mathcal A_{\mathrm{ann}}(\{i\},d_i+1)
+=-\mathcal A_{\mathrm{ann}}(\{i\},d_i)$.  Hence the initial values are
+\begin{equation}
+ \mathcal A_{\mathrm{ann}}(\varnothing,0)=1,
+ \qquad \mathcal A_{\mathrm{ann}}(\{i\},d_i)=(-1)^{d_i}.
+ \label{eq:des-initial-values}
+\end{equation}
+Subtracting \eqref{eq:des-qtwo} from \eqref{eq:des-qone} yields
+\begin{equation}
+ \mathcal A_{\mathrm{ann}}(I,\mathbf d)
+ =\sum_{\substack{A\subseteq I,\ j_1,j_2\in A\\N_A=-1}}
+ \mathcal C_A^{\mathrm{ext}}
+ \mathcal A_{\mathrm{ann}}(Q_A,\mathbf d|_{I\setminus A}).
+ \label{eq:des-support-reduction}
+\end{equation}
+Every open factor on the right has support
+$|Q_A|=|I|-|A|+1\leq|I|-1$.  Hence the recursions and
+\eqref{eq:des-initial-values} determine the moment family uniquely.  In
+particular, no multi-marking primary open invariant is initial data.
+
+\subsection{GKT comparison and the inverse system}
+
+\subsubsection{Moment comparison and endpoint normal forms}
+
+The two GKT cotangent recursions
+\cite[Thm.~5.10]{grossetal2022open} are
+\eqref{eq:des-qone}--\eqref{eq:des-qtwo} for $r=s=4$, and their singleton
+condition is \eqref{eq:des-initial-values}
+\cite[Cor.~5.11(1)]{grossetal2022open}.  Their closed factors are the same
+compact closed $W$-spin integrals as \eqref{eq:des-closed-factor}.  Uniqueness
+therefore gives
+\begin{equation}
+ \mathcal A_{\mathrm{ann}}(I,\mathbf d)
+ =\mathcal A_{\mathrm{GKT}}(I,\mathbf d).
+ \label{eq:des-moment-comparison}
+\end{equation}
+
+For a nonempty support $J$, define $r_J,s_J,\ell_J,m_J$ by
+\[
+ \sum_{i\in J}a_i=r_J+4\ell_J,\qquad
+ \sum_{i\in J}b_i=s_J+4m_J,\qquad 0\leq r_J,s_J\leq3,
+\]
+and put
+\begin{equation}
+ N_J=\ell_J+m_J-|J|+1+\sum_{i\in J}d_i.
+ \label{eq:des-balanced-length}
+\end{equation}
+The support is active when $N_J\geq0$.  GKT Notation~2.40 then lists the
+balanced graphs
+$\Gamma_{J,0},\ldots,\Gamma_{J,N_J}$ with profiles
+\begin{equation}
+ (k_1,k_2)(\Gamma_{J,p})
+ =(r_J+4p,s_J+4(N_J-p)).
+ \label{eq:des-balanced-profiles}
+\end{equation}
+Write their moment in the triangular form
+\begin{equation}
+ \mathcal A_{\mathrm{GKT}}(J,\mathbf d;\nu)
+ =\sum_{p=0}^{N_J}q_{J,p}\nu_{\Gamma_{J,p},\mathbf d}
+  +P_{J,\mathbf d}(\nu|_{\mathrm{proper\ supports}}),
+ \label{eq:des-gkt-moment}
+\end{equation}
+where
+\begin{equation}
+ q_{J,p}=
+ \frac{\Gamma((r_J+4p+1)/4)\Gamma((s_J+4(N_J-p)+1)/4)}
+ {\Gamma((r_J+1)/4)\Gamma((s_J+1)/4)}\ne0.
+ \label{eq:des-gkt-diagonal}
+\end{equation}
+Here $P_{J,\mathbf d}$ is the sum over partitions with at least two blocks,
+and therefore involves only proper supports.  Put
+\[
+ b_{J,\mathbf d}=
+ \begin{cases}(-1)^{d_i},&J=\{i\},\\0,&|J|\geq2.\end{cases}
+\]
+Starting with the empty and singleton values, define two labelled systems
+recursively on $|J|$ by
+\begin{equation}
+\begin{aligned}
+ &\nu^-_{\Gamma_{J,p},\mathbf d}=0\quad(p>0),&
+ q_{J,0}\nu^-_{\Gamma_{J,0},\mathbf d}
+ &=b_{J,\mathbf d}-P_{J,\mathbf d}(\nu^-),\\
+ &\nu^+_{\Gamma_{J,p},\mathbf d}=0\quad(p<N_J),&
+ q_{J,N_J}\nu^+_{\Gamma_{J,N_J},\mathbf d}
+ &=b_{J,\mathbf d}-P_{J,\mathbf d}(\nu^+).
+\end{aligned}
+ \label{eq:des-extreme-systems}
+\end{equation}
+The Gamma factors in \eqref{eq:des-gkt-diagonal} are nonzero, and every term
+in $P_{J,\mathbf d}$ has smaller support.  Induction therefore proves
+existence and uniqueness.  Substitution in \eqref{eq:des-gkt-moment} gives
+the required singleton moment $(-1)^{d_i}$ and zero higher-support moment;
+the construction is twist-preserving permutation invariant and has the
+prescribed vanishing outside its single extreme graph.  These are precisely
+the chamber-index conditions of \cite[Def.~3.47]{grossetal2022open}.
+GKT Theorem~5.13 and Corollary~5.14 consequently realize the two systems by
+symmetric canonical multisections.
+
+It remains to show that the annular endpoints give these particular systems.
+For a fixed active support $J$, the balanced exponent line has the integral
+coordinate
+\begin{equation}
+ \vartheta_J(r_J+4p,s_J+4(N_J-p))=p.
+ \label{eq:des-slope-coordinate}
+\end{equation}
+The critical wall between consecutive profiles $p-1$ and $p$ is the
+hyperplane $\vartheta_J=p-\tfrac12$; this is
+\eqref{eq:des-critical-dictionary} below written in the affine cofactor
+coordinate.  The stops defining the corridor lie in the two unbounded
+chambers $\vartheta_J<\tfrac12$ and
+$\vartheta_J>N_J-\tfrac12$.  Substituting these inequalities in
+\eqref{eq:des-position-polytope} shows that a one-block cell meeting the
+incoming facet has $p=0$, while one meeting the outgoing facet has
+$p=N_J$.  Thus the chain maps \eqref{eq:des-endpoint-maps} kill all other
+one-block profiles before the contact moment is taken.
+
+For a fixed active $J$, evaluation of the retained connected cell has
+diagonal weight $q_{J,0}$ or $q_{J,N_J}$ by
+\eqref{eq:des-contact-traces}; every cut-forest cell gives exactly
+$P_{J,\mathbf d}$ by \eqref{eq:des-factorization-cocycle}.  The scalar
+comparison \eqref{eq:des-moment-comparison} therefore turns the two endpoint
+equations into \eqref{eq:des-extreme-systems}.  Induction on $|J|$ identifies
+the endpoint coefficients with $\nu^-$ and $\nu^+$.  Since GKT moments are
+constant across chamber indices
+\cite[Cor.~4.28]{grossetal2022open}, this argument cannot and does not
+identify an unspecified chamber representative.
+
+For reference, the shifted exponent of GKT's critical graph
+$\Lambda_{J,p}$ is
+\begin{equation}
+ (k_1-1,k_2-1)(\Lambda_{J,p})
+ =(r_J+4(p-1),s_J+4(N_J-p)),
+ \label{eq:des-critical-dictionary}
+\end{equation}
+which places it precisely on the separating hyperplane used above.  Its
+vector field is the one whose action on $W_0$ is
+\eqref{eq:des-wc-boundary}.  No equality of a raw annular wall coefficient
+with a GKT chamber coefficient is used or asserted.
+
+\subsubsection{The inverse-system class and completion of the proof}
+
+We finally define the chain asserted in
+Theorem~\ref{thm:intro-descendent}.  For $\delta\in\mathcal E$, let
+$I(\delta)$ and $\mathbf d(\delta)$ be its labelled support and descendent
+vector, and set
+\begin{equation}
+ \mathsf C^{\mathrm{lab}}_{S,N}
+ =\bigoplus_{\delta\in\mathcal E}
+   \mathsf C^{\mathrm{tot}}_{I(\delta),\mathbf d(\delta),N}.
+ \label{eq:des-window-total-complex}
+\end{equation}
+This direct sum has the literal restriction maps of the finite window.
+
+Let $\mathcal A_S$ be the finite set of twist-descendent label types
+$\alpha=(a,b,d)$ appearing in $S$, and let $\Gamma_{\QQ}(\mathcal A_S)$ be
+the divided-power algebra with basis $x_\alpha^{[m]}$ and multiplication
+$x_\alpha^{[m]}x_\alpha^{[n]}
+=\binom{m+n}{m}x_\alpha^{[m+n]}$.  For a multiplicity vector
+$\mathbf m=(m_\alpha)$, put
+$G_{\mathbf m}=\prod_\alpha\mathfrak S_{m_\alpha}$.  Let
+$\mathcal E[\mathbf m]\subset\mathcal E$ be the exact data whose labelled
+supports contain exactly $m_\alpha$ labels of each type, and define
+\begin{equation}
+ \mathsf C^{\mathrm{lab}}_{S,N}[\mathbf m]
+ =\bigoplus_{\delta\in\mathcal E[\mathbf m]}
+   \mathsf C^{\mathrm{tot}}_{I(\delta),\mathbf d(\delta),N}.
+ \label{eq:des-labelled-multiplicity-summand}
+\end{equation}
+The group $G_{\mathbf m}$ acts by permuting equal-type leaf labels on the
+forest, open and closed exact data, moduli factors, determinant lines,
+pointing sections, and coefficient monomials.  The window contains every
+such relabelling.  Each boundary identification and every map
+$F_{\Lambda\Gamma}$ and $\phi_{\Lambda\Gamma}$ is equivariant; therefore
+the action is by chain automorphisms of
+\eqref{eq:des-labelled-multiplicity-summand}.  Define the
+coordinate-symmetric target complex
+\begin{equation}
+ \mathsf C^{\mathrm{dp}}_{S,N}
+ =\bigoplus_{\mathbf m}
+   (\mathsf C^{\mathrm{lab}}_{S,N}[\mathbf m])_{G_{\mathbf m}}
+   \otimes\prod_\alpha x_\alpha^{[m_\alpha]}.
+ \label{eq:des-divided-power}
+\end{equation}
+On an oriented labelled cell generator $c$ with stabilizer
+$\operatorname{Stab}(c)\subset G_{\mathbf m}$, define
+\begin{equation}
+ p_{\mathrm{dp}}(c)
+ =\sum_{g\in G_{\mathbf m}/\operatorname{Stab}(c)}[gc]
+   \otimes\prod_\alpha x_\alpha^{[m_\alpha]},
+ \label{eq:des-dp-pushforward}
+\end{equation}
+and extend linearly after choosing one generator from each orbit.  This is a
+chain map because the differential is equivariant and preserves
+$\mathbf m$.  Under the power-series realization
+$x_\alpha^{[m]}\mapsto x_\alpha^m/m!$, the scalar multiplying the unlabelled
+orbit is
+\begin{equation}
+ \frac{|G_{\mathbf m}|/|\operatorname{Stab}(c)|}
+      {\prod_\alpha m_\alpha!}
+ =\frac1{|\operatorname{Stab}(c)|},
+ \label{eq:des-orbit-stabilizer-factor}
+\end{equation}
+which is the required reciprocal automorphism factor.  The same computation
+applies to every degeneration face because its stabilizer is computed after
+the corresponding labelled boundary map.
+
+Define
+\begin{equation}
+ \BL_{S,N}
+ =p_{\mathrm{dp}}
+   \bigl((\Psi^{(1)}_{I(\delta),\mathbf d(\delta),N})_{
+          \delta\in\mathcal E}\bigr)
+ \in\mathsf C^{\mathrm{dp}}_{S,N}.
+ \label{eq:des-broken-line-class}
+\end{equation}
+Its relative bordism class is the element
+$[\BL_{S,N}]_{\mathrm{PL}}\in\Omega^{\mathrm{PL}}_{S,N}$ of
+Theorem~\ref{thm:intro-descendent}.
+Root transport and factorization decorations are retained in
+\eqref{eq:des-broken-line-class}; the contact moment is applied only
+afterward.
+
+The naturality in Theorem~\ref{thm:des-absolute-boundary} makes
+\eqref{eq:des-window-total-complex}--\eqref{eq:des-broken-line-class} an
+inverse system over windows, deformation orders, and finite root stages.
+This is not an extension inferred from the scalar GKT comparison: the
+multisections, wall cylinders, corolla primitives, and root thimbles on a
+smaller window are literal restrictions of those on a larger window.
+Every monomial coefficient of the formal genus-zero descendent potential
+belongs to some finite divisor- and dependency-closed window, and framed
+transport and $K$ act before scalarization.  The inverse system therefore
+is the $K$-equivariant inverse system of theta-decorated relative PL bordism
+classes asserted in Theorem~\ref{thm:intro-descendent}; applying the contact
+moment coefficientwise gives the descendent potential.  The construction
+does not identify this bordism module with the theta algebra.
+
+\begin{proof}[Completion of the proof of Theorem~\ref{thm:intro-descendent}]
+The boundary theorem, Theorem~\ref{thm:des-absolute-boundary}, constructs the
+relative PL chain and identifies all of its exterior faces.  Applying the
+contact cocycle gives \eqref{eq:des-qone}--\eqref{eq:des-qtwo}; together with
+\eqref{eq:des-initial-values}, these relations determine the moments by
+induction on the support.  Equation~\eqref{eq:des-moment-comparison} identifies
+them with the GKT moments, while \eqref{eq:des-extreme-systems} identifies the
+two annular restrictions.  Finally, \eqref{eq:des-broken-line-class} and the
+literal restriction maps just established form the asserted inverse system.
+These statements give every construction, recursion, endpoint identification,
+and naturality assertion in Theorem~\ref{thm:intro-descendent}.
+\end{proof}

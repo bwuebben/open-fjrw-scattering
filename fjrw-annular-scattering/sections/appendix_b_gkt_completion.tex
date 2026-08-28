@@ -1,0 +1,259 @@
+\section{Compatible completion of GKT homotopies}
+\label{app:gkt-completion}
+
+This appendix proves the geometric compatibility used in
+Proposition~\ref{prop:endpoint-operations}.  A coefficient window does not by
+itself define a restriction map on full GKT canonical families: a
+multisection on one graph prescribes data on graph boundaries and on the
+connected components of its base graph.  We instead use finite systems
+closed under these dependencies.
+
+We follow the terminology of \cite{grossetal2022open}.  Fix a countable
+twist-labelled reservoir $\Omega_\infty$ containing infinitely many labels of
+each twist.  Every construction below uses only a finite subset.  The
+relative analytic extension input is the multisection argument of
+\cite{buryaketal2024}; the finite slope-ordered realization is the theorem of
+\cite{wuebben2026boundary}.
+
+\subsection{Finite dependency-closed systems}
+
+For a graded open $(4,4)$-graph $\Gamma$ with finite internal label set and
+descendent vector $\mathbf d$, write
+\begin{equation}\label{eq:exact-GKT-datum}
+ \delta=(\Gamma,\mathbf d),
+ \qquad
+ E_\delta=E_\Gamma(\mathbf d)\longrightarrow\mathcal{PM}_\Gamma,
+ \qquad
+ \operatorname{supp}(\delta)=u_{I(\Gamma),\mathbf d}.
+\end{equation}
+Call $\delta$ an \emph{exact GKT datum}.  If $\Lambda$ is a zero or exchange
+boundary stratum, canonical assembling requires
+\begin{equation}\label{eq:GKT-assembling}
+ s_{\Gamma,\mathbf d}|_{\mathcal{PM}_\Lambda}
+ =F_\Lambda^*
+ \left(\boxplus_{\Xi\in\operatorname{Conn}(B\Lambda)}
+ s_{\Xi,\mathbf d|_{I(\Xi)}}\right).
+\end{equation}
+The immediate dependencies of $\delta$ are the connected component data of
+$B\Gamma$ and of all $B\Lambda$ occurring here, with restricted descendent
+vectors.
+
+\begin{definition}\label{def:finite-partial-system}
+A finite dependency-closed partial system is a triple
+$\mathbb D=(I,P,\mathcal E)$ such that:
+\begin{enumerate}
+\item $I\subset\Omega_\infty$ is finite and twist labelled; $P$ is a finite
+divisor-closed set of labelled monomials, containing $1$ and invariant under
+twist-preserving permutations of $I$;
+\item $\mathcal E$ is a finite set of exact data containing every iterated dependency
+and connected component datum of each of its elements;
+\item if a support in $P$ has a nonempty GKT balanced set, $\mathcal E$ contains its
+complete chamber block---all balanced and critical graphs and their
+dependency closures;
+\item $\mathcal E$ is invariant under the twist-preserving permutation group of $I$.
+\end{enumerate}
+An inclusion means literal inclusion of labels, monomials, and exact data.
+Restriction is therefore the forgetting map.
+\end{definition}
+
+\begin{lemma}[Finite closure]\label{lem:finite-GKT-closure}
+The dependency closure of finitely many exact data and complete chamber
+blocks is finite.  Moreover, if $\delta'$ depends on $\delta$, then
+\begin{equation}\label{eq:support-divisibility}
+ \operatorname{supp}(\delta')\mid\operatorname{supp}(\delta).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+A dependency uses a subset of the internal labels and the restricted
+descendent vector, proving \eqref{eq:support-divisibility}.  Order connected
+graphs lexicographically by
+\[
+ \bigl(|I(\Gamma)|,n(\Gamma),-k_{12}(\Gamma)\bigr),
+ \qquad n=4k_1+4k_2+8k_{12}.
+\]
+Every proper connected base component precedes the original graph.  There is
+no infinite descending chain, and every graph has finitely many boundary
+types.  Thus the finitely branching dependency tree is finite.  Chamber
+blocks and permutation orbits are finite as well.
+\end{proof}
+
+Let $\mathcal C(\mathbb D)$ be the collections of transverse, strongly
+positive, automorphism-invariant canonical multisections on $\mathcal E$ satisfying
+\eqref{eq:GKT-assembling}.  Independent choices are made only on smooth
+connected graphs; the other data are the pullbacks and external sums
+prescribed by GKT.
+
+For homotopies, fix a nondecreasing collar function
+$\lambda:[0,1]\to[0,1]$, constant near the endpoints, and distinct times
+$t_A\in(0,1)$ for the subsets $A\subseteq I$.  Let
+$\mathcal H(\mathbb D;\mathfrak s^0,\mathfrak s^1;\tau_I)$ denote the simple
+canonical homotopies satisfying the GKT normal-form conditions: irrelevant
+and excess-rank components are nowhere zero; the two critical rank cases are
+transverse on all graph strata; rank-one-higher zeros occur over
+$t_{I(\Gamma)}$; and the selected spatial slices are transverse.  Endpoint,
+graph-boundary, and positive-boundary collars are part of the data.
+
+\subsection{Relative extension}
+
+\begin{lemma}[Equivariant relative multisection extension]
+\label{lem:relative-multisection}
+Let $\delta=(\Gamma,\mathbf d)$ be free, and let $Y$ be either
+$\mathcal{PM}_\Gamma$ or $[0,1]\times\mathcal{PM}_\Gamma$.  Suppose
+compatible invariant data are prescribed near collared invariant closed sets
+$K_0\subset\operatorname{int}K_1$, where $K_0$ contains every protected
+endpoint, graph-boundary, positive-boundary, prior-stage, and selected-slice
+collar.  If the prescribed data are strongly positive and already satisfy
+the required transversality or nonvanishing conditions on $K_0$, they extend
+to an invariant global multisection literal near $K_0$ with all the same open
+conditions.  A nowhere-vanishing critical section may additionally be
+modified in the smooth interior through a transverse homotopy with prescribed
+rational signed zero count.
+\end{lemma}
+
+\begin{proof}
+The extension argument of \cite[Lem.~6.5]{buryaketal2024} first extends the
+assembling data to a neighborhood of the graph and positive boundary; include
+the endpoint and selected-slice collars in that neighborhood.  On the compact
+complement choose finitely many compactly supported local multisections whose
+branches span every fiber.  Relative parametric transversality, applied to
+the finitely many graph strata and selected slices, gives a generic linear
+combination with the required properties.  The perturbation vanishes near
+$K_0$, hence fixes all protected collars and preserves strong positivity.
+
+Perform the construction on an injectively labelled cover and take the
+normalized union of all finite automorphism translates.  On $K_0$ every
+translate is the same invariant prescribed multisection, so the result is
+literal there.  The generic smooth interior of the injectively labelled cover
+has trivial isotropy.  On this locus, GKT Lemma~5.17
+\cite{grossetal2022open} supplies a compactly supported critical modification
+whose transverse homotopy has any prescribed rational signed zero count.
+Relative transversality preserves that count and leaves the protected collars
+fixed.
+\end{proof}
+
+\begin{theorem}[Relative endpoint lifting]
+\label{thm:relative-endpoint-lifting}
+Let $\mathbb D\subset\mathbb D'$ and let
+$\mathfrak s\in\mathcal C(\mathbb D)$.  Prescribe chamber coordinates on the
+new blocks, assuming that the old and new coordinates are the restriction of
+a realizable GKT chamber index.  Then there exists
+$\mathfrak s'\in\mathcal C(\mathbb D')$ realizing those coordinates and
+restricting literally to $\mathfrak s$.  If the input and target index are
+twist symmetric, the extension may be chosen twist symmetric.
+\end{theorem}
+
+\begin{proof}
+Construct new free data in GKT's lexicographic graph order.  Dependency
+closure and associativity of assembling prescribe compatible boundary
+values, which Lemma~\ref{lem:relative-multisection} extends.  Define the
+nonfree entries by their prescribed pullbacks and assemblies.
+
+Process the new supports by increasing cardinality.  For one support,
+temporarily complete the partial family on the finite label set and apply the
+GKT realization theorem.  Proper-divisor coordinates have already been
+fixed, so the chamber equations reduce to their one weighted linear relation
+on the present block.  The critical sections have rank one greater than the
+dimension and are nowhere zero.  On the injectively labelled smooth-interior
+cover, GKT Lemma~5.17 supplies compactly supported modifications with
+prescribed rational signed zero counts.  Equations (5.52)--(5.54) of GKT are
+triangular in these counts: choose them successively to match all but the last
+balanced coordinate, which is forced by equation (5.50), the weighted chamber
+relation.  Reapply the relative extension lemma and reassemble the affected
+data.
+
+A later change can affect only the same support or a multiple of it.  If such
+a datum were old, divisor closure and chamber-block completeness would make
+the present support old, a contradiction.  Hence the original family is
+fixed literally.  For symmetry, make choices orbitwise and take normalized
+finite orbit-unions; on old orbits these equal the old invariant section.
+\end{proof}
+
+\begin{theorem}[Relative simple-homotopy lifting]
+\label{thm:relative-homotopy-lifting}
+Let $\mathbb D\subset\mathbb D'$, let
+$\mathfrak s^0,\mathfrak s^1\in\mathcal C(\mathbb D')$, and suppose
+\[
+ H\in\mathcal H(
+ \mathbb D;\mathfrak s^0|_F,\mathfrak s^1|_F;\tau_I).
+\]
+Then the time assignment extends injectively to $I'$, and $H$ extends to a
+simple canonical homotopy on $\mathbb D'$ which fixes every old homotopy and
+every protected collar.  In particular, all old subset times are retained.
+\end{theorem}
+
+\begin{proof}
+For an old rank-equals-dimension component, the times at which a spatial
+slice is not transverse form a measure-zero set by Sard's theorem on the
+finitely many zero-set strata.  Choose the new subset times distinctly,
+away from the old values and these exceptional sets.  No old homotopy must
+be changed.
+
+Induct on $\dim\mathcal{PM}_\Gamma$, choosing only new free connected data.
+Endpoints are prescribed.  On graph boundaries, use the contracted-tail
+interpolation when a boundary tail is contracted and the simple assembly of
+component homotopies otherwise; on disconnected faces take external sums.
+These prescriptions agree at corners by associativity of assembling.
+
+Apply Lemma~\ref{lem:relative-multisection} with all old and boundary data
+protected.  In the rank-one-higher case, make the total homotopy transverse,
+separate the finitely many zero projections, and move them by a supported
+fiber-preserving diffeomorphism to the assigned time.  In the
+rank-equals-dimension case, construct transverse selected slices first,
+protect collars around them, and perturb the complement.  The irrelevant and
+excess-rank cases are obtained relatively by positivity and transversality.
+Automorphism orbit-unions preserve the assigned time because it depends only
+on the invariant label set.  Nonfree and disconnected homotopies are then
+the forced pullbacks and assemblies.
+\end{proof}
+
+Every finite partial family or simple homotopy consequently extends, relative
+to the partial system, to the full GKT data on the same finite label set: add
+the missing data support by support, adjoining a complete chamber block
+before its first datum, and apply the two lifting theorems.
+
+\subsection{The compatible union}
+
+The imported boundary-ray theorem, Theorem~\ref{thm:companion}, gives unique
+extremal chamber indices and a unique increasing-slope factorization of their
+transition.  In every finite divisor-closed quotient it also supplies a
+finite sequence of simple canonical homotopies realizing precisely the
+nonidentity reduced factors, one ray at each stage.
+
+\begin{proof}[Proof of Theorem~\ref{thm:compatible-GKT-realization}]
+Choose increasing finite label sets exhausting $\Omega_\infty$ and finite
+divisor-closed permutation-invariant monomial sets exhausting the labelled
+coefficient ring.  At each stage include the complete chamber blocks, the
+next finitely many exact data, and their finite closures.  This gives the
+systems $\mathbb D_n$.
+
+The union of the finite sets of active ray factors is countable.  Embed its
+slope order into the complementary intervals of a Cantor set and call the
+assigned intervals $J_\rho$.  Inductively apply
+Theorem~\ref{thm:relative-endpoint-lifting} to all intermediate endpoint
+families and Theorem~\ref{thm:relative-homotopy-lifting} to all elementary
+homotopies, always relative to the previous stage.
+
+Fix $\delta\in\mathbb D_{n_0}$.  Only the finitely many factors visible at
+stage $n_0$ can be nonconstant on it.  A factor installed later is extended
+relative to the constant homotopy on the old system.  This
+installation-time finiteness proves Part~(2).  On an active interval use the
+elementary homotopy; elsewhere use the chamber value obtained after the
+finitely many active intervals to the left.  Constant collars make these
+pieces join smoothly.  Every assembling identity involves finitely many
+dependencies and hence holds at some finite stage.
+
+The finite completion statement permits application of the GKT realization
+theorem at each stage.  Exact-support uniqueness identifies the jump with
+the required ray factor in every finite quotient.  Since the transition maps
+are literal forgetting maps, the compatible restrictions form an inverse
+limit in sets.
+\end{proof}
+
+Enlargement of the labelled system fixes the old realization literally.
+
+No topology is asserted on equivalence classes of multisections with varying
+branch presentations.  Smoothness means smoothness on each fixed
+$[0,1]\times\mathcal{PM}_\Gamma$.  The residual factors of
+Section~\ref{sec:gkt-decoration} are not GKT jumps; they remain the algebraic
+comparison required to restore the consistent Jacobi wall word.

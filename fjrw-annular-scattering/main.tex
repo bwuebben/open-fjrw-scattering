@@ -1,0 +1,133 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage{graphicx}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.markings,patterns,positioning,shapes.geometric}
+\usepackage{adjustbox}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\emergencystretch=1.5em
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{importedthm}{Theorem}
+
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\Acal}{\mathcal A}
+\newcommand{\Lcal}{\mathcal L}
+\newcommand{\Mcal}{\mathcal M}
+\newcommand{\Ocal}{\mathcal O}
+\newcommand{\Tcal}{\mathcal T}
+\newcommand{\Wcal}{\mathcal W}
+\newcommand{\Xfrak}{\mathfrak X}
+\newcommand{\Dscr}{\mathfrak D}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Spf}{\operatorname{Spf}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\BL}{\operatorname{BL}}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\GKT}{\mathrm{GKT}}
+
+\hyphenation{scat-ter-ing tropi-cal singu-lar-ity de-scen-dent
+pro-al-ge-bra-ic Kum-mer log-a-rith-mic}
+
+\title[Annular scattering and open FJRW descendents]
+{Annular scattering and quartic open FJRW descendents}
+\author{Bernd Johannes Wuebben}
+\subjclass[2020]{14T90 (primary); 14B07, 14D06, 14J33, 14N35, 32S25, 32S30 (secondary)}
+\keywords{Scattering diagrams, integral-affine manifolds, logarithmic mirror
+symmetry, root stacks, Jacobi structures, theta functions, open FJRW theory}
+\date{August 27, 2026}
+\hypersetup{
+  pdftitle={Annular scattering and quartic open FJRW descendents},
+  pdfauthor={Bernd Johannes Wuebben},
+  pdfsubject={Annular scattering and logarithmic compactification in quartic open FJRW theory},
+  pdfkeywords={scattering diagrams, integral-affine manifolds, logarithmic mirror symmetry, open FJRW theory}
+}
+
+\begin{document}
+
+\begin{abstract}
+For each finite labelled collection of insertions and each deformation order,
+we construct a compact oriented rational piecewise-linear bordism class over
+the moduli spaces of open and closed quartic $W$-spin curves.  Its cells
+parametrize decorated tropical forests in a cut-open integral-affine annulus
+together with the corresponding $W$-spin data.  Applying a transported
+relative residue trace to its zero-dimensional endpoint chains defines the
+contact moments.  After the canonical identifications of internal faces, the
+exterior boundary consists of the two annular ends, closed-component
+splittings, wall-crossing and cotangent-line faces, pairwise exchange faces,
+and closed factors of incompatible Euler degree.  The residue trace vanishes
+on the wall and degree-mismatched contributions, while exchange contributions
+cancel by orientation.  Stokes' formula gives the two Gross--Kelly--Tessler
+cotangent-line recursions.  Their difference strictly lowers the number of
+labels, so the vacuum and one-marking values determine all moments and
+identify them with the Gross--Kelly--Tessler invariants.  The two annular ends
+give the least-slope and greatest-slope canonical boundary conditions.  As
+the finite data vary, the bordism classes form an inverse system equivariant
+for the annular core holonomy.  They therefore form a holonomy-equivariant
+inverse system of theta-decorated relative PL bordism classes whose
+coefficientwise contact moments give the complete formal genus-zero
+descendent potential.
+
+The affine annulus and its coefficient system are determined by the same
+quartic data.  Applying the cofactor map to the first one-marking descendent
+generators produces an index-eight extension of the toric character lattice, and
+the minimal cover preserving this lattice is an annulus with four
+focus--focus singularities and hyperbolic core holonomy of trace $18$.
+Transport of the required Kummer roots produces an inverse system of finite
+root extensions.  The twisted volume line carries a Jacobi--Kirillov bracket;
+Saito's primitive form enters separately in the primary comparison.  The two
+descendent Hamiltonians generate a consistent scattering diagram at every
+finite deformation order.
+
+Resolving the annular boundary and attaching six integral-affine cylinders
+gives separated fine-saturated logarithmic compactifications with flat
+boundary divisors.  A dominating system obtained by logarithmic resolution,
+principalization, and root constructions is log smooth with regular geometric
+fibers.  The annular
+charts also transport the narrow-primary
+open-FJRW Frobenius structure.  The construction is coefficientwise: it does
+not give an analytic virtual fundamental class for the infinite system or
+identify a coefficient in an arbitrary GKT chamber.
+\end{abstract}
+
+\maketitle
+
+\input{sections/01_introduction}
+\input{sections/02_affine_kummer}
+\input{sections/03_jacobi_theta}
+\input{sections/04_compactification}
+\input{sections/05_gkt_decoration}
+\input{sections/06_primary_frobenius}
+\input{sections/07_descendent_correspondence}
+\input{sections/07_conclusion}
+
+\appendix
+\input{sections/appendix_a_calculations}
+\input{sections/appendix_b_gkt_completion}
+
+\begin{thebibliography}{GKT22}
+\input{references}
+\end{thebibliography}
+
+\end{document}

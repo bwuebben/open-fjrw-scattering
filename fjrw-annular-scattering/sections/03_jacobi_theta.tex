@@ -1,0 +1,426 @@
+\section{Jacobi scattering and theta functions}
+\label{sec:jacobi-theta}
+
+\subsection{The twisted volume line}
+
+Fix a root chamber and an integral basis $e_1,e_2$ of $\widetilde M$.  Put
+\begin{equation}\label{eq:primitive-form}
+ \kappa=e_1+e_2,
+ \qquad \Omega_0=d\log z_1\wedge d\log z_2,
+ \qquad \Omega_\kappa=z^\kappa\Omega_0.
+\end{equation}
+Let $J(q_1,q_2)=(q_2,-q_1)$ and denote the invariant logarithmic derivation
+in direction $v$ by $\partial_v$.
+
+\begin{proposition}[Shifted Hamiltonian bracket]
+\label{prop:shifted-bracket}
+The inverse bivector $\pi_\kappa=z^{-\kappa}\pi_0$ of $\Omega_\kappa$ has
+Hamiltonian vector fields
+\begin{equation}\label{eq:shifted-Hamiltonian}
+ X_q^\kappa=z^{q-\kappa}\partial_{Jq},
+\end{equation}
+and
+\begin{equation}\label{eq:shifted-bracket}
+ [X_q^\kappa,X_r^\kappa]
+ =-\det(q,r)X_{q+r-\kappa}^\kappa.
+\end{equation}
+Thus, after writing $q=k+\kappa$ and $r=\ell+\kappa$, the output is indexed
+by $k+\ell$.
+\end{proposition}
+
+\begin{proof}
+The Hamiltonian field of $z^q$ for $z^{-\kappa}\pi_0$ is
+\eqref{eq:shifted-Hamiltonian}.  The bracket of two monomial derivations has
+direction
+\[
+ \langle Jq,r-\kappa\rangle Jr
+ -\langle Jr,q-\kappa\rangle Jq
+ =-\det(q,r)J(q+r-\kappa),
+\]
+which gives \eqref{eq:shifted-bracket}.
+\end{proof}
+
+The lifted slab map at $V$ is symplectic for $\Omega_0$, but
+\begin{equation}\label{eq:slab-conformal}
+ \widetilde\theta_V^*\Omega_\kappa
+ =g_V^{\langle N_V,\kappa\rangle}\Omega_\kappa,
+ \qquad
+ \bigl(\langle N_V,\kappa\rangle\bigr)_V=(-2,-2,2,-2).
+\end{equation}
+Choose a local line frame $e$ and identify frames across the slab by
+\begin{equation}\label{eq:line-transition}
+ \widetilde\theta_V^*e'=g_V^{-\langle N_V,\kappa\rangle}e.
+\end{equation}
+The products $\Omega_\kappa\otimes e$ then glue.  We denote the resulting
+line by $\Lcal_\kappa$.
+
+The transition law therefore requires a line bundle.
+
+\begin{proposition}[No scalar frame]\label{prop:no-scalar-frame}
+The scalar $\kappa$-twisted Hamiltonian algebra containing the two singleton
+fields is not preserved under conjugation by any lifted slab transition.
+Consequently its local brackets do not glue to a bracket on the structure
+sheaf.
+\end{proposition}
+
+\begin{proof}
+If $p_V$ is the slab exponent and
+\[
+ S_V=\frac1{d_V}\log(1+z^{p_V})\partial_{N_V},
+\]
+then for $k=q-\kappa$ one computes
+\begin{equation}\label{eq:mixed-slab-bracket}
+ [S_V,X_q^\kappa]
+ =\sum_{r\geq1}\frac{(-1)^{r+1}}{d_V}z^{k+rp_V}
+ \left(
+  \frac{\langle N_V,k\rangle}{r}\partial_{Jq}
+  -\langle Jq,p_V\rangle\partial_{N_V}
+ \right).
+\end{equation}
+With respect to $\Omega_\kappa$, the divergence of the $r$th summand has
+coefficient
+\[
+ \frac{(-1)^r}{d_V}
+ \langle Jq,p_V\rangle\langle N_V,\kappa\rangle.
+\]
+For $r=1$ and the singleton exponents $q_1=(2,1)$ and $q_2=(1,2)$, the
+eight coefficients are
+\[
+\begin{array}{c|rrrr}
+ &A&B_0&B_1&C\\ \hline
+ q_1&2&3&1&-10\\
+ q_2&10&3&-7&-2.
+\end{array}
+\]
+Thus every singleton--slab interaction has nonzero divergence.
+\end{proof}
+
+\begin{proposition}[Jacobi transport]\label{prop:Jacobi-transport}
+The line $\Lcal_\kappa$ on the pathwise pro-root object carries a canonical
+Jacobi bracket whose expression in the distinguished chamber is the
+$\kappa$-twisted Poisson bracket.  Every lifted slab transition is a Jacobi
+isomorphism.  The construction is compatible with finite root restriction
+and descends with the pro-Kummer coefficient object.
+\end{proposition}
+
+\begin{proof}
+In a frame $e$, write a Jacobi bracket as
+\[
+ \{fe,he\}=
+ \bigl(\Lambda(df,dh)+fE(h)-hE(f)\bigr)e.
+\]
+Under $e'=ae$ the local pair transforms by
+\begin{equation}\label{eq:Jacobi-frame-change}
+ \Lambda'=a\Lambda,
+ \qquad E'=aE+\Lambda^\sharp(da).
+\end{equation}
+Start at the root chamber with $(\Lambda,E)=(\pi_\kappa,0)$ and transport
+the pair across each edge using \eqref{eq:line-transition} and
+\eqref{eq:Jacobi-frame-change}.  Every vertex of the path tree has a unique
+route from the root, so the construction is unambiguous and compatible with
+restriction to finite subtrees.  Change of frame and pullback preserve the
+Jacobi identity.  The deck action transports the same data, giving descent.
+\end{proof}
+
+Equivalently, $\Lcal_\kappa^\vee\setminus0$ carries the Poissonization of
+this Jacobi structure.  The line-bundle formulation displays the slab
+multiplier in \eqref{eq:line-transition} explicitly.
+
+\begin{definition}[Jacobi walls and consistency]\label{def:Jacobi-wall}
+Fix a finite root-stack presentation and reduce the coefficient ring modulo $I^N$.  A
+\emph{Jacobi wall} is a pair $(\mathfrak d,\Theta_{\mathfrak d})$, where
+$\mathfrak d$ is an oriented rational affine segment, ray, or full chord in
+the smooth locus and $\Theta_{\mathfrak d}$ is a locally constant
+unipotent Jacobi automorphism along $\mathfrak d$, congruent to the identity
+modulo $I$.  The automorphism is read in the local frame of
+$\Lcal_\kappa$ and is transported between wall charts by
+Proposition~\ref{prop:Jacobi-transport}.
+
+For a transverse path $\gamma$, its \emph{path-ordered product}
+$\Theta_\gamma$ is the product of the crossed wall automorphisms in crossing
+order, using the inverse when the coorientation is reversed.  A locally
+finite collection of Jacobi walls is \emph{consistent at a joint} if the
+path-ordered product around a sufficiently small positively oriented loop
+about that joint is the identity.  It is \emph{contractibly consistent} if
+$\Theta_\gamma$ depends only on the homotopy class of $\gamma$ relative to
+its endpoints for homotopies through compact transverse paths.
+\end{definition}
+
+All these notions are finite-stage notions.  A wall structure on the
+pro-Kummer object means a compatible system of such structures as the root
+stage and $N$ vary.  This convention prevents inverse-limit notation from
+hiding an infinite path-ordered product.
+
+\subsection{The singleton joint}
+
+Let $t_1,t_2$ be the two singleton parameters, $I=(t_1,t_2)$, and put
+\begin{equation}\label{eq:singleton-generators}
+ E_{a,b}=t_1^at_2^bX_{\kappa+(a,b)}^\kappa,
+ \qquad (a,b)\in\NN^2\setminus\{(0,0)\}.
+\end{equation}
+Then
+\begin{equation}\label{eq:singleton-bracket}
+ [E_{a,b},E_{c,d}]
+ =-\det\bigl(\kappa+(a,b),\kappa+(c,d)\bigr)E_{a+c,b+d}.
+\end{equation}
+The two incoming GKT normalizations are
+\begin{equation}\label{eq:incoming-singletons}
+ \mathsf A=-\frac12E_{1,0},
+ \qquad \mathsf B=-\frac12E_{0,1}.
+\end{equation}
+Since the shifted exponents are $(2,1)$ and $(1,2)$,
+\begin{equation}\label{eq:first-bracket}
+ [\mathsf A,\mathsf B]= -\frac34E_{1,1}.
+\end{equation}
+
+\begin{proposition}[Ordered singleton completion]
+\label{prop:singleton-completion}
+Let $\widehat{\mathfrak g}_{\mathrm{sing}}$ be the product of the lines
+spanned by the $E_{a,b}$, completed in total deformation degree.  The
+inverse commutator
+\begin{equation}\label{eq:singleton-commutator}
+ \bigl(e^{\mathsf A}e^{\mathsf B}e^{-\mathsf A}e^{-\mathsf B}\bigr)^{-1}
+\end{equation}
+has a unique factorization into ray groups in increasing shifted slope.  The
+factorization is finite modulo $I^N$, is compatible under reduction of $N$,
+and begins with $\exp(\frac34E_{1,1})$ in the chosen outgoing orientation.
+\end{proposition}
+
+\begin{proof}
+Formula~\eqref{eq:singleton-bracket} gives an $\NN^2$-grading with finitely
+many components modulo $I^N$.  Generators whose shifted exponents lie on one
+ray commute.  At each total degree, take the logarithm of the residual word,
+decompose its homogeneous part into ray summands, and insert the summands in
+slope order.  This is the standard filtered factorization for
+two-dimensional scattering diagrams \cite{grosspandharipandesiebert2010}.
+Directness of the ray decomposition gives uniqueness.  Equation
+\eqref{eq:first-bracket} gives the initial coefficient and the inverse-loop
+sign.
+\end{proof}
+
+\subsection{Cofactor supports and consistency}
+
+In the plus cofactor chart, the incoming shifted exponents have support
+directions
+\begin{equation}\label{eq:cofactor-singletons}
+ L(2,1)=(-4,3),
+ \qquad L(1,2)=(-2,3).
+\end{equation}
+Each is placed on the full chord through the central point $O$.  Full chords
+are forced: a small loop around the endpoint of a truncated degree-one wall
+would cross that wall once, while every correction begins in degree two.
+
+If $q=\lambda(2,1)+\mu(1,2)$ with $\lambda,\mu\geq0$, then
+\begin{equation}\label{eq:outgoing-cofactor}
+ Lq=(-4\lambda-2\mu,3\lambda+3\mu).
+\end{equation}
+For $\lambda>\mu$ the ray exits one upper facet, for $\mu>\lambda$ it exits
+the other, and for $\lambda=\mu$ it runs to the $B$ singularity.  A
+correction parallel to an incoming ray is multiplied into the positive half
+of the same chord.  Every other correction is placed on its own outgoing
+radial support.
+
+\begin{figure}[t]
+\centering
+\begin{adjustbox}{max width=\textwidth,center}
+\input{figures/fig04_cofactor_supports_snippet.tex}
+\end{adjustbox}
+\caption{Cofactor placement.  The two full chords carry the singleton
+factors.  Off-diagonal corrections exit the deleted boundary; the diagonal
+support ends at a lift of $B$.  Crosswise gluing of the branch cut produces
+two copies of the joint without adding intersections.}
+\label{fig:cofactor-supports}
+\end{figure}
+
+\begin{proposition}\label{prop:proper-supports}
+Modulo $I^N$, the cofactor placement is a proper locally finite wall support
+system on $\Acal^\circ$.  Its only finite joints are the two lifts $O_0,O_1$
+of $O$.  Distinct winding lifts do not meet on the annulus, even when their
+developed images intersect in an affine plane.
+\end{proposition}
+
+\begin{proof}
+Modulo $I^N$ there are finitely many deformation bidegrees.  After resonant
+corrections have been grouped with the incoming chords, the compact polygon
+contains a finite embedded chord-and-ray skeleton whose members meet only at
+$O$.  In the normalization of Appendix~\ref{app:calculations}, the branch
+segment joins $(-1/2,-1/2)$ to $(3/2,-1/2)$ and crosses the two negative
+singleton chords at $(2/3,-1/2)$ and $(1/3,-1/2)$, away from $O$.
+Crosswise gluing lifts each chord smoothly and produces two copies of the
+skeleton, without creating another intersection.  Deleting the outer and
+focus endpoints makes each support relatively closed.  A compact subset of
+$\Acal^\circ$ stays a positive distance from these ends and therefore meets
+finitely many supports.  Developed intersections of different deck lifts do
+not descend to intersections of the supports themselves.
+\end{proof}
+
+Transport the ordered factorization of
+Proposition~\ref{prop:singleton-completion} through the Jacobi path atlas.
+
+\begin{theorem}[Open annular consistency]\label{thm:annular-consistency}
+The transported factors on the supports of
+Proposition~\ref{prop:proper-supports} define a deck-equivariant Jacobi wall
+structure on $\Acal^\circ$.  It is consistent at every joint and
+descends to
+$\widehat\Xfrak_{\mathrm{ann}}^{\mathrm{root}}$.  Every path-ordered
+transport along a compact transverse path modulo $I^N$ is defined on one
+finite root-stack presentation and depends only on the contractible homotopy class of the
+path relative to its endpoints.
+\end{theorem}
+
+\begin{proof}
+At either joint $O_i$, the two full chords contribute the commutator in
+\eqref{eq:singleton-commutator}, while the outgoing walls carry its unique
+ordered inverse factorization.  Their product is the identity modulo $I^N$
+for every $N$.  Changing a path chart conjugates this complete identity by a
+Jacobi isomorphism.  Deck transport carries one wall skeleton to the
+next, and Proposition~\ref{prop:proper-supports} excludes new joints between
+different lifts.  This proves descent and contractible consistency.
+
+A compact path crosses finitely many walls modulo $I^N$.  Theorem
+\ref{thm:forced-category} places all of its root and wall transitions on one
+finite stage.  Subdivision of a contractible homotopy into small joint loops
+then gives homotopy invariance.
+\end{proof}
+
+The qualification ``contractible'' retains the global annular holonomy absent
+from the boundary-charge cone.
+
+\subsection{Hyperbolic holonomy and finite covers}
+
+The matrix $K$ in \eqref{eq:intro-K} satisfies
+\begin{equation}\label{eq:K-spectrum}
+ \chi_K(T)=T^2-18T+1,
+ \qquad \lambda_\pm=9\pm4\sqrt5.
+\end{equation}
+For $q_1=(2,1)$ and $q_2=(1,2)$, put $q_{i,n}=K^nq_i$.  Then
+\begin{equation}\label{eq:Pell-recurrence}
+ q_{i,n+2}=18q_{i,n+1}-q_{i,n},
+ \qquad \det(q_{1,n},q_{2,n})=3.
+\end{equation}
+The core fixes their classes in $D$ but moves every nonzero exponent through
+an infinite orbit.
+
+More precisely, if a path $\gamma$ has linear holonomy $L_\gamma$, its
+coefficient action in a developed chart has the form
+\begin{equation}\label{eq:coefficient-holonomy}
+ \Psi_\gamma(z^m)=c_\gamma(m)z^{L_\gamma m},
+\end{equation}
+where $c_\gamma$ is a multiplicative character with values in finite products
+of path-indexed root units.  Its unique lift to the volume line has
+multiplier
+\begin{equation}\label{eq:line-holonomy}
+ c_\gamma(\kappa)^{-1}z^{\kappa-L_\gamma\kappa}.
+\end{equation}
+Thus the annular holonomy is a semidirect action on exponents, roots, and the
+volume line; a residual finite root phase alone does not describe it.
+
+\begin{theorem}[Theta local system]\label{thm:theta-local-system}
+No nonzero $m\in\widetilde M$ has finite $K$-orbit.  A single-valued theta
+function on the annular quotient therefore cannot have a unique nonzero
+leading monomial $z^m$.  Moreover, the formal orbit sum
+\[
+ \sum_{n\in\ZZ}\Hol(K)^n(\vartheta_m)
+\]
+does not converge in the $I$-adic completion.  The framed theta modules,
+with the action \eqref{eq:coefficient-holonomy}--\eqref{eq:line-holonomy},
+form a $K$-equivariant local system rather than a globally lattice-indexed
+basis.
+\end{theorem}
+
+\begin{proof}
+Neither eigenvalue in \eqref{eq:K-spectrum} is a root of unity, so
+$K^r-1$ is invertible over $\RR$ for every $r\ne0$.  Thus no nonzero lattice
+vector is periodic.  Holonomy takes a theta section with leading term $z^m$
+to one with leading term $z^{Km}$, proving the first assertion.  The terms
+of the orbit sum have distinct leading monomials, all of deformation order
+zero.  Their orders do not tend to infinity, so the $I$-adic topology does
+not sum them.
+\end{proof}
+
+Two finite covers retain the finite grading data.  Let
+$p_{\mathrm{sec}}:\Acal^\circ_{\mathrm{sec}}\to\Acal^\circ$ be the
+degree-two cover on which $D$ is constant.  The residual involution exchanges
+$\alpha$ and $\beta$.  Put
+\begin{equation}\label{eq:GKT-residue-group}
+ M_{\GKT}=4\ZZ^2\subset M\subset\widetilde M,
+ \qquad
+ Q_{\GKT}=\widetilde M/M_{\GKT}\simeq(\ZZ/4)^2.
+\end{equation}
+Every peripheral monodromy acts on $Q_{\GKT}$ by the order-four matrix
+\begin{equation}\label{eq:residue-matrix}
+ P_{\mathrm{res}}=\begin{pmatrix}2&1\\3&0\end{pmatrix}\pmod4.
+\end{equation}
+The corresponding degree-four ordered-residue cover factors through
+$p_{\mathrm{sec}}$.  Both covers preserve the pro-Kummer roots, volume line,
+and wall structure.  Neither kills the hyperbolic exponent holonomy: the
+first closed core lift to the ordered-residue cover acts by $K^2$.
+
+On the sector cover, let $\delta_{\mathrm{deck}}$ denote the deck involution.  For a
+$D$-graded deck-linearized object $\mathcal F$, define
+\begin{equation}\label{eq:pushforwards}
+ \Corr(\mathcal F)=p_*\mathcal F,
+ \qquad
+ \Sym(\mathcal F)_j
+ =\left(\bigoplus_{\sigma(d)=j}p_*\mathcal F_d\right)^{\delta_{\mathrm{deck}}}.
+\end{equation}
+The first functor retains the two singleton labels and the deck operator;
+the second takes the coordinate-symmetric summand.  Since the ground field
+has characteristic zero, the idempotents
+\[
+ e_+=\frac{1+\delta_{\mathrm{deck}}}{2},
+ \qquad e_-=\frac{1-\delta_{\mathrm{deck}}}{2}
+\]
+split the labelled object into symmetric and Prym parts.  Products are first
+constructed equivariantly and only then restricted to $e_+$.
+
+\subsection{Framed theta multiplication}
+
+A \emph{path frame} consists of a lifted source chamber, an initial exponent
+and generic endpoint, a compact region containing the broken lines under
+consideration, a deformation order $N$, and a finite root-stack presentation supporting
+the resulting finite diagram.  For such a frame define
+\begin{equation}\label{eq:theta-sum}
+ \vartheta_p=\sum_{\gamma\in\operatorname{BL}(p,Q)}
+ a_\gamma z^{m(\gamma)}=z^p+O(I).
+\end{equation}
+Modulo $I^N$ the sum is finite: only finitely many walls meet the compact region,
+and a contributing broken line has at most $N-1$ nontrivial bends.
+
+\begin{theorem}[Finite-window theta multiplication]
+\label{thm:theta-multiplication}
+Fix finitely many framed theta sections, products, and associativity diagrams
+modulo $I^N$.  After a finite enlargement of the exponent set and refinement
+of the root-stack presentation, every requested product has a unique theta re-expansion.  These
+products are commutative, associative, and equivariant under path and deck
+transport.
+
+If $B(z^m)=\vartheta_m$ is the finite change-of-basis matrix and
+$b_{p,q}$ is the vector of monomial coefficients in
+$\vartheta_p\vartheta_q$, then
+\begin{equation}\label{eq:theta-reexpansion}
+ B=1+U,
+ \qquad B^{-1}=\sum_{j=0}^{N-1}(-U)^j\pmod{I^N},
+ \qquad c_{p,q}=B^{-1}b_{p,q}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Proper local finiteness and the bend bound make every chosen theta sum and
+ordinary product finite.  If re-expansion requires a new terminal exponent,
+adjoin its theta sum and repeat.  Every correction raises $I$-order, so the
+process stops after at most $N-1$ rounds.  Theorem
+\ref{thm:forced-category} gives one finite root-stack presentation for the resulting
+diagram.
+
+The no-bend term makes $B$ unipotent, and the finite geometric series in
+\eqref{eq:theta-reexpansion} is its two-sided inverse.  Re-expansion is
+therefore unique.  Commutativity and associativity follow from ordinary
+multiplication in the source chart.  Path and deck transports are algebra
+isomorphisms and carry the complete change-of-basis diagram with them.
+\end{proof}
+
+The raw monomial vector $b_{p,q}$ and the theta structure constants
+$c_{p,q}$ are different quantities.  This distinction will be essential in
+Section~\ref{sec:primary-frobenius}, where Jacobian reduction and period
+normalization supply two further changes of basis.

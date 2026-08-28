@@ -1,6 +1,6 @@
-# Open FJRW boundary-ray factorization
+# Open FJRW wall crossing and annular scattering
 
-**Bernd Johannes Wuebben** — two manuscripts and their exact verification code.
+**Bernd Johannes Wuebben** — three manuscripts and their exact verification code.
 
 Gross, Kelly and Tessler constructed genus-zero open FJRW invariants for the
 Landau--Ginzburg model
@@ -10,60 +10,69 @@ Landau--Ginzburg model
 ```
 
 and a wall-crossing group describing their dependence on canonical boundary
-conditions. This repository studies the first walls, reorganizes their
-automorphisms by boundary direction, and relates the resulting algebraic
-factorization to actual homotopies of GKT boundary conditions. References to
-GKT use version 3 of [*Open FJRW theory and mirror
-symmetry*](https://arxiv.org/abs/2203.02435).
+conditions. These papers study the first wall-crossing threshold, factor the
+boundary transport by slope, and construct an annular scattering and
+logarithmic framework for the quartic descendent theory. References to GKT use
+version 3 of [*Open FJRW theory and mirror
+symmetry*](https://arxiv.org/abs/2203.02435), published in *Geometry &
+Topology* 30 (2026), 2779--2960.
 
 ## Manuscripts
 
-### The central-charge threshold
+### Paper 1: The central-charge threshold
 
-[`companion/central-charge-threshold.pdf`](companion/central-charge-threshold.pdf)
+[`central-charge-threshold/central-charge-threshold.pdf`](central-charge-threshold/central-charge-threshold.pdf)
 proves that the primary invariants are independent of canonical boundary
 conditions precisely when the central charge is less than one, equivalently
-for the two-variable Fermat simple singularities. It also gives the exact
-first-wall trichotomy, exhibits a universal one-insertion descendent wall, and
-identifies each wall vector field with a Hamiltonian vector field in a graded
-subalgebra of the tropical vertex Lie algebra. At central charge one, the
-first wall is the torus direction
-`x d/dx - y d/dy`.
+for the two-variable Fermat simple singularities. It gives the exact first-wall
+trichotomy, exhibits a universal one-insertion descendent wall, and identifies
+each wall vector field with a Hamiltonian vector field in a graded subalgebra
+of the tropical vertex Lie algebra.
 
-### Boundary-ray factorization and geometric wall-crossing
+### Paper 2: Boundary-ray factorization
 
-[`paper/boundary-ray-factorization.pdf`](paper/boundary-ray-factorization.pdf)
-proves:
+[`boundary-ray-factorization/boundary-ray-factorization.pdf`](boundary-ray-factorization/boundary-ray-factorization.pdf)
+proves unique increasing-slope factorization of primary transitions and
+coefficientwise factorization for descendents on finite divisor-closed
+coefficient sets. It constructs the two extremal systems, reconstructs every
+open potential from its initial coefficients, and realizes every finite
+factorization by a concatenation of GKT canonical homotopies. Its exact
+`x^5+y^5` calculations include a complete Sage/admcycles check of the relevant
+open topological recursion.
 
-1. unique increasing-slope factorization of primary transitions over the rays
-   spanned by the two boundary-marking counts, and coefficientwise
-   factorization for descendents on finite divisor-closed coefficient sets;
-2. canonical extremal systems and a canonical boundary-to-boundary
-   factorization between them;
-3. reconstruction of every open potential from unique initial coefficients by
-   successive ray transport;
-4. realization, for every finite primary or descendent coefficient set, by an
-   actual concatenation of GKT canonical homotopies whose nonzero projected
-   jumps occur on one boundary ray at a time, in increasing slope;
-5. exact first factors and invariant values for `x^5+y^5`, together with a
-   complete Sage/admcycles check of the relevant open topological recursion;
-6. a projective obstruction: the punctured boundary-charge sector records
-   slope transport but supplies neither origin monodromy nor a singular
-   integral-affine position space.
+The chosen finite realizing homotopies are not proved compatible in the
+inverse limit. The paper therefore does not claim a completed geometric
+homotopy for the dense descendent ray set or a Gross--Siebert/SYZ theta theory
+from the un-enriched continuation data alone.
 
-The finite algebraic factorizations are compatible as the coefficient set
-grows. The chosen realizing homotopies are **not** proved compatible in that
-limit. Thus the paper does not construct one completed geometric homotopy for
-the dense descendent ray set, nor does it claim a Gross--Siebert/SYZ theta
-theory from the un-enriched continuation data alone.
+### Paper 3: Annular scattering and quartic descendents
+
+[`fjrw-annular-scattering/fjrw-annular-scattering.pdf`](fjrw-annular-scattering/fjrw-annular-scattering.pdf)
+constructs a compact rational PL bordism class over finite diagrams of open
+and closed quartic W-spin moduli spaces. A relative residue trace turns its
+exterior boundary into the two GKT cotangent-line recursions and identifies the
+two annular ends with the least- and greatest-slope canonical systems. The
+supporting geometry consists of the forced annular parity cover, its finite
+pro-Kummer stages, a Jacobi theta-algebra local system, and separated
+fine-saturated logarithmic compactifications.
+
+The construction is coefficientwise over finite windows. It does not produce
+an analytic infinite-window virtual fundamental class, identify a coefficient
+in an arbitrary GKT chamber, or select a distinguished toric degeneration of
+the original quartic pair.
 
 ## Repository layout
 
 ```text
-paper/       boundary-ray paper: LaTeX source and descriptive PDF
-companion/   central-charge note: LaTeX source and descriptive PDF
-src/         exact verification programs
+central-charge-threshold/      Paper 1 source and descriptive PDF
+boundary-ray-factorization/    Paper 2 source and descriptive PDF
+fjrw-annular-scattering/       Paper 3 reader source, PDF, and exact checks
+src/                            shared verification programs for Papers 1--3
 ```
+
+Each manuscript builds independently with `latexmk -pdf main.tex` from its
+source directory. Paper 3 has a more detailed command map in
+[`fjrw-annular-scattering/README.md`](fjrw-annular-scattering/README.md).
 
 ## Verification
 
@@ -74,42 +83,38 @@ Python 3 and SymPy installed:
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 for f in src/*.py; do .venv/bin/python "$f"; done
+for f in fjrw-annular-scattering/src/*.py; do .venv/bin/python "$f"; done
 ```
 
-Equivalently, a SageMath installation can run the same programs with
-`sage -python`. The full Neveu--Schwarz and Ramond recursion check additionally
-requires [admcycles](https://pypi.org/project/admcycles/):
+The Sage programs can be run from the repository root:
+
+```sh
+for f in fjrw-annular-scattering/src/*.sage; do sage "$f"; done
+```
+
+Paper 2's full Neveu--Schwarz and Ramond recursion check additionally requires
+[admcycles](https://pypi.org/project/admcycles/):
 
 ```sh
 sage -pip install admcycles
 sage src/verify_thm05_full.sage
 ```
 
-The full check reports 72/72 matching two-insertion instances and 105/105
-matching three-insertion instances.
-
-### Code map
-
-| Programs | Mathematical content |
-|---|---|
-| `census.py`, `gkt_algebra.py` | critical-graph census, central-charge trichotomy, wall algebra |
-| `canonical_diagram.py`, `diagonal_wall_count.py`, `first_two_ray_diagonal.py`, `two_ray_forced.py` | canonical factors, diagonal structure, and the first forced two-ray example |
-| `anchor_induction.py`, `backscatter.py`, `canonical_seeds.py`, `farside_test.py`, `seed_chain_formula.py`, `transport_engine.py`, `mixed_sector.py` | seed inversion and boundary-ray transport |
-| `ray_accumulation.py`, `ray_density_exact.py` | primary local finiteness and descendent ray accumulation |
-| `mirror_periods.py`, `oscillatory_check.py`, `a_invariants.py` | period functionals and exact open-invariant relations |
-| `rspin.py`, `taut_m0n.py`, `closed_fjrw.py` | closed FJRW input and tautological intersections |
-| `verify_thm05.py`, `verify_thm05_full.sage` | narrow and full open-topological-recursion checks |
-| `scattering.py` | Hamiltonian bracket and leading BCH calculation |
+That check reports 72/72 matching two-insertion instances and 105/105 matching
+three-insertion instances. Paper 3's four final Python checks verify 116,311
+factorization-corolla, 33,225 relative-contact, 654,670 affine-boundary, and
+404,875 cotangent-recursion identities.
 
 ## References
 
 - M. Gross, T. L. Kelly, and R. J. Tessler, [*Open FJRW theory and mirror
-  symmetry*](https://arxiv.org/abs/2203.02435).
+  symmetry*](https://arxiv.org/abs/2203.02435), *Geom. Topol.* 30 (2026),
+  2779--2960.
 - M. Gross, T. L. Kelly, and R. J. Tessler, [*Open enumerative geometries for
   Landau--Ginzburg models*](https://arxiv.org/abs/2602.12707).
-- R. Maher, *Predictions in open Fan--Jarvis--Ruan--Witten theory via mirror
-  symmetry, modularity, and wall-crossing*, Ph.D. thesis, University of
-  Birmingham, 2024.
+- R. Maher, [*Predictions in open Fan--Jarvis--Ruan--Witten theory via mirror
+  symmetry, modularity, and wall-crossing*](https://etheses.bham.ac.uk/id/eprint/15556/),
+  Ph.D. thesis, University of Birmingham, 2024.
 
 ## License
 

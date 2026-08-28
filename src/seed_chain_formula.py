@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 r"""
-Exact checks for the ordered broken-line chain formula in
-notes/seed_chain_expansion.md.
+Exact checks for the ordered broken-line chain formula used in ray transport.
 
 The script checks the two coefficients that distinguish the formula:
   (1) the factorial-weighted double bend in the pure t_(3,3) tower;

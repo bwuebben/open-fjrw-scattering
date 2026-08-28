@@ -3,7 +3,7 @@ r"""
 canonical_diagram.py -- the canonical scattering diagram of open FJRW theory of x^5+y^5:
 normal forms (Theorem E) and the first wall functions (Theorem F).
 
-Theorem E (normal forms / extreme chambers; notes/c1_scattering_presentation.md section 6):
+Theorem E (normal forms / extreme chambers):
 on every (J,d)-diagonal with N >= 1, the infinitesimal wall action moves the coefficient
 vector (nu_0,...,nu_N) along the triangular directions
       w_p = r(k_2(p+1)+1) e_{p+1} - s(k_1(p)+1) e_p ,   p = 0..N-1,

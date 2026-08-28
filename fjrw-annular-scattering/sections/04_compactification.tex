@@ -1,0 +1,510 @@
+\section{Logarithmic compactification}
+\label{sec:compactification}
+
+The wall structure of Theorem~\ref{thm:annular-consistency} is proper on the
+open annulus, but its supports have genuine exits at the deleted boundary and
+focus ends.  Restoring the compact boundary does not turn these exits into
+ordinary harmless boundary joints.  We replace them by logarithmic caps.
+The construction is first made for a finite GKT window
+$\Wcal=(L,P,\mathcal E)$ in the sense of
+Definition~\ref{def:intro-finite-window}, a deformation order $N$, and a
+finite root subtree $T$.  Its coefficient ring is
+$R_{\Wcal,N}$ from \eqref{eq:intro-window-ring}, with $L$ in place of $I$.
+The symbol $\Xfrak_{T,\Wcal,N}$ denotes the finite logarithmic cap obtained
+from the root subtree $T$ over this ring.
+
+\subsection{Why the ends must be modified}
+
+Near a smooth boundary point choose affine coordinates in which the tangent
+wedge is the upper half-plane and the boundary tangent is $(1,0)$.  If a
+wall terminates transversely with primitive inward direction $m=(u,v)$,
+$v>0$, and outgoing multiplicity $d>0$, the extremal bend changes the
+boundary tangent to
+\begin{equation}\label{eq:boundary-bend}
+ (1+dvu,dv^2).
+\end{equation}
+Its normal component is positive.  The extremal broken line remains inside
+the wedge, so the boundary-convexity argument for tangent canonical walls
+does not apply \cite{grossetal2016theta}.  The endpoint retains nontrivial
+one-sided transport.
+
+Nor can one remove the boundary by an affine reflection.  In a boundary
+tangent--normal basis, write its nontrivial holonomy and a putative
+pointwise-fixing reflection as
+\[
+ U=\begin{pmatrix}1&w\\0&1\end{pmatrix},
+ \qquad R=\begin{pmatrix}1&c\\0&-1\end{pmatrix}.
+\]
+The relation $RU=UR$ forces $2w=0$, whereas the two annular boundary widths
+are $4$ and $16$.
+
+At a finite stage, close the wall skeleton in $\overline\Acal$ and retain the
+two one-sided germs at every transverse endpoint.  A path may terminate at
+such a germ but is not continued across it.  Let
+\begin{equation}\label{eq:exit-word}
+ E_{\Wcal,N}=\Theta_m\cdots\Theta_1
+\end{equation}
+be the complete ordered product along one attaching circle, after coincident
+abelian supports have been combined.  At $A,C$ this word is empty; at
+$B_0,B_1$ all diagonal exits lie in one abelian group.  This stopped object
+is a useful intermediate form, but it is not yet a logarithmic
+compactification.
+
+The focus germs already have standard Kummer nearby charts.  If $s$ is the
+slab divisor and $xy=ts$ is the node chart, the degree-$d$ root is the fs
+monoid map
+\begin{equation}\label{eq:focus-monoid}
+ \langle x,y,t,s\mid x+y=t+s\rangle
+ \longrightarrow
+ \langle x,y,t,r\mid x+y=t+dr\rangle,
+ \qquad s\longmapsto dr.
+\end{equation}
+On the atlas this is $xy=tr^d$; inverting $r$ recovers the root-slab chart of
+Section~\ref{sec:affine-kummer}.
+
+\begin{lemma}[The focus root chart]\label{lem:focus-root-chart}
+For every $d\geq1$, the monoid
+\[
+ P_d=\langle x,y,t,r\mid x+y=t+dr\rangle
+\]
+is fine and saturated.  Its monoid algebra is
+\[
+ \Bbbk[P_d]\simeq
+ \Bbbk[x,y,t,r]/(xy-tr^d).
+\]
+The map in \eqref{eq:focus-monoid} is Kummer with group cokernel
+$\ZZ/d$, and its atlas is finite free, given by the monic equation
+$r^d=s$.  After any coefficient base change, both the chart and its
+boundary $r=0$ are flat over the coefficient ring.
+\end{lemma}
+
+\begin{proof}
+The defining binomial is prime because its exponent relation is primitive.
+The hypersurface $xy=tr^d$ is Cohen--Macaulay.  For $d=1$ its singular
+locus is the origin; for $d>1$ it is contained in $x=y=r=0$, of codimension
+two.  Serre's criterion therefore makes $\Bbbk[P_d]$ normal, equivalently
+$P_d$ is saturated.  The group cokernel and the monic presentation follow
+from $s\mapsto dr$.  Finally,
+\[
+ \Bbbk[P_d]/(r)\simeq\Bbbk[x,y,t]/(xy),
+\]
+so tensoring either ring with a coefficient algebra over $\Bbbk$ preserves
+flatness.
+\end{proof}
+
+\subsection{Affine cylinder ends and peripheral holonomy}
+
+Real-oriented blowup replaces the two boundary components and four focus
+points by six attaching circles.  Their shear widths are
+\begin{equation}\label{eq:six-widths}
+ (w_0,w_1,w_A,w_{B,0},w_{B,1},w_C)=(4,16,1,1,1,1).
+\end{equation}
+
+\begin{proposition}[Outward affine flares]\label{prop:outward-flares}
+Let an attaching circle have affine length $\ell>0$ and holonomy $T^{-w}$.
+The quotient of $r\geq0$ by
+\begin{equation}\label{eq:flare-action}
+ (x,r)\longmapsto(x+\ell+wr,r)
+\end{equation}
+is a flaring integral-affine cylinder.  The action is free and proper, the
+circle at height $r$ has length $\ell+wr$, and $r$ is a proper integral
+convex exhaustion.  Every finite-stage wall exit extends to a proper ray and
+cannot return to the annular core.
+\end{proposition}
+
+\begin{proof}
+The $n$th power of \eqref{eq:flare-action} translates $x$ by
+$n(\ell+wr)$.  This quantity is nonzero for $n\ne0$, which proves freeness
+and properness.  The normal component of a tangent vector is preserved by
+the shear.  An exiting wall with positive normal component therefore crosses
+each level of $r$ at most once.
+\end{proof}
+
+The affine cylinder has the correct affine holonomy, but its peripheral loop
+also crosses the product \eqref{eq:exit-word}.  Let $\rho(H)$ denote the
+prescribed affine, root, sector, and volume-line transport around the
+attaching circle.
+Choose a radial seam disjoint from the exit supports and glue its two sides by
+\begin{equation}\label{eq:corrected-seam}
+ G_{\Wcal,N}=\rho(H)E_{\Wcal,N}^{-1}.
+\end{equation}
+A positive peripheral loop crosses $E_{\Wcal,N}$ and then the seam, so its
+total transport remains
+\begin{equation}\label{eq:seam-identity}
+ G_{\Wcal,N}E_{\Wcal,N}=\rho(H).
+\end{equation}
+The stopped operation has not been killed; it is the correction between the
+bare peripheral gluing and the cap seam.
+
+The polarization extends over every flare with positive integral kink seven.
+Indeed, if one branch on the core is $ax+br+c$, use
+$ax+(b+7)r+c$ on the flare.  The value seven is a convenient uniform choice:
+the directions and pole orders of the four basic wall characters at their
+negative ends are
+\[
+\begin{array}{c|rrrr}
+ q&(2,1)&(4,3)&(3,4)&(1,2)\\ \hline
+ Lq&(-4,3)&(-8,7)&(-6,7)&(-2,3)\\
+ \text{pole order}&3&7&7&3.
+\end{array}
+\]
+Additivity gives a bound of seven per deformation degree.  Equivalently, the
+auxiliary Rees relation
+\begin{equation}\label{eq:Rees-relation}
+ \lambda=u^7s
+\end{equation}
+regularizes every finite ordered product of exiting-wall automorphisms in one
+dominating expansion.  Equation~\eqref{eq:Rees-relation} does not define the
+boundary: its divisor $u=0$ is
+vertical over $\lambda=0$.  Horizontal flatness will instead come from
+transporting the monoid chart itself.
+
+\begin{proposition}[Separation of the exits]\label{prop:exit-separation}
+At each finite stage, the positive and negative support families on either
+outer flare are pairwise disjoint, apart from coincident supports combined in
+one abelian ray group.  A support-free seam can therefore be chosen, and the
+chamber nerve of the cut flare is an interval.  The focus flares $A,C$ carry
+no support, while $B_0,B_1$ carry one abelian radial support.
+\end{proposition}
+
+\begin{proof}
+Develop an outer attaching circle in invariant tangent--normal coordinates.
+A support of tangential speed $\sigma$ has equation
+$x(r)=\phi_i-\sigma(r+h_i)$, while the deck period at height $r$ is
+$w_i(r+h_i)$.  Thus two supports meet modulo deck translation exactly when
+their slope difference lies in $w_i\ZZ$.  The exact slope intervals, derived
+in Appendix~\ref{app:calculations}, have width smaller than $w_i$; every
+positive-minus-negative difference lies strictly between $0$ and $w_i$.
+Hence no two distinct supports meet.  The focus assertions follow from the
+cofactor placement: only the diagonal ray reaches a $B$ lift.
+\end{proof}
+
+\subsection{Transported monoids}
+
+Let $R=R_{\Wcal,N}$ be the finite Artin coefficient ring just defined.  Choose a base
+chamber $C_0$, an fs toric cap monoid $P$, and a finite Kummer algebra $S_0$
+over $R[P]$.  Locally, $S_0$ is obtained by tangent localizations and monic
+root equations
+\begin{equation}\label{eq:monic-roots}
+ S_i=S_{i-1}[r_i]/(r_i^{d_i}-f_i).
+\end{equation}
+Let $\nu:P\to\NN$ be the outward valuation and
+\begin{equation}\label{eq:boundary-ideal}
+ J_0=(z^p:\nu(p)>0)S_0.
+\end{equation}
+If $\Phi_C$ is the ordered Jacobi product from $C_0$ to a chamber $C$, set
+inside the punctured Kummer algebra
+\begin{equation}\label{eq:transported-charts}
+ S_C=\Phi_C(S_0),
+ \qquad J_C=\Phi_C(J_0),
+ \qquad P\longrightarrow S_C,
+ \quad p\longmapsto\Phi_C(z^p).
+\end{equation}
+The transport acts on the monoid chart itself.  A character
+with a pole in $S_0$ is regular in the appropriate $S_C$ by construction.
+
+Around a wall endpoint choose a small toric open star $U$.  If $\Phi_-$ and
+$\Phi_+$ are the products in the adjacent chambers, identify the complete
+transported charts, including their boundary strata, by
+\begin{equation}\label{eq:full-bridge}
+ \Phi_+\Phi_-^{-1}:
+ \Phi_-(S_0(U))\xrightarrow{\sim}\Phi_+(S_0(U)).
+\end{equation}
+The identification includes the full boundary overlap.  Gluing only after
+inverting the outward uniformizer would leave two copies of the boundary
+point.
+
+\begin{theorem}[Finite-stage logarithmic cap]
+\label{thm:finite-log-cap}
+The charts \eqref{eq:transported-charts}, glued by the full boundary identifications
+\eqref{eq:full-bridge}, form a separated fine-saturated formal logarithmic
+cap over $R$.  Its asymptotic divisor is defined chamberwise by $J_C$ and is
+flat over $R$.  The complement of this divisor is the corrected mapping
+torus \eqref{eq:corrected-seam}; reduction modulo the deformation ideal is
+the ordinary toric/Kummer cap with peripheral transport $\rho(H)$.  The
+construction commutes with restriction of the root tree and labelled coefficient system
+and with reduction of $N$.
+\end{theorem}
+
+\begin{proof}
+Every equation in \eqref{eq:monic-roots} is monic.  Before quotienting by
+the finite diagonalizable root group, $S_0$ is therefore finite free over
+the preceding toric ring; after restriction to the toric boundary the same
+monic equations remain.  Since $R$ is a characteristic-zero $\Bbbk$-algebra,
+the Reynolds operator splits invariants under this finite group.  Thus the
+invariant affine charts, as well as the root-stack atlases themselves, have
+$R$-flat boundary, and in particular $S_0/J_0$ is $R$-flat.
+
+Transport by $\Phi_C$ is an $R$-algebra isomorphism.  The prelog chart in
+\eqref{eq:transported-charts} is strictly isomorphic to the original toric
+chart, so its characteristic monoid is fs, and
+\begin{equation}\label{eq:horizontal-flatness}
+ S_C/J_C\simeq S_0/J_0
+\end{equation}
+is $R$-flat.
+
+By Proposition~\ref{prop:exit-separation}, the wall closures meet the
+asymptotic divisor at distinct points and the chamber nerve is an interval.
+The bridge \eqref{eq:full-bridge} is an isomorphism of the entire chart
+rings.  On endpoint bridges the overlap ring is either chart ring; on
+chamber-band overlaps, conjugation by $\Phi_C$ reduces to an ordinary
+intersection of toric opens.  In each case the affine-intersection
+multiplication map is surjective, proving separatedness.  Since the endpoint
+stars are disjoint, there are no further intersections or cap joints.
+
+If $C_m$ is the last chamber, $\Phi_{C_m}=E_{\Wcal,N}$.  At the seam,
+\[
+ G_{\Wcal,N}(S_{C_m})
+ =\rho(H)E_{\Wcal,N}^{-1}E_{\Wcal,N}(S_0)
+ =\rho(H)(S_0),
+\]
+which closes the cap with total transport \eqref{eq:seam-identity}.  Modulo
+the deformation ideal every wall product is the identity.  All operations
+are functorial under the stated restrictions.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\vspace{0.5\baselineskip}
+\begin{adjustbox}{max width=\textwidth,center}
+\input{figures/fig06_regular_cap_snippet.tex}
+\end{adjustbox}
+\caption{A logarithmic cap.  Wall rays on the outward flare give a linear
+chamber order.  Each chamber carries the transported monoid chart
+$P\to S_C$, and adjacent charts are identified across a full bridge
+containing the horizontal boundary.  The Rees relation controls pole order
+but does not define that boundary.}
+\label{fig:log-cap}
+\end{figure}
+
+There are three distinct restrictions of a finite cap.  Removing its
+asymptotic divisor gives the punctured corrected mapping torus.  Reducing the
+coefficient ring modulo its deformation ideal gives the toric/Kummer
+scattering-special fiber.  Restricting to the asymptotic divisor gives
+$\Spf(S_C/J_C)$, which remains flat over the entire coefficient ring by
+\eqref{eq:horizontal-flatness}.  No coefficient variable is identified with
+a spatial boundary uniformizer.
+
+\subsection{The compactification theorem}
+
+Truncate each flare at an integral level.  The extension of the polarization
+has positive kink seven, and the product subdivision gives locally convex
+boundary.  The original focus points have become peripheral end loops; their
+primitive monodromies remain as holonomy rather than codimension-two
+singularities of the truncation.  The finite tropical spaces are therefore
+positive, locally rigid, and pre-polarized in the sense used in
+\cite{carletal2024}.
+
+\begin{theorem}[Separated fs logarithmic compactification]
+\label{thm:regular-compactification}
+The finite caps of Theorem~\ref{thm:finite-log-cap}, including the focus
+charts \eqref{eq:focus-monoid}, form an inverse system indexed by finite root
+subtrees, finite labelled coefficient systems closed under the dependencies
+of Appendix~\ref{app:gkt-completion}, and deformation orders.
+Each stage is separated and fs logarithmic, and its six horizontal boundary
+divisors are flat over its finite Artin coefficient ring.  Its affine base
+has flare widths $4,16,1,1,1,1$ and a positive integral polarization.  Its
+punctured restriction carries the original annular Jacobi wall structure,
+with all root, sector, exponent, and volume-line holonomies unchanged.
+
+The inverse limit and chamber-groupoid quotient give a logarithmic
+compactification in the adic proalgebraic pro-Kummer category.  No
+regularity or log-regularity assertion is made, and the limit is not claimed
+to be an algebraic stack of finite type.
+\end{theorem}
+
+\begin{proof}
+Proposition~\ref{prop:outward-flares} supplies the affine ends and their
+proper convex exhaustion.  Proposition~\ref{prop:exit-separation} supplies a
+support-free seam and linearly ordered chamber cover, so every end satisfies
+Theorem~\ref{thm:finite-log-cap}.  Tensoring the Kummer monoid charts
+\eqref{eq:focus-monoid} with the cap monoids extends the root data.
+Lemma~\ref{lem:focus-root-chart} gives fs charts and coefficient-flat
+boundary at these four ends; root stacks commute with the base change.
+Proposition~\ref{prop:Jacobi-transport}
+then extends the volume line and its bracket.
+
+The full bridges introduce neither doubled boundary points nor new joints.
+All new charts restrict to the original ones before the exits, so
+contractible consistency and every framed annular product remain unchanged.
+Monic root equations and \eqref{eq:horizontal-flatness} give flatness at
+each stage.  Root construction, ordered wall products, and bridge maps commute
+with every finite restriction.  Passing to the compatible inverse system and
+then to the groupoid quotient proves the theorem.
+\end{proof}
+
+The special fiber in this theorem is the toric/Kummer cap of the annular
+model.  It is not identified with the central fiber of the original
+disk-shaped quartic degeneration.  This distinction is topological as well
+as categorical, and the topological half of it is an obstruction.
+
+\begin{proposition}[No ordinary CPS recovery]
+\label{prop:no-CPS-degeneration}
+Neither the annular cover $\overline\Acal$ nor its noncompact
+Legendre-dual cylindrical form is the dual intersection complex of a
+distinguished toric degeneration of del Pezzo surfaces with simple
+singularities, proper generic fiber, and smooth anticanonical divisor.
+\end{proposition}
+
+\begin{proof}
+For such a degeneration the dual intersection complex is homeomorphic to
+$\RR^2$ \cite[Prop.~7.13]{carletal2024}, so its first cohomology vanishes.
+An annulus and an open cylinder both have $H^1(-,\Bbbk)\simeq\Bbbk$.
+\end{proof}
+
+The conclusion is limited to that class of degenerations.  It does not
+exclude logarithmic or orbifold degenerations, non-proper models, a boundary
+of different topology, or a comparison which agrees only on part of the
+sector grading.  It does exclude reading the annulus as an unnoticed
+substitute for the ordinary Carl--Pumperla--Siebert affine base.
+
+\subsection{A regular dominating presentation}
+
+The finite stages of Theorem~\ref{thm:regular-compactification} are not
+themselves log regular in general.  This failure comes from the transported
+root divisors, not from the asymptotic boundary.
+
+\begin{proposition}[A multiple-root obstruction]
+\label{prop:root-stage-nonregular}
+There is a finite root-stack presentation whose atlas is singular and not log regular.
+More precisely, three divisors in the orbit \eqref{eq:root-tower} meet with
+distinct tangent directions at one point of the two-dimensional torus.
+\end{proposition}
+
+\begin{proof}
+Write $f_A=1+x_A$ and
+\[
+ F_n=1+f_A^{4n}x_B.
+\]
+At $p=(x_A,x_B)=(-2,-1)$ one has $f_A(p)=-1$ and $F_n(p)=0$ for every
+$n$.  For $n=0,1,2$ the gradients are
+\[
+ \nabla F_0(p)=(0,1),\qquad
+ \nabla F_1(p)=(4,1),\qquad
+ \nabla F_2(p)=(8,1),
+\]
+so the three reduced divisors are smooth and pairwise transverse at $p$.
+The simultaneous root atlas has equations
+\[
+ r_i^2=F_i,\qquad 0\leq i\leq2.
+\]
+It is finite over a surface.  At the point above $p$ with all $r_i=0$, its
+three-by-five Jacobian has rank two, so its tangent space has dimension
+three.  The atlas is therefore singular.  If the three root divisors are put
+in the log structure, the log ideal cuts out the closed point but the sharp
+characteristic group has rank three.  Kato's dimension equality would read
+$2=0+3$, so the chart is not log regular.  Such a finite stage occurs by
+taking a rooted subtree containing the paths which give $F_0,F_1,F_2$.
+\end{proof}
+
+Regularity is recovered by a modification of the finite presentations.  The
+distinction is useful: it keeps the minimal root object of
+Theorem~\ref{thm:regular-compactification}, while providing a toroidal model
+when regular geometry is required.
+
+\begin{theorem}[Regular dominating presentation]
+\label{thm:regular-presentation}
+For every finite stage $\Xfrak_{T,\Wcal,N}$ of
+Theorem~\ref{thm:regular-compactification}, over its Artin coefficient ring
+$R=R_{\Wcal,N}$, there is a cofiltered system of proper morphisms
+\[
+ \Xfrak^{\mathrm{reg}}_{\lambda}
+ \longrightarrow \Xfrak_{T,\Wcal,N}
+\]
+with the following properties.
+
+\begin{enumerate}
+\item Each morphism is an isomorphism away from the spatial boundary and the
+transported slab-zero divisors.
+
+\item Each $\Xfrak^{\mathrm{reg}}_{\lambda}$ is a separated logarithmic
+Deligne--Mumford stack, log smooth over $(\Spec R,0)$, and has a smooth atlas
+over $R$.  Every geometric fiber has a regular atlas and is log regular.
+
+\item Its total logarithmic boundary is simple normal crossings on an
+etale atlas.  In particular, the six asymptotic divisors remain flat over
+$R$.
+
+\item All finite root phases, the volume line, the Jacobi bracket,
+the wall maps, and the corrected peripheral transports pull back.  Full
+bridges and seams lift to strict logarithmic isomorphisms.
+
+\item Common refinements are compatible with enlargement of the root tree,
+restriction of $\Wcal$, and reduction of $N$.  Their inverse system carries
+the chamber-groupoid action and gives a regularized adic pro-Kummer
+compactification dominating that of
+Theorem~\ref{thm:regular-compactification}.
+\end{enumerate}
+
+For a fixed resolved boundary, its component-root maps are Kummer log
+etale.  A transition which introduces a previously absent root divisor is
+not asserted to be Kummer log etale.
+\end{theorem}
+
+\begin{proof}
+Fix the finite stage and form the reduced union $\Delta_T$ of its toric
+boundary and its finitely many transported root divisors.  The root
+radicands have deformation degree zero, so this pair is defined over
+$\Bbbk$ and then base-changed to $R$.  First apply functorial logarithmic
+resolution in characteristic zero to the root-free toroidal chart:
+\[
+ \rho:Z_T^{\mathrm{sm}}\longrightarrow Z_T.
+\]
+This is an isomorphism off $\Delta_T$, and $Z_T^{\mathrm{sm}}$ is a smooth
+toroidal orbifold.  On it, functorially principalize the product of the
+pulled-back radicand ideals, obtaining
+\[
+ \pi:Y_T\longrightarrow Z_T^{\mathrm{sm}},
+ \qquad \widetilde\pi=\rho\circ\pi:Y_T\longrightarrow Z_T.
+\]
+Then $Y_T$ is smooth and the reduced total transform $D_T$ is simple normal
+crossings \cite{abramovicheta2020principalization}.  Both steps are
+functorial for toroidal isomorphisms, hence for the chamber maps, full
+bridges, finite diagonal actions, and seams.
+
+Etale locally, let $x_1,\ldots,x_s$ cut out the components of $D_T$.  For
+every radicand $f_\alpha$ of degree $d_\alpha\in\{2,4\}$, principalization
+gives
+\[
+ \widetilde\pi^*f_\alpha
+ =u_\alpha\prod_{j=1}^s x_j^{a_{\alpha j}},
+ \qquad u_\alpha\in\Ocal_{Y_T}^{\times}.
+\]
+Take the fourth root stack of every component, writing $x_j=y_j^4$, and
+etale locally retain all solutions of
+$\eta_\alpha^{d_\alpha}=u_\alpha$.  Then
+\begin{equation}\label{eq:resolved-root-formula}
+ g_\alpha=\eta_\alpha
+ \prod_{j=1}^s y_j^{4a_{\alpha j}/d_\alpha}
+ \qquad\text{satisfies}\qquad
+ g_\alpha^{d_\alpha}=\widetilde\pi^*f_\alpha.
+\end{equation}
+All exponents are integral.  Thus the component-root stack maps to the
+original root-stack presentation and retains its full root-choice orbit.  At a $B$ cusp,
+$f_B=h^2$, formula \eqref{eq:resolved-root-formula} reads
+$h=y^4$ and $g=\eta y^2$.  The ambient $\mu_4$ action exchanges the two
+normalized quadratic branches, while the effective class on either branch
+has order two, as in \eqref{eq:cusp-roots}.
+
+Before the finite diagonal quotient, an etale local atlas is smooth over
+$R$ with boundary $y_1\cdots y_s=0$.  Its chart is
+$0\to\NN^s$, so Kato's chart criterion proves log smoothness
+\cite{kato1989log}.  Finite diagonal groups are etale in characteristic zero;
+their quotients are therefore log-smooth Deligne--Mumford stacks.  Geometric
+fibers have regular atlases with simple-normal-crossings boundary and hence
+are log regular.  The fourth-root map
+$\NN^s\to\frac14\NN^s$ is Kummer log etale.  Smoothness over $R$ and the
+normal-crossings description also give flatness of the asymptotic divisors.
+
+The resolution--principalization composite is an isomorphism on the punctured
+transport locus, so all wall, line, and theta data pull back unchanged.  Given
+two finite regularizations, pass to the rooted union of their stages, take the
+closure of their common graph, and apply the same
+resolution--principalization procedure.  This gives a regular model
+dominating both.  The resulting index category is cofiltered.  Path
+concatenation reindexes it, while functoriality under isomorphisms lifts the
+groupoid action.  This proves the pro-system assertion.  Finally, adding a
+new branch divisor raises the characteristic rank at its generic point, so
+such an enlargement map need not be Kummer; this explains the qualifier in
+the statement.
+\end{proof}

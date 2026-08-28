@@ -4,14 +4,16 @@ Copyright (c) 2026 Bernd Johannes Wuebben
 
 ## Manuscripts
 
-The LaTeX sources and PDFs under `paper/` and `companion/` are licensed under
-the Creative Commons Attribution 4.0 International License (CC BY 4.0):
+The LaTeX sources and PDFs under `central-charge-threshold/`,
+`boundary-ray-factorization/`, and `fjrw-annular-scattering/` are licensed
+under the Creative Commons Attribution 4.0 International License (CC BY 4.0):
 
 https://creativecommons.org/licenses/by/4.0/
 
 ## Verification code
 
-The files under `src/` are licensed under the MIT License:
+The files under `src/` and `fjrw-annular-scattering/src/` are licensed under
+the MIT License:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -20,7 +20,7 @@ Certified here:
      order-2 coefficients.  In particular the canonical diagram has NO X_22-wall at
      t33^4, and the transport independently confirms nu_(2,7)^min = -12/25 from the
      A-engine (a genuinely nonlinear cross-validation of the corrected framework).
- [2] the ANCHOR identity of notes/c0_broken_lines.md holds in this sector through t^4:
+ [2] the seed-transport identity holds in this sector through t^4:
      with seeds {x^5 (home: bottom), y^5 (home: top), t x^3y^3 and (1/30)t^3 x^4y^4
      (transport-invariant, on-ray)}, the transport potential in the bottom chamber
        T(bottom) = x^5 + t x^3y^3 + (1/30) t^3 x^4y^4 + theta^{-1}(y^5)

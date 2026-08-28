@@ -1,0 +1,401 @@
+\section{The annular affine manifold and its coefficient system}
+\label{sec:affine-kummer}
+
+\subsection{The quartic degeneration}
+
+Let $N_{\mathrm{tor}}=\ZZ^2$ and take the primitive fan rays of $\PP(1,1,2)$ to be
+\[
+ v_X=(1,0),\qquad v_Y=(-1,-2),\qquad v_Z=(0,1).
+\]
+The anticanonical polygon and its polar are
+\begin{equation}\label{eq:polygons}
+ \Delta=\operatorname{conv}\{(-1,-1),(-1,1),(3,-1)\},
+ \qquad
+ \Delta^\vee=\operatorname{conv}\{v_X,v_Z,v_Y\}.
+\end{equation}
+The edge $[v_Y,v_X]$ has lattice length two and midpoint
+$m_*=(0,-1)$.  This is the unique non-basic edge of $\Delta^\vee$.
+
+Consider the marginal quartic pencil
+\begin{equation}\label{eq:quartic-pencil}
+ E_s=\{X^4+Y^4+Z^2+sX^2Y^2=0\}\subset\PP(1,1,2)
+\end{equation}
+and the toric-boundary degeneration
+\begin{equation}\label{eq:toric-degeneration}
+ XYZ+q\bigl(X^4+Y^4+Z^2+sX^2Y^2\bigr)=0.
+\end{equation}
+For $q\ne0$, division by $q$ and the substitution
+$Z'=Z+XY/(2q)$ give the same pencil with effective parameter
+$s-1/(4q^2)$.  At $q=0$ the fiber is the toric boundary.
+
+\begin{proposition}\label{prop:coherent-degeneration}
+The family \eqref{eq:toric-degeneration} is a relative anticanonical section
+of the coherent Mumford degeneration associated with the star subdivision of
+$\Delta$ at the origin.  Its logarithmic smoothing charts are semistable on
+the canonical stack.  At the coarse $A_1$ point the smoothing is Kummer of
+index two.
+\end{proposition}
+
+\begin{proof}
+The lattice points of $\Delta$ index the anticanonical Cox monomials by
+\[
+ m\longmapsto
+ X^{\langle m,v_X\rangle+1}
+ Y^{\langle m,v_Y\rangle+1}
+ Z^{\langle m,v_Z\rangle+1}.
+\]
+The five terms in \eqref{eq:toric-degeneration} correspond to the origin and
+the four boundary points indexing $X^4,Y^4,Z^2,X^2Y^2$.  Assigning height
+zero to the origin and height one to the boundary gives the star
+subdivision, hence the stated coherent degeneration.
+
+On $Y\ne0$, with $x=X/Y$ and $z=Z/Y^2$, a smooth toric node has equation
+\[
+ xz+q(z^2+x^4+sx^2+1)=0.
+\]
+The parenthesized term is a unit at the node, so an étale change of
+coordinates gives $xz=q$.  At $[0:0:1]$, pass to the canonical stack chart
+with residual involution $(x,y)\mapsto(-x,-y)$.  The equation is again
+$xy=q$ up to a unit.  On the coarse chart set
+$a=x^2,b=xy,c=y^2$; since $ac=b^2$, eliminating $b$ gives $AC=q^2$.
+\end{proof}
+
+Let $u$ denote the primitive character along the length-two slab.  Its free
+coefficient may be written $f_\rho=1+az^u+z^{2u}$.  The associated curve is compared with
+\eqref{eq:quartic-pencil} by
+\begin{equation}\label{eq:curve-mirror-map}
+ s^2=\frac{4a^2}{a^2-4},
+ \qquad a^2=\frac{4s^2}{s^2-4}.
+\end{equation}
+Indeed, eliminating $U$ from
+$U+V+aV^{-1}+U^{-1}V^{-2}=0$ gives
+$Y^2=(V^2+a)^2-4$, and rescaling by a square root of $a^2-4$ gives the
+quartic.  Equation~\eqref{eq:curve-mirror-map} compares the anticanonical
+curves; it does not identify the slab automorphism with an open-FJRW wall.
+
+\subsection{The cofactor lattice}
+
+Let $N_\partial=\ZZ e_1\oplus\ZZ e_2$ be the boundary-charge lattice.  The
+coordinate divisors give
+\begin{equation}\label{eq:iota}
+ \iota:N_\partial\longrightarrow N_{\mathrm{tor}},
+ \qquad
+ \iota=\begin{pmatrix}1&-1\\0&-2\end{pmatrix},
+ \qquad [N_{\mathrm{tor}}:\iota(N_\partial)]=2.
+\end{equation}
+In particular, $\iota(e_1+e_2)=2m_*$.  The discrete-Legendre support map is
+the cofactor
+\begin{equation}\label{eq:cofactor}
+ L=\det(\iota)\iota^{-T}
+  =\begin{pmatrix}-2&0\\1&1\end{pmatrix}.
+\end{equation}
+If
+\[
+ H_\partial=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+ \qquad J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\]
+then
+\begin{equation}\label{eq:cofactor-identity}
+ J\iota H_\partial=L,
+ \qquad L^T\iota=\det(\iota)I.
+\end{equation}
+Thus $L$ is the oriented conormal obtained by transporting a Hamiltonian
+tangent through $\iota$.
+
+The first descendent exponents force the lattice
+\begin{equation}\label{eq:tilde-M}
+ F=\frac14\iota,
+ \qquad \widetilde M=F(\ZZ^2)\supset M=\ZZ^2,
+ \qquad [\widetilde M:M]=8.
+\end{equation}
+For a shifted Hamiltonian exponent $q=k+(1,1)$ put
+\begin{equation}\label{eq:normal-q}
+ \widetilde n_q=F^{-T}(q_2,-q_1)\in\widetilde M^\vee.
+\end{equation}
+
+\begin{proposition}\label{prop:integral-cofactor}
+Conjugation by $F$ carries every logarithmic Hamiltonian derivation in the
+boundary-charge lattice to an integral monomial derivation of
+$\CC[\widetilde M]$.  More precisely,
+\begin{equation}\label{eq:transported-derivation}
+ F_*X_k(z^m)
+ =\langle\widetilde n_q,m\rangle z^{m+F(k)},
+ \qquad m\in\widetilde M.
+\end{equation}
+The wall character is $z^{F(q)}$, its derivation shifts exponent by $F(k)$,
+and its support direction is $Lq$.
+\end{proposition}
+
+\begin{proof}
+For $n_q=(q_2,-q_1)$ and $\ell\in\ZZ^2$,
+\[
+ \langle F^{-T}n_q,F\ell\rangle=\langle n_q,\ell\rangle.
+\]
+This proves integrality and \eqref{eq:transported-derivation}.  The identity
+$\langle\widetilde n_q,F(q)\rangle=0$ makes $F(q)$ tangent to the wall
+character, while \eqref{eq:cofactor-identity} identifies $Lq$ with the
+oriented conormal of the transported Hamiltonian tangent.
+\end{proof}
+
+In the $F$-basis, the old lattice is generated by $(4,0)$ and $(-2,-2)$.
+The determinant is eight, so the quotient is
+\begin{equation}\label{eq:sector-group}
+ D=\widetilde M/M\simeq\ZZ/2\oplus\ZZ/4.
+\end{equation}
+The two singleton classes $\alpha=[e_1]$ and $\beta=[e_2]$ have order four,
+whereas $\rho=\alpha+\beta$ has order two.  The homomorphism
+\begin{equation}\label{eq:diagonal-charge}
+ \sigma:D\longrightarrow\ZZ/4,
+ \qquad \sigma([xe_1+ye_2])=x+y\pmod4
+\end{equation}
+has kernel generated by $\delta=\alpha-\beta$.
+
+\subsection{The parity cover}
+
+The straight-boundary monodromies of the disk-shaped complex, on its
+Legendre-dual character lattice, are
+\begin{equation}\label{eq:disk-monodromies}
+ M_A=\begin{pmatrix}0&-1\\1&2\end{pmatrix},\qquad
+ M_B=\begin{pmatrix}3&-2\\2&-1\end{pmatrix},\qquad
+ M_C=\begin{pmatrix}4&-1\\9&-2\end{pmatrix}.
+\end{equation}
+Only $M_B$ preserves $\widetilde M$.  Indeed, conjugating the other two by
+$F$ gives half-integral matrices; see Appendix~\ref{app:calculations}.  Let
+$\Delta_{\mathrm{aff}}^\circ$ be the affine base disk with the three
+singular points $A,B,C$ removed, and define
+\begin{equation}\label{eq:parity-character}
+ \chi(\gamma_A)=\chi(\gamma_C)=1,
+ \qquad \chi(\gamma_B)=0
+ \quad\text{in }\ZZ/2.
+\end{equation}
+
+\begin{theorem}[Annular parity cover]\label{thm:parity-cover}
+The connected double cover of $\Delta_{\mathrm{aff}}^\circ$ classified by $\chi$ extends over
+the compact disk as a cover ramified at $A$ and $C$.  Its completion
+$\overline\Acal$ is an annulus.  The point $B$ has two unramified lifts
+$B_0,B_1$, and all four points $A,B_0,B_1,C$ are primitive focus--focus
+singularities for the $\widetilde M$-affine structure.  The pullback
+polarization becomes integral after multiplication by four, and
+$4p^*\varphi$ is the minimal integral multiple.
+\end{theorem}
+
+\begin{proof}
+Cut the disk along an arc from $A$ to $C$ disjoint from $B$ and glue two
+copies crosswise.  The local model at each endpoint is $z\mapsto z^2$.
+Since the boundary loop has parity $1+0+1=0$, it has two lifts.
+Riemann--Hurwitz gives
+$\chi(\overline\Acal)=2\chi(D^2)-2=0$; a connected oriented surface with
+Euler characteristic zero and two boundary components is an annulus.
+
+In the $F$-basis the four lifted monodromies are
+\begin{equation}\label{eq:lifted-monodromies}
+\begin{aligned}
+ H_A&=\begin{pmatrix}-2&9\\-1&4\end{pmatrix},&
+ H_{B,0}&=\begin{pmatrix}2&1\\-1&0\end{pmatrix},\\
+ H_{B,1}&=\begin{pmatrix}-14&25\\-9&16\end{pmatrix},&
+ H_C&=\begin{pmatrix}-2&1\\-9&4\end{pmatrix}.
+\end{aligned}
+\end{equation}
+Their rank-one parts factor as
+\begin{equation}\label{eq:primitive-factorizations}
+\begin{aligned}
+ H_A-I&=\binom31(-1,3),&
+ H_{B,0}-I&=\binom{1}{-1}(1,1),\\
+ H_{B,1}-I&=\binom53(-3,5),&
+ H_C-I&=\binom13(-3,1).
+\end{aligned}
+\end{equation}
+Both factors are primitive in each row, proving the focus--focus assertion.
+The old facet conormals have $F$-dual coordinates with denominator four,
+and one contains a coefficient $1/4$.  Multiplication by four clears all
+three and is minimal.
+\end{proof}
+
+The two boundary holonomies have normal forms
+\begin{equation}\label{eq:boundary-holonomies}
+ \begin{pmatrix}1&-4\\0&1\end{pmatrix},
+ \qquad
+ \begin{pmatrix}1&-16\\0&1\end{pmatrix}.
+\end{equation}
+Their widths are therefore $4$ and $16$.  The core holonomy, with the
+orientation fixed in Appendix~\ref{app:calculations}, is the hyperbolic
+matrix $K$ of \eqref{eq:intro-K}.
+
+\begin{figure}[t]
+\centering
+\vspace{0.5\baselineskip}
+\begin{adjustbox}{max width=\textwidth,center}
+\input{figures/fig02_quartic_polygon_annulus_snippet.tex}
+\end{adjustbox}
+\caption{The quartic polygon and its annular parity cover.  The first two
+singleton supports are the cofactor directions $L(2,1)$ and $L(1,2)$.  The
+branch points are $A,C$; the width-two point $B$ has two unramified lifts.}
+\label{fig:annular-cover}
+\end{figure}
+
+The affine annulus is consequently an abstract polarized affine manifold
+forced by the descendent lattice.  It is not the intersection complex of an
+ordinary distinguished degeneration of the connected quartic pair.  The
+next step determines the coefficient object on which its slab maps act.
+
+\subsection{Local Kummer charts}
+
+Each matrix in \eqref{eq:lifted-monodromies} exchanges $\alpha$ and $\beta$
+in $D$, while the core matrix $K$ acts trivially.  Hence $\sigma$ in
+\eqref{eq:diagonal-charge} is the maximal constant quotient of the sector
+local system.  The finite sectors do not, however, account for the roots
+required by the slab maps.
+
+For $V\in\{A,B_0,B_1,C\}$ let $f_V$ be the pulled-back slab function and
+$N_V$ its primitive conormal in $\widetilde M^\vee$.  With compatible
+orientations,
+\begin{equation}\label{eq:root-data}
+\begin{array}{c|cccc}
+ V&A&B_0&B_1&C\\ \hline
+ d_V&2&4&4&2\\
+ N_V&(1,-3)&(-1,-1)&(-3,5)&(-3,1).
+\end{array}
+\end{equation}
+On the complement of the slab divisor put
+\begin{equation}\label{eq:local-root-ring}
+ R_V^{\mathrm{root}}
+ =\Bbbk[\widetilde M][f_V^{-1},g_V]/(g_V^{d_V}-f_V),
+ \qquad
+ \widetilde\theta_V(z^m)=g_V^{\langle N_V,m\rangle}z^m.
+\end{equation}
+
+\begin{proposition}\label{prop:minimal-roots}
+The formula \eqref{eq:local-root-ring} defines a slab automorphism extending
+the old transition.  The root degrees $2,4,4,2$ are minimal.
+\end{proposition}
+
+\begin{proof}
+The root $g_V$ is a unit on the localized chart and
+$\langle N_V,m\rangle$ is integral.  Moreover, $N_V=4n_V$ for the old
+rational conormal.  At the ramified lifts $A,C$ the path traverses the old
+loop twice, so $g_V^{\langle N_V,m\rangle}=f_V^{2\langle n_V,m\rangle}$;
+at $B_0,B_1$ it traverses it once, giving
+$f_V^{\langle n_V,m\rangle}$.  Primitivity of $N_V$ shows that exponent
+$1/d_V$ occurs on some character, so no proper divisor of $d_V$ suffices.
+\end{proof}
+
+At the two cusps the degree-four class drops to order two.  If
+$f_B(a,z)=1+az+z^2$, then
+\begin{equation}\label{eq:cusp-roots}
+\begin{aligned}
+ a=2:&\quad g^4-f_B=(g^2-(1+z))(g^2+(1+z)),\\
+ a=-2:&\quad g^4-f_B=(g^2-(1-z))(g^2+(1-z)).
+\end{aligned}
+\end{equation}
+Away from the reduced zero divisor these are two connected quadratic
+torsors; their closures meet over the divisor.  We retain this fourth-root
+stack rather than replacing it by one connected square-root cover.
+
+\subsection{The infinite root orbit}
+
+The failure of finite Kummer closure already occurs on the overlap of the
+$A$ and $B_0$ charts.  Write
+\[
+ x_A=z^{2u_A},\qquad x_B=z^{2u_{B,0}},\qquad f_A=1+x_A.
+\]
+The $A$-slab shear fixes $f_A$ and sends
+\begin{equation}\label{eq:shear}
+ x_B\longmapsto f_A^4x_B.
+\end{equation}
+
+\begin{theorem}[Infinite Kummer orbit]\label{thm:infinite-root-orbit}
+Closure under all powers of \eqref{eq:shear} requires roots
+\begin{equation}\label{eq:root-tower}
+ h_n^2=1+f_A^{4n}x_B,
+ \qquad n\in\ZZ.
+\end{equation}
+Their square classes are linearly independent in
+$\Bbbk(x_A,x_B)^\times/\Bbbk(x_A,x_B)^{\times2}$.  Consequently no finite
+algebraic Kummer extension containing the initial $A$- and $B_0$-roots is
+stable under the slab shear.
+\end{theorem}
+
+\begin{proof}
+Let $E_n$ be the prime divisor
+$1+f_A^{4n}x_B=0$.  It occurs with odd valuation in the $n$th radicand and
+with valuation zero in every other radicand: if $m\ne n$, substitution
+$x_B=-f_A^{-4n}$ leaves $1-f_A^{4(m-n)}$, nonzero at the generic point of
+$E_n$.  No nonempty finite product of distinct radicands is therefore a
+square.  Kummer theory gives degree at least $2^r$ after adjoining any $r$
+of the roots.  Since the shear takes $h_n$ to $h_{n+1}$, a stable extension
+containing $h_0$ contains them all.
+\end{proof}
+
+Let $\mathfrak C$ be the chamber adjacency graph and fix a chamber
+$\mathfrak u_0$.  Its universal reduced-path tree $\Tcal$ has vertices the
+reduced edge paths beginning at $\mathfrak u_0$.  For a finite rooted subtree
+$T\Subset\Tcal$, construct $\Xfrak_T$ recursively: at an edge labelled by
+$V$, pull back the current $V$-slab divisor along the unique preceding path,
+take its $d_V$th root stack, and base-change the roots already constructed.
+If $T\subset T'$, forgetting the new roots gives
+$\Xfrak_{T'}\to\Xfrak_T$.
+
+\begin{definition}\label{def:pathwise-root-object}
+Let $R$ be the deformation coefficient algebra and $I$ the singleton ideal.
+The pathwise root object and its adic completion are
+\begin{equation}\label{eq:pathwise-root-object}
+ \Xfrak_{\mathrm{path}}=\varprojlim_{T\Subset\Tcal}\Xfrak_T,
+ \qquad
+ \widehat\Xfrak_{\mathrm{path}}
+ =\varprojlim_N\varprojlim_{T\Subset\Tcal}
+  \bigl(\Xfrak_T\times\Spec R/I^N\bigr).
+\end{equation}
+If $\Pi$ is the deck group of the path tree over the annular chamber
+groupoid, the \emph{annular pro-Kummer coefficient object} is
+\begin{equation}\label{eq:annular-root-object}
+ \widehat\Xfrak_{\mathrm{ann}}^{\mathrm{root}}
+ =\bigl[\widehat\Xfrak_{\mathrm{path}}/\Pi\bigr].
+\end{equation}
+\end{definition}
+
+This inverse system is of the same formal kind as the infinite root stacks
+of \cite{talpovistoli2018}; the additional feature here is that the root
+divisors are indexed by reduced transport paths and are subsequently
+identified by the annular deck group.
+
+Path concatenation permutes the complete set of pulled-back root divisors,
+preserves their degrees, and gives the action in \eqref{eq:annular-root-object}.
+The quotient is descent along the chamber groupoid.  It does not yet assert
+the consistency of the wall automorphisms, which will be proved in
+Section~\ref{sec:jacobi-theta}.
+
+\begin{theorem}[Finite descent and nonrepresentability]
+\label{thm:forced-category}
+Every compact finite transport diagram modulo $I^N$, including finitely
+presented coefficient sheaves and their morphisms, descends to some finite
+root-stack presentation $\Xfrak_T\times\Spec R/I^N$.  Any two such presentations have a common
+finite refinement.  On the other hand, if all transported roots and their
+automorphisms are retained, \eqref{eq:annular-root-object} is not represented
+by a formal scheme, a finite root stack, or an algebraic stack whose diagonal
+is locally of finite type.
+\end{theorem}
+
+\begin{proof}
+A finite transport diagram involves finitely many paths and, modulo $I^N$,
+finitely many deformation bidegrees.  The rooted union of their path indices
+is a finite subtree.  Finite presentation then descends the finitely many
+generators, relations, arrows, and cocycle identities after a further finite
+enlargement.  Rooted union gives a common refinement.
+
+For the negative assertion, specialize the tower \eqref{eq:root-tower} at a
+geometric point with $f_A^4=1$ and $x_B=-1$.  Rooting the divisors indexed by
+a finite set $S\subset\ZZ$ gives stabilizer
+$\prod_{n\in S}\mu_2$; the inverse system contains
+\[
+ \prod_{n\in\ZZ}\mu_2.
+\]
+This group scheme is not of finite type.  A formal scheme has trivial
+stabilizers, a finite root stack has finite-type diagonal, and an algebraic
+stack with diagonal locally of finite type cannot have the displayed
+geometric stabilizer.
+\end{proof}
+
+This is the only inverse-limit principle used later.  Every stated product,
+period, or logarithmic chart is first constructed on an ordinary finite root
+stage.  Passage to the pro-object records compatibility; it does not replace
+an infinite calculation by notation.

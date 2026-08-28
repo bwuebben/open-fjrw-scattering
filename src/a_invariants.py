@@ -34,7 +34,10 @@ Checks below (ALL exact):
      nothing; N=0 so no walls -- the value is absolute):
        A({(3,3)^3},0) = nu44 + 3(nu16+nu61) + 1 = 0
        ==>  <tau_0^{(3,3)}tau_0^{(3,3)}tau_0^{(3,3)} sigma_1^4 sigma_2^4 sigma_12> = 1/5;
- [5] descendent seed (condition (2), A(singleton,(1)) = -1), e.g. (3,3):
+ [5] quartic marginal cubic block:
+       A({(2,2)^3},0) = nu22^(3) + (9/4)(nu40+nu04) + 9/16 = 0
+       and nu40+nu04=-1/4  ==>  nu22^(3)=0;
+ [6] descendent seed (condition (2), A(singleton,(1)) = -1), e.g. (3,3):
        nu_{(8,3)} + nu_{(3,8)} = -5/4  (descendent-boundary seed relation).
 
 Run: ./venv/bin/python src/a_invariants.py
@@ -226,8 +229,33 @@ def check_t33_cubed():
     return nu44_value
 
 
+def check_t22_cubed_r4():
+    """[5] r=s=4 marginal cubic block: the unique wall-free coefficient vanishes.
+
+    The three pair-singleton set partitions each have Gamma weight 3/4;
+    the all-singleton partition has weight 9/16.  Hence the quadratic seed
+    sum -1/4 cancels the lower-partition contribution exactly.
+    """
+    nu40, nu04, nu22 = sp.symbols("nu40 nu04 nu22")
+    J = [(2, 2, 0)] * 3
+    assert d_of(J, 4, 4) == -1
+    assert part_boundaries(J, 4, 4) == [(2, 2)]
+    A = A_invariant(J, 4, 4, nu_from_dict({
+        (((2, 2, 0),) * 3, 2, 2): nu22,
+        (((2, 2, 0),) * 2, 4, 0): nu40,
+        (((2, 2, 0),) * 2, 0, 4): nu04,
+    }))
+    expected = nu22 + sp.Rational(9, 4) * (nu40 + nu04) + sp.Rational(9, 16)
+    assert sp.expand(A - expected) == 0, A
+    seeded = sp.expand(expected.subs(nu40, sp.Rational(-1, 4) - nu04))
+    assert seeded == nu22
+    nu22_value = sp.solve(sp.Eq(seeded, 0), nu22)[0]
+    assert nu22_value == 0
+    return nu22_value
+
+
 def check_descendent_seed():
-    """[5] condition (2): A({(3,3)},(1)) = (-1)^1 = -1  ==>  nu83+nu38 = -5/4."""
+    """[6] condition (2): A({(3,3)},(1)) = (-1)^1 = -1  ==>  nu83+nu38 = -5/4."""
     nu83, nu38 = sp.symbols("nu83 nu38")
     J = [(3, 3, 1)]
     A = A_invariant(J, 5, 5, nu_from_dict({
@@ -253,8 +281,11 @@ def main():
     v = check_t33_cubed()
     print(f"[4] NEW invariant (invisible diagonal, wall-free): "
           f"<tau0^(3,3)^3 sigma_1^4 sigma_2^4 sigma_12> = {v}")
+    cubic_v = check_t22_cubed_r4()
+    print(f"[5] r=4 marginal cubic block: nu22^(3) = {cubic_v} "
+          "(the lower partition weights cancel)")
     assert check_descendent_seed()
-    print("[5] descendent seed (condition (2), d=1 at (3,3)): nu83+nu38 = -5/4")
+    print("[6] descendent seed (condition (2), d=1 at (3,3)): nu83+nu38 = -5/4")
     print("ALL CHECKS PASSED")
 
 
