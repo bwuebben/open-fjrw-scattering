@@ -42,9 +42,9 @@ factorization by a concatenation of GKT canonical homotopies. Its exact
 open topological recursion.
 
 Paper 2 does not prove that the finite realizing homotopies can be chosen
-compatibly as the coefficient set grows. Paper 3 proves this for finite
-systems closed under the boundary and component dependencies of the GKT
-construction (its Appendix B).
+compatibly as the coefficient set grows. For `x^4+y^4`, Paper 3 proves this
+for finite systems closed under the boundary and component dependencies of
+the GKT construction (its Appendix B).
 
 ### Paper 3: Annular scattering in quartic open FJRW theory
 
