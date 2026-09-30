@@ -11,8 +11,8 @@ Landau--Ginzburg model
 
 and a wall-crossing group describing their dependence on canonical boundary
 conditions. These papers study the first wall-crossing threshold, factor the
-boundary transport by slope, and construct an annular scattering and
-logarithmic framework for the quartic descendent theory. References to GKT use
+boundary transport by slope, and study an annular scattering diagram for the
+quartic theory. References to GKT use
 version 3 of [*Open FJRW theory and mirror
 symmetry*](https://arxiv.org/abs/2203.02435), published in *Geometry &
 Topology* 30 (2026), 2779--2960.
@@ -45,34 +45,22 @@ inverse limit. The paper therefore does not claim a completed geometric
 homotopy for the dense descendent ray set or a Gross--Siebert/SYZ theta theory
 from the un-enriched continuation data alone.
 
-### Paper 3: Annular scattering and quartic descendents
+### Paper 3: Annular scattering (withdrawn for revision)
 
-[`fjrw-annular-scattering/fjrw-annular-scattering.pdf`](fjrw-annular-scattering/fjrw-annular-scattering.pdf)
-constructs a compact rational PL bordism class over finite diagrams of open
-and closed quartic W-spin moduli spaces. A relative residue trace turns its
-exterior boundary into the two GKT cotangent-line recursions and identifies the
-two annular ends with the least- and greatest-slope canonical systems. The
-supporting geometry consists of the forced annular parity cover, its finite
-pro-Kummer stages, a Jacobi theta-algebra local system, and separated
-fine-saturated logarithmic compactifications.
-
-The construction is coefficientwise over finite windows. It does not produce
-an analytic infinite-window virtual fundamental class, identify a coefficient
-in an arbitrary GKT chamber, or select a distinguished toric degeneration of
-the original quartic pair.
+The August 2026 version of Paper 3 is withdrawn for revision; see
+[`fjrw-annular-scattering/README.md`](fjrw-annular-scattering/README.md).
 
 ## Repository layout
 
 ```text
 central-charge-threshold/      Paper 1 source and descriptive PDF
 boundary-ray-factorization/    Paper 2 source and descriptive PDF
-fjrw-annular-scattering/       Paper 3 reader source, PDF, and exact checks
-src/                            shared verification programs for Papers 1--3
+fjrw-annular-scattering/       Paper 3 (withdrawn for revision)
+src/                            shared verification programs for Papers 1 and 2
 ```
 
 Each manuscript builds independently with `latexmk -pdf main.tex` from its
-source directory. Paper 3 has a more detailed command map in
-[`fjrw-annular-scattering/README.md`](fjrw-annular-scattering/README.md).
+source directory.
 
 ## Verification
 
@@ -83,13 +71,6 @@ Python 3 and SymPy installed:
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 for f in src/*.py; do .venv/bin/python "$f"; done
-for f in fjrw-annular-scattering/src/*.py; do .venv/bin/python "$f"; done
-```
-
-The Sage programs can be run from the repository root:
-
-```sh
-for f in fjrw-annular-scattering/src/*.sage; do sage "$f"; done
 ```
 
 Paper 2's full Neveu--Schwarz and Ramond recursion check additionally requires
@@ -101,9 +82,7 @@ sage src/verify_thm05_full.sage
 ```
 
 That check reports 72/72 matching two-insertion instances and 105/105 matching
-three-insertion instances. Paper 3's four final Python checks verify 116,311
-factorization-corolla, 33,225 relative-contact, 654,670 affine-boundary, and
-404,875 cotangent-recursion identities.
+three-insertion instances.
 
 ## References
 
