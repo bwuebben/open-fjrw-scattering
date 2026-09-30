@@ -1,0 +1,523 @@
+\section{Compatible completion of GKT homotopies}
+\label{app:gkt-completion}
+
+This appendix proves Theorem~\ref{thm:compatible-GKT-realization}, the
+compatibility statement in Part~(3) of Theorem~\ref{thm:intro-comparison}.
+The labels and monomials of a labelled truncation
+(Definition~\ref{def:coefficient-window}) do not by themselves define a
+restriction map on canonical families: by the assembling relation
+\eqref{eq:GKT-assembling}, the multisection on one graph datum is prescribed
+on the boundary of its moduli space by the multisections on the connected
+components of the bases of its boundary graphs.  We therefore restrict along
+finite systems of graph data closed under these dependencies.
+
+We use the notions of \cite{grossetal2022open} recalled in
+Subsection~\ref{subsec:gkt-recollections}.  Fix a countable set
+$\Omega_\infty$ of labels with a twist map, containing infinitely many labels
+of each twist.  Every construction below uses only a finite subset.  The
+relative extension argument is the multisection argument of
+\cite[Lem.~6.5]{buryaketal2024} in its $W$-spin form
+\cite[Lem.~5.15]{grossetal2022open}; these statements, the homotopy lemma
+\cite[Lem.~5.17]{grossetal2022open}, and the part of the proof of
+\cite[Thm.~5.13]{grossetal2022open} that we use are recalled in
+Subsection~\ref{subsec:gkt-relative-extension}.  From
+\cite{wuebben2026boundary} we use only the extremal chamber indices
+\cite[Thm.~1.3]{wuebben2026boundary}, the freeness of the enlarged action
+\cite[Lem.~2.5]{wuebben2026boundary}, and the slope factorization
+\cite[Thm.~1.2]{wuebben2026boundary}.
+
+\subsection{Finite dependency-closed systems}
+
+For a graded open $(4,4)$-graph $\Gamma$ with finite internal label set and
+descendent vector $\mathbf d$, write
+\begin{equation}\label{eq:exact-GKT-datum}
+ \delta=(\Gamma,\mathbf d),
+ \qquad
+ E_\delta=E_\Gamma(\mathbf d)\longrightarrow\mathcal{PM}_\Gamma,
+ \qquad
+ \operatorname{supp}(\delta)=u_{I(\Gamma),\mathbf d}.
+\end{equation}
+We call $\delta$ a \emph{GKT graph datum}.  A family of canonical
+multisections satisfies the assembling relation \eqref{eq:GKT-assembling} on
+every zero or exchange boundary stratum $\Lambda$ of $\Gamma$.  The immediate
+dependencies of $\delta$ are the connected component data of $B\Gamma$ and
+of all $B\Lambda$ occurring there, with restricted descendent vectors.
+
+\begin{definition}\label{def:finite-partial-system}
+A finite dependency-closed partial system is a triple
+$\mathbb D=(I,P,\mathcal E)$ such that:
+\begin{enumerate}
+\item $I\subset\Omega_\infty$ is finite and twist labelled; $P$ is a finite
+divisor-closed set of labelled monomials, containing $1$ and invariant under
+twist-preserving permutations of $I$;
+\item $\mathcal E$ is a finite set of graph data containing every iterated
+dependency and connected component datum of each of its elements;
+\item $\operatorname{supp}(\delta)\in P$ for every $\delta\in\mathcal E$;
+\item if a support $u\in P$ carries a balanced graph, then $\mathcal E$
+contains every graph datum of support $u$ whose graph is balanced or
+critical, together with its dependency closure;
+\item $\mathcal E$ is invariant under the twist-preserving permutation group of $I$.
+\end{enumerate}
+An inclusion $\mathbb D\subset\mathbb D'$ means inclusion of the label sets,
+of the monomial sets and of the sets of graph data.  Restriction is
+therefore the forgetful map.
+\end{definition}
+
+\begin{lemma}[Finite closure]\label{lem:finite-GKT-closure}
+The dependency closure of a finite set of graph data, together with all
+balanced and critical graph data of finitely many supports, is finite.
+Moreover, if $\delta'$ is a dependency of $\delta$, then
+\begin{equation}\label{eq:support-divisibility}
+ \operatorname{supp}(\delta')\mid\operatorname{supp}(\delta).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+A dependency uses a subset of the internal labels and the restricted
+descendent vector, proving \eqref{eq:support-divisibility}.  Order connected
+graphs lexicographically by
+\[
+ \bigl(|I(\Gamma)|,n(\Gamma),-k_{12}(\Gamma)\bigr),
+ \qquad n=4k_1+4k_2+8k_{12}.
+\]
+Every proper connected base component precedes the original graph.  There is
+no infinite descending chain, and every graph has finitely many boundary
+types.  Thus the finitely branching dependency tree is finite.  A support
+has finitely many balanced and critical graph data
+\cite[Notation~2.40]{grossetal2022open}, and permutation orbits are finite.
+\end{proof}
+
+Let $\mathcal C(\mathbb D)$ be the collections of transverse, strongly
+positive, automorphism-invariant canonical multisections on $\mathcal E$
+satisfying \eqref{eq:GKT-assembling}.  Independent choices are made only on
+graph data whose graph is smooth and connected; the other data are the
+pullbacks and external sums prescribed by GKT.
+
+For homotopies, write $\vartheta\in[0,1]$ for the time, fix a nondecreasing
+collar function $[0,1]\to[0,1]$ that is constant near $0$ and $1$, and fix
+distinct times $\vartheta_J\in(0,1)$ for the subsets $J\subseteq I$.  Let
+$\mathcal H(\mathbb D;\mathfrak s^0,\mathfrak s^1;(\vartheta_J)_{J\subseteq
+I})$ denote the canonical homotopies on $\mathcal E$ from $\mathfrak s^0$ to
+$\mathfrak s^1$ that are simple in the sense of
+\cite[Def.~3.36]{grossetal2022open} and satisfy, in addition, the
+normal-form conditions of \cite[Lem.~3.40]{grossetal2022open} for the times
+$\vartheta_J$, under the hypotheses stated there.  Irrelevant components, and
+connected components whose rank exceeds the dimension by at least two, are
+nowhere zero.  A connected component $\Gamma$ whose rank exceeds the
+dimension by one and with $k_{12}(\Gamma)\leq2$ is transverse on
+$[0,1]\times\mathcal{PM}_\Gamma$ and on every stratum
+$[0,1]\times\mathcal{PM}_\Lambda$ with
+$\Lambda\in\partial^0\Gamma\cup\partial^{\mathrm{exchange}}\Gamma$, and
+vanishes only over $\vartheta_{I(\Gamma)}$.  A connected component $\Gamma$
+whose rank equals the dimension and with $k_{12}(\Gamma)\leq1$ is transverse
+on the same strata and on the slices
+$\{\vartheta_J\}\times(\mathcal{PM}_\Gamma\setminus\partial\mathcal{PM}_\Gamma)$
+at the assigned times.  Since the times are distinct, the external sum of two
+components of the first kind with different internal label sets is nowhere
+zero, which is \cite[Lem.~3.40(1)(c)]{grossetal2022open}.  No condition is imposed on the other relevant
+components.  The critical graphs ($k_{12}=0$) and the balanced graphs
+($k_{12}=1$), which are the graphs entering the wall-crossing formulas, are
+covered by these conditions.  Collars at $\vartheta=0$ and $\vartheta=1$, along the graph
+boundary strata and along the positive boundary are part of the data.
+
+\subsection{Relative extension}
+\label{subsec:gkt-relative-extension}
+
+We first recall the extension and modification results on which the
+constructions below rest.  In them, $\mathcal{PM}$ has the meaning of
+Subsection~\ref{subsec:gkt-recollections}; it is the space written
+$\overline{\mathcal{PM}}$ in \cite{grossetal2022open} and
+\cite{buryaketal2024}.
+
+\begin{importedthm}[{\cite[Lem.~5.15]{grossetal2022open}}]
+Let $\Gamma$ be a smooth connected open graded $W$-spin graph, and let
+$\zeta$ be a multisection of $E_\Gamma(\mathbf d)$ defined over
+$\partial\mathcal{PM}_\Gamma$.  Suppose that, for every
+$\Lambda\in\partial\Gamma\setminus\partial^+\Gamma$,
+\[
+ \zeta|_{\mathcal{PM}_\Lambda}=F_\Lambda^*\zeta^{B\Lambda},
+\]
+where $\zeta^{B\Lambda}$ is a transverse multisection of
+$E_{B\Lambda}(\mathbf d)$ over $\mathcal{PM}_{B\Lambda}$ that is strongly
+positive with respect to $B\Lambda$ and $\operatorname{Aut}(B\Gamma)$-invariant.
+Then $\zeta$ extends to a transverse, strongly positive,
+$\operatorname{Aut}(\Gamma)$-invariant multisection of $E_\Gamma(\mathbf d)$.
+\end{importedthm}
+
+The statement also holds when $\partial\mathcal{PM}_\Gamma$ is empty
+\cite[Rem.~5.16]{grossetal2022open}, and its proof is that of the following
+$r$-spin statement of Buryak, Clader and Tessler, whose first two items we
+use; the Witten bundle there is that of graded $r$-spin disks.
+
+\begin{importedthm}[{\cite[Lem.~6.5(1)--(2)]{buryaketal2024}}]
+Let $\Gamma$ be a smooth, connected, open, graded $r$-spin dual graph, and let
+$\zeta$ be a multisection of the Witten bundle over
+$\bigcup_{\Lambda\in\partial\Gamma\setminus\partial^+\Gamma}
+\mathcal M^{1/r}_\Lambda$.
+\begin{enumerate}
+\item Suppose that, for every
+$\Lambda\in\partial\Gamma\setminus\partial^+\Gamma$,
+$\zeta|_{\mathcal{PM}^{1/r}_\Lambda}=F_\Lambda^*\zeta^{B\Lambda}$ for a
+multisection $\zeta^{B\Lambda}$ of the Witten bundle over
+$\mathcal{PM}^{1/r}_{B\Lambda}$ that is positive with respect to $B\Lambda$,
+$\operatorname{Aut}(B\Gamma)$-invariant and transverse.  Then $\zeta$ extends
+to a positive, transverse, $\operatorname{Aut}(\Gamma)$-invariant multisection
+$\sigma$ of the Witten bundle over $\mathcal{PM}^{1/r}_\Gamma$.
+\item Suppose, in addition, that for every
+$\Lambda\in\partial\Gamma\setminus\partial^+\Gamma$ such that $B\Lambda$ has
+at least one vertex without boundary tails, the restriction of $\zeta$ to
+$\mathcal M^{1/r}_\Lambda$ is strongly positive in the sense of
+\cite[Def.~6.1]{buryaketal2024}.  Then $\sigma$ can be chosen to be strongly
+positive on $\mathcal{PM}^{1/r}_\Gamma$.
+\end{enumerate}
+\end{importedthm}
+
+The next lemma of GKT prescribes the zero count of a homotopy; we write its
+time as $\vartheta$.
+
+\begin{importedthm}[{\cite[Lem.~5.17]{grossetal2022open}}]
+Let $E\to Y$ be an oriented orbifold bundle over an oriented orbifold $Y$
+with corners, such that the generic isotropy of $E\to Y$ is trivial and
+$\operatorname{rank}_\RR E=\dim_\RR Y+1$.  Let $s$ be a nowhere vanishing
+multisection of $E$, and let $c\in\QQ$.  Then there are a multisection $s'$
+of $E$ that agrees with $s$ outside a compact subset of the interior of $Y$,
+and a transverse homotopy $H:[0,1]\times Y\to E$ with $H(0,-)=s$,
+$H(1,-)=s'$ and $H(\vartheta,y)=s(y)$ for every $\vartheta$ and every
+$y\in Y$ outside that compact subset, such that the rational signed count of zeros of
+$H$ is $c$.
+\end{importedthm}
+
+\begin{lemma}[Equivariant relative multisection extension]
+\label{lem:relative-multisection}
+Let $\delta=(\Gamma,\mathbf d)$ be a graph datum with $\Gamma$ smooth and
+connected, and let $Y$ be either
+$\mathcal{PM}_\Gamma$ or $[0,1]\times\mathcal{PM}_\Gamma$.  Suppose
+compatible invariant data are prescribed on a neighborhood of a collared
+invariant closed set $K_0\subset Y$, where $K_0$ contains every collar on
+which data are prescribed: the collars at $\vartheta=0$ and $\vartheta=1$, along the graph
+boundary strata, along the positive boundary, around the data of earlier
+stages, and around the slices at the assigned times.  If the prescribed data
+are strongly positive and already satisfy the required transversality or
+nonvanishing conditions on $K_0$, they extend to an invariant global
+multisection that coincides with them near $K_0$ and satisfies the same open
+conditions.  A nowhere-vanishing critical section may additionally be
+modified in the smooth interior through a transverse homotopy with
+prescribed rational signed zero count.
+\end{lemma}
+
+\begin{proof}
+The argument of \cite[Lem.~6.5]{buryaketal2024}, in the $W$-spin form
+\cite[Lem.~5.15]{grossetal2022open}, extends assembling data prescribed on
+the boundary strata $\Lambda\in\partial\Gamma\setminus\partial^+\Gamma$
+to a strongly positive multisection near these strata and near the positive
+boundary $\partial^+\Gamma$; we include the collars at $\vartheta=0$ and
+$\vartheta=1$ and
+around the slices at the assigned times in the prescribed data.  On the
+compact complement choose finitely many compactly supported local
+multisections whose branches span every fiber.  Relative parametric
+transversality, applied to the finitely many graph strata and slices, gives
+a generic linear combination with the required properties.  The
+perturbation vanishes near $K_0$, hence leaves the data on all prescribed
+collars unchanged and preserves strong positivity.
+
+Perform the construction on an injectively labelled cover and take the
+normalized union of all finite automorphism translates.  On $K_0$ every
+translate is the same invariant prescribed multisection, so the result
+coincides with it there.  The generic smooth interior of the injectively
+labelled cover has trivial isotropy.  On this locus,
+\cite[Lem.~5.17]{grossetal2022open} supplies a compactly supported critical
+modification whose transverse homotopy has any prescribed rational signed
+zero count.  Relative transversality preserves that count and leaves the
+prescribed collars unchanged.
+\end{proof}
+
+\emph{Completion to all graph data.}  Every $\mathfrak s\in\mathcal
+C(\mathbb D)$ extends, without change on $\mathcal E$, to transverse,
+strongly positive, invariant canonical multisections on all graph data with
+labels in $I$.  Indeed, process the missing data with smooth connected graphs
+in the order of Lemma~\ref{lem:finite-GKT-closure}.  Assembling from data already
+constructed prescribes boundary values, which
+Lemma~\ref{lem:relative-multisection} extends; the other data are the forced
+pullbacks and external sums.  No chamber coordinate is prescribed in this
+step.
+
+The realization of prescribed chamber coordinates follows the proof of the
+realization theorem of GKT.
+
+\begin{importedthm}[{\cite[Thm.~5.13]{grossetal2022open}}]
+Every chamber index bounded by $I$ is realized as the vector
+$\nu^{\mathfrak s}$ of open invariants of some canonical family $\mathfrak s$
+of multisections bounded by $I$.
+\end{importedthm}
+
+The proof is an induction on the number of internal labels.  For a set $J$
+of labels and a descendent vector $\mathbf d$ on $J$, let
+$\Gamma_{J,0},\dots,\Gamma_{J,N}$ be the balanced graphs of $(J,\mathbf d)$,
+with $k_1(\Gamma_{J,p})=r_J+4p$, and let $\Lambda_{J,1},\dots,\Lambda_{J,N}$
+be its critical graphs, with $k_1(\Lambda_{J,p})=r_J+4(p-1)+1$
+\cite[Notation~2.40]{grossetal2022open}.  The inductive step rests on the
+following two assertions, stated here for $r=s=4$.
+
+\begin{importedthm}[{\cite[proof of Thm.~5.13, (5.50) and
+(5.52)--(5.54)]{grossetal2022open}}]
+Let $\nu$ be a chamber index bounded by $I$, let $J\subseteq I$ and
+$\mathbf d\in\ZZ^J_{\geq0}$, and let $\mathfrak s$ be a transverse
+canonical family bounded by $J$ such that $\nu^{\mathfrak s}_{\Gamma,\mathbf
+d'}=\nu_{\Gamma,\mathbf d'}$ for every balanced graph $\Gamma$ with
+$|I(\Gamma)|<|J|$ and every $\mathbf d'$.  Then, with the weight
+\eqref{eq:quartic-Gamma-weight},
+\[
+ \sum_{\Gamma\in\operatorname{Balanced}(J,\mathbf d)}
+ w_J\bigl(k_1(\Gamma),k_2(\Gamma)\bigr)
+ \bigl(\nu^{\mathfrak s}_{\Gamma,\mathbf d}-\nu_{\Gamma,\mathbf d}\bigr)
+ =0.
+\]
+For $1\leq p\leq N$, replace the multisection of $\Lambda_{J,p}$ by one that
+agrees with it near the boundary of $\overline{\mathcal
+M}{}^W_{\Lambda_{J,p}}$ and is joined to it by a transverse homotopy,
+constant in time near that boundary, with rational zero count
+$h_{p,\mathbf d}$, and redefine by \cite[Lem.~5.15]{grossetal2022open} the
+multisections of the graphs that have a zero or exchange boundary graph
+$\Lambda$ with $\Lambda_{J,p}$ a connected component of $B\Lambda$.  Then the
+invariants of balanced graphs with fewer than $|J|$ labels do not change, and
+the invariant $o'_{J,p,\mathbf d}$ of $\Gamma_{J,p}$ becomes
+\begin{align*}
+ o'_{J,0,\mathbf d}
+ &=\nu^{\mathfrak s}_{\Gamma_{J,0},\mathbf d}
+  +(-1)^{k_2(\Lambda_{J,1})}\,4k_1(\Lambda_{J,1})\,h_{1,\mathbf d},\\
+ o'_{J,p,\mathbf d}
+ &=\nu^{\mathfrak s}_{\Gamma_{J,p},\mathbf d}
+  +(-1)^{k_2(\Lambda_{J,p})+1}\,4k_2(\Lambda_{J,p})\,h_{p,\mathbf d}\\
+ &\qquad+(-1)^{k_2(\Lambda_{J,p+1})}\,4k_1(\Lambda_{J,p+1})\,h_{p+1,\mathbf d}
+  \qquad(0<p<N),\\
+ o'_{J,N,\mathbf d}
+ &=\nu^{\mathfrak s}_{\Gamma_{J,N},\mathbf d}
+  +(-1)^{k_2(\Lambda_{J,N})+1}\,4k_2(\Lambda_{J,N})\,h_{N,\mathbf d}.
+\end{align*}
+\end{importedthm}
+
+In \cite{grossetal2022open} the first term of each formula is written as the
+sum of $\nu_{\Gamma_{J,p},\mathbf d}$ and the difference
+$\nu^{\mathfrak s}_{\Gamma_{J,p},\mathbf d}-\nu_{\Gamma_{J,p},\mathbf d}$.
+The zero counts $h_{p,\mathbf d}$ can be
+prescribed by \cite[Lem.~5.17]{grossetal2022open}.
+
+\begin{theorem}[Relative lifting of canonical families]
+\label{thm:relative-endpoint-lifting}
+Let $\mathbb D\subset\mathbb D'$ and let
+$\mathfrak s\in\mathcal C(\mathbb D)$, where $\mathbb D=(I,P,\mathcal E)$
+and $\mathbb D'=(I',P',\mathcal E')$.  Prescribe a value at every balanced
+graph datum in $\mathcal E'\setminus\mathcal E$, assuming that these values
+and the invariants of $\mathfrak s$ at the balanced graph data in
+$\mathcal E$ are the restriction of a chamber index.  Then there exists
+$\mathfrak s'\in\mathcal C(\mathbb D')$ realizing those values and
+restricting to $\mathfrak s$.  If the input and target index are
+twist symmetric, the extension may be chosen twist symmetric.
+\end{theorem}
+
+\begin{proof}
+Construct the new data with smooth connected graphs in the order of
+Lemma~\ref{lem:finite-GKT-closure}.  Dependency
+closure and associativity of assembling prescribe compatible boundary
+values, which Lemma~\ref{lem:relative-multisection} extends.  Define the
+other new data by their prescribed pullbacks and assemblies.
+
+Process the supports of the new balanced graph data by increasing number of
+labels, following the proof of \cite[Thm.~5.13]{grossetal2022open}.  For one
+support $u=u_{J,\mathbf d}$, temporarily extend the partial family by the
+completion to all graph data above.  Proper-divisor coordinates have already been fixed, so the
+chamber equations reduce to the one weighted linear relation displayed above
+among the coordinates at the balanced graph data of the present support.  The
+critical sections have rank one greater than the dimension and are nowhere
+zero.  On the injectively labelled smooth-interior cover,
+\cite[Lem.~5.17]{grossetal2022open} supplies compactly supported
+modifications with prescribed rational signed zero counts.  The formulas
+\cite[(5.52)--(5.54)]{grossetal2022open} recalled above are triangular in
+these counts: the coefficient $4k_1(\Lambda_{J,p+1})$ of $h_{p+1,\mathbf d}$
+in $o'_{J,p,\mathbf d}$ is nonzero, because $k_1(\Lambda_{J,p+1})=r_J+4p+1$.
+Choose $h_{1,\mathbf d},\dots,h_{N,\mathbf d}$ successively so that the
+invariants of $\Gamma_{J,0},\dots,\Gamma_{J,N-1}$ take their prescribed
+values; the last balanced coordinate is then forced by the weighted chamber
+relation \cite[(5.50)]{grossetal2022open}, whose weights are nonzero.
+Reapply the relative extension lemma and reassemble the affected data.
+
+A change made for a support $u$ affects only data whose support is a multiple
+of $u$.  Suppose such a datum $\delta$ were old.  Its support lies in the old
+monomial set by condition~(3) of Definition~\ref{def:finite-partial-system},
+so $u$ lies there by divisor closure, and condition~(4) places all balanced
+and critical graph data of support $u$ in the old system.  Then $u$ is not the
+support of a new balanced graph datum, a contradiction.  Hence the original
+family is unchanged.  For symmetry, make choices orbitwise and take normalized
+finite orbit-unions; on old orbits these equal the old invariant section.
+\end{proof}
+
+\begin{theorem}[Relative simple-homotopy lifting]
+\label{thm:relative-homotopy-lifting}
+Let $\mathbb D\subset\mathbb D'$, let
+$\mathfrak s^0,\mathfrak s^1\in\mathcal C(\mathbb D')$, and suppose
+\[
+ H\in\mathcal H\bigl(
+ \mathbb D;\mathfrak s^0|_{\mathbb D},\mathfrak s^1|_{\mathbb D};
+ (\vartheta_J)_{J\subseteq I}\bigr).
+\]
+Then the assignment $J\mapsto\vartheta_J$ extends to an injective assignment
+on the subsets of $I'$, and $H$ extends to an element of
+$\mathcal H\bigl(\mathbb D';\mathfrak s^0,\mathfrak s^1;
+(\vartheta_J)_{J\subseteq I'}\bigr)$ which agrees with the old homotopies and
+with the data prescribed on collars.  In particular, all old
+subset times are retained.
+\end{theorem}
+
+\begin{proof}
+For an old component whose rank equals the dimension and with
+$k_{12}(\Gamma)\leq1$, the times at which a slice
+$\{\vartheta\}\times(\mathcal{PM}_\Gamma\setminus\partial\mathcal{PM}_\Gamma)$
+is not transverse form a measure-zero set
+by Sard's theorem on the finitely many zero-set strata.  By the argument of
+case~(c) in the proof of \cite[Lem.~3.40]{grossetal2022open}, the boundary
+values of such a component vanish only at times $\vartheta_A$ with
+$\varnothing\neq A\subseteq I(\Gamma)$.  Choose the new
+subset times distinctly, away from the old values and these exceptional
+sets.  No old homotopy must be changed.
+
+Induct on $\dim\mathcal{PM}_\Gamma$, choosing only new data with smooth
+connected graphs.  The values at $\vartheta=0$ and $\vartheta=1$ are
+prescribed.  On a boundary stratum
+$\Lambda$ with a contracted boundary half-edge, use the linear homotopy
+$(1-\vartheta)s^0_{\Lambda,\mathbf d}+\vartheta s^1_{\Lambda,\mathbf d}$
+between the
+components of $\mathfrak s^0$ and $\mathfrak s^1$, as in the proof of
+\cite[Lem.~3.40]{grossetal2022open}; on the other boundary strata use the
+assembly $F_\Lambda^*\bigl(\boxplus_\Xi H^\Xi\bigr)$ of the homotopies
+$H^\Xi$ of the connected components $\Xi$ of $B\Lambda$, as in
+\eqref{eq:GKT-assembling}; on disconnected faces take external sums.  These
+prescriptions agree at corners by associativity of assembling.
+
+Apply Lemma~\ref{lem:relative-multisection} with all old data and boundary
+data prescribed.  For a component $\Gamma$ whose rank exceeds the dimension
+by one and with $k_{12}(\Gamma)\leq2$, the prescribed data are nowhere zero
+on $[0,1]\times\partial\mathcal{PM}_\Gamma$: on irrelevant strata by the
+condition on irrelevant components and positivity, and on relevant strata by
+the argument of case~(b) in the proof of \cite[Lem.~3.40]{grossetal2022open},
+which uses only the conditions above for the base components, all of smaller
+dimension, together with \cite[Lem.~3.39]{grossetal2022open} and the
+injectivity of $J\mapsto\vartheta_J$; old base components satisfy these
+conditions for their old times, which are retained; make the homotopy transverse; it then has finitely many zeros, and after a
+small perturbation no two of them have the same image under the projection
+to $\mathcal{PM}_\Gamma$.  A diffeomorphism of $[0,1]\times\mathcal{PM}_\Gamma$
+that commutes with this projection and is the identity near the boundary of
+$[0,1]\times\mathcal{PM}_\Gamma$ and near the positive boundary then moves
+all zeros to the assigned time $\vartheta_{I(\Gamma)}$, as in the proof of
+\cite[Lem.~3.40]{grossetal2022open}.  For a component whose rank equals the dimension and with
+$k_{12}(\Gamma)\leq1$, the prescribed data are transverse on the boundary
+strata, by the argument of case~(c) there.  For base components $\Xi_1$ of
+this kind and $\Xi_2$ of the preceding kind with $A=I(\Xi_2)$, that argument
+uses the transversality of the interior slice of $H^{\Xi_1}$ at
+$\vartheta_A$, which holds for old $\Xi_1$ by the choice of the new times, and
+the absence of boundary zeros of $H^{\Xi_1}$ at $\vartheta_A$, which holds
+because these zeros lie at times $\vartheta_{A'}$ with
+$A'\subseteq I(\Xi_1)$, hence $A'\neq A$.  The prescribed data vanish only at
+isolated points of codimension-one strata, at times $\vartheta_A$ with
+$\varnothing\neq A\subseteq I(\Gamma)$; near each of them extend the data into
+the interior so that the restriction to the interior slice is transverse, as
+in the proof of \cite[Lem.~3.40(3)(b)]{grossetal2022open}.  Then make the
+slices at the assigned times transverse, prescribe the data on collars around
+them, and perturb on the complement.  Irrelevant
+components and components whose rank exceeds the dimension by at least two
+are made nowhere zero relative to the prescribed data, by positivity and by
+transversality respectively.  On the other relevant components the homotopy
+is extended arbitrarily relative to the prescribed data, as at the end of the
+proof of \cite[Lem.~3.40]{grossetal2022open}.  Automorphism orbit-unions preserve the
+assigned time because it depends only on the invariant label set.  The
+homotopies on the remaining data are then the forced pullbacks and
+assemblies.
+\end{proof}
+
+The inductive step of this proof, applied to the missing data with smooth
+connected graphs in the order of Lemma~\ref{lem:finite-GKT-closure} after the
+canonical families at $\vartheta=0$ and $\vartheta=1$ have been completed,
+gives the corresponding completion of homotopies to all graph data.
+
+\subsection{The compatible union}
+
+The proof of Theorem~\ref{thm:compatible-GKT-realization} assembles the
+finite constructions above along an increasing sequence of systems.
+Restriction is taken along dependency-closed systems because, by the
+assembling relation \eqref{eq:GKT-assembling}, a canonical family is
+determined on the boundary of each moduli space by its multisections on other
+graph data; on such systems, restriction to a smaller system is the
+forgetful map.  A system contains all balanced and critical graph data of
+each of its supports that carries a balanced graph, because the chamber
+conditions couple the coordinates at all balanced graphs of a support through
+one weighted relation, these coordinates are adjusted through the critical
+graphs of the same support, and this completeness ensures that realizing the
+coordinates of a new support never alters an old datum (proof of
+Theorem~\ref{thm:relative-endpoint-lifting}).  The rays that carry a
+nontrivial GKT factor at some stage form a countable set, whose slope order
+need not be the order of a sequence; the complementary open intervals of a
+Cantor set in $[0,1]$, ordered by position, form a countable dense linear
+order without endpoints, into which every countable linear order embeds.
+One such embedding, fixed for all stages, gives each of these rays its own
+time interval, the intervals being pairwise disjoint and ordered by slope.
+From one stage to the next one carries the finite system, the canonical
+families on it that realize the extremal and the intermediate chamber
+indices, and the homotopies between consecutive families on their intervals;
+each stage restricts to the previous one, and the families and the homotopy
+of Theorem~\ref{thm:compatible-GKT-realization} are the inverse limit of
+these data.
+
+The proof below uses the companion paper \cite{wuebben2026boundary} only for
+three facts in every finite divisor-closed quotient: the two extremal chamber
+indices are unique \cite[Thm.~1.3]{wuebben2026boundary}, the enlarged
+transition group acts freely \cite[Lem.~2.5]{wuebben2026boundary}, and the
+transition between the extremal indices has a unique increasing-slope
+factorization \cite[Thms.~1.2 and~1.3]{wuebben2026boundary}.  The finite
+homotopies themselves are constructed by
+Theorems~\ref{thm:relative-endpoint-lifting}
+and~\ref{thm:relative-homotopy-lifting}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:compatible-GKT-realization}]
+Choose increasing finite label sets $I_n$ exhausting $\Omega_\infty$,
+finite divisor-closed sets of labelled monomials in the labels of $I_n$
+whose union is the set of all labelled monomials, and an enumeration of
+all graph data.  Let $P_n$ be the smallest divisor-closed set invariant under
+the twist-preserving permutations of $I_n$ that contains $P_{n-1}$, the $n$th
+of these monomial sets, and the supports of the first $n$ graph data with
+labels in $I_n$.  Let $\mathcal E_n$ consist of $\mathcal E_{n-1}$, these
+graph data, and all balanced and critical graph data of every support in $P_n$
+that carries a balanced graph, closed under dependencies and under the
+twist-preserving permutations of $I_n$.  By
+Lemma~\ref{lem:finite-GKT-closure}, $\mathcal E_n$ is finite and every
+support of a datum in $\mathcal E_n$ lies in $P_n$.  This gives the systems
+$\mathbb D_n=(I_n,P_n,\mathcal E_n)$.
+
+The union over all stages of the finite sets of nonzero ray factors is
+countable.  Embed its slope order into the ordered set of complementary
+open intervals of a Cantor set in $[0,1]$; each ray factor thereby receives an
+open time interval.  Inductively apply
+Theorem~\ref{thm:relative-endpoint-lifting} to all intermediate canonical
+families and Theorem~\ref{thm:relative-homotopy-lifting} to the elementary
+homotopies, each of which realizes one ray factor on its interval, always
+relative to the previous stage (for $n=1$ there are no old data).
+
+Fix $\delta\in\mathbb D_{n_0}$.  Only the finitely many ray factors of stage
+$n_0$ can be nonconstant on it: a factor introduced at a later stage is
+extended relative to the constant homotopy on the old system, which lies in
+$\mathcal H$ for any distinct times: its components of rank exceeding the
+dimension are nowhere zero, and those of rank equal to the dimension have
+nowhere-zero boundary values and transverse slices.  This
+finiteness proves Part~(2).  On the interval of such a factor use its
+elementary homotopy; elsewhere use the constant value reached after the
+finitely many such intervals to the left.  Constant collars make these
+pieces join smoothly.  Every assembling identity involves finitely many
+dependencies and hence holds at some finite stage.
+
+The completion to all graph data permits application of the argument of
+\cite[Thm.~5.13]{grossetal2022open} at each stage.  Uniqueness of the
+factorization, support by support, identifies the jump with the required ray
+factor in every finite quotient.  Since the transition maps are forgetful
+maps, the compatible restrictions form an inverse limit in sets.
+\end{proof}
+
+Enlargement of the labelled system leaves the realization on the old system
+unchanged.

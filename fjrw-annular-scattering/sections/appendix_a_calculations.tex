@@ -1,0 +1,290 @@
+\section{Affine and logarithmic calculations}
+\label{app:calculations}
+
+This appendix collects the basis conventions and local algebra used in the
+main proofs.  It records the lattice data, the widths of the monodromies
+and the separation estimate in explicit coordinates.  The conventions for
+the two sides of the discrete Legendre transform are those of
+Section~\ref{subsec:parity-cover}: frames and developments are in the plane
+$M^\vee\otimes\RR$ of $\Delta$, and monodromies of characters act on the fan
+lattice $M$.  Elements of $M$ and of $M^\vee$ are written in standard
+coordinates, which on $M^\vee\otimes\RR$ are the coordinates $(s_1,s_2)$ of
+\eqref{eq:polygons}; elements of $\widetilde M$ and $\widetilde M^\vee$ are
+written in $F$-coordinates (Section~\ref{subsec:exponent-lattices}).
+
+\subsection{Straight-boundary frames}
+
+At a vertex $p_V$ of $\Delta$, let $\ell_V,r_V$ be the primitive boundary
+tangents toward its two neighbors, and let $-p_V$ be the inward radial
+vector.  Both $(\ell_V,-p_V)$ and $(r_V,-p_V)$ are unimodular.  Define the
+left and right straight-boundary frames by
+\[
+ \mathcal B_{V,L}\ell_V=(-1,0),\quad \mathcal B_{V,L}(-p_V)=(0,1),
+ \qquad
+ \mathcal B_{V,R}r_V=(1,0),\quad \mathcal B_{V,R}(-p_V)=(0,1).
+\]
+The resulting matrices in the standard basis of $M^\vee$ are
+\begin{equation}\label{eq:straight-boundary-frames}
+\begin{array}{c|c|c}
+ V&\mathcal B_{V,L}&\mathcal B_{V,R}\\ \hline
+ A&\begin{pmatrix}-1&1\\0&1\end{pmatrix}
+  &\begin{pmatrix}-1&1\\1&0\end{pmatrix}\\[5pt]
+ B&\begin{pmatrix}1&1\\1&0\end{pmatrix}
+  &\begin{pmatrix}1&1\\-1&-2\end{pmatrix}\\[5pt]
+ C&\begin{pmatrix}-1&-3\\-1&-2\end{pmatrix}
+  &\begin{pmatrix}-1&-3\\0&1\end{pmatrix}.
+\end{array}
+\end{equation}
+The matrix $\check T_V=\mathcal B_{V,R}^{-1}\mathcal B_{V,L}$ is the monodromy of the tangent
+lattice $M^\vee$ of $\Delta$ about $V$; it fixes $p_V$.  Along a
+loop the dual lattice $M$ has the inverse transpose monodromy.  We orient
+the loop $\gamma_V$ so that the monodromy of $M$ along it is
+$T_V=\check T_V^T$, that is, oppositely to the loop along which the tangent
+monodromy is $\check T_V$.  Direct multiplication yields precisely the
+matrices \eqref{eq:disk-monodromies}.  Their invariant primitive characters
+are, in standard coordinates of $M$, $\bar u_A=(1,-1)$, $\bar u_B=(1,1)$,
+$\bar u_C=(1,3)$, and
+\begin{equation}\label{eq:disk-rank-one}
+\begin{aligned}
+ T_A-\mathrm{Id}&=\binom{-1}{1}(1,1)=-\bar u_An_A^T,\\
+ T_B-\mathrm{Id}&=\binom11(2,-2)=-2\,\bar u_Bn_B^T,\\
+ T_C-\mathrm{Id}&=\binom13(3,-1)=-\bar u_Cn_C^T,
+\end{aligned}
+\end{equation}
+with the primitive conormals $n_A=(1,1)$, $n_B=(-1,1)$, $n_C=(-3,1)$ in
+$M^\vee$, in the coordinates $(s_1,s_2)$.  The conormals of
+\eqref{eq:root-data} are
+$N_{\widetilde A}=4n_A$, $N_{B_0}=4n_B$ and $N_{\widetilde C}=4n_C$: the
+$F$-coordinates of $4n_A$, $4n_B$, $4n_C$ are $(1,-3)$, $(-1,-1)$, $(-3,1)$.
+Thus the monodromies of the disk about $A$, $B$ and $C$ have widths $1$, $2$
+and $1$.
+
+In standard coordinates the exponent map and its inverse are
+\[
+ F=\begin{pmatrix}1/4&-1/4\\0&-1/2\end{pmatrix},
+ \qquad
+ F^{-1}=\begin{pmatrix}4&-2\\0&-2\end{pmatrix}.
+\]
+Conjugating by $F$ gives the disk monodromies in $F$-coordinates:
+\begin{equation}\label{eq:unbranched-conjugates}
+\begin{aligned}
+ F^{-1}T_AF&=\begin{pmatrix}-1/2&9/2\\-1/2&5/2\end{pmatrix},\\
+ F^{-1}T_BF&=\begin{pmatrix}2&1\\-1&0\end{pmatrix},\\
+ F^{-1}T_CF&=\begin{pmatrix}-1/2&1/2\\-9/2&5/2\end{pmatrix}.
+\end{aligned}
+\end{equation}
+The loops whose monodromy preserves $\widetilde M$ form a subgroup that
+contains the parity subgroup, by \eqref{eq:parity-matrices} below, and does
+not contain $\gamma_A$.  Since the parity subgroup has index two, it is
+exactly the stabilizer of $\widetilde M$; in particular the monodromies about
+$A$ and $C$ do not preserve $\widetilde M$.
+
+For a loop $\gamma$ in the parity subgroup write $H_\gamma$ for the
+monodromy of $\widetilde M$ along $\gamma$, with the convention
+$H_{gh}=H_gH_h$, where a product $gh$ traverses $g$ first.  For the Schreier
+transversal $\{1,\gamma_A\}$, the Reidemeister--Schreier basis of the parity
+subgroup is
+\[
+ \gamma_B,\quad \gamma_C\gamma_A^{-1},\quad \gamma_A^2,\quad
+ \gamma_A\gamma_B\gamma_A^{-1},\quad \gamma_A\gamma_C.
+\]
+The matrices of these loops, in $F$-coordinates, are
+\begin{equation}\label{eq:parity-matrices}
+ \begin{pmatrix}2&1\\-1&0\end{pmatrix},\quad
+ \begin{pmatrix}-1&2\\-10&19\end{pmatrix},\quad
+ \begin{pmatrix}-2&9\\-1&4\end{pmatrix},\quad
+ \begin{pmatrix}-14&25\\-9&16\end{pmatrix},\quad
+ \begin{pmatrix}-20&11\\-11&6\end{pmatrix}.
+\end{equation}
+All are integral.  The first is $H_{B,0}$; the second is the core matrix
+$K=H_{\gamma_{\mathrm{core}}}$ of the loop
+$\gamma_{\mathrm{core}}=\gamma_C\gamma_A^{-1}$; the third and fourth are
+$H_A$ and $H_{B,1}$; the fifth is $H_{\gamma_A\gamma_C}=K^{-1}H_C$, of
+trace $-14$.  Squaring the loop $\gamma_C$ gives
+$H_C=H_{\gamma_C^2}=H_{\gamma_C\gamma_A^{-1}}H_{\gamma_A\gamma_C}$, the
+final local matrix in \eqref{eq:lifted-monodromies}.  The primitive
+factorizations \eqref{eq:primitive-factorizations} follow by subtracting the
+identity.
+
+The kinks of $\varphi$ across the bounded edges of the Legendre-dual
+decomposition are, up to sign, the vertices of $\Delta$.  Equivalently, they
+are the primitive facet conormals of $\Delta^\vee$, which in the coordinates
+$(s_1,s_2)$ are $-p_A=(1,1)$, $-p_B=(1,-1)$ and $-p_C=(-3,1)$, each taking
+the value $1$ on its facet.  Their $F$-coordinates are
+\begin{equation}\label{eq:polarization-conormals}
+ F^T(1,1)=(\tfrac14,-\tfrac34),\quad
+ F^T(1,-1)=(\tfrac14,\tfrac14),\quad
+ F^T(-3,1)=(-\tfrac34,\tfrac14).
+\end{equation}
+The kinks across the unbounded edges are the edge vectors of $\Delta$, which
+are $(0,2)$, $(4,-2)$ and $(-4,0)$ in the coordinates $(s_1,s_2)$ and have
+the integral $F$-coordinates $(0,-1)$, $(1,0)$ and $(-1,1)$.  Thus
+$p^*\varphi$ is quarter-integral and $4p^*\varphi$ is the minimal integral
+multiple.
+
+\subsection{Core and boundary holonomy}
+
+The core matrix satisfies
+\[
+ K-\mathrm{Id}=\begin{pmatrix}-2&2\\-10&18\end{pmatrix}.
+\]
+The lattice $M$ is generated by $g_1=F(4,0)$ and $g_2=F(-2,-2)$.  The
+columns of $K-\mathrm{Id}$ are the $F$-coordinates of
+$(K-\mathrm{Id})F(1,0)=2g_1+5g_2$ and $(K-\mathrm{Id})F(0,1)=-4g_1-9g_2$,
+so $K$ acts trivially on $\widetilde M/M$.  It has trace
+$18$ and determinant one, which proves the spectral statements in
+Section~\ref{sec:jacobi-theta}.
+
+The two boundary circles are the lifts of the boundary loop
+$\gamma_A\gamma_B\gamma_C$, whose monodromy on $M$ is, in standard
+coordinates, $T_AT_BT_C=\begin{pmatrix}1&0\\-8&1\end{pmatrix}$.  Their
+monodromies on $\widetilde M$ are, in $F$-coordinates,
+\begin{equation}\label{eq:boundary-matrices-app}
+ U_0=H_{\gamma_A\gamma_B\gamma_C}=\begin{pmatrix}5&-4\\4&-3\end{pmatrix},
+ \qquad
+ U_1=H_{\gamma_A^2\gamma_B\gamma_C\gamma_A^{-1}}
+ =\begin{pmatrix}33&-64\\16&-31\end{pmatrix},
+\end{equation}
+and $U_0=H_{B,1}K^{-1}H_C$, $U_1=H_AH_{B,0}K$.  They factor as
+\[
+ U_0-\mathrm{Id}=4\binom11(1,-1),
+ \qquad
+ U_1-\mathrm{Id}=16\binom21(1,-2).
+\]
+Using the invariant tangent--normal bases
+\[
+ P_0=\begin{pmatrix}1&0\\1&1\end{pmatrix},
+ \qquad
+ P_1=\begin{pmatrix}2&1\\1&1\end{pmatrix},
+\]
+one obtains
+\[
+ P_0^{-1}U_0P_0=\begin{pmatrix}1&-4\\0&1\end{pmatrix},
+ \qquad
+ P_1^{-1}U_1P_1=\begin{pmatrix}1&-16\\0&1\end{pmatrix}.
+\]
+This gives the two global widths used in Section~\ref{sec:compactification}.
+
+On the side of $\Delta$, the invariant line of $\check T_V$ is the line
+through $O$ and $p_V$, which contains $V$.  In coordinates centered at $O$
+the affine transition at each singular point is therefore linear, and so is
+the affine holonomy of every loop.  In the coordinates $(s_1,s_2)$, as in
+Section~\ref{subsec:cofactor-supports}, the branch segment joins
+$A=(-\frac12,-\frac12)$ to $C=(\frac32,-\frac12)$ and crosses the negative
+half-chords at $(\frac23,-\frac12)$ and $(\frac13,-\frac12)$.  Its
+interior lies in the complement of $c_A\cup c_B\cup c_C$, so its lifts lie
+in the sheets $S_0,S_1$ of Section~\ref{subsec:kummer-charts}.
+
+\subsection{Boundary development and exit slopes}
+
+In the chart of the sheet $S_0$ one has
+$\widetilde M^\vee=F^{-T}(\ZZ^2)=2L(\ZZ^2_{x,y})$.  The development below
+is written in the plane of $\Delta$, in the invariant tangent--normal
+coordinates $(\mathsf x,\mathsf y)$ of \eqref{eq:collar-holonomy},
+normalized so that $\widetilde M^\vee$ is $2\ZZ^2$, equivalently so that the
+lattice $L(\ZZ^2_{x,y})$ of cofactor directions is $\ZZ^2$.  The development
+data of the two boundary circles are
+\begin{equation}\label{eq:development-data}
+\begin{array}{c|c|c|c}
+ i&\ell_i&w_i&(\phi_i,h_i)\\ \hline
+ 0&4&4&(7/2,1)\\
+ 1&8&16&(15/2,1/2).
+\end{array}
+\end{equation}
+Here $w_i$ is the width of the boundary monodromy, $\ell_i=w_ih_i$ is the
+length of the boundary circle in these coordinates, and $(\phi_i,h_i)$ is
+the common apex of the developed facets, in the coordinates
+$(\mathsf x,\mathsf y)$.  Affine lengths measured in $\widetilde M^\vee$
+are half the coordinate lengths; the widths and the slopes below do not
+depend on this normalization.  In the coordinate $\mathsf r=-\mathsf y$, a
+support of slope $\xi$ lies on the line
+$\mathsf x=\phi_i-\xi(\mathsf r+h_i)$ of \eqref{eq:exit-line}.  On each line
+$\{\mathsf r=\mathsf r_0\}$ the holonomy \eqref{eq:collar-holonomy} is the
+translation by $w_i(\mathsf r_0+h_i)$, so its $k$th power maps the line of
+slope $\xi$ to the line of slope $\xi-kw_i$.
+
+By Proposition~\ref{prop:proper-supports} no support meets an arc carrying a
+transition, so each support has direction $Lq$ in the chart of its sheet,
+or $-Lq$ for a negative half-chord.  Write $q=c_1(2,1)+c_2(1,2)$ with
+$c_1,c_2\geq0$, as in \eqref{eq:outgoing-cofactor}.  A support of
+direction $-Lq$ leaves $\Delta$ through the facet $s_2=-1$, and one of
+direction $Lq$ through the facet $s_1=-1$ if $c_1\geq c_2$ and through
+$s_1+2s_2=1$ if $c_1\leq c_2$.  Developing the three facets along
+$\partial_0\overline\Acal$ into the coordinates above gives the slopes
+\[
+ \xi_-=\frac{2c_1+c_2}{3(c_1+c_2)},
+ \qquad
+ \xi_+=
+ \begin{cases}
+ \dfrac{3(7c_1+3c_2)}{4(2c_1+c_2)},&c_1\geq c_2,\\[10pt]
+ \dfrac{11c_1+19c_2}{4(c_1+2c_2)},&c_1\leq c_2,
+ \end{cases}
+\]
+for the directions $-Lq$ and $Lq$; along $\partial_1\overline\Acal$ the
+slopes are $4\xi_\pm+1$.  We call the slopes of supports of direction
+$-Lq$ and $Lq$ the \emph{negative} and \emph{positive slopes}, after the
+signs of these directions; as numbers, all of them are positive.  Each of
+the functions above is decreasing in $c_2/c_1\in[0,\infty]$, and the two
+expressions for $\xi_+$ agree at $c_1=c_2$.  The negative and positive
+slopes therefore lie in the closed intervals bounded by their values at
+$c_2=0$ and at $c_1=0$:
+\begin{equation}\label{eq:slope-envelopes}
+\begin{array}{c|c|c}
+ i&\text{negative slopes}&\text{positive slopes}\\ \hline
+ 0&[1/3,2/3]&[19/8,21/8]\\
+ 1&[7/3,11/3]&[21/2,23/2].
+\end{array}
+\end{equation}
+For $i=0$, every difference between a positive and a negative slope lies in
+$(0,4)$, and for $i=1$ it lies in $(0,16)$; each interval has width smaller
+than $w_i$.  Thus the slopes of two supports never differ by a nonzero
+multiple of $w_i$, and no nonzero power of the holonomy
+\eqref{eq:collar-holonomy} maps a support onto a support.  These are the
+inequalities used in the proof of
+Proposition~\ref{prop:exit-separation}.
+
+\subsection{Finite root algebra}
+
+For an effective Cartier divisor $D_f=(f)$ on $X=\Spec A$, we call
+$\Spec A[g]/(g^d-f)$ the \emph{Kummer cover} of $(X,f)$, with $\mu_d$ acting
+by $g\mapsto\zeta g$ and trivially on $A$.  Our root-stack convention is
+\begin{equation}\label{eq:root-stack-chart-app}
+ \sqrt[d]{(X,D_f)}
+ =\left[\Spec A[g]/(g^d-f)\big/\mu_d\right].
+\end{equation}
+Over $X\setminus D_f$ the Kummer cover is the $\mu_d$-torsor
+$\Spec A[f^{-1}][g]/(g^d-f)$, finite étale because $d$ is invertible in
+$\Bbbk$, and the root stack is $X\setminus D_f$ itself: its functions there
+are the invariants $A[f^{-1}]$, and $g$, of weight one, is not among them.
+Along $D_f$ the quotient retains the root automorphism group, and $g=0$
+defines the root divisor.  If $A$ is a character algebra and $N$ an integral
+conormal vanishing on the exponents of $f$, the slab map
+$z^m\mapsto g^{\langle N,m\rangle}z^m$ is an automorphism of the Kummer ring
+$A[f^{-1}][g]/(g^d-f)$ fixing $f$ and $g$.  It commutes with the action of
+$\mu_d$ on $z^m$ exactly when $d$ divides $\langle N,m\rangle$.  It
+therefore acts on the Kummer cover over $X\setminus D_f$, and it descends to
+the root stack only if $d$ divides $\langle N,m\rangle$ for every character
+$m$.  For divisors $D_e=(f_e)$ with degrees $d_e$, $e=1,\dots,s$, the
+fiber product over $X$ of the root stacks $\sqrt[d_e]{(X,D_e)}$ is the
+quotient of the Kummer cover $\Spec A[g_e]_e/(g_e^{d_e}-f_e)_e$ by
+$\prod_e\mu_{d_e}$, and the stabilizer of a point of this cover is the
+product of the factors $\mu_{d_e}$ whose coordinate $g_e$ vanishes at the
+point, that is, of the factors with $x\in D_e$ for the image $x$ of the
+point in $X$.  Section~\ref{sec:compactification}
+applies this to the finite root stacks $\Xfrak_T$ of
+Section~\ref{sec:affine-kummer}.
+
+Let $\mathfrak I$ be the filtered poset of finite rooted subtrees of the path
+tree $\Tcal$.  For $T\subset T'$ in $\mathfrak I$, the ring
+$R_{T'}^{\mathrm{root}}$ of \eqref{eq:finite-kummer-ring} is free over
+$\mathcal O(U_{T'})$ on the monomials in the roots with exponents smaller
+than their degrees, and these contain the monomials of $T$; hence
+$R_T^{\mathrm{root}}\to R_{T'}^{\mathrm{root}}$ is injective.  The colimit
+over $\mathfrak I$ is the pathwise Kummer ring
+$R_{\mathrm{path}}^{\mathrm{root}}$.  A finitely presented module, algebra,
+morphism, or finite collection of identities among composites over
+$R_{\mathrm{path}}^{\mathrm{root}}\otimes_\Bbbk R/\mathfrak m^N$ uses finitely many
+generators, relations, and matrix entries.  All therefore occur over
+$R_T^{\mathrm{root}}\otimes_\Bbbk R/\mathfrak m^N$ for one $T\in\mathfrak I$, after
+replacing the chosen stages by their rooted union.  This proves the
+finite-presentation assertion in Theorem~\ref{thm:forced-category}.

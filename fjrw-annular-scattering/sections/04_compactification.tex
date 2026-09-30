@@ -1,0 +1,501 @@
+\section{The annular ends and the finite root-stack presentations}
+\label{sec:compactification}
+
+Except for the two diagonal segments, which end at $B_0$ and $B_1$, the
+walls of the diagram $\Dscr$ of Theorem~\ref{thm:annular-consistency} reach
+the boundary circles of $\overline\Acal$ transversely.  On the affine side
+each boundary circle has an outward integral-affine continuation, a flare,
+on which the continued supports separate
+(Propositions~\ref{prop:outward-flares} and~\ref{prop:exit-separation}),
+and Remark~\ref{rem:closing-ends} explains why the natural gluing of toric
+charts over the flares does not close the ends.  The finite root-stack
+presentations of Section~\ref{sec:affine-kummer} are quotients of Kummer
+covers of a torus by finite groups of roots of unity; the lifted transitions
+are defined on these covers away from the root divisors, and not on the
+quotients (Section~\ref{subsec:root-stage-regularity}).  The covers are
+singular in general, and both the presentations and their Kummer covers are
+dominated by log smooth objects with regular closed fiber; these two facts
+are proved in Appendix~\ref{app:regular-presentation}.  Throughout,
+$\partial_i\overline\Acal$ ($i=0,1$) denotes
+the boundary circle whose holonomy has the normal form of width $w_i$ in
+\eqref{eq:boundary-holonomies}, so that $(w_0,w_1)=(4,16)$.
+
+\subsection{Labelled truncations}
+
+\begin{definition}\label{def:coefficient-window}
+A \emph{labelled truncation} $\Wcal=(\Omega_\Wcal,\tau,P)$ consists of
+a finite set $\Omega_\Wcal$ of labels, each of descendent degree one; a map
+$\tau:\Omega_\Wcal\to\{1,2\}$, the label $i$ having twist $(1,0)$ if
+$\tau(i)=1$ and twist $(0,1)$ if $\tau(i)=2$; and a finite set $P$ of
+monomials in variables $t_i$, $i\in\Omega_\Wcal$, which contains $1$ and is
+closed under taking divisors.  For $N\geq1$, the \emph{truncated
+coefficient ring} of $\Wcal$ at order $N$ is
+\begin{equation}\label{eq:window-ring}
+ R_{\Wcal,N}=\Bbbk[t_i:i\in\Omega_\Wcal]\Big/
+ \bigl(\mathfrak m_{\Wcal}^N+\langle m:m\notin P\rangle\bigr),
+ \qquad \mathfrak m_{\Wcal}=(t_i:i\in\Omega_\Wcal).
+\end{equation}
+\end{definition}
+
+Since $P$ is closed under divisors, the monomials in $P$ of degree less than
+$N$ form a basis of $R_{\Wcal,N}$, which is therefore a finite local Artin
+$\Bbbk$-algebra with maximal ideal $\mathfrak m_\Wcal$ and residue field
+$\Bbbk$.  The labels enter the diagram $\Dscr$ through the $\Bbbk$-algebra
+homomorphism
+\begin{equation}\label{eq:window-map}
+ \upsilon_\Wcal:\Bbbk[t_1,t_2]/\mathfrak m^N\longrightarrow R_{\Wcal,N},
+ \qquad
+ t_j\longmapsto\sum_{\tau(i)=j}t_i\quad(j=1,2),
+\end{equation}
+where $\mathfrak m=(t_1,t_2)$ is the singleton ideal.  It is well defined
+because $\upsilon_\Wcal(\mathfrak m)\subset\mathfrak m_\Wcal$, so that
+$\upsilon_\Wcal(\mathfrak m^N)\subset\mathfrak m_\Wcal^N$.  The walls of
+$\Dscr$, which are defined modulo $\mathfrak m^N$, are base-changed to
+$R_{\Wcal,N}$ along $\upsilon_\Wcal$.  Let
+$\Wcal'=(\Omega_{\Wcal'},\tau',P')$ contain $\Wcal$, in the sense that
+$\Omega_\Wcal\subset\Omega_{\Wcal'}$, $\tau'|_{\Omega_\Wcal}=\tau$ and
+$P\subset P'$, and let $N\leq N'$.  The $\Bbbk$-algebra surjection
+$R_{\Wcal',N'}\to R_{\Wcal,N}$ that fixes $t_i$ for $i\in\Omega_\Wcal$ and
+sends $t_i$ to $0$ for $i\notin\Omega_\Wcal$ is well defined, because a
+monomial outside $P'$ either contains such a $t_i$ or lies outside $P$.  It
+is compatible with $\upsilon_{\Wcal'}$, $\upsilon_\Wcal$ and the reduction
+$\Bbbk[t_1,t_2]/\mathfrak m^{N'}\to\Bbbk[t_1,t_2]/\mathfrak m^N$.  For a
+finite rooted subtree $T\subset\Tcal$ we call
+\[
+ \Xfrak_{T,\Wcal,N}=\Xfrak_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}
+\]
+a \emph{finite stage}.  It is the base change along $\upsilon_\Wcal$ of the
+finite root-stack presentation
+$\Xfrak_T\times_{\Spec\Bbbk}\Spec\Bbbk[t_1,t_2]/\mathfrak m^N$ of
+Theorem~\ref{thm:forced-category}.  Its Kummer cover, on which the lifted
+transitions are defined, is described in
+Section~\ref{subsec:root-stage-regularity}.
+
+\subsection{Exit points on the boundary circles}
+
+Fix $i\in\{0,1\}$.  By Appendix~\ref{app:calculations}, a collar of
+$\partial_i\overline\Acal$ develops, in affine coordinates
+$(\mathsf x,\mathsf y)$ whose $\mathsf x$-axis is the invariant line of the
+boundary holonomy, onto a strip $\{0\leq\mathsf y<\epsilon\}$ with
+$\partial_i\overline\Acal$ on the line $\mathsf y=0$.  We write these
+tangent--normal coordinates in sans-serif type to distinguish them from the
+Landau--Ginzburg variables $x,y$.  The affine holonomy of the boundary loop
+is
+\begin{equation}\label{eq:collar-holonomy}
+ \gamma_i(\mathsf x,\mathsf y)=(\mathsf x+\ell_i-w_i\mathsf y,\;\mathsf y),
+ \qquad \ell_i=w_ih_i,
+\end{equation}
+with $(\ell_i,w_i,h_i)$ as in \eqref{eq:development-data}.  Its linear part
+is the normal form in \eqref{eq:boundary-holonomies}, and it fixes the
+common apex $(\mathsf x,\mathsf y)=(\phi_i,h_i)$ of the developed facets,
+which is the developed image of both joints $O_0$ and $O_1$.  A wall support
+meeting $\partial_i\overline\Acal$ develops to a segment of a ray from the
+apex.  In the outward normal coordinate $\mathsf r=-\mathsf y$ it has the
+equation
+\begin{equation}\label{eq:exit-line}
+ \mathsf x=\phi_i-\xi(\mathsf r+h_i),
+\end{equation}
+and its slope $\xi$ lies in one of the bounded intervals of
+\eqref{eq:slope-envelopes}.  In particular every support meeting
+$\partial_i\overline\Acal$ meets it transversely, in one point, which we
+call the \emph{exit point} of the support.
+
+The consistency criterion of Gross, Hacking and Siebert at a boundary joint
+\cite[Prop.~3.13]{grossetal2016theta} does not apply at an exit point,
+since its convexity hypothesis \cite[Def.~3.12]{grossetal2016theta} fails
+at a point of a straight boundary at which a wall ends.
+
+A boundary circle cannot be removed by an affine double either.  A double of
+$\overline\Acal$ along $\partial_i\overline\Acal$ would carry an
+integral-affine involution fixing $\partial_i\overline\Acal$ pointwise.  The
+involution maps the boundary loop to itself, so its linear part along the
+circle commutes with the linear holonomy of the circle.  In the
+tangent--normal basis of \eqref{eq:collar-holonomy} these are
+\[
+ U=\begin{pmatrix}1&-w_i\\0&1\end{pmatrix},
+ \qquad S=\begin{pmatrix}1&c\\0&-1\end{pmatrix},
+\]
+and $SU-US=\begin{pmatrix}0&-2w_i\\0&0\end{pmatrix}$ is nonzero, since
+$w_i\in\{4,16\}$.
+
+\subsection{Outward flares}
+
+\begin{proposition}[Outward affine flares]\label{prop:outward-flares}
+Let $i\in\{0,1\}$.  In the coordinates $(\mathsf x,\mathsf r)$ of
+\eqref{eq:exit-line}, in which the tangent lattice $\widetilde M^\vee$ is
+$2\ZZ^2$ (Appendix~\ref{app:calculations}), let $\overline{\mathcal F}_i$ be
+the quotient of $\{(\mathsf x,\mathsf r)\in\RR^2:\mathsf r\geq0\}$ by the
+transformation
+\begin{equation}\label{eq:flare-action}
+ (\mathsf x,\mathsf r)\longmapsto(\mathsf x+\ell_i+w_i\mathsf r,\;\mathsf r).
+\end{equation}
+\begin{enumerate}
+\item The group $\ZZ$ generated by \eqref{eq:flare-action} acts freely and
+properly discontinuously, and $\overline{\mathcal F}_i$ is an
+integral-affine cylinder with tangent lattice $\widetilde M^\vee$.  For
+$\mathsf r_0\geq0$ the circle $\{\mathsf r=\mathsf r_0\}$ has affine length
+$\frac12(\ell_i+w_i\mathsf r_0)$, and $\mathsf r$ descends to a proper
+integral affine function $\overline{\mathcal F}_i\to[0,\infty)$.
+\item Identify $\{\mathsf r=0\}$ with $\partial_i\overline\Acal$ by
+$\mathsf y=-\mathsf r$.  The union
+$\overline\Acal\cup\overline{\mathcal F}_i$ is an integral-affine surface
+in which $\partial_i\overline\Acal$ is an interior circle.  A
+neighborhood of this circle contains no singular point and is affinely
+isomorphic to the quotient of a strip $\{-\epsilon<\mathsf y<\epsilon\}$
+by \eqref{eq:collar-holonomy}.
+\item Modulo $\mathfrak m^N$, the straight continuation into
+$\overline{\mathcal F}_i$ of each wall support meeting $\partial_i\overline\Acal$ is a properly
+embedded ray along which $\mathsf r$ increases strictly.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The $n$th power of \eqref{eq:flare-action} translates $\mathsf x$ by
+$n(\ell_i+w_i\mathsf r)$, and $\ell_i+w_i\mathsf r\geq\ell_i>0$ for
+$\mathsf r\geq0$.  Hence the action is free, and a compact set meets only
+finitely many of its translates.  The linear part $\left(\begin{smallmatrix}1&w_i\\0&1\end{smallmatrix}\right)$
+lies in $\mathrm{SL}_2(\ZZ)$, so it preserves $2\ZZ^2$, and the translation
+$(\ell_i,0)$ lies in $2\ZZ^2$, since $\ell_i\in\{4,8\}$ by
+\eqref{eq:development-data}; so the quotient is integral affine with tangent
+lattice $\widetilde M^\vee$.  The transformation preserves $\mathsf r$ and
+translates the line $\{\mathsf r=\mathsf r_0\}$ by
+$(\ell_i+w_i\mathsf r_0,0)$, which is $\frac12(\ell_i+w_i\mathsf r_0)$
+times the primitive vector $(2,0)$ of $2\ZZ^2$ in this direction; this gives
+the affine length.  The function $\mathsf r$ is invariant and integral
+affine, and $\mathsf r^{-1}([0,\mathsf r_0])$ is the image of the compact
+set $[0,\ell_i+w_i\mathsf r_0]\times[0,\mathsf r_0]$, which proves~(1).
+
+In the coordinate $\mathsf y=-\mathsf r$, \eqref{eq:flare-action} becomes
+$(\mathsf x,\mathsf y)\mapsto(\mathsf x+\ell_i-w_i\mathsf y,\mathsf y)$,
+which is \eqref{eq:collar-holonomy}.  The charts of the collar and of
+$\overline{\mathcal F}_i$ therefore glue to the quotient of a strip about
+$\{\mathsf y=0\}$ by \eqref{eq:collar-holonomy}, which acts freely there
+because $\ell_i-w_i\mathsf y=w_i(h_i-\mathsf y)>0$ for $\mathsf y<h_i$.
+This proves~(2).
+
+By \eqref{eq:exit-line} the continuation of a support is the image of
+$\mathsf r\mapsto(\phi_i-\xi(\mathsf r+h_i),\mathsf r)$, $\mathsf r\geq0$.
+Since \eqref{eq:flare-action} preserves $\mathsf r$, the image meets each
+circle $\{\mathsf r=\mathsf r_0\}$ in exactly one point.  The map is
+therefore injective, and it is proper because its composition with the
+proper function $\mathsf r$ is the identity of $[0,\infty)$.  An injective
+proper immersion is a closed embedding, which proves~(3).
+\end{proof}
+
+Write
+\[
+ \overline\Acal^{\mathrm{fl}}
+ =\overline{\mathcal F}_0\cup\overline\Acal\cup\overline{\mathcal F}_1 .
+\]
+By Proposition~\ref{prop:outward-flares}(2) it is an integral-affine surface
+without boundary, homeomorphic to an open cylinder, whose singular points
+are the four singular points of $\overline\Acal$; the functions $\mathsf r$
+on $\overline{\mathcal F}_0$ and $\overline{\mathcal F}_1$ are proper on its
+two ends.  Figure~\ref{fig:outward-flare} shows a fundamental domain of a
+flare.
+
+\begin{proposition}[Separation of the continued supports]\label{prop:exit-separation}
+Let $i\in\{0,1\}$ and $N\geq1$.  The continuations in
+$\overline{\mathcal F}_i$ of two wall supports meeting
+$\partial_i\overline\Acal$ modulo $\mathfrak m^N$ are either disjoint or
+equal.  There is a \emph{support-free ray}
+$\mathsf x=\phi_i-\xi_*(\mathsf r+h_i)$, $\mathsf r\geq0$, in
+$\overline{\mathcal F}_i$, that is, a ray disjoint from all continued
+supports.
+\end{proposition}
+
+\begin{proof}
+Since $\ell_i=w_ih_i$, the $k$th power of \eqref{eq:flare-action} maps the
+line \eqref{eq:exit-line} of slope $\xi$ to the line of slope
+$\xi-kw_i$ through the same point $(\mathsf x,\mathsf r)=(\phi_i,-h_i)$.
+Two such lines meet at a point with $\mathsf r+h_i>0$ only if their slopes
+coincide, and then they are equal.  Hence the continuations of two
+supports of slopes $\xi,\xi'$
+meet in $\overline{\mathcal F}_i$ if and only if
+$\xi-\xi'\in w_i\ZZ$, and then they are equal.  By
+\eqref{eq:slope-envelopes}, each family of slopes lies in an interval of
+width smaller than $w_i$, and every difference between a positive and a
+negative slope lies strictly between $0$ and $w_i$.  Hence
+$\xi-\xi'\in w_i\ZZ$ only if $\xi=\xi'$.  Modulo $\mathfrak m^N$ there are
+only finitely many supports, all passing through the two joints
+(Proposition~\ref{prop:proper-supports} and its proof), so a slope $\xi_*$ with
+$\xi_*-\xi\notin w_i\ZZ$ for all their slopes $\xi$ exists, and the
+corresponding ray is disjoint from every continued support.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\vspace{0.5\baselineskip}
+\begin{adjustbox}{max width=\textwidth,center}
+\input{figures/fig06_regular_cap_snippet.tex}
+\end{adjustbox}
+\caption{A fundamental domain of the flare $\overline{\mathcal F}_i$ in the
+coordinates $(\mathsf x,\mathsf r)$ of
+Proposition~\ref{prop:outward-flares}.  Its slanted sides are identified by
+\eqref{eq:flare-action}, so the circle at height $\mathsf r$ has affine
+length $\frac12(\ell_i+w_i\mathsf r)$.  Below the boundary circle
+$\partial_i\overline\Acal$ lies the collar, in which the developed supports
+are rays from the apex $O$, the common developed image of the joints $O_0$
+and $O_1$.  Their continuations are disjoint rays along which $\mathsf r$
+increases, and the left side is a support-free ray
+(Proposition~\ref{prop:exit-separation}).  The picture is schematic.}
+\label{fig:outward-flare}
+\end{figure}
+
+\begin{remark}[Closing the ends]\label{rem:closing-ends}
+The flares are integral-affine objects.  The natural way to close the ends
+algebraically places a toric chart, with the Kummer roots of the finite
+stage, over each of the regions into which the continued supports and a
+support-free ray cut the compact part $\{\mathsf r\leq\mathsf r_0\}$ of
+$\overline{\mathcal F}_i$, for some $\mathsf r_0>0$.  It transports these
+charts through the wall automorphisms met on the way from a base region and
+identifies consecutive charts along dense toric opens.  Composing each
+chart with the inverse of its transport identifies all of them with a
+single chart over $R_{\Wcal,N}$, every identification across a support with
+the identity, and the identification across the support-free ray with the
+holonomy of the coefficient system around $\partial_i\overline\Acal$: the
+transport \eqref{eq:coefficient-holonomy}
+along a loop parallel to $\partial_i\overline\Acal$, together with the wall
+factors met by that loop.  Since the identifications are along dense opens,
+their composite around $\partial_i\overline\Acal$ is defined on a dense open
+subset of a chart.  If the charts are glued to an algebraic space or a
+formal scheme, the cocycle condition forces this composite to be the
+identity there.  If they are glued as \'etale charts of a Deligne--Mumford
+stack, in the way that the Kummer covers $P_T$ of
+Section~\ref{subsec:root-stage-regularity} are charts of the root stacks
+$\Xfrak_T$, the cocycle condition forces the composite, over the dense open
+on which the stabilizers are trivial, to be an automorphism of the chart
+over the stack; such an automorphism fixes the characters $z^m$, which are
+functions on the coarse space.  In either case the composite fixes every
+character on a dense open.  By \eqref{eq:coefficient-holonomy}, modulo
+$\mathfrak m_\Wcal$ it sends $z^m$ to $c_\gamma(m)z^{Um}$, where $\gamma$ is
+the loop, $U$ is the linear holonomy of $\partial_i\overline\Acal$, of width
+$w_i$, and $c_\gamma(m)$ is a product of transported roots.  The gluing
+therefore requires $c_\gamma(m)=z^{m-Um}$ for every $m\in\widetilde M$, and
+this fails.  The requirement is unchanged under conjugation by transport, so
+we may base $\gamma$ in $S_0$.  With the conventions of
+Section~\ref{subsec:kummer-charts}, $\gamma$ is then
+$\gamma_A\gamma_B\gamma_C$, with $U=U_0$, for $i=0$, and
+$\gamma_A^2\gamma_B\gamma_C\gamma_A^{-1}$, with $U=U_1$, for $i=1$; it
+crosses the arcs carrying the lifted slab maps at $B_1$ and $\widetilde C$,
+respectively at $\widetilde A$ and $B_0$.  For $m=u_{\widetilde C}$ if $i=0$,
+and $m=K^{-1}u_{B_0}$ if $i=1$, the root factor of the second of these slab
+maps is trivial, and
+\[
+ c_\gamma(u_{\widetilde C})=f_{B_1}^{-1},
+ \qquad
+ c_\gamma(K^{-1}u_{B_0})=f_{\widetilde A}^{\,2},
+\]
+with the slab functions of Section~\ref{subsec:kummer-charts}.  These have
+nonzero divisor on the torus, whereas $z^{m-Um}$ is a unit, so the natural
+construction does not close the ends.  In Mumford's degenerations, of which
+the Tate curve is the simplest case, and in the constructions of
+\cite{grosshackingkeel2015,grosssiebert2022}, a nontrivial holonomy around a
+circle is realized over a degeneration parameter: the special fibers of the
+charts are then reducible, and charts that are not adjacent need not meet.
+The rings $R_{\Wcal,N}$ contain no such parameter.  A logarithmic
+compactification of the finite stages, and in particular a closure of the
+flares by boundary divisors flat over $R_{\Wcal,N}$, remains open.
+\end{remark}
+
+\subsection{Comparison with the Carl--Pumperla--Siebert class}
+
+\begin{proposition}[Not homeomorphic to a Carl--Pumperla--Siebert complex]
+\label{prop:no-CPS-degeneration}
+Let $(\check X\to\check S,\check D)$ be a distinguished toric degeneration of del
+Pezzo surfaces in the sense of \cite[Def.~7.1]{carletal2024}; the generic
+fiber is allowed to be a Gorenstein surface.  Then neither $\overline\Acal$
+nor any open cylinder, such as $\overline\Acal^{\mathrm{fl}}$, is
+homeomorphic to the intersection complex of $(\check X\to\check S,\check D)$.  If
+the degeneration has simple singularities in the sense of
+\cite[Def.~1.60]{grosssiebert2006}, neither is homeomorphic to its dual
+intersection complex.
+\end{proposition}
+
+\begin{proof}
+The intersection complex is homeomorphic to a closed disk
+\cite[proof of Thm.~7.5]{carletal2024}.  Under the simplicity assumption the
+dual intersection complex is homeomorphic to $\RR^2$
+\cite[Prop.~7.13]{carletal2024}.  Both have vanishing first cohomology,
+whereas an annulus and an open cylinder have $H^1(-,\Bbbk)\simeq\Bbbk$.
+\end{proof}
+
+The disk-shaped complex of the quartic pair in
+Section~\ref{sec:affine-kummer} is of the kind treated in
+\cite[\S8.1]{carletal2024}: the monodromy $T_B$ has width two, so the
+singular point $B$ is not simple.  The first assertion of the proposition
+applies to it, and the second does not.
+
+\subsection{Kummer covers of the finite root-stack presentations}
+\label{subsec:root-stage-regularity}
+
+Let $Z=\Spec\Bbbk[\widetilde M]$ be the character torus in the frame of the
+sheet $S_0$ of Section~\ref{subsec:kummer-charts}, which is the frame at the
+root of the path tree $\Tcal$, and let $T\subset\Tcal$ be a finite rooted
+subtree.  As in Section~\ref{sec:affine-kummer}, a \emph{root edge} of $T$ is
+an edge $e$ that crosses an arc carrying a lifted slab map, say the arc
+at $V$; it has the root degree $d_e=d_V\in\{2,4\}$ and the transported
+radicand $\varrho_e\in\Bbbk(\widetilde M)^\times$, the slab function $f_V$
+pulled back to the frame of $S_0$ along the path of $T$ that precedes
+$e$.  We write $e'\prec e$ if the root edge $e'$ lies on that path, and
+$r_e$ for the root adjoined at $e$, so that $r_e^{d_e}=\varrho_e$.  In
+$F$-coordinates put
+\[
+ \widetilde M_u=\{m\in\widetilde M:m_1+m_2\equiv0\pmod 4\}.
+\]
+
+\begin{lemma}[Transported radicands]\label{lem:transported-radicands}
+\begin{enumerate}
+\item The lattice $\widetilde M_u$ has index four in $\widetilde M$ and is
+spanned by the four vectors $u_V$ of \eqref{eq:root-data}.  It is preserved
+by the matrices \eqref{eq:parity-matrices} and their inverses, and every
+conormal $N_V$ of \eqref{eq:root-data} takes values in $4\ZZ$ on it.
+\item For every root edge $e$ of $T$, at the arc of $V$,
+\[
+ \varrho_e=f_V(y_e),\qquad
+ y_e=z^{m_e}\prod_{e'\prec e}\varrho_{e'}^{\,k_{ee'}},
+ \qquad
+ m_e\in2\widetilde M_u,\quad k_{ee'}\in\tfrac8{d_{e'}}\ZZ .
+\]
+\item There are Laurent polynomials $\Phi_e,H_e\in\Bbbk[\widetilde M]$
+without common prime factor such that
+$\varrho_e=\Phi_eH_e^{-d_e}$ and every prime factor of
+$H_e$ divides $\Phi_{e'}$ for some $e'\prec e$.  In particular
+$\operatorname{div}\Phi_e$ is the divisor of zeros of $\varrho_e$ on $Z$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) The lattice $\widetilde M_u$ is the kernel of $m\mapsto m_1+m_2$ modulo
+four, so it has index four.  It contains the vectors $u_V$ of
+\eqref{eq:root-data}, and $u_{B_0}=(1,-1)$ and
+$u_{\widetilde A}-u_{B_0}=(2,2)$ already span a sublattice of index four.
+Each matrix $G$ in \eqref{eq:parity-matrices} satisfies
+$(1,1)G\equiv(1,1)\pmod 4$, hence so does $G^{-1}$, and $G^{\pm1}$ preserves
+$\widetilde M_u$.  The conormals $N_{\widetilde A},N_{B_0},N_{B_1},
+N_{\widetilde C}$ pair with $(1,-1)$ to $4,0,-8,-4$ and with $(2,2)$ to
+$-4,-4,4,-4$.
+
+(2) Pull-back along the path that precedes $e$ composes the
+transitions across the arcs met by the path
+(Section~\ref{subsec:kummer-charts}).  On a character $z^{m'}$ such a
+transition replaces $m'$ by its image under one of the matrices
+\eqref{eq:parity-matrices}, their inverses or the identity; if the arc
+carries the lifted slab map at $W$ and is crossed at the root edge $e'$,
+it also multiplies by $r_{e'}^{\pm\langle N_W,m''\rangle}$, where $m''$ is
+$m'$ or its image under the linear part of the transition.  By induction
+along the path, the pull-back of $z^m$ is $z^{Gm}\prod_{e'}
+r_{e'}^{j_{e'}}$, where $G$ is a product of these matrices and their
+inverses and each $j_{e'}$ has the form $\pm\langle N_W,G'm\rangle$ for
+such a product $G'$.  In the frame of the sheet from which the arc of $V$
+is crossed, $f_V$ is a polynomial in a character whose exponent is the image
+of $2\epsilon_Vu_V$ under such a product, so it lies in $2\widetilde M_u$ by
+(1).  By (1) again every $j_{e'}$ lies in $8\ZZ$, and
+$r_{e'}^{j_{e'}}=\varrho_{e'}^{\,j_{e'}/d_{e'}}$.
+
+(3) Let $C\subset Z$ be a prime divisor and $v_C$ its valuation.  By (2),
+$v_C(y_e)=\sum_{e'}k_{ee'}v_C(\varrho_{e'})$ is even, since
+$8/d_{e'}\in\{2,4\}$.  The polynomial $f_V$ is monic of degree
+$d_V/2$ with constant term one.  Hence $v_C(\varrho_e)=0$ if
+$v_C(y_e)>0$; $v_C(\varrho_e)=\frac{d_V}2v_C(y_e)$, which is divisible by
+$d_V$ because $v_C(y_e)$ is even, if $v_C(y_e)<0$; and
+$v_C(\varrho_e)\geq0$ if $v_C(y_e)=0$.  Thus every pole of $\varrho_e$ has
+multiplicity divisible by $d_e$ and lies on a prime divisor along which
+some $\varrho_{e'}$, $e'\prec e$, has a zero or a pole, and hence, by
+induction along the path, along which some $\Phi_{e''}$, $e''\prec e$,
+vanishes.  Since $\Bbbk[\widetilde M]$ is factorial, we may take for $H_e$
+the product of $h_C^{-v_C(\varrho_e)/d_e}$ over the poles $C=\{h_C=0\}$ of
+$\varrho_e$, and $\Phi_e=\varrho_eH_e^{d_e}$, which has no poles on $Z$.
+\end{proof}
+
+The argument uses only that $f_V$ is monic of degree $d_V/2$ with constant
+term one, so it applies at the cusps $a=\pm2$ as well; there the
+$B$-radicands are squares by \eqref{eq:cusp-roots}.  We fix such
+$\Phi_e$ for every root edge $e$ of $\Tcal$; they are unique up to
+$d_e$th powers of units of $\Bbbk[\widetilde M]$.  By
+Lemma~\ref{lem:transported-radicands}(3), the divisor $D_e$ of zeros of
+$\varrho_e$ (Section~\ref{sec:affine-kummer}) is the effective Cartier
+divisor $\operatorname{div}\Phi_e$.  Let $D_T=\bigcup_eD_e$ with
+its reduced structure; since every pole of $\varrho_e$ lies on
+some $D_{e'}$, the complement $U_T$ of the zeros and poles of the
+transported radicands of $T$ is $Z\setminus D_T$.  A divisor $D_e$
+may share components with a divisor $D_{e'}$, $e'\prec e$: along
+$\gamma_{\widetilde A}^2$ both crossings of the arc at $\widetilde A$ have the
+radicand $f_{\widetilde A}$.  Put
+\[
+ P_T=\Spec\Bbbk[\widetilde M][g_e]\big/\bigl(g_e^{d_e}-\Phi_e\bigr),
+ \qquad
+ G_T=\prod_e\mu_{d_e},
+\]
+over the root edges $e$ of $T$, with $\zeta\in G_T$ acting by
+$g_e\mapsto\zeta_eg_e$.  The scheme $P_T$ is finite and flat
+over $Z$.  With the convention \eqref{eq:root-stack-chart-app}, the quotient
+$\Xfrak_T=[P_T/G_T]$ is the fiber product over $Z$ of the root stacks
+$\sqrt[d_e]{(Z,D_e)}$, and an iterated root stack along
+pulled-back divisors is this fiber product \cite[Def.~2.6]{cadman2007}.
+Thus $P_T\to\Xfrak_T$ is a $G_T$-torsor, and the finite stages defined
+after Definition~\ref{def:coefficient-window} are
+$\Xfrak_{T,\Wcal,N}=[P_{T,\Wcal,N}/G_T]$ with
+$P_{T,\Wcal,N}=P_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}$.  We call $P_T$ the
+\emph{Kummer cover} of $\Xfrak_T$.
+
+Let $P_T^\circ\subset P_T$ be the preimage of $Z\setminus D_T$.  It is a
+finite \'etale $G_T$-torsor over $Z\setminus D_T$, over which
+$\Xfrak_T\to Z$ is an isomorphism.  By
+Lemma~\ref{lem:transported-radicands}(3), $H_e$ is a unit on
+$Z\setminus D_T$, and
+\[
+ r_e=g_eH_e^{-1}\in\Ocal(P_T^\circ),
+ \qquad r_e^{d_e}=\varrho_e ,
+\]
+so that over $Z\setminus D_T$ the equations $\Phi_e$ and the
+transported radicands define the same Kummer cover.  Thus $P_T^\circ$ is the
+spectrum of the Kummer ring $R_T^{\mathrm{root}}$ of
+Section~\ref{sec:affine-kummer}, on which Sections~\ref{sec:affine-kummer}
+and~\ref{sec:jacobi-theta} define the lifted transitions and
+$\Lcal_\kappa$, and $P_T$ extends it over $Z$.  For every vertex $v$
+of $T$, pull-back along the path of $T$ that ends at $v$, with the root at
+each root edge $e$ of the path taken to be $r_e$, is therefore a
+homomorphism of $\Bbbk$-algebras from $\Bbbk[\widetilde M]$, in the frame
+at $v$, to $\Ocal(P_T^\circ)$.  The frames of $\Lcal_\kappa$ at the
+vertices of $T$, related by \eqref{eq:line-transition}, differ by units of
+$\Ocal(P_T^\circ)$.  A wall automorphism, base-changed along
+$\upsilon_\Wcal$, is the exponential of a derivation of the character ring in
+the frame at a vertex $v$ of $T$, tensored with $R_{\Wcal,N}$, with
+coefficients in $\mathfrak m_\Wcal$; the derivation extends uniquely along the
+\'etale morphism $P_T^\circ\to\Spec\Bbbk[\widetilde M]$ given by pull-back
+along the path to $v$, and so does the automorphism.  In this sense the
+lifted transitions along $T$, the volume line $\Lcal_\kappa$ with its Jacobi
+bracket, and the wall automorphisms are defined on $P_T^\circ$, after base
+change along $\upsilon_\Wcal$ on $P_T^\circ\times_{\Spec\Bbbk}\Spec
+R_{\Wcal,N}$.  The lifted transitions are not $G_T$-equivariant, and they
+do not descend to $\Xfrak_T$: $G_T$ fixes the characters and multiplies
+$r_e$ by $\zeta_e$, whereas the lifted slab map at a root edge
+$e$ multiplies $z^m$ by $r_e^{\langle N,m\rangle}$ for a primitive
+conormal $N$, and $\langle N,m\rangle=1$ for some $m$.  Over
+$Z\setminus D_T$ the functions on $\Xfrak_T$ are the functions on
+$Z\setminus D_T$, and the roots are not among them.
+
+The Kummer covers, and with them the presentations, are not regular in
+general.  If $T$ contains the three root edges at which the transported
+$B_0$-radicands $f_B(u^nx_B)$, $u=(1+x_A^{-1})^4$, $n=0,1,2$, of
+Theorem~\ref{thm:infinite-root-orbit} are adjoined, then at the points over
+a specific point of $Z$, at which the root divisors of these three radicands
+meet pairwise transversely, $P_T$ is neither regular nor log regular, for
+the trivial log structure or for the log structure of its roots, and
+$\Xfrak_T$ is not regular (Proposition~\ref{prop:root-stage-nonregular}).
+Regularity is recovered by a proper modification
+(Theorem~\ref{thm:regular-presentation}).  For every finite rooted subtree
+$T$ there is a proper morphism $p_T:\mathcal Y_T\to\Xfrak_T$, an
+isomorphism over $Z\setminus D_T$, from a smooth separated
+Deligne--Mumford stack $\mathcal Y_T$ with a divisor $\mathcal E_T$ that is
+a simple normal crossings divisor on an \'etale atlas; $\mathcal Y_T$ is the
+stack of fourth roots of the boundary components of the minimal log
+resolution of $(Z,D_T)$.  Its fiber product with $P_T$ is proper over
+$P_T$ and isomorphic to it over $P_T^\circ$, so the lifted transitions, the
+Jacobi bracket and the wall automorphisms pull back to it unchanged.  After
+base change to $R_{\Wcal,N}$ both stacks are flat and log smooth, with log
+regular closed fibers, and the construction is compatible with enlarging
+$T$ and with the surjections $R_{\Wcal',N'}\to R_{\Wcal,N}$ between
+truncated coefficient rings.  Appendix~\ref{app:regular-presentation} proves
+both results.

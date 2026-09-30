@@ -1,0 +1,777 @@
+\section{Comparison with Gross--Kelly--Tessler wall-crossing}
+\label{sec:gkt-decoration}
+
+The diagram $\mathfrak D$ of Theorem~\ref{thm:annular-consistency} is
+determined by the two singleton factors and by consistency at its joints.
+The wall-crossing group of Gross, Kelly and Tessler has a different origin:
+its elements are the transitions between the systems of open invariants
+defined by different canonical multisections.  After the $\kappa$-shift
+both act through the Hamiltonian wall algebra $\mathfrak g_\kappa$ of
+Section~\ref{sec:jacobi-theta}, the Lie algebra of $\Omega_\kappa$-Hamiltonian
+derivations spanned by the fields $X^\kappa_q$ of
+\eqref{eq:shifted-Hamiltonian} with the bracket \eqref{eq:shifted-bracket},
+but their coefficients need not agree.  We compare them one ray at a time.
+
+\subsection{Recollections from Gross--Kelly--Tessler}
+\label{subsec:gkt-recollections}
+
+We recall the notions of \cite{grossetal2022open} used in this section and
+in Appendix~\ref{app:gkt-completion}, for $W=x^4+y^4$; thus $r=s=4$ in the
+notation of \cite{grossetal2022open}.
+
+\emph{Labels and coefficients.}  Internal marked points carry labels from a
+fixed countable set.  Each label $i$ has a twist
+$\tau(i)=(a_i,b_i)\in\{0,1,2,3\}^2$, and every twist is carried by
+infinitely many labels \cite[\S0.1]{grossetal2022open}.  All constructions
+are bounded by a finite set $I$ of labels.  A descendent vector on
+$J\subseteq I$ is $\mathbf d=(d_i)_{i\in J}\in\ZZ_{\geq0}^J$, and for
+$J\neq\varnothing$ we write $r_J,s_J\in\{0,1,2,3\}$ for the residues of
+$\sum_{i\in J}a_i$ and $\sum_{i\in J}b_i$ modulo $4$.  The coefficient ring is
+\begin{equation}\label{eq:labelled-ring}
+ A_I
+ =\QQ[\{u_{i,d}:i\in I, d\geq0\}]
+  /\langle u_{i,d}u_{i,d'}:i\in I\rangle
+\end{equation}
+\cite[Def.~4.6]{grossetal2022open}, in which two variables belonging to the
+same label have zero product, and $u_{J,\mathbf d}=\prod_{i\in J}u_{i,d_i}$.
+
+\emph{Graphs and bundles.}  The graphs are the graded open $(4,4)$-graphs
+$\Gamma$, the dual graphs of genus-zero graded $W$-spin disks, with internal
+labels $I(\Gamma)\subseteq I$ and unlabelled boundary tails
+\cite[Defs.~1.41 and~3.21]{grossetal2022open}.  A smooth connected graph has
+one vertex and, besides its internal tails, $k_1(\Gamma)$ boundary
+\emph{$r$-tails}, of twist $(2,0)$, $k_2(\Gamma)$ boundary \emph{$s$-tails},
+of twist $(0,2)$, and $k_{12}(\Gamma)$ \emph{fully twisted} boundary tails,
+of twist $(2,2)$ \cite[\S2.4 and Notation~2.27]{grossetal2022open}; the names
+of the first two kinds refer to the exponents of $x^r+y^s$.  The moduli
+space $\overline{\mathcal M}{}^W_\Gamma$ of such disks carries the descendent
+Witten bundle $E_\Gamma(\mathbf d)$, the direct sum of the Witten bundle and,
+for each $i\in I(\Gamma)$, of $d_i$ copies of the cotangent line at the
+$i$th internal marking \cite[Def.~2.16]{grossetal2022open}.
+
+\emph{Balanced and critical graphs.}  A smooth connected graph with one fully
+twisted tail is \emph{balanced} for $\mathbf d$ if its moduli space is nonempty
+and
+$\operatorname{rank}E_\Gamma(\mathbf d)=\dim\overline{\mathcal M}{}^W_\Gamma$
+\cite[Def.~2.32]{grossetal2022open}.  A smooth connected graph without fully
+twisted tails that is relevant, that is, not irrelevant in the sense of
+\cite[Def.~1.57]{grossetal2022open}, is \emph{critical} for $\mathbf d$ if
+the rank exceeds the dimension by one \cite[Def.~2.33(1)]{grossetal2022open}.
+Write $\operatorname{Balanced}(J,\mathbf d)$ for the set of balanced graphs
+with internal labels $J$.  Such a graph $\Gamma$ is determined by its numbers
+$(k_1(\Gamma),k_2(\Gamma))$ of $r$-tails and $s$-tails, and these pairs, for
+$\Gamma\in\operatorname{Balanced}(J,\mathbf d)$, are the pairs $(k_1,k_2)$ with
+$k_1\equiv r_J$, $k_2\equiv s_J$ modulo $4$ and
+\[
+ k_1+k_2=4+\sum_{i\in J}\bigl(a_i+b_i+4(d_i-1)\bigr)
+\]
+\cite[Prop.~2.31 and Notation~2.40]{grossetal2022open}.  A critical graph with
+$k_1+1$ $r$-tails and $k_2+1$ $s$-tails has
+\emph{critical exponent} $(k_1,k_2)$; the critical exponents of
+$(J,\mathbf d)$ satisfy the same congruences and
+$k_1+k_2=\sum_{i\in J}(a_i+b_i+4(d_i-1))$
+\cite[Prop.~2.39 and Notation~2.40]{grossetal2022open}.
+
+\emph{Boundary strata.}  Let $\mathcal{PM}_\Gamma$ be the complement in
+$\overline{\mathcal M}{}^W_\Gamma$ of the strata of boundary graphs with a
+positive boundary half-edge, the space written
+$\overline{\mathcal{PM}}_\Gamma$ in \cite[Notation~3.1]{grossetal2022open}.  Its
+boundary is the union of the strata $\mathcal{PM}_\Lambda$ of two kinds of
+boundary graphs $\Lambda$ \cite[Def.~3.2]{grossetal2022open}.  The
+\emph{exchange boundary graphs} $\Lambda\in\partial^{\mathrm{exchange}}\Gamma$
+have a vertex which, after detaching one boundary edge, carries exactly three
+boundary half-edges with the twists of \cite[Def.~1.54]{grossetal2022open};
+two such strata that differ by reversing the cyclic order at that vertex carry
+matching boundary conditions, and their contributions to zero counts cancel
+(\cite{grossetal2022open}, discussion after Def.~1.56, and
+\cite[Lem.~5.3]{grossetal2022open}).  The \emph{zero
+boundary graphs} $\Lambda\in\partial^0\Gamma$ are the remaining boundary
+graphs with a boundary edge or a contracted boundary half-edge
+\cite[Def.~1.56]{grossetal2022open}.  For $\Lambda$ of either kind, the
+\emph{base} $B\Lambda$ is obtained by detaching the boundary edges at which,
+for each grading, one half-edge has twist and alternation zero, and
+forgetting the boundary tails of twist and alternation zero; the induced map
+is $F_\Lambda:\overline{\mathcal M}{}^W_\Lambda\to\overline{\mathcal
+M}{}^W_{B\Lambda}$ \cite[Def.~3.5 and Notation~3.6]{grossetal2022open}, and
+the Witten bundle over $\mathcal{PM}_\Lambda$ is pulled back along it
+\cite[Obs.~3.11]{grossetal2022open}.
+
+\emph{Canonical multisections.}  A multisection of $E_\Gamma(\mathbf d)$ is
+\emph{strongly positive} if, near the removed strata and along the strata of
+irrelevant graphs, its Witten components evaluate positively, with respect
+to the gradings, at the boundary points and on the boundary intervals
+specified in \cite[Defs.~3.17 and~3.18]{grossetal2022open}; this keeps zeros
+from leaving through these strata.  A \emph{family of canonical multisections bounded by
+$I$} is a collection $\mathfrak s=(s_{\Gamma,\mathbf d})$ of strongly positive
+multisections $s_{\Gamma,\mathbf d}$ of $E_\Gamma(\mathbf d)$ over
+$\mathcal{PM}_\Gamma$, one for every graph $\Gamma$ with
+$I(\Gamma)\subseteq I$ and every descendent vector $\mathbf d$, that satisfy
+the assembling relation
+\begin{equation}\label{eq:GKT-assembling}
+ s_{\Gamma,\mathbf d}|_{\mathcal{PM}_\Lambda}
+ =F_\Lambda^*
+ \left(\boxplus_{\Xi\in\operatorname{Conn}(B\Lambda)}
+ s_{\Xi,\mathbf d|_{I(\Xi)}}\right)
+\end{equation}
+for every zero or exchange boundary graph $\Lambda$ of $\Gamma$; here
+$\boxplus$ is the external sum over the connected components $\Xi$ of the
+base \cite[Defs.~3.20, 3.27 and~3.28]{grossetal2022open}.
+
+\emph{Invariants and chamber indices.}  For a transverse family
+$\mathfrak s$ and $\Gamma\in\operatorname{Balanced}(J,\mathbf d)$, the
+invariant $\nu^{\mathfrak s}_{\Gamma,\mathbf d}\in\QQ$ is the weighted count
+of zeros of $s_{\Gamma,\mathbf d}$ \cite[(3.20) and
+Def.~3.32]{grossetal2022open}.  The vector $\nu^{\mathfrak s}$ lies in
+$\QQ\text{-}\mathrm{Bal}(I)=\prod_{J,\mathbf d}
+\QQ^{\operatorname{Balanced}(J,\mathbf d)}$ \cite[(0.3)]{grossetal2022open};
+for $\nu$ in this space and $\Gamma\in\operatorname{Balanced}(J,\mathbf d)$
+with $b=(k_1(\Gamma),k_2(\Gamma))$ we write $\nu_{J,b}$ for the coordinate
+of $\nu$ at $\Gamma$.  With the quartic Gamma weight
+\begin{equation}\label{eq:quartic-Gamma-weight}
+ w_J(u,v)=
+ \frac{\Gamma((u+1)/4)\Gamma((v+1)/4)}
+      {\Gamma((r_J+1)/4)\Gamma((s_J+1)/4)},
+\end{equation}
+which is nonzero for $u,v\geq0$, put
+\[
+ A(J,\mathbf d,\nu)
+ =\sum_{\pi\in\operatorname{Part}(J)}\ \sum_{(b_C)_{C\in\pi}}
+ w_J\Bigl(\sum_{C\in\pi}b_C\Bigr)\prod_{C\in\pi}\nu_{C,b_C},
+\]
+where $\operatorname{Part}(J)$ is the set of set partitions of $J$ and $b_C$
+runs over the pairs $(k_1(\Gamma),k_2(\Gamma))$ of the graphs
+$\Gamma\in\operatorname{Balanced}(C,\mathbf d|_C)$
+\cite[Notation~3.42]{grossetal2022open}.  A \emph{chamber index} bounded by
+$I$ is an element $\nu$ such that $\nu$ equals $1$ on balanced graphs with one
+internal marking and $\mathbf d=0$ and $-1$ on balanced graphs without
+internal markings; $A(\{i\},(d),\nu)=(-1)^d$; and $A(J,\mathbf d,\nu)=0$
+whenever $|J|\geq2$ and $4+\sum_{i\in J}(a_i+b_i+4(d_i-1))\geq r_J+s_J$
+\cite[Def.~3.47]{grossetal2022open}.  The chamber indices are exactly the
+vectors $\nu^{\mathfrak s}$ of transverse canonical families
+\cite[Cor.~5.14]{grossetal2022open}.  The potential of $\nu$ is
+\[
+ W^\nu=\sum_{J\subseteq I,\ \mathbf d\in\ZZ^J_{\geq0}}\
+ \sum_{\Gamma\in\operatorname{Balanced}(J,\mathbf d)}
+ (-1)^{|J|-1}\nu_{\Gamma,\mathbf d}\,
+ x^{k_1(\Gamma)}y^{k_2(\Gamma)}u_{J,\mathbf d}
+ \in A_I[[x,y]]
+\]
+\cite[Def.~4.6]{grossetal2022open}.
+
+\emph{The wall-crossing group.}  The quartic critical Lie algebra
+\cite[Def.~4.23]{grossetal2022open} is spanned over $\QQ$ by the elements
+$u_{J,\mathbf d}X_k$ with $\varnothing\neq J\subseteq I$ and
+\begin{equation}\label{eq:critical-conditions}
+ k\equiv\sum_{i\in J}\tau(i)\pmod4,
+ \qquad
+ k_1+k_2=\sum_{i\in J}\bigl(a_i+b_i+4(d_i-1)\bigr),
+\end{equation}
+that is, with $k$ a critical exponent of $(J,\mathbf d)$, where
+\begin{equation}\label{eq:GKT-generator}
+ X_k=x^{k_1}y^{k_2}
+ \bigl((k_2+1)x\partial_x-(k_1+1)y\partial_y\bigr).
+\end{equation}
+The definition in \cite{grossetal2022open} excludes $k=(0,0)$.  We adjoin
+the degree-zero generator $X_{0,0}=x\partial_x-y\partial_y$ whenever
+$k=(0,0)$ satisfies \eqref{eq:critical-conditions}.  The exponential group of
+the critical Lie algebra acts on $A_I[[x,y]]$ \cite[Def.~4.19 and
+(4.18)]{grossetal2022open}, and on chamber indices by $g(W^\nu)=W^{g(\nu)}$, faithfully and transitively
+\cite[Thm.~4.27 and Cor.~5.14]{grossetal2022open}; the group enlarged by
+$X_{0,0}$ acts freely and transitively \cite[Lem.~2.5]{wuebben2026boundary}.  A \emph{canonical
+homotopy} is a multisection over $[0,1]\times\mathcal{PM}_\Gamma$ that is
+strongly positive at every time and satisfies the assembling relation in the
+form of \cite[Def.~3.36]{grossetal2022open}; it is \emph{simple} if on every
+boundary stratum it is assembled from one homotopy for each component of the
+base, independent of the stratum.  We write $\vartheta\in[0,1]$ for the time
+parameter of a homotopy.  Between two transverse families,
+\cite[Lem.~3.40]{grossetal2022open} provides a family of simple canonical
+homotopies and a distinct time $\vartheta_J\in(0,1)$ for every nonempty
+$J\subseteq I$ such that, on a critical graph with internal labels $J$, the
+homotopy vanishes only at time $\vartheta_J$, at isolated points.  The proof of
+\cite[Thm.~5.9]{grossetal2022open} shows that at time $\vartheta_J$ the
+potential changes by the exponential of the critical generators with support
+$J$, weighted by $(-1)^{|J|+k_2}$ times the zero counts of the homotopy on the
+corresponding critical graphs.
+
+\subsection{Labelled critical algebras}
+
+Let $Q=\widetilde M/4\widetilde M\simeq(\ZZ/4)^2$ be the twist group of
+\eqref{eq:GKT-residue-group}, the group of GKT twists modulo $4$.  An
+object $\mathcal I=(I,\tau)$ consists of a finite set of labels and a twist
+map $\tau:I\to Q$; morphisms are twist-preserving bijections.  We write $A_{\mathcal I}$ for the ring
+\eqref{eq:labelled-ring} of $I$, and $\tau(i)=(a_i,b_i)$ with representatives
+in $\{0,1,2,3\}^2$.
+
+\begin{theorem}[Labelled critical-algebra embedding]
+\label{thm:critical-embedding}
+For every $\mathcal I$, the assignment
+\begin{equation}\label{eq:critical-embedding}
+ \jmath_{\mathcal I}:
+ u_{J,\mathbf d}X_k
+ \longmapsto
+ u_{J,\mathbf d}X_{k+\kappa}^{\kappa}
+\end{equation}
+is a natural coefficient-preserving injective Lie map from the GKT critical
+algebra, enlarged by the degree-zero generator, to the Hamiltonian wall
+algebra $\mathfrak g_\kappa\otimes A_{\mathcal I}$ in the frame of the sheet
+$S_0$.  It sends $X_{0,0}$ to $X_\kappa^\kappa$.  Jacobi transport along
+paths in the twist cover, on which the $Q$-grading is constant,
+carries this embedding to the frame of every other region of $\mathfrak D$,
+compatibly with composition of paths.  The construction commutes with
+relabelling, with restriction to a subset of the labels, and with reduction
+modulo powers of the ideal generated by the $u_{i,d}$.
+\end{theorem}
+
+\begin{proof}
+Specializing the bracket formula \cite[(4.17)]{grossetal2022open} to two
+variables gives
+\[
+ [X_k,X_\ell]
+ =-\det(k+\kappa,\ell+\kappa)X_{k+\ell}.
+\]
+Equation~\eqref{eq:shifted-bracket} gives the same formula after applying
+\eqref{eq:critical-embedding}.  If two coefficient monomials share a label,
+their product vanishes in \eqref{eq:labelled-ring}; if their supports are
+disjoint, both conditions in \eqref{eq:critical-conditions} add, as in
+\cite[Prop.~4.25]{grossetal2022open}.  Hence the
+assignment is a Lie map, and it is injective on the displayed monomial
+basis.  The bracket with the degree-zero generator is preserved because
+\[
+ [X_{0,0},X_{a,b}]=(a-b)X_{a,b}
+ =-\det(\kappa,(a,b)+\kappa)X_{a,b}.
+\]
+Jacobi path transport is a Lie isomorphism by
+Proposition~\ref{prop:Jacobi-transport}, and it is compatible with
+composition of paths.  On the twist cover the
+$Q$-grading is constant; affine transport moves the Hamiltonian exponent and
+the $\kappa$-shift together.  The remaining naturality statements are
+immediate from the labelled formula.
+\end{proof}
+
+Transport along the twist cover is not induced by a change of the
+twists of the labels.  The monodromy about each singular point acts on $Q$ by
+the matrix $P_{\mathrm{res}}$ of \eqref{eq:residue-matrix}, which permutes the
+singleton twists cyclically,
+\[
+ (1,0)\mapsto(2,3)\mapsto(3,2)\mapsto(0,1)\mapsto(1,0).
+\]
+Replacing the twist $\tau(i)$ of every label by $P_{\mathrm{res}}\tau(i)$,
+with the labels and descendent degrees unchanged, does not induce an
+isomorphism of critical algebras that maps the $u_{J,\mathbf d}$-component to
+the $u_{J,\mathbf d}$-component.  Indeed, for two labels of twist $(1,0)$ and
+descendent degree one, the conditions \eqref{eq:critical-conditions} have the
+single solution $k=(2,0)$, whereas for two labels of twist $(2,3)$ they have
+the three solutions $(0,10)$, $(4,6)$ and $(8,2)$.  Jacobi transport instead
+moves the exponent and the volume frame together, and in the target chart it
+may produce Laurent expressions whose coefficients involve roots of the slab
+functions.
+
+Under the dictionary $x^ay^b\leftrightarrow z^{(a,b)}$ of
+Section~\ref{sec:jacobi-theta}, the field $X^\kappa_{k+\kappa}$ is the vector
+field $X_k$ of \eqref{eq:GKT-generator}; accordingly $X_{a,b}$ denotes both,
+as in the notation $X_{a,b}=X^\kappa_{\kappa+(a,b)}$ of
+Section~\ref{sec:introduction}.  For a ray $\mathfrak r$, the \emph{ray group}
+of $\mathfrak r$ with coefficients in $A_{\mathcal I}$ is the exponential of
+the span of the elements $uX^\kappa_q$ with $q\in\mathfrak r$ and $u$ in the
+ideal of $A_{\mathcal I}$ generated by the $u_{i,d}$; it is abelian by
+\eqref{eq:shifted-bracket}.
+
+In a finite nilpotent quotient, exponential integrates
+\eqref{eq:critical-embedding} to an injective group homomorphism.  Let $\nu$
+and $\nu'$ be chamber indices bounded by $I$.  The family of simple canonical
+homotopies of \cite[Lem.~3.40]{grossetal2022open} between transverse
+families realizing them changes the potential at the successive times
+$\vartheta_J$ by the exponentials recalled in
+Subsection~\ref{subsec:gkt-recollections} \cite[Thm.~5.9, with
+Lem.~3.40]{grossetal2022open}; their product $g$ satisfies
+$g(W^\nu)=W^{\nu'}$, and we call $g$ a \emph{GKT transition} from $\nu$ to
+$\nu'$.  The slope-ordered factorization of
+\cite[Thms.~1.2 and~1.3]{wuebben2026boundary} writes it uniquely as a product
+of factors, each supported on the generators $X_k$ whose shifted exponents
+$k+\kappa$ lie on one ray, ordered by increasing slope of that ray; we call
+the factor on a ray the \emph{GKT factor} on that ray.  The \emph{extremal
+chamber indices} $\nu^{\min}$ and $\nu^{\max}$ are the unique chamber indices
+bounded by $I$ such that, for every $(J,\mathbf d)$ with $J\neq\varnothing$,
+the only coordinate at
+the balanced graphs of $(J,\mathbf d)$ that may be nonzero is the one of
+least, respectively greatest, $k_1$ \cite[Thm.~1.3]{wuebben2026boundary}.
+Their potentials $W^{\min}=W^{\nu^{\min}}$ and $W^{\max}=W^{\nu^{\max}}$ are
+the \emph{extremal GKT potentials}.
+
+\begin{proposition}[Finite GKT transitions]
+\label{prop:endpoint-operations}
+In every finite nilpotent quotient, every GKT transition maps to an
+automorphism of the chart algebra of $S_0$ in the group generated by the ray
+groups with coefficients in $A_{\mathcal I}$, and its GKT factors map factor
+by factor to the ray groups of the shifted rays $\RR_{\geq0}(k+\kappa)$.  The
+GKT transition from $\nu$ to $\nu'$, and hence its image, depends only on
+$\nu$ and $\nu'$, not on the chosen canonical homotopy.  The construction is
+natural under labelled restriction and path transport.
+\end{proposition}
+
+\begin{proof}
+Exponentiation and Baker--Campbell--Hausdorff are finite in the chosen
+quotient and are functorial for the map of Theorem
+\ref{thm:critical-embedding}.  GKT prove that the action of their group on
+chamber indices is faithful and transitive
+\cite[Thm.~4.27 and Cor.~5.14]{grossetal2022open}; Step~2 of the proof of
+\cite[Thm.~4.27]{grossetal2022open} in fact shows that stabilizers are
+trivial.  Because a transition may use the degree-zero summand excluded in
+\cite[Def.~4.23]{grossetal2022open}, we use the enlarged-torsor statement
+\cite[Lem.~2.5]{wuebben2026boundary}: the action of the enlarged group, which
+contains the degree-zero generator, is free and transitive.  Its freeness
+makes the element carrying $W^\nu$ to $W^{\nu'}$ unique.  The slope
+assertion follows because $k$ maps to the shifted exponent $k+\kappa$.
+\end{proof}
+
+The finite homotopies realizing GKT transitions can be chosen compatibly as
+the labelled system grows (Theorem~\ref{thm:compatible-GKT-realization},
+proved in Appendix~\ref{app:gkt-completion}).  Every GKT factor used below is
+therefore the jump of a finite homotopy of canonical multisections.
+
+\subsection{The first mixed ray}
+
+Take two distinct labels with
+\[
+ t_1=u_{i,1},\quad\tau(i)=(1,0),
+ \qquad
+ t_2=u_{j,1},\quad\tau(j)=(0,1),
+\]
+and work modulo $(t_1^2,t_2^2)$.  By \cite[Def.~4.6]{grossetal2022open}, the
+potential of a chamber index $\nu$ has coefficient
+$(-1)^{|J|-1}\nu_{\Gamma,\mathbf d}$ on the monomial of a balanced graph
+$\Gamma$ with internal labels $J$.  The extremal GKT potentials are
+\begin{equation}\label{eq:mixed-potentials}
+\begin{aligned}
+ W^{\min}
+ &=x^4+y^4-4t_1xy^4-2t_2y^5+12t_1t_2xy^5,\\
+ W^{\max}
+ &=x^4+y^4-2t_1x^5-4t_2x^4y+12t_1t_2x^5y.
+\end{aligned}
+\end{equation}
+The GKT transition from $\nu^{\min}$ to $\nu^{\max}$, written in increasing
+slope with the rightmost factor acting first, is
+\begin{equation}\label{eq:mixed-GKT-transition}
+ \exp\!\left(-\frac12t_2X_{0,1}\right)
+ \exp\!\left(\frac14t_1t_2X_{1,1}\right)
+ \exp\!\left(-\frac12t_1X_{1,0}\right).
+\end{equation}
+Write $\Sigma_1=\exp(-\frac12t_1X_{1,0})=e^{\mathsf A}$ and
+$\Sigma_2=\exp(-\frac12t_2X_{0,1})=e^{\mathsf B}$ for its two singleton
+factors, and for $c\in\QQ$ put
+\begin{equation}\label{eq:mixed-total-factor}
+ Z_c=\exp\!\left(c\,t_1t_2X_{1,1}\right).
+\end{equation}
+Each $Z_c$ lies in the ray group of the diagonal ray, is central in the group
+generated by $\Sigma_1$, $\Sigma_2$ and the $Z_{c'}$, and $Z_cZ_{c'}=Z_{c+c'}$.
+
+With the coorientations of Section~\ref{subsec:cofactor-supports}, a path
+that passes the joint $O_0$ from left to right on the side of the outgoing
+walls, such as the
+path $\gamma_+$ of Proposition~\ref{prop:two-label-transport}, crosses the
+positive half-chords and the outgoing walls in increasing shifted slope and
+crosses each of them positively; this is the order in which the GKT
+transition applies its factors.  The path $\gamma_-$ of
+Proposition~\ref{prop:two-label-transport} crosses only the two negative
+half-chords, also positively.  Modulo $(t_1^2,t_2^2)$ the factors
+$\exp(-C_{\mathfrak r})$ of Section~\ref{subsec:cofactor-supports} are the
+identity except on the diagonal ray, so both halves of the two chords carry
+$\Sigma_1$ and $\Sigma_2$, and the first mixed wall, the diagonal wall from
+$O_0$ to $B_0$, carries $Z_{-3/4}$, the image of $\exp(-\frac34E_{1,1})$.
+The GKT factor and the residual factor on the first mixed ray are
+\begin{equation}\label{eq:mixed-decoration}
+ G_{\mathrm{mix}}=Z_{1/4},
+ \qquad
+ R_{\mathrm{mix}}=Z_{-1}.
+\end{equation}
+
+\begin{proposition}[Factorization on the first mixed ray]
+\label{prop:first-decoration}
+Modulo $(t_1^2,t_2^2)$, the two chords of $\mathfrak D$ carry the GKT
+singleton factors $\Sigma_1$ and $\Sigma_2$, and the first mixed wall carries
+$Z_{-3/4}$.  The elements $Z_{-3/4}$, $G_{\mathrm{mix}}$ and
+$R_{\mathrm{mix}}$ lie in the ray group of the first mixed ray, and
+\begin{equation}\label{eq:three-quarter-split}
+ Z_{-3/4}=G_{\mathrm{mix}}R_{\mathrm{mix}},
+ \qquad -\frac34=\frac14-1.
+\end{equation}
+Here $G_{\mathrm{mix}}$ is the mixed factor of the GKT transition
+\eqref{eq:mixed-GKT-transition}, which is unique by
+Proposition~\ref{prop:endpoint-operations}; hence $R_{\mathrm{mix}}$ is
+determined by the wall.  If the factor carried by the mixed wall is replaced
+by $G_{\mathrm{mix}}$, the product around a small loop about the joint
+becomes $R_{\mathrm{mix}}^{\pm1}$ instead of the identity, the sign depending
+on the orientation of the loop.
+\end{proposition}
+
+\begin{proof}
+By \cite[Notation~2.40]{grossetal2022open}, the balanced graphs of
+$(\{i\},(1))$ have $(k_1,k_2)=(1,4)$ and $(5,0)$, those of $(\{j\},(1))$
+have $(0,5)$ and $(4,1)$, and those of $(J,(1,1))$, $J=\{i,j\}$, have
+$(1,5)$ and $(5,1)$; the only critical exponent of $J$ is $(1,1)$.  The
+chamber index $\nu^{\min}$ can be nonzero only at the pairs $(1,4)$, $(0,5)$
+and $(1,5)$ of least $k_1$.  By \eqref{eq:quartic-Gamma-weight}, the
+single-label chamber conditions $A(\{i\},(1),\nu^{\min})=
+A(\{j\},(1),\nu^{\min})=-1$ read
+$\frac14\nu^{\min}_{\{i\},(1,4)}=-1$ and $\frac12\nu^{\min}_{\{j\},(0,5)}=-1$.
+The set $J$ has the two partitions $\{J\}$ and $\{\{i\},\{j\}\}$, and
+$(1,4)+(0,5)=(1,9)$; since $r_J=s_J=1$, the weights are
+$w_J(1,5)=\Gamma(\frac12)\Gamma(\frac32)/\Gamma(\frac12)^2=\frac12$ and
+$w_J(1,9)=\Gamma(\frac12)\Gamma(\frac52)/\Gamma(\frac12)^2=\frac34$.  The
+chamber condition $A(J,(1,1),\nu^{\min})=0$
+\cite[Def.~3.47(3) and Notation~3.42]{grossetal2022open} is therefore
+\[
+ w_J(1,5)\,\nu^{\min}_{J,(1,5)}
+ +w_J(1,9)\,\nu^{\min}_{\{i\},(1,4)}\,\nu^{\min}_{\{j\},(0,5)}
+ =\tfrac12\,\nu^{\min}_{J,(1,5)}+\tfrac34\cdot(-4)\cdot(-2)=0,
+\]
+so $\nu^{\min}_{J,(1,5)}=-12$.  The same computation for $\nu^{\max}$, with
+the pairs $(5,0)$, $(4,1)$, $(5,1)$ and $(9,1)$ in place of $(1,4)$, $(0,5)$,
+$(1,5)$ and $(1,9)$, gives the single-label values $-2$ and $-4$ and
+$\nu^{\max}_{J,(5,1)}=-12$.  By \cite[Def.~4.6]{grossetal2022open} these
+invariants, with the signs $(-1)^{|J|-1}$, are the coefficients in
+\eqref{eq:mixed-potentials}; in particular the mixed coefficient is
+$(-1)^{|J|-1}\nu=12$.
+
+The factor $\Sigma_1$ carries $W^{\min}$ to
+$x^4+y^4-2t_1x^5-2t_2y^5+2t_1t_2xy^5$, because
+$X_{1,0}(x^4+y^4)=4x^5-8xy^4$ and $X_{1,0}(y^5)=-10xy^5$.  The factor
+$\Sigma_2$ does not change the coefficient of $t_1t_2xy^5$, and
+\[
+ X_{1,1}(x^4+y^4)=8x^5y-8xy^5.
+\]
+Since $W^{\max}$ has no $t_1t_2xy^5$ term, the mixed GKT generator has
+coefficient $2/8=1/4$, proving \eqref{eq:mixed-GKT-transition}.
+
+Let $\Theta_{\mathrm{mix}}$ be the factor carried by the mixed wall.  The
+path $\gamma_+$ crosses the $\Sigma_1$-chord, the mixed wall and the
+$\Sigma_2$-chord positively and in this order, and $\gamma_-$ crosses the
+negative half-chords of $\Sigma_2$ and of $\Sigma_1$ positively and in this
+order.  Consistency at the joint (Theorem~\ref{thm:annular-consistency})
+therefore requires $\Sigma_2\Theta_{\mathrm{mix}}\Sigma_1=\Sigma_1\Sigma_2$.
+Equation \eqref{eq:first-bracket} gives
+$\Sigma_2\Sigma_1=Z_{3/4}\Sigma_1\Sigma_2$, and the square-zero mixed ray is
+central, so $\Theta_{\mathrm{mix}}=Z_{-3/4}$.  Subtraction of logarithms on
+this ray gives $-\frac34-\frac14=-1$, which is \eqref{eq:three-quarter-split}.
+Finally, replacing $Z_{-3/4}$ by
+$G_{\mathrm{mix}}=Z_{-3/4}R_{\mathrm{mix}}^{-1}$ multiplies the product along
+$\gamma_+$ by the central element $R_{\mathrm{mix}}^{-1}$, so the two loop
+products are $R_{\mathrm{mix}}^{-1}$ and $R_{\mathrm{mix}}$.
+\end{proof}
+
+Thus $R_{\mathrm{mix}}^{-1}=Z_1$ is the correction of
+Proposition~\ref{prop:two-label-transport}(3): along $\gamma_+$,
+$\Sigma_2G_{\mathrm{mix}}\Sigma_1
+=R_{\mathrm{mix}}^{-1}\Sigma_2Z_{-3/4}\Sigma_1$, and the right side is
+$R_{\mathrm{mix}}^{-1}$ times the path-ordered product of $\mathfrak D$.  The
+GKT factor is not the image of the wall factor under any homomorphism fixing
+the incoming factors, since such a homomorphism fixes their commutator
+$Z_{-3/4}=\Sigma_2^{-1}\Sigma_1\Sigma_2\Sigma_1^{-1}$.  Nor does an abelian
+quotient separate the two factors: a character of a group containing
+$\Sigma_1$, $\Sigma_2$ and $G_{\mathrm{mix}}$ is trivial on the commutator
+$Z_{-3/4}$ and therefore takes inverse values on $G_{\mathrm{mix}}$ and $R_{\mathrm{mix}}$.
+
+\subsection{Raywise factorization in all orders}
+\label{subsec:raywise-factorization}
+
+Let $\mathcal I$ be a finite set of distinct labels of descendent degree
+one, each of twist $\alpha=(1,0)$ or $\beta=(0,1)$.  We write
+$t_i=u_{i,1}\in A_{\mathcal I}$, so that $t_i^2=0$, and base-change the walls
+of $\mathfrak D$ along
+\[
+ t_1\longmapsto t_\alpha=\sum_{\tau(i)=\alpha}t_i,
+ \qquad t_2\longmapsto t_\beta=\sum_{\tau(i)=\beta}t_i,
+\]
+as in \eqref{eq:window-map}.  This is the base change for the labelled
+truncation $(\mathcal I,\tau,P_{\mathcal I})$ of
+Definition~\ref{def:coefficient-window}, with the twists $\alpha,\beta$ read
+as $1,2$ and with $P_{\mathcal I}$ the set of square-free monomials in the
+$t_i$; we call it the \emph{labelled truncation} of $\mathcal I$.  For
+$N>|\mathcal I|$ its coefficient ring is
+$\Bbbk[t_i:i\in\mathcal I]/(t_i^2:i\in\mathcal I)$, the base change to
+$\Bbbk$ of the subring of $A_{\mathcal I}$ generated by the $t_i$.  For
+$\varnothing\ne J\subseteq\mathcal I$ put
+\[
+ p_J=|J_\alpha|,
+ \qquad q_J=|J_\beta|,
+ \qquad t_J=\prod_{i\in J}t_i,
+\]
+where $J_\alpha$ and $J_\beta$ are the labels in $J$ of twist $\alpha$ and
+$\beta$, and write $p_J=r_J+4\ell_J$, $q_J=s_J+4m_J$ with $0\leq
+r_J,s_J\leq3$ as in Subsection~\ref{subsec:gkt-recollections}.  By
+\cite[Notation~2.40 and (2.30)--(2.31)]{grossetal2022open}, the pairs
+$(k_1(\Gamma),k_2(\Gamma))$ of the balanced graphs $\Gamma$ of $J$, which we
+call the \emph{balanced profiles} of $J$, and the critical exponents of $J$,
+are
+\begin{align}
+ b_{J,h}
+ &=(r_J+4h,s_J+4(\ell_J+m_J+1-h)),
+ &&0\leq h\leq\ell_J+m_J+1,\label{eq:balanced-profiles}\\
+ k_{J,h}
+ &=(r_J+4h,s_J+4(\ell_J+m_J-h)),
+ &&0\leq h\leq\ell_J+m_J.\label{eq:critical-profiles}
+\end{align}
+Write
+\[
+ b_J^{\min}=b_{J,0},
+ \qquad
+ b_J^{\max}=b_{J,\ell_J+m_J+1}.
+\]
+Among the balanced graphs of support $t_J$, the extremal chamber index
+$\nu^\epsilon$, $\epsilon\in\{\min,\max\}$, is nonzero at most at the graph
+with $(k_1,k_2)=b_J^\epsilon$; we write $\nu_J^\epsilon$ for its coordinate there and call it
+the \emph{extremal invariant} of $J$.  For two labels of twists $\alpha$ and
+$\beta$ the extremal GKT potentials are \eqref{eq:mixed-potentials}.
+
+In the labelled truncation of $\mathcal I$ every label has descendent degree
+one, so the inequality in
+the third chamber condition holds for every $J$, and the chamber conditions
+read $A(J,\mathbf d,\nu)=-1$ for $|J|=1$ and $A(J,\mathbf d,\nu)=0$ for
+$|J|\geq2$.  Since $\nu^\epsilon$ has on each block $C$ of a partition only
+the coordinate at $b_C^\epsilon$, the formula for $A$ in
+Subsection~\ref{subsec:gkt-recollections} turns these conditions into the
+\emph{extremal recursion}
+\begin{equation}\label{eq:endpoint-recursion}
+ w_J(b_J^\epsilon)\nu_J^\epsilon
+ +\sum_{\substack{\pi\in\operatorname{Part}(J)\\|\pi|\geq2}}
+ w_J\!\left(\sum_{C\in\pi}b_C^\epsilon\right)
+ \prod_{C\in\pi}\nu_C^\epsilon
+ =\begin{cases}-1,&|J|=1,\\0,&|J|\geq2.
+ \end{cases}
+\end{equation}
+The coefficient $w_J(b_J^\epsilon)$ of $\nu_J^\epsilon$ is nonzero, so the
+recursion determines the extremal invariants by induction on $|J|$.
+
+On the scattering side, the path $\gamma_+$ crosses positively the positive
+half-chord of least slope, which carries $e^{\mathsf A-C_{\mathfrak r_{2,1}}}$,
+then the outgoing walls in increasing shifted slope, the wall of $\mathfrak r$
+carrying $e^{-C_{\mathfrak r}}$, and then the positive half-chord of greatest
+slope, which carries $e^{\mathsf B-C_{\mathfrak r_{1,2}}}$.  By
+Theorem~\ref{thm:annular-consistency} its path-ordered product equals that of
+$\gamma_-$, which crosses the negative half-chords, carrying $e^{\mathsf B}$
+and $e^{\mathsf A}$; this is \eqref{eq:singleton-increasing-slope}.  Grouping
+the factors by shifted ray gives, for every $N$,
+\begin{equation}\label{eq:increasing-slope-factorization}
+ e^{\mathsf A}e^{\mathsf B}
+ =\overleftarrow{\prod_{\mathfrak r}}
+ \exp\Bigl(\sum_{\kappa+(p,q)\in\mathfrak r}a_{p,q}E_{p,q}\Bigr)
+ \pmod{\mathfrak m^N},
+\end{equation}
+where $\overleftarrow{\prod}$ places the factor of least slope on the right,
+so that it acts first.  By Proposition~\ref{prop:singleton-completion}(3) this
+factorization is unique, and $a_{p,q}$ is the coefficient of $E_{p,q}$ in the
+logarithm of the factor carried by the wall of $\mathfrak D$ through $O_0$
+whose factor lies in the ray group of the ray of $\kappa+(p,q)$; on a chord
+ray this is the positive half-chord.  Thus $a_{1,0}=a_{0,1}=-\frac12$ are the
+chord factors, $a_{p,0}=a_{0,q}=0$ for $p,q\geq2$, and $a_{p,q}=-c_{p,q}$ for
+$p,q\geq1$, where $c_{p,q}$ are the coefficients of
+Proposition~\ref{prop:singleton-completion} and
+Table~\ref{tab:singleton-coefficients}.  In particular $a_{p,q}=a_{q,p}$,
+and the first values are
+\[
+ a_{1,1}=-\tfrac34,
+ \qquad a_{2,1}=a_{1,2}=-\tfrac38,
+ \qquad a_{3,1}=a_{1,3}=-\tfrac1{16},
+ \qquad a_{2,2}=-\tfrac38.
+\]
+
+\begin{definition}[GKT, wall and residual logarithms]
+\label{def:raywise-logarithms}
+In the labelled truncation of $\mathcal I$, let $\mathfrak r$ be a shifted ray.
+\begin{enumerate}
+\item The \emph{GKT logarithm} $G_{\mathfrak r}$ is the logarithm of the GKT
+factor on $\mathfrak r$ of the GKT transition from $\nu^{\min}$ to
+$\nu^{\max}$.
+\item The \emph{wall logarithm} $S_{\mathfrak r}$ is the logarithm of the
+base change of the factor on $\mathfrak r$ in
+\eqref{eq:increasing-slope-factorization}, that is, of the factor carried by
+the wall of $\mathfrak D$ on $\mathfrak r$ (on a chord ray, by its positive
+half) in the labelled truncation; $S_{\mathfrak r}=0$ if no wall carries a factor
+in the ray group of $\mathfrak r$.
+\item The \emph{residual logarithm} is
+\begin{equation}\label{eq:residual-ray}
+ R_{\mathfrak r}=S_{\mathfrak r}-G_{\mathfrak r},
+\end{equation}
+and $\exp(R_{\mathfrak r})$ is the \emph{residual factor} on $\mathfrak r$.
+\end{enumerate}
+For $J\subseteq\mathcal I$ we write $G_J$, $S_J$ and $R_J$ for the sums over
+$\mathfrak r$ of the $t_J$-components of $G_{\mathfrak r}$, $S_{\mathfrak r}$
+and $R_{\mathfrak r}$.  By \eqref{eq:critical-profiles},
+\begin{equation}\label{eq:GKT-logarithm-J}
+ G_J=t_J\sum_hg_{J,h}X_{k_{J,h}}
+\end{equation}
+for rational coefficients $g_{J,h}$.
+\end{definition}
+
+The generators on one shifted ray commute, so \eqref{eq:residual-ray}
+exponentiates to $\exp(S_{\mathfrak r})=\exp(G_{\mathfrak r})
+\exp(R_{\mathfrak r})$.  The product of the factors $\exp(G_{\mathfrak r})$,
+with least slope acting first, is the GKT transition, which carries
+$W^{\nu^{\min}}$ to $W^{\nu^{\max}}$, and the product of the factors
+$\exp(S_{\mathfrak r})$ is the base change of
+\eqref{eq:increasing-slope-factorization}, the path-ordered product across the
+joint in the labelled truncation.  Hence
+\begin{equation}\label{eq:decorated-word}
+ \overleftarrow{\prod_{\mathfrak r}}\exp(S_{\mathfrak r})
+ =\overleftarrow{\prod_{\mathfrak r}}
+  \bigl(\exp(G_{\mathfrak r})\exp(R_{\mathfrak r})\bigr),
+\end{equation}
+in which each factor on the left is replaced, in its own position, by two
+commuting factors in the same ray group.  On a ray that carries no wall,
+$S_{\mathfrak r}=0$ and $R_{\mathfrak r}=-G_{\mathfrak r}$, so the right side
+of \eqref{eq:decorated-word} contains the pair
+$\exp(G_{\mathfrak r})\exp(-G_{\mathfrak r})$; the factorization adds no wall
+to $\mathfrak D$.
+
+\begin{proposition}[Raywise factorization in all orders]
+\label{thm:all-order-decoration}
+In the labelled truncation of every finite set $\mathcal I$ of descendent-one
+labels of twists $\alpha$ and $\beta$:
+\begin{enumerate}
+\item the extremal invariants determine the coefficients $g_{J,h}$ in
+\eqref{eq:GKT-logarithm-J} uniquely, support by support in increasing order
+of $|J|$;
+\item the full-support wall logarithm is
+\begin{equation}\label{eq:scattering-logarithm-J}
+ S_J=p_J!\,q_J!\,a_{p_J,q_J}t_JX_{p_J,q_J};
+\end{equation}
+\item the residual logarithms vanish on singleton supports:
+$G_J=S_J=-\frac12t_iX_{\tau(i)}$ and $R_J=0$ for $J=\{i\}$;
+\item the factorization \eqref{eq:decorated-word} is natural under
+relabelling, deletion of labels, restriction of finite labelled systems
+closed under the dependencies of Appendix~\ref{app:gkt-completion},
+reduction of deformation order, and Jacobi transport along admissible paths (Section~\ref{subsec:cofactor-supports}).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The GKT dimension formula gives
+\eqref{eq:balanced-profiles}--\eqref{eq:critical-profiles}.  The critical
+generators act on the balanced monomials of one support as the weighted
+incidence matrix of the path graph with vertices
+$b_{J,0},\dots,b_{J,\ell_J+m_J+1}$.  Indeed,
+\begin{equation}\label{eq:critical-incidence}
+ X_{u,v}(x^4+y^4)
+ =4(v+1)x^{u+4}y^v-4(u+1)x^uy^{v+4}.
+\end{equation}
+For $(u,v)=k_{J,h}$ the two monomials in
+\eqref{eq:critical-incidence} are precisely the adjacent vertices
+$b_{J,h+1}$ and $b_{J,h}$.  The resulting path incidence matrix has full
+column rank, and its one left-kernel relation is the chamber equation, which
+the difference of two chamber indices satisfies
+\cite[Cor.~4.28 and (5.50)]{grossetal2022open}.  Hence the coefficients
+$g_{J,h}$ exist and are unique, support by support in increasing order of
+$|J|$.  For $J=\{i\}$ this gives $G_J=-\frac12t_iX_{\tau(i)}$, as in
+\eqref{eq:mixed-GKT-transition}.
+
+The base change carries $e^{\mathsf A}e^{\mathsf B}$ to the path-ordered
+product in the labelled truncation and each ray factor of
+\eqref{eq:increasing-slope-factorization} to a labelled ray factor.  Since
+$t_i^2=0$, the coefficient of $t_J$ in $t_\alpha^{p_J}t_\beta^{q_J}$ is
+$p_J!q_J!$, and no other monomial $t_\alpha^pt_\beta^q$ contains $t_J$; this
+gives \eqref{eq:scattering-logarithm-J}.  For $J=\{i\}$ it gives
+$S_J=-\frac12t_iX_{\tau(i)}=G_J$, so the singleton residuals vanish.  Both
+constructions are triangular in proper subsets, proving naturality under
+restriction; the other naturality statements are immediate from the
+constructions.
+\end{proof}
+
+For the mixed pair $J=\{i,j\}$, the logarithms $G_J$, $S_J$ and $R_J$ have
+coefficients $\frac14$, $-\frac34$ and $-1$ on $t_JX_{1,1}$, as in
+Proposition~\ref{prop:first-decoration}.  For $J$ of type $(2\alpha,\beta)$
+or $(\alpha,2\beta)$ the only critical exponent is $k=(2,1)$ or $(1,2)$, and
+in both cases $G_J$, $S_J$ and $R_J$ have coefficients $-\frac12$, $-\frac34$
+and $-\frac14$ on $t_JX_k$.  For two labels $i,i'$ of twist $\alpha$, the GKT
+transition contains $\exp(\frac12t_it_{i'}X_{2,0})$ on the shifted ray of
+$(3,1)$, which lies outside the cone spanned by $(2,1)$ and $(1,2)$ and
+carries no wall; there $R_{\mathfrak r}=-G_{\mathfrak r}$.
+
+The identity $-\frac34=\frac14-1$ concerns only the coefficient of
+$t_1t_2X_{1,1}$ on the first mixed ray $\RR_{\geq0}\kappa$.  This ray also
+contains the image $X_\kappa^\kappa$ of the degree-zero generator.  If labels
+of twist $(2,2)$ and descendent degree zero are admitted, the GKT transition
+has on this ray the degree-zero component $\exp(fX_{0,0})$, where
+$f=\frac1{32}t_{2,2}^2+O(t_{2,2}^4)$ in the symmetric variable $t_{2,2}$ of
+Section~\ref{sec:primary-frobenius}; this component survives on the primary
+slice, where all descendent variables vanish.  Every wall of $\mathfrak D$ is
+congruent to the identity modulo $\mathfrak m=(t_1,t_2)$
+(Definition~\ref{def:Jacobi-wall}), so the diagram has no wall on the primary
+slice, and the residual component there is $\exp(-fX_{0,0})$.
+
+\begin{remark}[Products along different paths]
+\label{rem:products-different-paths}
+The comparison extends from wall factors to transport along paths.  Along a
+path transverse to the walls, the transport of functions through
+$\mathfrak D$ and the \emph{GKT transport}, obtained from it by replacing
+every wall factor with the GKT factor on its ray, differ by one automorphism
+of the target chart algebra, the \emph{residual transport} of the path.
+Products of functions carried along the same path are therefore related by
+this automorphism.  For functions carried along different paths the residual
+transports differ in general: for the paths $\gamma_+$ and $\gamma_-$ of
+Proposition~\ref{prop:two-label-transport}, which have the same endpoints,
+they are $Z_{-1}$ and the identity.  Appendix~\ref{app:residual-coherence}
+corrects each factor by a degree-weighted interpolation of the residual
+transports, so that the corrected product is the image of the product of
+the GKT transports under one automorphism of the target algebra
+(Lemma~\ref{prop:residual-midpoint} and
+Proposition~\ref{thm:residual-coherence}).  The corrected products for
+different parenthesizations are related by automorphisms that satisfy the
+cocycle identity; for three factors the automorphism relating the two
+parenthesizations is not the identity in general
+(Proposition~\ref{thm:residual-coherence}).  Changes of the paths act
+compatibly on the corrected products
+(Proposition~\ref{prop:corridor-groupoid}).
+\end{remark}
+
+\subsection{Compatible homotopies of canonical multisections}
+
+A \emph{GKT graph datum} is a graded open $(4,4)$-graph $\Gamma$ together
+with a descendent vector $\mathbf d$ on its internal labels; its support is
+the monomial $u_{I(\Gamma),\mathbf d}$.  A \emph{finite dependency-closed
+partial system} $\mathbb D=(I,P,\mathcal E)$ records a finite twist-labelled
+set $I$, a finite set $P$ of labelled monomials closed under divisors, and a
+finite set $\mathcal E$ of graph data whose supports lie in $P$.  The graph
+data are closed under the connected-component and boundary dependencies of
+the assembling relation \eqref{eq:GKT-assembling}, and, for every support in
+the monomial set that carries a balanced graph, they contain all graph data
+of that support whose graph is balanced or critical; the monomials and the
+graph data are invariant under twist-preserving permutations of the labels.
+The precise definition is
+Definition~\ref{def:finite-partial-system}, and
+Appendix~\ref{app:gkt-completion} proves the following theorem by relative
+extension arguments.
+
+\begin{theorem}[Compatible GKT homotopies]
+\label{thm:compatible-GKT-realization}
+There are finite dependency-closed partial systems
+$\mathbb D_n=(I_n,P_n,\mathcal E_n)$, $n\geq1$, with
+$\mathbb D_1\subset\mathbb D_2\subset\cdots$, exhausting all GKT graph data,
+compatible canonical families realizing the two extremal chamber indices,
+and a componentwise smooth homotopy of canonical multisections between them,
+smooth on each $[0,1]\times\mathcal{PM}_\Gamma$, such that:
+\begin{enumerate}
+\item the countably many ray factors occur in pairwise disjoint open time
+intervals, ordered by increasing slope;
+\item each fixed component is nonconstant on only finitely many such
+intervals and is constant near the ends of each of them;
+\item for every $n$, modulo the monomials of $A_{I_n}$ outside $P_n$, the
+potential at the right end of the interval of a ray is the image of the
+potential at its left end under the GKT factor on that ray, that is, under
+the factor on that ray of the slope factorization
+\cite[Thm.~1.2]{wuebben2026boundary} of the GKT transition from
+$\nu^{\min}$ to $\nu^{\max}$, and only finitely many of these factors are
+nontrivial; and
+\item the restrictions to the $\mathbb D_n$ are compatible under the
+restriction maps of Definition~\ref{def:finite-partial-system}, and the
+families and the homotopy are the inverse limit of these restrictions over
+the inverse system $\mathbb D_1\subset\mathbb D_2\subset\cdots$.
+\end{enumerate}
+\end{theorem}
+
+On one interval of (1) and one finite system, the homotopy is a simple
+canonical homotopy in the normal form of \cite[Lem.~3.40]{grossetal2022open}
+for its own assignment of times to label subsets
+(Theorem~\ref{thm:relative-homotopy-lifting}).  Thus every GKT factor in
+Proposition~\ref{thm:all-order-decoration} is the jump of a finite
+restriction of one compatible homotopy.
+

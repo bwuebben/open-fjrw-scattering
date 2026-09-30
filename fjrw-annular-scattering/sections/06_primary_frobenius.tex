@@ -1,0 +1,761 @@
+\section{The primary Frobenius comparison}
+\label{sec:primary-frobenius}
+
+Section~\ref{sec:gkt-decoration} compares wall-crossing groups.  A comparison
+of Frobenius structures requires further data: a primitive form, oscillatory
+periods, a residue pairing, and a Kodaira--Spencer basis.  This section
+supplies these data on the primary slice, where every descendent variable
+vanishes, starting from the primary potential of \cite{grossetal2022open}
+with the primitive form $dx\wedge dy$ in the sense of
+\cite[Def.~4.3]{grossetal2022open}, recalled below.
+Sections~\ref{subsec:reflection-fixed} and~\ref{subsec:marginal-calibration}
+calibrate this source structure and are independent of the annulus: the
+primary potential has a unique representative invariant under the exchange
+of the coordinates (Lemma~\ref{lem:reflection-fixed}), and on the marginal
+line this representative is the flat structure of Noumi and Yamada with
+primitive form normalized to $dx\wedge dy$
+(Theorem~\ref{thm:marginal-calibration}).  The annular geometry enters only
+in Section~\ref{subsec:KS-classes}, through the transition maps between
+charts; these are algebra isomorphisms onto their images, and they preserve
+the Frobenius structure by transport of structure
+(Proposition~\ref{thm:primary-Frobenius}).
+
+In the \emph{source chart}, given by the fixed frame of the sheet $S_0$
+(Sections~\ref{sec:affine-kummer} and~\ref{sec:jacobi-theta}), we write
+$x=z_1$ and $y=z_2$.  Under the dictionary of Section~\ref{sec:jacobi-theta}
+these are the coordinates of the GKT potentials in \cite{grossetal2022open}
+and in Sections~\ref{sec:gkt-decoration} and~\ref{sec:positive-descendents},
+not the Cox coordinates of \eqref{eq:quartic-pencil}.  Then
+$dx\wedge dy=\Omega_\kappa$ by \eqref{eq:primitive-form}, and the
+Hamiltonian fields $X_{a,b}=X^\kappa_{\kappa+(a,b)}$ of
+Proposition~\ref{prop:shifted-bracket}, of divergence zero for
+$dx\wedge dy$, are
+\begin{equation}\label{eq:quartic-vector-field}
+ X_{a,b}
+ =x^ay^b\bigl((b+1)x\partial_x-(a+1)y\partial_y\bigr).
+\end{equation}
+The symmetric deformation variables of \cite[Def.~4.10]{grossetal2022open}
+are $t_{a,b,d}$, $0\leq a,b\leq2$, $d\geq0$, where $(a,b)$ is a twist and $d$
+is the descendent index.  The \emph{primary variables} are those with $d=0$,
+and we write
+$t_{a,b}=t_{a,b,0}$.  The variable $t_{a,b}$ is the parameter dual to the
+monomial $x^ay^b$; the nine monomials $x^ay^b$, $0\leq a,b\leq2$, form a basis
+of the Jacobian ring $\Jac(x^4+y^4)$ and correspond to the nine narrow
+elements $(e^{2\pi i(a+1)/4},e^{2\pi i(b+1)/4})$ of $\mu_4\times\mu_4$,
+those whose fixed locus in $\CC^2$ is the origin.  Put
+\begin{equation}\label{eq:primary-base}
+ A_{\mathrm{prim}}
+ =\QQ[[t_{a,b}:0\leq a,b\leq2]],
+ \qquad \mathfrak m_{\mathrm{prim}}=(t_{a,b}).
+\end{equation}
+A statement over this complete ring means a compatible system of statements
+over the quotients $\QQ[t_{a,b}]/(t_{a,b}^{n_{a,b}+1})$.  For the source
+potential the compatibility is part of Lemma~\ref{lem:reflection-fixed}.
+
+The periods are taken over the good basis of
+\cite[\S4.1]{grossetal2022open}: the product cycles $\Xi_{a,b}$,
+$0\leq a,b\leq2$, in the relative homology
+$H_2(\CC^2,\operatorname{Re}(x^4+y^4)/\hbar\ll0;\CC)$, dual to the
+monomial basis in the sense that
+\[
+ \int_{\Xi_{a,b}}x^cy^d\,e^{(x^4+y^4)/\hbar}\,dx\wedge dy
+ =\delta_{ac}\delta_{bd},
+ \qquad 0\leq c,d\leq2
+\]
+\cite[(4.3)]{grossetal2022open}.  The same integrals for arbitrary
+$c,d\geq0$, the \emph{moments}, follow by integration by parts
+\cite[Lem.~4.2]{grossetal2022open}.  For a deformation $W$ of $x^4+y^4$ over
+a complete local ring, the period of $(W,dx\wedge dy)$ over $\Xi_{a,b}$ is
+the formal series in $\hbar$ and $\hbar^{-1}$ obtained by expanding
+$\int_{\Xi_{a,b}}e^{W/\hbar}\,dx\wedge dy$ in the moments.  Following
+\cite[Def.~4.3]{grossetal2022open}, $dx\wedge dy$ is a \emph{primitive form}
+for $W$ if, for every $0\leq a,b\leq2$, the period over $\Xi_{a,b}$ contains
+no positive power of $\hbar$ and has constant term
+$\delta_{(a,b),(0,0)}$; the coefficients of $\hbar^{-1}$ in the nine periods
+are then the \emph{flat coordinates}.  Thus $dx\wedge dy$ is a primitive
+form with flat coordinates $t_{a,b}$ exactly when
+\[
+ \int_{\Xi_{a,b}}e^{W/\hbar}\,dx\wedge dy
+ =\delta_{(a,b),(0,0)}+\hbar^{-1}t_{a,b}+O(\hbar^{-2}),
+ \qquad 0\leq a,b\leq2,
+\]
+which is the form in which \cite[Cor.~4.17]{grossetal2022open} states it.
+GKT formulate the definition for a form $f\,dx\wedge dy$ and present it as
+a simplified version of Saito's theory of primitive forms; only $f=1$ occurs
+here.
+
+\subsection{The residue pairing at the Fermat point}
+
+At the Fermat point the primary state space is
+\begin{equation}\label{eq:Fermat-Jacobian}
+ H_{4,4}=\QQ[x,y]/(x^3,y^3),
+ \qquad e_{a,b}=[x^ay^b],\quad 0\leq a,b\leq2.
+\end{equation}
+Normalize the Grothendieck residue trace by
+\begin{equation}\label{eq:residue-trace}
+ \epsilon_0(f)
+ =16\operatorname{Res}_0
+   \frac{f\,dx\wedge dy}{(4x^3)(4y^3)}.
+\end{equation}
+
+\begin{proposition}[Residue pairing at the Fermat point]
+\label{prop:classical-vertex}
+The pairing $\eta_0(f,g)=\epsilon_0(fg)$ on $H_{4,4}$ is nondegenerate and
+\begin{equation}\label{eq:classical-pairing}
+ \eta_0(e_{a,b},e_{c,d})
+ =\delta_{a+c,2}\delta_{b+d,2}.
+\end{equation}
+Equivalently, $\epsilon_0$ is the coefficient of the socle monomial
+$e_{2,2}$, and $e_{a,b}e_{2-a,2-b}=e_{2,2}$ for $0\leq a,b\leq2$.
+\end{proposition}
+
+\begin{proof}
+The residue in \eqref{eq:residue-trace} extracts the coefficient of
+$x^2y^2$.  Since $e_{a,b}e_{c,d}=e_{a+c,b+d}$ when $a+c\leq2$ and $b+d\leq2$
+and vanishes otherwise, this proves \eqref{eq:classical-pairing}, the socle
+identity, and nondegeneracy.
+\end{proof}
+
+\subsection{The reflection-fixed primary potential}
+\label{subsec:reflection-fixed}
+
+Let $I$ be a finite set of internal marking labels, each carrying a twist
+$(a,b)$ with $0\leq a,b\leq2$, and let $n_{a,b}$ be the number of labels of
+twist $(a,b)$.  Put
+$A^{\mathrm{prim}}_I=\QQ[t_{a,b}]/(t_{a,b}^{n_{a,b}+1})$.  For a symmetric
+chamber index $\nu$ bounded by $I$ \cite[Def.~3.47]{grossetal2022open}, let
+$W^\nu_{\mathrm{prim}}$ be the reduction of the potential $W^{\nu,\mathrm{sym}}$
+of \cite[Def.~4.12]{grossetal2022open} modulo the descendent variables
+$t_{a,b,d}$, $d>0$; its coefficients lie in $A^{\mathrm{prim}}_I$.  In
+\cite{grossetal2022open} \emph{symmetric} means invariance under
+twist-preserving permutations of the labels
+\cite[Notation~3.42]{grossetal2022open}; the exchange of the two coordinates
+is the separate involution $\sigma$ of \eqref{eq:reflection}.  Let
+$\mathcal P(I)$ be the set of the potentials
+$W^\nu_{\mathrm{prim}}$, and put
+\begin{equation}\label{eq:reflection}
+ \sigma(x,y,t_{a,b})=(y,x,t_{b,a}),
+ \qquad
+ X_{0,0}=x\partial_x-y\partial_y .
+\end{equation}
+We call $I$ \emph{$\sigma$-stable} if $n_{a,b}=n_{b,a}$ for all $a,b$; then
+$\sigma$ acts on $A^{\mathrm{prim}}_I[x,y]$.  The $\sigma$-stable label sets
+are cofinal, and $\varprojlim A^{\mathrm{prim}}_I=A_{\mathrm{prim}}$.
+
+\begin{lemma}[Reflection-fixed representative]
+\label{lem:reflection-fixed}
+Let $I$ be $\sigma$-stable and put $t=t_{2,2}$.
+\begin{enumerate}
+\item Every element of $\mathcal P(I)$ is a polynomial of degree at most four
+in $x,y$.  The automorphisms $\exp(fX_{0,0})$, with $f$ in the image of
+$t^2\QQ[t^2]$ in $A^{\mathrm{prim}}_I$, act freely and transitively on
+$\mathcal P(I)$.
+\item The involution $\sigma$ maps $\mathcal P(I)$ to itself, and
+$\sigma\exp(fX_{0,0})\sigma^{-1}=\exp(-fX_{0,0})$.
+\item $\mathcal P(I)$ contains exactly one $\sigma$-fixed potential $W_I$.  If
+$I\subset I'$ are $\sigma$-stable, $W_{I'}$ reduces to $W_I$.
+\end{enumerate}
+Consequently the $W_I$ define a polynomial
+$W^{\GKT}_{\mathrm{prim}}\in A_{\mathrm{prim}}[x,y]$ of degree at most four with
+$\sigma(W^{\GKT}_{\mathrm{prim}})=W^{\GKT}_{\mathrm{prim}}$, whose reduction
+to every $\sigma$-stable $I$ is the primary part of a symmetric chamber index.
+\end{lemma}
+
+\begin{proof}
+(1) By \cite[(0.6)]{grossetal2022open}, $W^{\nu,\mathrm{sym}}$ is homogeneous
+of degree $16$ for the Euler field in which $x,y$ have weight $4$ and
+$t_{a,b,0}$ has weight $16-4a-4b\geq0$.  Hence every monomial of
+$W^\nu_{\mathrm{prim}}$ has degree at most four in $x,y$.
+
+Let $\nu,\nu'$ be symmetric chamber indices bounded by $I$, and let
+$W^\nu,W^{\nu'}$ be the labelled potentials of
+\cite[Def.~4.6]{grossetal2022open}.  By \cite[Cor.~4.15]{grossetal2022open},
+$\psi_I(W^{\nu,\mathrm{sym}})=W^\nu$, where $\psi_I$ is the injective ring
+homomorphism of \cite[Lem.~4.14]{grossetal2022open}.  By
+\cite[Lem.~2.5]{wuebben2026boundary}, together with
+\cite[Cor.~5.14]{grossetal2022open}, the group $\widetilde G$ generated by the
+wall-crossing group of \cite[Def.~4.23]{grossetal2022open} and the
+bidegree-$(0,0)$ summands of \cite[Rem.~2.3]{wuebben2026boundary} acts freely
+and transitively on the labelled potentials of the chamber indices bounded by
+$I$.  Definition~4.23 of \cite{grossetal2022open} excludes bidegree $(0,0)$;
+without these summands the group would act trivially on primary parts, as
+the next paragraph shows.  Let $g\in\widetilde G$ satisfy $gW^\nu=W^{\nu'}$.
+A twist-preserving permutation $\pi$ of $I$ fixes both potentials, so
+$\pi(g)=g$ by freeness.
+
+Modulo the descendent variables, a generator of $\widetilde G$ has the form
+\[
+ u_JX_{k_1,k_2},
+ \qquad
+ 4k_1+4k_2=m(J,\mathbf 0)-16=\sum_{j\in J}(4a_j+4b_j-16),
+\]
+where $X_{k_1,k_2}$ is the field \eqref{eq:quartic-vector-field}, $u_J$ is
+the product of the variables of a nonempty set $J$ of primary labels,
+$k_1,k_2\geq0$, and $k_1\equiv r(J)$, $k_2\equiv s(J)$ modulo $4$
+\cite[Def.~4.23 and Notation~2.30]{grossetal2022open}.  Since $a_j,b_j\leq2$,
+the right side is at most zero, with equality only if every twist in $J$ is
+$(2,2)$.  Hence $(k_1,k_2)=(0,0)$, every twist in $J$ is $(2,2)$, and
+$r(J)=0$ forces $|J|$ to be even.  Such $J$ carry exactly one critical graph,
+of critical exponent $(0,0)$ \cite[(2.31)]{grossetal2022open}, and the
+corresponding generator, of bidegree $(0,0)$, is the summand $u_JX_{0,0}$
+adjoined in \cite[Rem.~2.3]{wuebben2026boundary}.  These generators commute,
+so modulo the descendent variables
+\[
+ g=\exp\Bigl(\sum_Jc_Ju_JX_{0,0}\Bigr),\qquad c_J\in\QQ.
+\]
+Invariance under $\pi$ gives $c_J=c_{|J|}$, and
+\cite[(4.12)]{grossetal2022open} gives $\sum_{|J|=m}u_J=\psi_I(t^m/m!)$.  The
+map $\psi_I$ commutes with $X_{0,0}$ and, by its monomial description
+\cite[(4.12)]{grossetal2022open}, remains injective modulo the descendent
+variables.  Hence
+$\exp(fX_{0,0})W^\nu_{\mathrm{prim}}=W^{\nu'}_{\mathrm{prim}}$ with
+$f=\sum_kc_{2k}t^{2k}/(2k)!$.
+
+Conversely, for $f\in t^2\QQ[t^2]$ the element $\psi_I(f)X_{0,0}$ lies in the
+Lie algebra of $\widetilde G$, so $\exp(\psi_I(f)X_{0,0})W^\nu=W^{\nu''}$ for a
+chamber index $\nu''$ bounded by $I$.  A labelled potential determines its
+chamber index, because the balanced graphs over a given marking set and
+descendent vector have distinct balanced profiles.  Since
+$\exp(\psi_I(f)X_{0,0})$ and $W^\nu$ are fixed by every twist-preserving
+permutation, $\nu''$ is symmetric, and its primary part is
+$\exp(fX_{0,0})W^\nu_{\mathrm{prim}}$.  This proves transitivity.
+
+For freeness, let $f$ have lowest term $ct^{2k}\neq0$ in
+$A^{\mathrm{prim}}_I$.  Since $W\equiv x^4+y^4$ modulo
+$\mathfrak m_{\mathrm{prim}}$ and $X_{0,0}x^4=4x^4$, the coefficient of the
+monomial $t^{2k}x^4$ in $\exp(fX_{0,0})W-W$ is $4c$.
+
+(2) Choose a bijection $\varsigma$ of $I$ taking each label of twist $(a,b)$
+to a label of twist $(b,a)$.  For $\nu$ symmetric define $\nu^\sigma$ by
+$\nu^\sigma_{\Gamma_{0,k_1,k_2,1,J},\mathbf d}
+=\nu_{\Gamma_{0,k_2,k_1,1,\varsigma(J)},\mathbf d\circ\varsigma^{-1}}$.  Since $r=s=4$,
+the balancing conditions \cite[Prop.~2.31]{grossetal2022open}, the numbers
+$m(J,\mathbf d)$, and the Gamma weights of
+\cite[Notation~3.42]{grossetal2022open} are invariant under exchanging the two
+entries of every twist and of every balanced profile.  Hence
+$A(\varsigma(J),\mathbf d\circ\varsigma^{-1},\nu^\sigma)=A(J,\mathbf d,\nu)$,
+the conditions of \cite[Def.~3.47]{grossetal2022open} for $\nu^\sigma$ follow
+from those for $\nu$, and $\nu^\sigma$ is symmetric.  Formula
+\cite[(4.11)]{grossetal2022open} gives
+$W^{\nu^\sigma,\mathrm{sym}}=\sigma(W^{\nu,\mathrm{sym}})$.  The conjugation
+formula follows from $\sigma(t)=t$ and $\sigma X_{0,0}\sigma^{-1}=-X_{0,0}$.
+
+(3) Fix $W\in\mathcal P(I)$ and write $\sigma W=\exp(gX_{0,0})W$, using (1)
+and (2).  For $h$ in the image of $t^2\QQ[t^2]$,
+\[
+ \sigma\bigl(\exp(hX_{0,0})W\bigr)
+ =\exp(-hX_{0,0})\sigma W
+ =\exp\bigl((g-h)X_{0,0}\bigr)W,
+\]
+which equals $\exp(hX_{0,0})W$ if and only if $g=2h$, by freeness.  Thus
+$W_I=\exp(\tfrac12gX_{0,0})W$ is the unique $\sigma$-fixed element.  For
+$I\subset I'$, restricting a chamber index to the graphs with labels in $I$
+preserves the conditions of \cite[Def.~3.47]{grossetal2022open}, which for a
+subset of $I$ involve only such graphs.  Restriction reduces
+$W^\nu_{\mathrm{prim}}$ along $A^{\mathrm{prim}}_{I'}\to A^{\mathrm{prim}}_I$
+and commutes with $\sigma$, so the image of $W_{I'}$ is a $\sigma$-fixed
+element of $\mathcal P(I)$, namely $W_I$.
+\end{proof}
+
+We call $W^{\GKT}_{\mathrm{prim}}$ the \emph{reflection-fixed primary
+potential}.  The variable $t_{0,0}$ has Euler weight $16$, so it occurs
+only in monomials $t_{0,0}t_{2,2}^k$ of degree zero in $x,y$; write their
+sum as
+$c(t_{2,2})t_{0,0}$.  The $\Xi_{0,0}$ period of $W^{\GKT}_{\mathrm{prim}}$ is
+$\exp(c(t_{2,2})t_{0,0}/\hbar)$ times the $\Xi_{0,0}$ period of its
+restriction to $t_{0,0}=0$, and by \cite[Cor.~4.17]{grossetal2022open} the
+latter is $1+O(\hbar^{-1})$.  The part of the $\hbar^{-1}$ coefficient that is
+linear in $t_{0,0}$ is therefore $c(t_{2,2})t_{0,0}$, and by the same corollary
+it equals $t_{0,0}$.  Hence
+\begin{equation}\label{eq:constant-deformation}
+ W^{\GKT}_{\mathrm{prim}}=t_{0,0}+\bigl(\text{terms free of }t_{0,0}\bigr).
+\end{equation}
+On the marginal line $t_{a,b}=0$, $(a,b)\neq(2,2)$, the monomials of
+$W^{\GKT}_{\mathrm{prim}}$ have degree four in $x,y$, since $t_{2,2}$ has
+Euler weight zero.  The congruences
+$k_1\equiv r(J)$, $k_2\equiv s(J)$ modulo $4$ of
+\cite[Prop.~2.31(a)]{grossetal2022open} allow only $t^{2k}x^4$, $t^{2k}y^4$
+and $t^{2k+1}x^2y^2$, and $\sigma$-invariance equates the coefficients of
+$x^4$ and $y^4$.  By \cite[Cor.~4.17]{grossetal2022open}, applied at every
+finite level, $dx\wedge dy$ is a primitive form for
+$W^{\GKT}_{\mathrm{prim}}$ in the sense of \cite[Def.~4.3]{grossetal2022open},
+with the nine $t_{a,b}$ as flat coordinates.  By
+\cite[Rem.~4.5]{grossetal2022open} these flat coordinates agree with those of
+\cite[\S2.2]{heetal2022}, which come from Saito's theory of primitive forms
+\cite{saito1983period}.
+
+\subsection{Marginal calibration}
+\label{subsec:marginal-calibration}
+
+Set $t=t_{2,2}$.  The marginal quartics are
+\begin{equation}\label{eq:ABC-family}
+ W_{\mathfrak a,\mathfrak b,\mathfrak a'}=\mathfrak a x^4+\mathfrak b x^2y^2+\mathfrak a'y^4,
+ \qquad \Omega=dx\wedge dy.
+\end{equation}
+For a unit $q\in\QQ[[t]]$ the coordinate change $(x,y)\mapsto(qx,q^{-1}y)$
+preserves $\Omega$ and acts by
+\begin{equation}\label{eq:zero-cochain}
+ (\mathfrak a,\mathfrak b,\mathfrak a')\longmapsto(q^4\mathfrak a,\mathfrak b,q^{-4}\mathfrak a').
+\end{equation}
+It is the monomial rescaling $z^m\mapsto q^{m_1-m_2}z^m$, a single-chart
+instance of the zero-cochain action of
+\cite[Prop.~5.2]{grossetal2016theta}; for $q=\exp(f)$ it is the flow
+$\exp(fX_{0,0})$ of Lemma~\ref{lem:reflection-fixed}.  Its invariants are
+$\mathfrak b$ and $\mathfrak a\mathfrak a'$.  An orbit with $\mathfrak a(0)=\mathfrak a'(0)=1$ has a
+unique representative with $\mathfrak a=\mathfrak a'$, namely
+$\mathfrak a=\mathfrak a'=\sqrt{\mathfrak a\mathfrak a'}$ with the square root equal to $1$
+at $t=0$.
+
+For the good-basis cycles $\Xi_{0,0}$ and $\Xi_{2,2}$ define the period
+series
+\begin{align}
+ \varpi_0(\mathfrak a,\mathfrak b)
+ &=\sum_{i,j,\ell\geq0}
+ \frac{(-1)^{i+j}(\frac14)_{i+\ell}(\frac14)_{j+\ell}}
+      {i!\,j!\,(2\ell)!}
+ (\mathfrak a-1)^{i+j}\mathfrak b^{2\ell},\label{eq:F0}\\
+ \varpi_2(\mathfrak a,\mathfrak b)
+ &=\sum_{i,j,\ell\geq0}
+ \frac{(-1)^{i+j}(\frac34)_{i+\ell}(\frac34)_{j+\ell}}
+      {i!\,j!\,(2\ell+1)!}
+ (\mathfrak a-1)^{i+j}\mathfrak b^{2\ell+1}.\label{eq:F2}
+\end{align}
+By the proof of Theorem~\ref{thm:marginal-calibration}, $\varpi_0$ and
+$\varpi_2/\hbar$ are the periods of
+$(W_{\mathfrak a,\mathfrak b,\mathfrak a},\Omega)$ over $\Xi_{0,0}$ and
+$\Xi_{2,2}$, and the other seven periods vanish.
+
+\begin{theorem}[Marginal period calibration]
+\label{thm:marginal-calibration}
+There is a unique pair $\mathfrak a(t),\mathfrak b(t)\in\QQ[[t]]$, with $\mathfrak a(0)=1$ and
+$\mathfrak b(t)=t+O(t^2)$, such that
+\begin{equation}\label{eq:period-inverse}
+ \varpi_0\bigl(\mathfrak a(t),\mathfrak b(t)\bigr)=1,
+ \qquad \varpi_2\bigl(\mathfrak a(t),\mathfrak b(t)\bigr)=t.
+\end{equation}
+The quartic
+\[
+ W_t^{\mathrm{flat}}=\mathfrak a(t)(x^4+y^4)+\mathfrak b(t)x^2y^2
+\]
+is the restriction of $W^{\GKT}_{\mathrm{prim}}$ to the marginal line, and
+\begin{align}
+ \mathfrak a(t)&=1+\frac{t^2}{16}+\frac{t^4}{768}
+       +\frac{t^6}{61440}+O(t^8),\label{eq:A-series}\\
+ \mathfrak b(t)&=t+\frac{t^5}{1280}+O(t^9).\label{eq:B-series}
+\end{align}
+For two markings of twist $(2,2)$, the open invariants of the
+reflection-fixed chamber index at the balanced profiles $(4,0)$ and $(0,4)$
+are
+\begin{equation}\label{eq:marginal-invariants}
+ \nu_{(4,0)}=\nu_{(0,4)}=-\frac18,
+\end{equation}
+and for three such markings its open invariant vanishes.  The first
+correction visible in the Jacobian algebra of $W^{\mathrm{flat}}_t$ is the
+term $t^3/32$ in the relations
+\begin{equation}\label{eq:marginal-product}
+ x^3=\left(-\frac t2+\frac{t^3}{32}\right)xy^2,
+ \qquad
+ y^3=\left(-\frac t2+\frac{t^3}{32}\right)x^2y
+ \pmod{t^4}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By \cite[Lem.~4.2 and (4.3)]{grossetal2022open} the quartic good-basis
+moments are
+\[
+ P_0(4k)=(-\hbar)^k\left(\frac14\right)_k,
+ \qquad
+ P_2(4k+2)=(-\hbar)^k\left(\frac34\right)_k,
+\]
+and vanish in the complementary congruence classes.  Expanding
+\[
+ \exp\!\left(
+  \frac{(\mathfrak a-1)(x^4+y^4)+\mathfrak b x^2y^2}{\hbar}
+ \right)
+\]
+against $\Xi_{0,0}$ and $\Xi_{2,2}$ gives precisely $\varpi_0$ and
+$\varpi_2/\hbar$: an even number of insertions of $x^2y^2$ contributes to the
+first period and an odd number to the second, and every power of $\hbar$
+cancels except the displayed one.  The seven remaining periods vanish by the
+phase.  Hence $dx\wedge dy$ is a primitive form for a marginal quartic with
+$\mathfrak a=\mathfrak a'$, with $t$ as flat coordinate, if and only if
+\eqref{eq:period-inverse} holds.
+
+At $(\mathfrak a,\mathfrak b)=(1,0)$ the Jacobian matrix of $(\varpi_0,\varpi_2)$ with
+respect to $(\mathfrak a,\mathfrak b)$ is $\operatorname{diag}(-1/2,1)$.  The formal
+inverse function theorem gives existence and uniqueness; coefficient
+extraction gives \eqref{eq:A-series}--\eqref{eq:B-series}.  By the
+discussion after Lemma~\ref{lem:reflection-fixed}, the marginal restriction
+of $W^{\GKT}_{\mathrm{prim}}$ has the form $\mathfrak a(x^4+y^4)+\mathfrak b x^2y^2$ with
+$\mathfrak a(0)=1$ and $\mathfrak b=t+O(t^2)$, and it satisfies
+\eqref{eq:period-inverse}; by uniqueness it is $W^{\mathrm{flat}}_t$.
+
+At order $t^2$,
+\[
+ \varpi_0=1-\frac12(\mathfrak a-1)+\frac{\mathfrak b^2}{32}+O(t^3),
+\]
+so $\mathfrak a-1=t^2/16+O(t^3)$.  By the sign and the order-two automorphism
+factor in \cite[(4.11)]{grossetal2022open}, the coefficient of $t^2x^4$,
+respectively $t^2y^4$, is $-1/2$ times the corresponding invariant for two
+markings.  Hence \eqref{eq:marginal-invariants}.  The coefficient of $t^3$
+in the second period equation gives the vanishing of the invariant for three
+markings.  Finally the Jacobian relation is $x^3=-\mathfrak b(2\mathfrak a)^{-1}xy^2$, and expansion
+of $-\mathfrak b/(2\mathfrak a)$ gives \eqref{eq:marginal-product}.
+\end{proof}
+
+In the coordinates $\tilde x=\mathfrak a(t)^{1/4}x$, $\tilde y=\mathfrak a(t)^{1/4}y$
+the pair $(W^{\mathrm{flat}}_t,dx\wedge dy)$ becomes
+$(\tilde x^4+\tilde y^4+s\,\tilde x^2\tilde y^2,\;
+\mathfrak a(t)^{-1/2}d\tilde x\wedge d\tilde y)$ with $s=\mathfrak b(t)/\mathfrak a(t)$.  The
+same substitution in the moments gives
+$\varpi_0(\mathfrak a,\mathfrak b)=\mathfrak a^{-1/2}\varpi_0(1,s)$ and
+$\varpi_2(\mathfrak a,\mathfrak b)=\mathfrak a^{-1/2}\varpi_2(1,s)$, while
+\[
+ \varpi_0(1,s)={}_2F_1\!\left(\tfrac14,\tfrac14;\tfrac12;\tfrac{s^2}4\right),
+ \qquad
+ \varpi_2(1,s)=s\,{}_2F_1\!\left(\tfrac34,\tfrac34;\tfrac32;\tfrac{s^2}4\right).
+\]
+Hence \eqref{eq:period-inverse} is equivalent to
+\begin{equation}\label{eq:NY-form}
+ \mathfrak a(t)^{1/2}={}_2F_1\!\left(\tfrac14,\tfrac14;\tfrac12;\tfrac{s^2}4\right),
+ \qquad
+ t=\frac{s\,{}_2F_1\bigl(\frac34,\frac34;\frac32;\frac{s^2}4\bigr)}
+        {{}_2F_1\bigl(\frac14,\frac14;\frac12;\frac{s^2}4\bigr)} .
+\end{equation}
+The second relation is the flat coordinate of the simple elliptic
+singularity $x^4+y^4$ along its marginal deformation computed by Noumi and
+Yamada \cite{noumiyamada1998flat}, as quoted in \cite[(7)]{strachan2010}.
+The statements of \cite[Props.~4.2.6--4.2.8]{maher2024predictions} for
+elliptic singularities of Fermat type (the primitive form as the reciprocal
+of a Gauss hypergeometric function times the volume form after Morse
+stabilization, the flat coordinate, and $s(t)$ as a Schwarz triangle
+function) specialize here to ${}_2F_1(\frac14,\frac14;\frac12;z)$,
+$z=s^2/4$.  By the first relation in \eqref{eq:NY-form}, the resulting
+primitive form
+$d\tilde x\wedge d\tilde y/{}_2F_1(\frac14,\frac14;\frac12;\frac{s^2}4)$ is
+$dx\wedge dy$, the normalization of \cite{grossetal2022open} used in
+Theorem~\ref{thm:marginal-calibration}.  In this normalization the
+coefficients of the potential are determined by the open invariants of the
+reflection-fixed chamber index through \cite[(4.11)]{grossetal2022open}, and
+the series \eqref{eq:A-series}--\eqref{eq:B-series} and the invariants
+\eqref{eq:marginal-invariants} refer to it.
+
+The residue pairing detects this normalization at quadratic order.  For
+$W_c=(1+ct^2)(x^4+y^4)+tx^2y^2$, the normalized residue of the socle
+monomial is
+\begin{equation}\label{eq:residue-gauge}
+ 16\operatorname{Res}_0
+ \frac{x^2y^2\,dx\wedge dy}{\partial_xW_c\,\partial_yW_c}
+ =\frac1{(1+ct^2)^2-t^2/4}.
+\end{equation}
+Since $x^4\equiv-\frac{t}{2(1+ct^2)}x^2y^2$ in the Jacobian algebra, the
+residue pairing $\eta$ of $(W_c,dx\wedge dy)$ satisfies
+\begin{equation}\label{eq:KS-gauge}
+ \eta(\partial_tW_c,1)
+ =\frac{1-2ct^2/(1+ct^2)}{(1+ct^2)^2-t^2/4}
+ =1+\left(\frac14-4c\right)t^2+O(t^4).
+\end{equation}
+When $dx\wedge dy$ is a primitive form and $t$ a flat coordinate, this entry of
+the flat metric is constant, equal to its value $1$ at $t=0$.  Its constancy
+forces $c=1/16$ at order $t^2$, whereas the product first sees $c$ at order
+$t^3$: in \eqref{eq:marginal-product} the relevant coefficient is
+$-t/(2(1+ct^2))=-t/2+(c/2)t^3+O(t^5)$.
+
+Off the marginal line the flat coordinates are simultaneous, and on the first
+two-parameter slice this already fixes a term that the critical locus does
+not see.  Set $u=t_{1,1}$ and $t=t_{2,2}$.  Through total degree three, the
+restriction of $W^{\GKT}_{\mathrm{prim}}$ to the slice on which the other
+seven $t_{a,b}$ vanish is
+\begin{equation}\label{eq:mixed-primary-potential}
+ W_{u,t}
+ =\left(1+\frac{t^2}{16}\right)(x^4+y^4)
+  +tx^2y^2
+  +\left(u-\frac{ut^2}{16}\right)xy
+  -\frac{u^2t}{32}+O((u,t)^4).
+\end{equation}
+The two new open invariants of the reflection-fixed chamber index are
+\[
+ \nu_{ut^2;(1,1)}=-\frac18,
+ \qquad
+ \nu_{u^2t;(0,0)}=-\frac1{16}.
+\]
+They are the solutions of the chamber conditions
+\cite[Def.~3.47(3)]{grossetal2022open} for the supports $J$ consisting of
+one marking of twist $(1,1)$ and two of twist $(2,2)$, respectively two of
+twist $(1,1)$ and one of twist $(2,2)$; both supports satisfy the
+inequality in that condition.  These supports have the single balanced
+profiles $(1,1)$ and $(0,0)$, and no two-element support containing a
+marking of twist $(1,1)$ has a balanced profile.  In the expression
+$A(J,\mathbf 0,\nu)$ of Section~\ref{subsec:gkt-recollections}, with the
+weights \eqref{eq:quartic-Gamma-weight}, the two conditions therefore read
+\[
+ \nu_{ut^2;(1,1)}+\tfrac12\bigl(\nu_{(4,0)}+\nu_{(0,4)}\bigr)+\tfrac14=0,
+ \qquad
+ \nu_{u^2t;(0,0)}+\tfrac1{16}=0,
+\]
+where the middle term comes from the partition that separates the marking
+of twist $(1,1)$, the terms $\frac14$ and $\frac1{16}$ come from the
+partitions into singletons, and $\nu_{(4,0)}=\nu_{(0,4)}=-\frac18$ by
+\eqref{eq:marginal-invariants}.  The repeated-marking automorphisms in
+\cite[(4.11)]{grossetal2022open} divide the two invariants by two, giving
+the last two corrections in \eqref{eq:mixed-primary-potential}.  The
+periods confirm these values.  For the $\Xi_{1,1}$ period, the direct
+correction $-\frac{ut^2}{16}xy$, the cross term of $uxy$ with
+$\frac{t^2}{16}(x^4+y^4)$, and the cubic term $uxy(tx^2y^2)^2$ contribute
+\[
+ -\frac{ut^2}{16\hbar},\qquad
+ -\frac{ut^2}{16\hbar},\qquad
+ \frac{ut^2}{8\hbar};
+\]
+for $\Xi_{0,0}$ the two contributions are
+$-u^2t/(32\hbar)$ and $u^2t/(32\hbar)$.  Both sums vanish, as the flatness
+of $u$ and $t$ requires.  Thus the constant term $-u^2t/32$ is fixed by the
+oscillatory integral although it is invisible to the critical locus.
+
+\subsection{Transport through the annular charts}
+\label{subsec:KS-classes}
+
+Let $R$ be an Artinian local $\QQ$-algebra of labelled deformation
+coefficients, base-changed to $\Bbbk$ where it meets the chart algebras
+(Section~\ref{sec:introduction}).  For
+$W\in R[x,y]$ the Brieskorn module is
+\begin{equation}\label{eq:Brieskorn-module}
+ \operatorname{GM}_\hbar(W)
+ =H^2\!\left(
+  \Omega_{R[x,y]/R}^{\bullet}[[\hbar]],
+  \hbar d+dW\wedge
+ \right).
+\end{equation}
+
+Let $\mathfrak p$ be an admissible path
+(Definition~\ref{def:framed-path}), and let $P_{\mathfrak p}$ be the
+composite of the transition maps along it: the slab maps
+\eqref{eq:local-root-ring} with the affine holonomy they carry, and the wall
+automorphisms.  Each is an injective homomorphism of $R$-algebras between
+chart algebras, and hence so is $P_{\mathfrak p}$.  Put
+$U_{\mathfrak p}=P_{\mathfrak p}(x)$, $V_{\mathfrak p}=P_{\mathfrak p}(y)$, and
+\begin{equation}\label{eq:image-algebra}
+ P_{\mathfrak p}\bigl(R[x,y]\bigr)=R[U_{\mathfrak p},V_{\mathfrak p}]
+\end{equation}
+inside the target chart algebra.  By injectivity $U_{\mathfrak p},V_{\mathfrak p}$ are
+algebraically independent over $R$, and $P_{\mathfrak p}:R[x,y]\to R[U_{\mathfrak p},V_{\mathfrak p}]$
+is an isomorphism.  We form the Brieskorn module and the Jacobian algebra of
+$P_{\mathfrak p} W$ over this image algebra: over the target chart algebra, a
+Laurent algebra in which $U_{\mathfrak p}$ and $V_{\mathfrak p}$ are units, the Jacobian
+quotient of the transported primary potential vanishes, since
+$\partial_{U_{\mathfrak p}}P_{\mathfrak p} W\equiv4U_{\mathfrak p}^3$ modulo nilpotents.  The
+transported primitive form $dU_{\mathfrak p}\wedge dV_{\mathfrak p}$ is the multiple of
+the form $\Omega'_\kappa$ of the target chart by the unit recorded by the line
+$\Lcal_\kappa$; across one slab this unit is
+$g_V^{\langle N_V,\kappa\rangle}$ by \eqref{eq:slab-conformal}.  The
+good-basis periods on the target are defined by transport, as the moment
+functionals of \cite[Lem.~4.2]{grossetal2022open} in the coordinates
+$U_{\mathfrak p},V_{\mathfrak p}$.  They are formal functionals, since the torus of the
+target chart does not contain the critical point $U_{\mathfrak p}=V_{\mathfrak p}=0$.
+
+On the primary slice put $W_{\mathfrak p}=P_{\mathfrak p}(W^{\GKT}_{\mathrm{prim}})$ and
+\begin{equation}\label{eq:source-primary-Jacobian}
+ \mathcal R_0=A_{\mathrm{prim}}[x,y]\big/
+  (\partial_xW^{\GKT}_{\mathrm{prim}},
+   \partial_yW^{\GKT}_{\mathrm{prim}}),
+ \qquad
+ \epsilon(h)=16\operatorname{Res}_0
+ \frac{h\,dx\wedge dy}
+ {\partial_xW^{\GKT}_{\mathrm{prim}}\,\partial_yW^{\GKT}_{\mathrm{prim}}},
+\end{equation}
+with residue pairing $\eta(f,g)=\epsilon(fg)$.  Over the image algebra put
+\begin{equation}\label{eq:transported-primary-Jacobian}
+ \mathcal R_{\mathfrak p}
+ =A_{\mathrm{prim}}[U_{\mathfrak p},V_{\mathfrak p}]\big/
+  (\partial_{U_{\mathfrak p}}W_{\mathfrak p},
+   \partial_{V_{\mathfrak p}}W_{\mathfrak p}),
+\end{equation}
+and let $\eta_{\mathfrak p}$ be the residue pairing of
+$(W_{\mathfrak p},dU_{\mathfrak p}\wedge dV_{\mathfrak p})$, defined by the same formula in the
+coordinates $U_{\mathfrak p},V_{\mathfrak p}$.  The transported Kodaira--Spencer classes
+are
+\begin{equation}\label{eq:KS-sections}
+ \Phi_{a,b}^{\mathfrak p}
+ =\left[\frac{\partial W_{\mathfrak p}}{\partial t_{a,b}}\right]
+ \in\mathcal R_{\mathfrak p},
+ \qquad 0\leq a,b\leq2,
+\end{equation}
+and for the trivial path we write $\Phi^0_{a,b}\in\mathcal R_0$.
+
+\begin{proposition}[Transported primary Frobenius structure]
+\label{thm:primary-Frobenius}
+\label{prop:Brieskorn-transport}
+\label{thm:primary-Saito-system}
+Let $\mathfrak p$ be an admissible path.
+\begin{enumerate}
+\item For $W\in R[x,y]$, the isomorphism $P_{\mathfrak p}$ induces an isomorphism of
+twisted de Rham complexes over $R[[\hbar]]$, and hence
+\begin{equation}\label{eq:Brieskorn-transport}
+ \operatorname{GM}_\hbar(W)
+ \xrightarrow{\sim}
+ \operatorname{GM}_\hbar(P_{\mathfrak p} W),
+\end{equation}
+the right side formed over $R[U_{\mathfrak p},V_{\mathfrak p}]$, carrying $[dx\wedge dy]$ to
+$[dU_{\mathfrak p}\wedge dV_{\mathfrak p}]$.  Modulo $\hbar$ it identifies the Jacobian
+algebras and carries the residue pairing of $(W,dx\wedge dy)$ to the residue
+pairing of $(P_{\mathfrak p} W,dU_{\mathfrak p}\wedge dV_{\mathfrak p})$, computed in the
+coordinates $U_{\mathfrak p},V_{\mathfrak p}$.  It preserves every good-basis period.
+\item On the primary slice, $P_{\mathfrak p}$ is the base change to
+$A_{\mathrm{prim}}$ of an injective homomorphism of chart algebras over
+$\Bbbk$, independent of the $t_{a,b}$.  For $W_{\mathfrak p}$ with the transported
+good-basis periods, $dU_{\mathfrak p}\wedge dV_{\mathfrak p}$ is a primitive form in the
+sense of \cite[Def.~4.3]{grossetal2022open}, and the nine $t_{a,b}$ are
+simultaneous flat coordinates.
+\item The nine classes \eqref{eq:KS-sections} form an $A_{\mathrm{prim}}$-basis
+of $\mathcal R_{\mathfrak p}$, and
+\begin{equation}\label{eq:KS-naturality}
+ \Phi_{a,b}^{\mathfrak p}=P_{\mathfrak p}(\Phi_{a,b}^0),
+ \qquad
+ \Phi_{a,b}^0=x^ay^b+O(\mathfrak m_{\mathrm{prim}}).
+\end{equation}
+Their multiplication, the unit $\Phi_{0,0}^{\mathfrak p}=[1]$, and the residue
+pairing $\eta_{\mathfrak p}$ have coefficient matrices independent of $\mathfrak p$.
+These are the structure constants of the primary Saito--Givental Frobenius
+manifold of $W^{\GKT}_{\mathrm{prim}}$, which
+\cite[Thm.~0.3 and Rem.~0.4(2)]{grossetal2022open} identifies with the
+genus-zero primary closed FJRW Frobenius manifold of $(x^4+y^4,\mu_4^2)$.
+\end{enumerate}
+These maps compose under concatenation of paths and are compatible with
+reduction of $R$, in particular with the quotients $A^{\mathrm{prim}}_I$ of
+$A_{\mathrm{prim}}$, and with refinement of the root-stack presentation.  For
+a second admissible path $\mathfrak p'$, the isomorphism
+$P_{\mathfrak p'}P_{\mathfrak p}^{-1}:R[U_{\mathfrak p},V_{\mathfrak p}]\to R[U_{\mathfrak p'},V_{\mathfrak p'}]$
+has the properties in (1) and carries $\Phi^{\mathfrak p}_{a,b}$ to
+$\Phi^{\mathfrak p'}_{a,b}$.
+\end{proposition}
+
+\begin{proof}
+Each part is transport of structure along the isomorphism $P_{\mathfrak p}$, with
+$x\mapsto U_{\mathfrak p}$ and $y\mapsto V_{\mathfrak p}$.
+
+(1) The derivation $d$ of $R[x,y]$ corresponds under $P_{\mathfrak p}$ to the
+derivation of $R[U_{\mathfrak p},V_{\mathfrak p}]$, with $dx\mapsto dU_{\mathfrak p}$ and
+$dy\mapsto dV_{\mathfrak p}$.  Hence, for every form $\xi$,
+\[
+ \bigl(\hbar d+d(P_{\mathfrak p} W)\wedge\bigr)P_{\mathfrak p}\xi
+ =P_{\mathfrak p}\bigl((\hbar d+dW\wedge)\xi\bigr),
+\]
+and pullback is a chain isomorphism.  Reduction modulo $\hbar$ gives the
+Koszul complex of $dW$, whose top cohomology is the Jacobian algebra times
+$dx\wedge dy$.  The Grothendieck residue and the moment functionals are
+defined by the same formulas in the coordinates $U_{\mathfrak p},V_{\mathfrak p}$ as in
+$x,y$, so both are preserved.  Composition and compatibility with reduction
+and refinement follow from functoriality of the transition maps, and the
+same argument applies to $P_{\mathfrak p'}P_{\mathfrak p}^{-1}$.
+
+(2) By Definition~\ref{def:Jacobi-wall} every wall automorphism is congruent
+to the identity modulo $\mathfrak m=(t_1,t_2)$, whose generators are
+descendent variables, so it is the identity on the primary slice.  The slab and
+holonomy maps do not involve the deformation parameters.  This proves the
+first assertion.  The conditions of \cite[Def.~4.3]{grossetal2022open} are
+conditions on the good-basis periods.  They hold for
+$(W^{\GKT}_{\mathrm{prim}},dx\wedge dy)$ by Lemma~\ref{lem:reflection-fixed}
+and \cite[Cor.~4.17]{grossetal2022open}, and by (1) $P_{\mathfrak p}$ preserves every
+period.
+
+(3) By the chain rule,
+\[
+ P_{\mathfrak p}(\partial_xW^{\GKT}_{\mathrm{prim}})
+ =\partial_{U_{\mathfrak p}}W_{\mathfrak p},
+ \qquad
+ P_{\mathfrak p}(\partial_yW^{\GKT}_{\mathrm{prim}})
+ =\partial_{V_{\mathfrak p}}W_{\mathfrak p},
+\]
+so $P_{\mathfrak p}$ induces an isomorphism of $A_{\mathrm{prim}}$-algebras
+$\mathcal R_0\to\mathcal R_{\mathfrak p}$.  By (2), $P_{\mathfrak p}$ does not involve the
+$t_{a,b}$, so $\partial W_{\mathfrak p}/\partial t_{a,b}
+=P_{\mathfrak p}(\partial W^{\GKT}_{\mathrm{prim}}/\partial t_{a,b})$; this is the
+first identity in \eqref{eq:KS-naturality}.  The isomorphism carries $[1]$
+to $[1]$ and, by (1), $\eta$ to $\eta_{\mathfrak p}$.  It therefore suffices to
+prove the remaining assertions for the trivial path; the assertions for all
+$\mathfrak p$ and the statement about $P_{\mathfrak p'}P_{\mathfrak p}^{-1}$ follow.
+
+The second identity in \eqref{eq:KS-naturality} follows from
+$W^{\GKT}_{\mathrm{prim}}\equiv x^4+y^4+\sum t_{a,b}x^ay^b$ modulo quadratic
+terms in the $t_{a,b}$, which follows from
+\cite[Def.~3.47(1) and (4.11)]{grossetal2022open}.  We prove the basis
+assertion over each quotient $A^{\mathrm{prim}}_I$, where
+$\mathfrak m_{\mathrm{prim}}$ is nilpotent.  Since $W^{\GKT}_{\mathrm{prim}}\equiv x^4+y^4$ modulo
+$\mathfrak m_{\mathrm{prim}}$, the nine monomials $x^ay^b$, $0\leq a,b\leq2$,
+span $\mathcal R_0/\mathfrak m_{\mathrm{prim}}\mathcal R_0=H_{4,4}$, and
+hence span $\mathcal R_0$ by Nakayama's lemma for the nilpotent ideal
+$\mathfrak m_{\mathrm{prim}}$.  The functional $\epsilon$ vanishes on the
+Jacobian ideal, and the Gram matrix of $\eta$ on the nine monomials reduces
+modulo $\mathfrak m_{\mathrm{prim}}$ to the invertible matrix of
+Proposition~\ref{prop:classical-vertex}.  Its determinant is a unit, so the
+nine monomials are linearly independent, $\mathcal R_0$ is free of rank nine,
+and $\eta$ is nondegenerate.  By \eqref{eq:KS-naturality} and Nakayama's
+lemma the $\Phi^0_{a,b}$ form a basis, and $\Phi_{0,0}^0=[1]$ by
+\eqref{eq:constant-deformation}.  The trace identity
+$\eta(fg,h)=\epsilon(fgh)=\eta(f,gh)$ makes $\mathcal R_0$ a Frobenius
+algebra.
+
+By the discussion after Lemma~\ref{lem:reflection-fixed}, $dx\wedge dy$ is
+a primitive form for $W^{\GKT}_{\mathrm{prim}}$ with flat coordinates
+$t_{a,b}$, which agree with those of Saito--Givental theory in the good-basis
+description of \cite[\S2.2]{heetal2022}
+\cite[Rems.~0.4(2) and~4.5]{grossetal2022open}.  Hence the Kodaira--Spencer
+map $\partial/\partial t_{a,b}\mapsto\Phi^0_{a,b}$
+identifies the product and flat metric of Saito's Frobenius manifold
+\cite{saito1983period} with the multiplication of $\mathcal R_0$ and the
+residue pairing $\eta$, which is therefore constant in the flat
+coordinates.  By \cite[Prop.~3.46 and Cor.~5.14]{grossetal2022open} every
+symmetric chamber index is enumerative, so
+\cite[Thm.~0.3 and Rem.~0.4(2)]{grossetal2022open} identifies this Frobenius
+manifold with the genus-zero primary closed FJRW Frobenius manifold.
+\end{proof}
+
+Wall factors are among the transition maps: the flows of the fields
+\eqref{eq:quartic-vector-field} with nilpotent coefficients are polynomial
+automorphisms of $R[x,y]$ preserving $dx\wedge dy$.  If a total wall factor
+is written as a GKT factor followed by its residual factor, the residual
+factor therefore acts on $(W,dx\wedge dy)$ as a volume-preserving right
+equivalence, and by Proposition~\ref{thm:primary-Frobenius}(1) the residual
+coherence and change-of-path identities of
+Propositions~\ref{thm:residual-coherence} and~\ref{prop:corridor-groupoid},
+which are identities between algebra automorphisms, become composition
+identities of Brieskorn chain maps.  The GKT factors themselves are not
+transition maps and do not enter $P_{\mathfrak p}$; on the primary slice they
+reduce to flows of $X_{0,0}$, as in the proof of
+Lemma~\ref{lem:reflection-fixed}, which need not be trivial.  A coefficient
+of the Jacobian algebra such as $1/32$ in \eqref{eq:marginal-product} arises
+from the reduction of $x^3$, and on transported source sections it is
+independent of the admissible path, since $P_{\mathfrak p}$ carries the Jacobian ideal
+to the Jacobian ideal.  The transported coordinates $U_{\mathfrak p},V_{\mathfrak p}$
+depend on $\mathfrak p$ through the hyperbolic holonomy; only the structure
+constants in the transported bases are independent of it.
+
+\begin{remark}[Reflection and deck transformations]
+\label{rem:reflection-deck}
+The involution $\sigma$ fixes $W^{\GKT}_{\mathrm{prim}}$ and pulls
+$dx\wedge dy$ back to $-dx\wedge dy$.  Differentiating
+$\sigma(W^{\GKT}_{\mathrm{prim}})=W^{\GKT}_{\mathrm{prim}}$ gives
+$\sigma(\Phi^0_{b,a})=\Phi^0_{a,b}$.  The sign of $\sigma^*(dx\wedge dy)$ is
+compensated by the exchange of $\partial_xW^{\GKT}_{\mathrm{prim}}$ and
+$\partial_yW^{\GKT}_{\mathrm{prim}}$, in which the Grothendieck residue symbol
+is alternating; hence $\epsilon(\sigma h)=\sigma(\epsilon(h))$, where $\sigma$
+acts on coefficients by $t_{a,b}\mapsto t_{b,a}$.  Thus $\sigma$ is an
+automorphism of the source Frobenius manifold covering a nontrivial
+involution of the base.  It is not $A_{\mathrm{prim}}$-linear; at the Fermat
+point its invariants in $H_{4,4}$ form a subspace of dimension six.
+
+The deck transformations of the fractional-exponent cover $p_{\mathrm{fr}}$ and of the twist cover,
+and the core holonomy, relate admissible paths ending over the same region
+of $\mathfrak D$.  For any two such paths $\mathfrak p,\mathfrak p'$, the isomorphism
+$\phi=P_{\mathfrak p'}P_{\mathfrak p}^{-1}:\mathcal R_{\mathfrak p}\to\mathcal R_{\mathfrak p'}$ is
+$A_{\mathrm{prim}}$-linear and carries transported bases to transported bases
+(Proposition~\ref{thm:primary-Frobenius}).  The structure constants are
+therefore invariant under deck transformations and core holonomy.  If the
+two sheets of $p_{\mathrm{fr}}$ over a region of $\mathfrak D$ are identified by such a
+map $\phi$, the involution $(r,r')\mapsto(\phi^{-1}r',\phi r)$ of
+$\mathcal R_{\mathfrak p}\oplus\mathcal R_{\mathfrak p'}$ splits it into its
+$(\pm1)$-eigensummands, each free of rank nine over $A_{\mathrm{prim}}$, and
+the two are orthogonal for the residue pairing; the $(+1)$-eigensummand
+$\{(r,\phi r)\}$ is a unital subalgebra isomorphic to $\mathcal R_{\mathfrak p}$.
+\end{remark}

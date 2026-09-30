@@ -1,0 +1,370 @@
+\section{Introduction}\label{sec:introduction}
+
+\subsection{The question}
+
+The Gross--Siebert program constructs mirrors by placing wall-crossing
+automorphisms on an integral-affine base with singularities and reading off
+broken lines and theta functions
+\cite{grosshackingkeel2015,grossetal2018canonical,grosssiebert2022}.  Its
+input is geometric: a base, its singular locus, a polyhedral decomposition,
+and a polarization.  This paper asks whether the wall-crossing of an open
+Landau--Ginzburg theory supplies such a base, and answers the question for
+one model.
+
+Gross, Kelly, and Tessler (GKT) define genus-zero open FJRW invariants for
+$(W,G)=(x^r+y^s,\mu_r\times\mu_s)$ as relative Euler numbers on moduli spaces
+of $W$-spin disks \cite{grossetal2022open}.  The invariants depend on a choice
+of canonical boundary conditions, and changes of boundary conditions act
+through a formal wall-crossing group closely related to the tropical vertex
+group.  This action has the algebra of a scattering diagram but no
+integral-affine realization: no affine manifold, singular locus, or
+polyhedral decomposition carries its walls.  Gross, Kelly, and Tessler list a
+tropical version of open FJRW theory among the open problems of their survey
+\cite[\S6]{grossetal2026survey}, and Maher observes that it is not obvious
+how to incorporate Landau--Ginzburg mirror symmetry into the Gross--Siebert
+program, since a Landau--Ginzburg model has no target space and hence no SYZ
+fibration \cite[Rem.~5.1.1]{maher2024predictions}.
+
+The companion paper \cite{wuebben2026boundary} orders the GKT wall-crossing.
+Each generator of the GKT Lie algebra is attached to a critical $W$-spin
+graph, and its \emph{boundary ray} is the ray spanned by the pair of numbers
+of boundary markings of the two kinds on that graph; this is a ray in the
+plane of marking counts, not in any affine base.  Modulo any finite set of
+deformation monomials closed under taking divisors, the transition between
+the two \emph{extremal} GKT boundary conditions factors uniquely into factors
+ordered by the slope of their boundary rays
+\cite[Thms.~1.2 and~1.3]{wuebben2026boundary}.  The boundary conditions correspond to GKT's chamber indices
+(Section~\ref{subsec:gkt-recollections}).  For a nonempty set of labels, the
+coefficients of the potential at the balanced graphs of that set form a
+\emph{diagonal}, consecutive lattice points on a line.  The extremal boundary
+conditions are those in which, on every diagonal,
+only the coefficient with the least, respectively greatest, first exponent
+survives; we call their potentials the \emph{extremal GKT potentials}
+$W^{\min}$ and $W^{\max}$.  The factorization supplies an ordered family of
+wall-crossing operations, but no surface on which their rays lie and no
+affine monodromy.
+
+We construct such a surface, and a consistent wall structure on it, for the
+parabolic quartic $W=x^4+y^4$, the singularity $X_9$.  Its central charge
+$\widehat c=2-\frac2r-\frac2s$ equals one; by \cite{wuebben2026threshold} the
+primary invariants are independent of the boundary conditions exactly when
+$\widehat c<1$.  The suspension of the marginal pencil of $X_9$ is an
+anticanonical elliptic curve in $\PP(1,1,2)$, and the toric-boundary
+degeneration of that pair gives the disk-shaped intersection complex of the
+Landau--Ginzburg construction of Carl--Pumperla--Siebert \cite{carletal2024},
+the \emph{CPS complex}.  It is the natural candidate base.
+
+\subsection{Notation}\label{subsec:intro-notation}
+
+Let $M\simeq\ZZ^2$ be the lattice of the fan of $\PP(1,1,2)$ (the lattice
+denoted $N$ in toric geometry).  We write $M$ for it because it carries the
+exponents of all Laurent monomials, slab functions and wall functions below,
+as $M$ does in \cite{grosspandharipandesiebert2010}.  It is the character lattice of the dual
+torus, which carries the Landau--Ginzburg monomials and the slab functions of
+the CPS complex, while the polygon of the CPS complex lies in
+$M^\vee\otimes\RR$, with $M^\vee=\operatorname{Hom}(M,\ZZ)$
+(Section~\ref{sec:affine-kummer}).  Let $\ZZ^2_{x,y}$ be the lattice of
+bidegrees $(a,b)$ of monomials $x^ay^b$, and put
+\begin{equation}\label{eq:intro-F}
+ F=\frac14\begin{pmatrix}1&-1\\0&-2\end{pmatrix},
+ \qquad \widetilde M=F(\ZZ^2_{x,y}),
+ \qquad \widetilde M/M\simeq\ZZ/2\oplus\ZZ/4.
+\end{equation}
+The \emph{exponent map} $F$ sends $x^ay^b$ to the character $z^{F(a,b)}$.
+With $\iota=4F$, the \emph{cofactor}
+$L=\det(\iota)\,\iota^{-T}=\bigl(\begin{smallmatrix}-2&0\\1&1\end{smallmatrix}\bigr)$
+gives the direction $Lq\in M^\vee\otimes\RR$ along which the wall with
+shifted exponent $q$ is placed.  In $F$-coordinates, the coordinates in the
+basis $F(1,0),F(0,1)$, put $\kappa=(1,1)$, the exponent of $xy$, and
+\[
+ \Omega_\kappa=z^\kappa\,d\log z_1\wedge d\log z_2=dx\wedge dy,
+ \qquad X^\kappa_q=z^{q-\kappa}\partial_{q^\perp},\quad q^\perp=(q_2,-q_1),
+\]
+where $\partial_v$ is the invariant logarithmic derivation in direction $v$;
+thus $X^\kappa_q$ is the Hamiltonian vector field of $x^{q_1}y^{q_2}$ for
+$dx\wedge dy$.  We write $X_{a,b}=X^\kappa_{\kappa+(a,b)}$ and
+$E_{a,b}=t_1^at_2^bX_{a,b}$, so that $\mathsf A=-\frac12E_{1,0}$ and
+$\mathsf B=-\frac12E_{0,1}$.  The \emph{singleton parameters} $t_1,t_2$ are
+the variables of a single label, in GKT's terms an internal marking of twist
+$(1,0)$, respectively $(0,1)$, carrying one descendent, and
+$\mathfrak m=(t_1,t_2)$ is the \emph{singleton ideal}.
+
+The annulus $\overline\Acal$ has interior $\Acal$, and $\Acal^\circ$ is the
+complement of its four singular points.  The transition at each singular
+point is carried by an arc from that point to the boundary; cutting along
+these arcs leaves two \emph{sheets} $S_0\ni O_0$ and $S_1\ni O_1$, where
+$O_0,O_1$ are the lifts of the central vertex of the CPS complex
+(Section~\ref{subsec:kummer-charts}).  The two lines through $O_0$ carrying
+$\mathsf A$ and $\mathsf B$ are the \emph{chords}.  Every wall is cooriented by
+a normal chosen so that a path crossing the walls through $O_0$ in order of
+increasing slope of the exponents crosses each of them positively
+(Section~\ref{subsec:cofactor-supports}); each chord keeps this
+coorientation along its whole length.  Adjoining to the character ring the roots of the slab
+functions transported along a finite tree of paths gives a finite \'etale
+extension, the \emph{Kummer ring}; its spectrum extends to a finite cover of
+the character torus, the \emph{Kummer cover}, whose quotient by the groups of
+roots of unity is a finite root stack (Sections~\ref{subsec:kummer-charts}
+and~\ref{sec:compactification}).  The holonomy along the core loop
+$\gamma_{\mathrm{core}}$ of Section~\ref{subsec:parity-cover}, in the basis
+$F(1,0),F(0,1)$, is
+\begin{equation}\label{eq:intro-K}
+ K=\begin{pmatrix}-1&2\\-10&19\end{pmatrix},
+ \qquad \operatorname{tr}K=18.
+\end{equation}
+
+\subsection{Main results}
+
+The generators of the GKT critical algebra of $x^4+y^4$ attached to a
+single internal marking of twist $(1,0)$, respectively $(0,1)$, with one
+descendent are, in the notation of Section~\ref{subsec:intro-notation},
+\[
+ \mathsf A=-\tfrac12t_1X^\kappa_{(2,1)},
+ \qquad
+ \mathsf B=-\tfrac12t_2X^\kappa_{(1,2)},
+\]
+the logarithms of the two singleton factors of the GKT transition
+\eqref{eq:mixed-GKT-transition}.  Their exponents, with standard coordinates
+$F(2,1)=(\frac14,-\frac12)$ and $F(1,2)=(-\frac14,-1)$ in $M\otimes\QQ$,
+are fractional: they do not lie in $M$, and together with $M$ they span the
+overlattice $\widetilde M$ of index eight.
+
+\begin{maintheorem}[Annular base and wall structure]
+\label{thm:intro-reconstruction}
+\begin{enumerate}
+\item The smallest cover of the CPS complex on which $\widetilde M$ is
+preserved is the double cover branched at two of its three singular points.
+It is a polarized integral-affine annulus $\overline\Acal$ with integral
+tangent lattice $\widetilde M^\vee$, so that exponents lie in the dual
+lattice $\widetilde M$, with two focus--focus points $B_0,B_1$, and two
+ramification points $\widetilde A,\widetilde C$ of the cover at which the
+structure is the pullback of a focus--focus germ under $z\mapsto z^2$
+(Theorem~\ref{thm:parity-cover}).  Its holonomy along a core loop has trace
+$18$, and its monodromies around the two boundary circles are conjugate to
+$\bigl(\begin{smallmatrix}1&-4\\0&1\end{smallmatrix}\bigr)$ and
+$\bigl(\begin{smallmatrix}1&-16\\0&1\end{smallmatrix}\bigr)$.
+\item Lifting the slab transitions requires roots of the slab functions, of
+degrees $2,4,4,2$ at $\widetilde A,B_0,B_1,\widetilde C$ (the degree at
+$B_0,B_1$ drops to two at the two values $a=\pm2$ of the coefficient $a$ of
+the slab function $1+az^u+z^{2u}$ at which it is a square, the
+\emph{cusps}).  Their orbit under transport is
+infinite, so no finite root stack contains it, while the functions
+transported along any finite set of paths lie in a single finite Kummer
+extension (Theorems~\ref{thm:infinite-root-orbit}
+and~\ref{thm:forced-category}).
+\item The lifted slab maps rescale the volume form $dx\wedge dy$ by roots of
+the slab functions.  The Hamiltonian bracket therefore glues only as a
+Jacobi bracket on a line bundle $\Lcal_\kappa$ over the Kummer
+covers (Propositions~\ref{prop:no-scalar-frame}
+and~\ref{prop:Jacobi-transport}).
+\item Place $\mathsf A$ and $\mathsf B$ on the two lines through a lift $O_0$
+of the central vertex in the cofactor directions of their exponents, and the
+inverses of the factors of the ordered factorization of the group commutator
+$e^{\mathsf A}e^{-\mathsf B}e^{-\mathsf A}e^{\mathsf B}$ on the rays from
+$O_0$ in the corresponding cofactor directions.  This gives a proper, locally finite
+wall structure $\mathfrak D$ on the complement $\Acal^\circ$ of the singular
+points, consistent around its two joints at every finite order
+(Theorem~\ref{thm:annular-consistency}).  Consistency at the joints depends
+on the placement only through the cyclic order of the supports about $O_0$,
+which is that of the exponents and, on the chords, their negatives.
+\item The core holonomy acts hyperbolically on $\widetilde M$, with no
+nonzero finite orbit, so exponents in one fixed copy of $\widetilde M$ cannot
+label a basis of sections compatibly with transport
+(Theorem~\ref{thm:theta-local-system}).
+\end{enumerate}
+\end{maintheorem}
+
+The walls of $\mathfrak D$ are not tangent to the exponents of their
+functions, as they are in
+\cite{grosspandharipandesiebert2010,grossetal2016theta}: the exponents lie
+on the Legendre-dual side, and the supports in the plane of the polygon.
+Transported by the orthogonality of dual cells in the discrete Legendre
+transform, tangency would place each wall along the annihilator of its
+exponent, a rule that no choice of orientations makes compatible with the
+exchange of $x$ and $y$.  The linear rules compatible with the exchange are
+the gradient maps of quadratic functions invariant under it, and the cofactor
+is one of them: the support of $X^\kappa_q$ is the image of the ray of its
+exponent under the gradient map of the auxiliary quadratic function
+$F(a,b)\mapsto-\frac14(a^2+b^2)$ (Section~\ref{subsec:exponent-lattices}).
+Among the negative definite ones the choice is a convention.  Consistency is the local
+condition around the two joints; nothing is imposed around a singular point
+or around the core, and the diagonal walls end at $B_0$ and $B_1$.  Beyond the
+Kontsevich--Soibelman factorization at a point, the content of $\mathfrak D$
+lies in the annular cover that carries it, the cyclic order of the cofactor
+directions, and the fact that the walls avoid the cuts carrying the
+transitions (Proposition~\ref{prop:proper-supports}).
+
+The $\kappa$-shift identifies each GKT generator $X_k$ with the Hamiltonian
+field $X^\kappa_{k+\kappa}$ of $x^{k_1+1}y^{k_2+1}$ for $dx\wedge dy$, so the
+GKT critical Lie algebra of every finite set of labels embeds, without change
+of coefficients, in the Lie algebra $\mathfrak g_\kappa$ of Hamiltonian
+derivations for the Jacobi bracket (Theorem~\ref{thm:critical-embedding} and
+Proposition~\ref{prop:endpoint-operations}).  The comparison of $\mathfrak D$
+with GKT wall-crossing is then as follows.
+
+\begin{maintheorem}[Comparison with GKT wall-crossing]
+\label{thm:intro-comparison}
+\begin{enumerate}
+\item The wall structure $\mathfrak D$ is not the GKT wall-crossing.  For two labels
+of twists $(1,0)$ and $(0,1)$ with one descendent each, the first ray
+carrying both descendent parameters has coefficient $-3/4$ in $\mathfrak D$
+and $1/4$ in the GKT transition
+(Proposition~\ref{prop:first-decoration}), and the path-ordered product of
+$\mathfrak D$ along a path passing the joint carries $W^{\min}$ to
+$\exp(-t_1t_2X_{1,1})\,W^{\max}$ rather than to $W^{\max}$
+(Proposition~\ref{prop:two-label-transport}).
+\item Fix a finite set of labels of twists $(1,0)$ and $(0,1)$ with one
+descendent each, and let $J$ be a subset consisting of $p_J$ labels of twist
+$(1,0)$ and $q_J$ of twist $(0,1)$.  After the base change sending $t_1$
+and $t_2$ to the sums of the variables $t_i$ of the labels of twist $(1,0)$
+and $(0,1)$, respectively, the $t_J$-component of the logarithms of the wall factors of $\mathfrak D$ is
+\[
+ S_J=p_J!\,q_J!\,a_{p_J,q_J}\,t_JX_{p_J,q_J},
+\]
+where $a_{p,q}$ is the coefficient of $E_{p,q}$ in the ordered factorization
+of $e^{\mathsf A}e^{\mathsf B}$ ($a_{p,q}=-c_{p,q}$ for $p,q\geq1$, with
+$c_{p,q}$ in Table~\ref{tab:singleton-coefficients}).  It agrees with the
+$t_J$-component of the logarithms of the GKT factors when $|J|=1$, and not
+when $J$ consists of one label of each twist, where it is
+$-\frac34t_JX_{1,1}$ and the GKT component is $\frac14t_JX_{1,1}$
+(Proposition~\ref{thm:all-order-decoration}).
+\item The finite homotopies of canonical multisections that realize the GKT
+transitions can be chosen compatibly as the set of labels grows
+(Theorem~\ref{thm:compatible-GKT-realization} and
+Appendix~\ref{app:gkt-completion}).
+\end{enumerate}
+\end{maintheorem}
+
+Part~(3) answers the compatibility question left open in
+\cite{wuebben2026boundary}; the systems of labels and monomials for which it
+holds are those of Definition~\ref{def:finite-partial-system}.  Residual transports
+relate products of functions transported along a single path, but not along
+different paths; Appendix~\ref{app:residual-coherence} gives a
+degree-weighted correction, coherent up to an explicit associator that is
+nontrivial in general.
+
+The difference in Theorem~\ref{thm:intro-comparison}(1) is invisible to
+periods.  For two labels of twists $(1,0)$ and $(0,1)$ with one descendent
+each, for the potentials of
+Section~\ref{sec:positive-descendents} with the singleton terms of
+$W^{\max}$ and mixed terms $t_1t_2(a\,xy^5+b\,x^5y)$, the mixed period class is
+$(6-\frac{a+b}2)[xy\,dx\wedge dy]$.  The GKT chamber condition, which is a
+period condition, therefore fixes $a+b=12$, and the flows of the GKT
+generator $X_{1,1}$ move $(a,b)$ along the line $a+b=12$ without changing any
+period (Proposition~\ref{prop:relative-exact}).  Within that orbit $W^{\max}$
+is singled out by a normal form: on each diagonal only the coefficient with
+the greatest first exponent survives.  This \emph{maximal normal form} carries
+the transport of $W^{\min}$ by $\mathfrak D$ to $W^{\max}$ for every finite
+set of such labels (Proposition~\ref{rem:normal-form-general}).  The same happens for
+two labels of the same twist, where the GKT transition has a factor on a ray
+carrying no wall of $\mathfrak D$ (Proposition~\ref{prop:same-twist}).
+
+\begin{mainproblem}
+Construct, from the annular structure of
+Theorem~\ref{thm:intro-reconstruction}, an operation at a boundary circle of
+the annulus that realizes the maximal normal form, and so carries the
+transport of $W^{\min}$ to $W^{\max}$ (Problem~\ref{prob:endpoint}).
+\end{mainproblem}
+
+\subsection{Obstructions and further results}
+
+Given the dictionary $F$, the annulus is forced; the simpler candidates fail.
+
+\begin{proposition}[Obstructions to simpler models]\label{thm:intro-obstructions}
+\begin{enumerate}
+\item\label{it:obs-lattice} Exactly one of the three affine monodromies of
+the CPS complex preserves $\widetilde M$; hence $\widetilde M$ is not the
+character lattice of any integral-affine structure on the CPS complex or on a
+root-stack refinement of it with the same coarse disk.
+\item\label{it:obs-regular} The annulus is not homeomorphic to the
+intersection complex of any distinguished toric degeneration of del Pezzo
+surfaces in the sense of Carl--Pumperla--Siebert.
+\end{enumerate}
+\end{proposition}
+
+Part~(1) follows from Proposition~\ref{prop:integral-cofactor},
+\eqref{eq:unbranched-conjugates} and Theorem~\ref{thm:parity-cover}, and
+part~(2) is Proposition~\ref{prop:no-CPS-degeneration}.  Theorem~\ref{thm:intro-reconstruction}(2), (3)
+and~(5) record the other obstructions: for each value of the slab parameter
+no finite Kummer extension containing the initial roots is stable under
+transport (Theorems~\ref{thm:infinite-root-orbit}
+and~\ref{thm:forced-category}); the Lie algebra of Hamiltonian derivations
+of the structure sheaf containing the two singleton fields is not preserved
+by the lifted slab maps (Proposition~\ref{prop:no-scalar-frame}); and
+exponents in one fixed copy of $\widetilde M$ cannot label a global basis of
+sections compatibly with transport (Theorem~\ref{thm:theta-local-system}).
+
+\emph{Boundary.}  The walls of $\mathfrak D$ other than the two diagonal
+segments leave the annulus transversely through its boundary circles.  Outward
+integral-affine cylinders of widths $4$ and $16$ continue the collars and
+separate the exiting walls (Propositions~\ref{prop:outward-flares}
+and~\ref{prop:exit-separation}).  A logarithmic compactification of the finite
+stages is not constructed: charts identified along dense opens would force
+the holonomy around a boundary circle, a shear, to fix every character, and
+the coefficient rings contain no degeneration parameter to absorb it
+(Remark~\ref{rem:closing-ends}).  The finite root-stack presentations and
+their Kummer covers are singular in general, and are dominated by log smooth
+Deligne--Mumford stacks with simple normal crossings boundary
+(Appendix~\ref{app:regular-presentation}).
+
+\emph{Primary Frobenius structure.}  Transport through the annular charts
+preserves the primary Frobenius structure of the GKT open mirror theorem
+\cite[Thm.~0.3, Cor.~4.17, Cor.~5.14]{grossetal2022open}: the transported
+derivatives of the primary potential form a basis of the transported Jacobian
+algebra, with product, unit and residue pairing independent of the path
+(Proposition~\ref{thm:primary-Frobenius}).  This is transport of structure.
+What is specific to the quartic is the source normalization: the primary
+potential has a unique representative invariant under exchanging $x$ and $y$
+(Lemma~\ref{lem:reflection-fixed}), and on the marginal line it is the flat
+structure of Noumi and Yamada \cite{noumiyamada1998flat}, with primitive form
+normalized to $dx\wedge dy$ (Theorem~\ref{thm:marginal-calibration}).
+
+\subsection{Method and organization}
+
+The proof of Theorem~\ref{thm:intro-reconstruction} has three steps.  The
+discrete Legendre transform and the descendent exponents determine the
+enlarged lattice, the parity cover, and the pathwise Kummer rings
+(Section~\ref{sec:affine-kummer}).  A divergence computation shows that the
+lifted slab maps are not Poisson for $\Omega_\kappa$, which forces the
+Jacobi bracket, and the ordered factorization of the commutator of
+the two incoming factors, placed along cofactor directions, gives the
+diagram $\mathfrak D$ (Section~\ref{sec:jacobi-theta}).  The boundary circles
+are treated in Section~\ref{sec:compactification}.  For
+Theorem~\ref{thm:intro-comparison}, the GKT notions used are recalled in
+Section~\ref{subsec:gkt-recollections}; the $\kappa$-shift embeds the GKT Lie
+algebra, and comparing the increasing-slope factorizations ray by ray gives
+the residual factors (Section~\ref{sec:gkt-decoration}).  The compatible
+homotopies are built by relative extension of canonical multisections, datum
+by datum in a well-founded order on finite dependency-closed systems, using
+the multisection extension argument of \cite{buryaketal2024} in its $W$-spin
+form \cite[Lem.~5.15]{grossetal2022open} (Appendix~\ref{app:gkt-completion}).
+Section~\ref{sec:primary-frobenius} treats the primary Frobenius structure,
+and Section~\ref{sec:positive-descendents} computes the first descendent
+truncations and states the maximal normalization problem.
+Appendix~\ref{app:calculations} records the affine and logarithmic
+calculations, Appendix~\ref{app:regular-presentation} the regular
+presentation, and Appendix~\ref{app:residual-coherence} the coherence of the
+residual factors.
+
+The construction follows the separation between affine and wall data of
+\cite{grosshackingkeel2015,grossetal2018canonical,grosssiebert2022} but
+produces no toric degeneration of the quartic pair, and it does not construct
+open FJRW invariants from the annular data.  Its enumerative inputs are the
+two singleton Hamiltonians and, for Theorem~\ref{thm:intro-comparison},
+Proposition~\ref{thm:primary-Frobenius} and
+Section~\ref{sec:positive-descendents}, the GKT critical algebra, the GKT
+homotopies, the GKT primary mirror theorem, and the extremal GKT potentials
+of the truncations considered.
+
+\emph{Conventions.}  Throughout, $\Bbbk$ is an algebraically closed field of
+characteristic zero.  Formal-algebraic constructions are made over $\Bbbk$;
+oscillatory integrals and Saito theory \cite{saito1983period} are understood
+after base change to $\CC$.  The enumerative coefficient rings are defined
+over $\QQ$ and are base-changed to $\Bbbk$ when used in the root-stack
+construction.
+
+The sources of this paper and its two companions
+\cite{wuebben2026threshold,wuebben2026boundary}, with code reproducing the
+finite computations used here (Table~\ref{tab:singleton-coefficients}, the
+matrices of Appendix~\ref{app:calculations}, and the identities of
+Sections~\ref{sec:gkt-decoration} to~\ref{sec:positive-descendents}), are
+available at \url{https://github.com/bwuebben/open-fjrw-scattering}.

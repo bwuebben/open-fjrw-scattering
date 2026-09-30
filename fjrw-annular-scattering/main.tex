@@ -1,0 +1,128 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage{graphicx}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.markings,patterns,positioning,shapes.geometric}
+\usepackage{adjustbox}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\emergencystretch=1.5em
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{mainproblem}{Problem C}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{importedthm}{Theorem}
+
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\Acal}{\mathcal A}
+\newcommand{\Lcal}{\mathcal L}
+\newcommand{\Mcal}{\mathcal M}
+\newcommand{\Ocal}{\mathcal O}
+\newcommand{\Tcal}{\mathcal T}
+\newcommand{\Wcal}{\mathcal W}
+\newcommand{\Xfrak}{\mathfrak X}
+\newcommand{\Dscr}{\mathfrak D}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Spf}{\operatorname{Spf}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Corr}{\operatorname{Corr}}
+\newcommand{\BL}{\operatorname{BL}}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\GKT}{\mathrm{GKT}}
+
+\hyphenation{scat-ter-ing tropi-cal singu-lar-ity de-scen-dent
+pro-al-ge-bra-ic Kum-mer log-a-rith-mic}
+
+\title[Annular scattering in open FJRW theory]
+{Annular scattering in quartic open FJRW theory}
+\author{Bernd Johannes Wuebben}
+\subjclass[2020]{14T90 (primary); 14B07, 14D06, 14J33, 14N35, 32S25, 32S30 (secondary)}
+\keywords{Scattering diagrams, integral-affine manifolds, logarithmic mirror
+symmetry, root stacks, Jacobi structures, open FJRW theory}
+\date{September 29, 2026}
+\hypersetup{
+  pdftitle={Annular scattering in quartic open FJRW theory},
+  pdfauthor={Bernd Johannes Wuebben},
+  pdfsubject={Annular scattering in quartic open FJRW theory},
+  pdfkeywords={scattering diagrams, integral-affine manifolds, logarithmic mirror symmetry, open FJRW theory}
+}
+
+\begin{document}
+
+\begin{abstract}
+Gross--Siebert mirrors are built from integral-affine bases with
+singularities; we ask whether open Landau--Ginzburg wall-crossing gives one.
+For the open FJRW theory of $x^4+y^4$ of Gross, Kelly and Tessler (GKT) it
+does, on an annular cover, but its wall structure is not GKT
+wall-crossing.  Send $x^ay^b$ to $z^{F(a,b)}$, for $F$ linear
+sending $(4,0)$, $(0,4)$ to the rays of $\{X=0\}$, $\{Y=0\}$ in the
+fan lattice of $\PP(1,1,2)$, the exponent lattice of the
+Carl--Pumperla--Siebert base.  The exponents of the two first-order
+descendent GKT generators become fractional and span an overlattice of index
+eight.  The minimal cover preserving it is an integral-affine annulus with
+two focus--focus singularities, two $z\mapsto z^2$ pullbacks of one, and
+hyperbolic core holonomy of trace $18$.  The slab-function roots that lift
+the monodromy have an infinite transport orbit and rescale
+$dx\wedge dy$, so its Poisson bracket glues only as a Jacobi bracket on a
+line bundle.  The generators produce walls, consistent at both
+joints to all orders, placed by a convention symmetric in $x$ and $y$ along
+the images of the exponents under an auxiliary gradient map.
+
+The GKT Lie algebra embeds in the Hamiltonian derivations of this bracket,
+but on the first ray carrying both descendent parameters the wall
+coefficient is $-3/4$ where GKT's is $1/4$.  The potentials $W^{\min}$,
+$W^{\max}$ of GKT's two extremal boundary conditions have, for each set of
+labels, only the balanced-graph coefficient of least, respectively greatest,
+$x$-degree nonzero.  For two labels with one descendent each, the diagram
+carries $W^{\min}$ to a potential differing from $W^{\max}$ by the flow of
+one GKT generator.  The normal form keeping only the coefficient of greatest
+$x$-degree removes the difference; its geometric realization is open.  GKT's
+canonical multisection homotopies can be chosen compatibly as the set of
+labels grows.
+\end{abstract}
+
+\maketitle
+
+\input{sections/01_introduction}
+\input{sections/02_affine_kummer}
+\input{sections/03_jacobi_theta}
+\input{sections/04_compactification}
+\input{sections/05_gkt_decoration}
+\input{sections/06_primary_frobenius}
+\input{sections/07_positive_descendents}
+
+\appendix
+\input{sections/appendix_a_calculations}
+\input{sections/appendix_b_gkt_completion}
+\input{sections/appendix_c_regular_presentation}
+\input{sections/appendix_d_residual_coherence}
+
+\begin{thebibliography}{GHKK18}
+\input{references}
+\end{thebibliography}
+
+\bigskip
+\noindent{\sc Bernd Johannes Wuebben, New York, NY,} \texttt{wuebben@gmail.com}
+
+\end{document}
