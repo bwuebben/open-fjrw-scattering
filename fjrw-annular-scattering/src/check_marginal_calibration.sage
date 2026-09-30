@@ -1,11 +1,12 @@
-"""Exact checks for the marginal calibration of Section 6
-(Theorem 6.3, Marginal period calibration, and the discussion after it).
+"""Exact checks for the marginal calibration of Appendix E
+(Theorem E.3, Marginal period calibration, and the discussion after it),
+together with two statements of Section 6 that it uses.
 
 The checks cover the following statements.
 
 1. The coordinate reflection sigma(X,Y)=(Y,X) conjugates the degree-zero
-   field X_(0,0) = X d_X - Y d_Y to its negative (Lemma 6.2(2),
-   Reflection-fixed representative).
+   field X_(0,0) = X d_X - Y d_Y of eq:reflection to its negative
+   (Lemma E.1(2), Reflection-fixed representative).
 2. The residue pairing at the Fermat point: the normalized residue trace pairs e_(a,b)
    with e_(2-a,2-b) (Proposition 6.1, Residue pairing at the Fermat point).
 3. The quadratic marginal invariants: the order-t^2 oscillatory condition
@@ -17,15 +18,19 @@ The checks cover the following statements.
    in the Jacobian algebra as the coefficient t^3/32 (eq:marginal-product); in
    the family (1+c t^2)(X^4+Y^4)+t X^2 Y^2 the t^3 coefficient is c/2.
 6. The coefficient 1/32 arises only from Jacobian reduction of X^3 and is
-   preserved on transported source sections.
+   preserved on transported source sections (the paragraph after
+   Proposition 6.3, Transported primary Frobenius structure).
 7. The reflection-fixed representative of a marginal orbit has
    lambda = lambda' = sqrt(lambda*lambda') (eq:zero-cochain).
+
+Here lambda, mu, lambda' denote the coefficients frak a, frak b, frak a' of
+x^4, x^2 y^2, y^4 in the marginal quartics eq:ABC-family.
 
 Run with Sage from this directory: sage check_marginal_calibration.sage
 """
 
 
-# Reflection and the degree-zero field (Lemma 6.2(2)).  As derivations,
+# Reflection and the degree-zero field (Lemma E.1(2)).  As derivations,
 # sigma o X_(0,0) o sigma^(-1) = -X_(0,0), where sigma(X,Y) = (Y,X).
 reflection_ring.<X, Y> = PolynomialRing(QQ)
 

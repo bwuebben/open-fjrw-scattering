@@ -35,16 +35,17 @@ the two \emph{extremal} GKT boundary conditions factors uniquely into factors
 ordered by the slope of their boundary rays
 \cite[Thms.~1.2 and~1.3]{wuebben2026boundary}.  The boundary conditions correspond to GKT's chamber indices
 (Section~\ref{subsec:gkt-recollections}).  For a nonempty set of labels, the
-coefficients of the potential at the balanced graphs of that set form a
-\emph{diagonal}, consecutive lattice points on a line.  The extremal boundary
-conditions are those in which, on every diagonal,
-only the coefficient with the least, respectively greatest, first exponent
+coefficients of the potential at the balanced graphs of that set form its
+\emph{balanced string}, consecutive lattice points on a line.  The extremal
+boundary conditions are those in which, on every balanced string, only the
+coefficient with the least, respectively greatest, first exponent
 survives; we call their potentials the \emph{extremal GKT potentials}
 $W^{\min}$ and $W^{\max}$.  The factorization supplies an ordered family of
 wall-crossing operations, but no surface on which their rays lie and no
 affine monodromy.
 
-We construct such a surface, and a consistent wall structure on it, for the
+We construct such a surface, and a wall structure on it that is consistent at
+its joints, for the
 parabolic quartic $W=x^4+y^4$, the singularity $X_9$.  Its central charge
 $\widehat c=2-\frac2r-\frac2s$ equals one; by \cite{wuebben2026threshold} the
 primary invariants are independent of the boundary conditions exactly when
@@ -56,6 +57,7 @@ the \emph{CPS complex}.  It is the natural candidate base.
 
 \subsection{Notation}\label{subsec:intro-notation}
 
+Appendix~\ref{app:notation} lists the principal symbols of the paper.
 Let $M\simeq\ZZ^2$ be the lattice of the fan of $\PP(1,1,2)$ (the lattice
 denoted $N$ in toric geometry).  We write $M$ for it because it carries the
 exponents of all Laurent monomials, slab functions and wall functions below,
@@ -89,22 +91,17 @@ the variables of a single label, in GKT's terms an internal marking of twist
 $(1,0)$, respectively $(0,1)$, carrying one descendent, and
 $\mathfrak m=(t_1,t_2)$ is the \emph{singleton ideal}.
 
-The annulus $\overline\Acal$ has interior $\Acal$, and $\Acal^\circ$ is the
-complement of its four singular points.  The transition at each singular
-point is carried by an arc from that point to the boundary; cutting along
-these arcs leaves two \emph{sheets} $S_0\ni O_0$ and $S_1\ni O_1$, where
-$O_0,O_1$ are the lifts of the central vertex of the CPS complex
-(Section~\ref{subsec:kummer-charts}).  The two lines through $O_0$ carrying
-$\mathsf A$ and $\mathsf B$ are the \emph{chords}.  Every wall is cooriented by
-a normal chosen so that a path crossing the walls through $O_0$ in order of
-increasing slope of the exponents crosses each of them positively
-(Section~\ref{subsec:cofactor-supports}); each chord keeps this
-coorientation along its whole length.  Adjoining to the character ring the roots of the slab
-functions transported along a finite tree of paths gives a finite \'etale
-extension, the \emph{Kummer ring}; its spectrum extends to a finite cover of
-the character torus, the \emph{Kummer cover}, whose quotient by the groups of
-roots of unity is a finite root stack (Sections~\ref{subsec:kummer-charts}
-and~\ref{sec:compactification}).  The holonomy along the core loop
+The slab function of the slab of length two is
+$1+a_\rho z^u+z^{2u}$, with free coefficient $a_\rho$, the \emph{slab
+parameter}; the values $a_\rho=\pm2$, at which it is a square, are the
+\emph{cusps} (Section~\ref{sec:affine-kummer}).  The annulus $\overline\Acal$
+has interior $\Acal$, and $\Acal^\circ$ is the complement of its four
+singular points.  The transition at each singular
+point is carried by an arc from that point to the boundary; we call these arcs
+the \emph{cuts}.  The points $O_0,O_1$ are the two lifts of the central vertex
+of the CPS complex (Section~\ref{subsec:kummer-charts}), and the two lines
+through $O_0$ carrying $\mathsf A$ and $\mathsf B$ are the \emph{chords}.  The
+holonomy along the core loop
 $\gamma_{\mathrm{core}}$ of Section~\ref{subsec:parity-cover}, in the basis
 $F(1,0),F(0,1)$, is
 \begin{equation}\label{eq:intro-K}
@@ -144,9 +141,7 @@ $\bigl(\begin{smallmatrix}1&-4\\0&1\end{smallmatrix}\bigr)$ and
 $\bigl(\begin{smallmatrix}1&-16\\0&1\end{smallmatrix}\bigr)$.
 \item Lifting the slab transitions requires roots of the slab functions, of
 degrees $2,4,4,2$ at $\widetilde A,B_0,B_1,\widetilde C$ (the degree at
-$B_0,B_1$ drops to two at the two values $a=\pm2$ of the coefficient $a$ of
-the slab function $1+az^u+z^{2u}$ at which it is a square, the
-\emph{cusps}).  Their orbit under transport is
+$B_0,B_1$ drops to two at the cusps).  Their orbit under transport is
 infinite, so no finite root stack contains it, while the functions
 transported along any finite set of paths lie in a single finite Kummer
 extension (Theorems~\ref{thm:infinite-root-orbit}
@@ -157,12 +152,13 @@ Jacobi bracket on a line bundle $\Lcal_\kappa$ over the Kummer
 covers (Propositions~\ref{prop:no-scalar-frame}
 and~\ref{prop:Jacobi-transport}).
 \item Place $\mathsf A$ and $\mathsf B$ on the two lines through a lift $O_0$
-of the central vertex in the cofactor directions of their exponents, and the
-inverses of the factors of the ordered factorization of the group commutator
-$e^{\mathsf A}e^{-\mathsf B}e^{-\mathsf A}e^{\mathsf B}$ on the rays from
-$O_0$ in the corresponding cofactor directions.  This gives a proper, locally finite
-wall structure $\mathfrak D$ on the complement $\Acal^\circ$ of the singular
-points, consistent around its two joints at every finite order
+of the central vertex in the directions $L(2,1)$ and $L(1,2)$.  On the ray
+from $O_0$ in direction $Lq$, place the inverse of the factor on the ray of
+$q$ in the ordered factorization of the group commutator
+$e^{\mathsf A}e^{-\mathsf B}e^{-\mathsf A}e^{\mathsf B}$, and transport the
+result to the other lift $O_1$.  This gives a proper, locally finite wall
+structure $\mathfrak D$ on the complement $\Acal^\circ$ of the singular
+points, consistent at $O_0$ and $O_1$ at every finite order
 (Theorem~\ref{thm:annular-consistency}).  Consistency at the joints depends
 on the placement only through the cyclic order of the supports about $O_0$,
 which is that of the exponents and, on the chords, their negatives.
@@ -177,21 +173,17 @@ The walls of $\mathfrak D$ are not tangent to the exponents of their
 functions, as they are in
 \cite{grosspandharipandesiebert2010,grossetal2016theta}: the exponents lie
 on the Legendre-dual side, and the supports in the plane of the polygon.
-Transported by the orthogonality of dual cells in the discrete Legendre
-transform, tangency would place each wall along the annihilator of its
-exponent, a rule that no choice of orientations makes compatible with the
-exchange of $x$ and $y$.  The linear rules compatible with the exchange are
-the gradient maps of quadratic functions invariant under it, and the cofactor
-is one of them: the support of $X^\kappa_q$ is the image of the ray of its
-exponent under the gradient map of the auxiliary quadratic function
-$F(a,b)\mapsto-\frac14(a^2+b^2)$ (Section~\ref{subsec:exponent-lattices}).
-Among the negative definite ones the choice is a convention.  Consistency is the local
+Tangency transported by the discrete Legendre transform would place each wall
+along the annihilator of its exponent, a rule incompatible with the exchange
+of $x$ and $y$; the compatible linear rules are the gradient maps of
+exchange-invariant quadratic functions, and the cofactor is one of them
+(Section~\ref{subsec:exponent-lattices}).  Consistency is the local
 condition around the two joints; nothing is imposed around a singular point
 or around the core, and the diagonal walls end at $B_0$ and $B_1$.  Beyond the
 Kontsevich--Soibelman factorization at a point, the content of $\mathfrak D$
 lies in the annular cover that carries it, the cyclic order of the cofactor
-directions, and the fact that the walls avoid the cuts carrying the
-transitions (Proposition~\ref{prop:proper-supports}).
+directions, and the fact that the walls avoid the cuts
+(Proposition~\ref{prop:proper-supports}).
 
 The $\kappa$-shift identifies each GKT generator $X_k$ with the Hamiltonian
 field $X^\kappa_{k+\kappa}$ of $x^{k_1+1}y^{k_2+1}$ for $dx\wedge dy$, so the
@@ -234,12 +226,18 @@ Appendix~\ref{app:gkt-completion}).
 \end{enumerate}
 \end{maintheorem}
 
-Part~(3) answers the compatibility question left open in
+Part~(3) belongs to the comparison because every GKT factor compared in
+parts~(1) and~(2) is the jump, at its assigned time, of a finite restriction
+of one such compatible homotopy (Section~\ref{sec:gkt-decoration}).  It
+answers the compatibility question left open in
 \cite{wuebben2026boundary}; the systems of labels and monomials for which it
-holds are those of Definition~\ref{def:finite-partial-system}.  Residual transports
-relate products of functions transported along a single path, but not along
-different paths; Appendix~\ref{app:residual-coherence} gives a
-degree-weighted correction, coherent up to an explicit associator that is
+holds are those of Definition~\ref{def:finite-partial-system}.  Along one path,
+transport through $\mathfrak D$ and transport by GKT's factors differ by one
+automorphism of the target chart algebra, the residual transport of the
+path; it relates products of functions transported along that path but not
+along different paths.  Appendix~\ref{app:residual-coherence} gives a
+degree-weighted correction, a first step towards multiplying functions
+carried along different paths, coherent up to an explicit associator that is
 nontrivial in general.
 
 The difference in Theorem~\ref{thm:intro-comparison}(1) is invisible to
@@ -251,7 +249,7 @@ $(6-\frac{a+b}2)[xy\,dx\wedge dy]$.  The GKT chamber condition, which is a
 period condition, therefore fixes $a+b=12$, and the flows of the GKT
 generator $X_{1,1}$ move $(a,b)$ along the line $a+b=12$ without changing any
 period (Proposition~\ref{prop:relative-exact}).  Within that orbit $W^{\max}$
-is singled out by a normal form: on each diagonal only the coefficient with
+is singled out by a normal form: on each balanced string only the coefficient with
 the greatest first exponent survives.  This \emph{maximal normal form} carries
 the transport of $W^{\min}$ by $\mathfrak D$ to $W^{\max}$ for every finite
 set of such labels (Proposition~\ref{rem:normal-form-general}).  The same happens for
@@ -265,33 +263,26 @@ the annulus that realizes the maximal normal form, and so carries the
 transport of $W^{\min}$ to $W^{\max}$ (Problem~\ref{prob:endpoint}).
 \end{mainproblem}
 
-\subsection{Obstructions and further results}
+\subsection{Further results}
 
-Given the dictionary $F$, the annulus is forced; the simpler candidates fail.
-
-\begin{proposition}[Obstructions to simpler models]\label{thm:intro-obstructions}
-\begin{enumerate}
-\item\label{it:obs-lattice} Exactly one of the three affine monodromies of
-the CPS complex preserves $\widetilde M$; hence $\widetilde M$ is not the
-character lattice of any integral-affine structure on the CPS complex or on a
-root-stack refinement of it with the same coarse disk.
-\item\label{it:obs-regular} The annulus is not homeomorphic to the
-intersection complex of any distinguished toric degeneration of del Pezzo
-surfaces in the sense of Carl--Pumperla--Siebert.
-\end{enumerate}
-\end{proposition}
-
-Part~(1) follows from Proposition~\ref{prop:integral-cofactor},
-\eqref{eq:unbranched-conjugates} and Theorem~\ref{thm:parity-cover}, and
-part~(2) is Proposition~\ref{prop:no-CPS-degeneration}.  Theorem~\ref{thm:intro-reconstruction}(2), (3)
-and~(5) record the other obstructions: for each value of the slab parameter
-no finite Kummer extension containing the initial roots is stable under
-transport (Theorems~\ref{thm:infinite-root-orbit}
-and~\ref{thm:forced-category}); the Lie algebra of Hamiltonian derivations
-of the structure sheaf containing the two singleton fields is not preserved
-by the lifted slab maps (Proposition~\ref{prop:no-scalar-frame}); and
-exponents in one fixed copy of $\widetilde M$ cannot label a global basis of
-sections compatibly with transport (Theorem~\ref{thm:theta-local-system}).
+\emph{Obstructions.}  Given the dictionary $F$, the annulus is forced, and
+the simpler candidates fail.  Exactly one of the three affine monodromies of
+the CPS complex preserves $\widetilde M$ (Proposition~\ref{prop:integral-cofactor},
+\eqref{eq:unbranched-conjugates} and Theorem~\ref{thm:parity-cover}), so
+$\widetilde M$ is not the character lattice of any integral-affine structure
+on the CPS complex or on a root stack whose coarse space is the CPS complex.
+Theorem~\ref{thm:intro-reconstruction}(2), (3) and~(5) record the other
+obstructions: for each value of the slab parameter $a_\rho$ no finite Kummer
+extension containing the initial roots is stable under transport
+(Theorems~\ref{thm:infinite-root-orbit} and~\ref{thm:forced-category}); the
+Lie algebra of Hamiltonian derivations of the structure sheaf containing the
+two singleton fields is not preserved by the lifted slab maps
+(Proposition~\ref{prop:no-scalar-frame}); and exponents in one fixed copy of
+$\widetilde M$ cannot label a global basis of sections compatibly with
+transport (Theorem~\ref{thm:theta-local-system}).  Being an annulus, the base
+is not homeomorphic to the intersection complex of a distinguished toric
+degeneration of del Pezzo surfaces in the sense of Carl--Pumperla--Siebert,
+which is a disk (Proposition~\ref{prop:no-CPS-degeneration}).
 
 \emph{Boundary.}  The walls of $\mathfrak D$ other than the two diagonal
 segments leave the annulus transversely through its boundary circles.  Outward
@@ -312,8 +303,8 @@ preserves the primary Frobenius structure of the GKT open mirror theorem
 derivatives of the primary potential form a basis of the transported Jacobian
 algebra, with product, unit and residue pairing independent of the path
 (Proposition~\ref{thm:primary-Frobenius}).  This is transport of structure.
-What is specific to the quartic is the source normalization: the primary
-potential has a unique representative invariant under exchanging $x$ and $y$
+What is specific to the quartic is the source normalization, which
+Appendix~\ref{app:primary-calibration} calibrates: the primary potential has a unique representative invariant under exchanging $x$ and $y$
 (Lemma~\ref{lem:reflection-fixed}), and on the marginal line it is the flat
 structure of Noumi and Yamada \cite{noumiyamada1998flat}, with primitive form
 normalized to $dx\wedge dy$ (Theorem~\ref{thm:marginal-calibration}).
@@ -334,16 +325,17 @@ Section~\ref{subsec:gkt-recollections}; the $\kappa$-shift embeds the GKT Lie
 algebra, and comparing the increasing-slope factorizations ray by ray gives
 the residual factors (Section~\ref{sec:gkt-decoration}).  The compatible
 homotopies are built by relative extension of canonical multisections, datum
-by datum in a well-founded order on finite dependency-closed systems, using
+by datum in a well-founded order on finite assembling-closed systems, using
 the multisection extension argument of \cite{buryaketal2024} in its $W$-spin
 form \cite[Lem.~5.15]{grossetal2022open} (Appendix~\ref{app:gkt-completion}).
-Section~\ref{sec:primary-frobenius} treats the primary Frobenius structure,
-and Section~\ref{sec:positive-descendents} computes the first descendent
-truncations and states the maximal normalization problem.
+Section~\ref{sec:primary-frobenius} transports the primary Frobenius
+structure, and Section~\ref{sec:positive-descendents} computes the first
+descendent truncations and states the maximal normalization problem.
 Appendix~\ref{app:calculations} records the affine and logarithmic
 calculations, Appendix~\ref{app:regular-presentation} the regular
-presentation, and Appendix~\ref{app:residual-coherence} the coherence of the
-residual factors.
+presentation, Appendix~\ref{app:residual-coherence} products of functions transported
+along different paths, and Appendix~\ref{app:primary-calibration} the calibration
+of the GKT primary potential of $x^4+y^4$.
 
 The construction follows the separation between affine and wall data of
 \cite{grosshackingkeel2015,grossetal2018canonical,grosssiebert2022} but

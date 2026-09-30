@@ -1,219 +1,167 @@
 \section{Residual transports and products along different paths}
 \label{app:residual-coherence}
 
-Section~\ref{sec:gkt-decoration} compares the diagram $\mathfrak D$ with GKT
-wall-crossing one ray at a time: on each shifted ray, the factor carried by
-the wall of $\mathfrak D$ is the product of the GKT factor and the residual
-factor (Definition~\ref{def:raywise-logarithms}).  This appendix extends the
-comparison to products of transported functions.  A function in the chart
-algebra of one region of $\mathfrak D$ can be carried to the chart algebra of
-another region in two ways: by the transport through $\mathfrak D$, which
-applies the slab transitions and the wall factors met along a path, and by
-the GKT transport, which applies the same slab transitions and, in place of
-each wall factor, the GKT factor on its ray.  The two results differ by one
-automorphism of the target chart algebra, the residual transport of the path
-(Definition~\ref{def:gkt-transport}); being an algebra automorphism, it also
-relates the products of functions carried along the same path.  For functions carried
-along different paths the residual transports differ in general, even when
-the paths have the same endpoints.  We therefore correct each factor by an
-automorphism of the target algebra, so that the corrected factors differ from
-their GKT transports by one common automorphism: for two factors the
-correction uses the midpoint of the two residual transports
-(Lemma~\ref{prop:residual-midpoint}), and for more factors an interpolation
-weighted by degrees (Definition~\ref{def:corrected-product}).  The corrected
-products for different parenthesizations are related by explicit
-automorphisms that satisfy the cocycle identity and, for three factors, are
-not the identity in general (Proposition~\ref{thm:residual-coherence}); a
-change of the paths acts through the changes of the GKT transports of the
-factors and of the interpolated residual transport
-(Proposition~\ref{prop:corridor-groupoid}).
-
-\subsection{Transports along a path}
-
-Fix a labelled truncation (Section~\ref{subsec:raywise-factorization}), a
-deformation order, and a region of $\mathfrak D$
-(Definition~\ref{def:Jacobi-wall}), the \emph{target region}, and work in the
-corresponding finite nilpotent quotient.  The paths below are transverse to
-the walls, realize admissible paths
-(Definition~\ref{def:framed-path}), and end in the target region.
+Section~\ref{sec:gkt-decoration} compares $\mathfrak D$ with GKT
+wall-crossing one ray at a time.  Multiplicative structures also involve
+functions that reach one region along different paths: in the theta-function
+constructions of
+\cite{grosshackingkeel2015,grossetal2018canonical,grossetal2016theta},
+structure constants come from pairs of broken lines that end at a common
+point after travelling along different paths.  We do not define broken lines
+on $\Acal^\circ$ (Section~\ref{subsec:core-holonomy}), but the same question
+arises for admissible paths.  Along one path, transport through $\mathfrak D$
+and transport by GKT's factors differ by one automorphism of the target chart
+algebra, the \emph{residual transport} of the path
+(Definition~\ref{def:gkt-transport}); being an algebra automorphism, it
+relates the products of functions carried along that path.  Along different
+paths the residual transports differ, and the product of the transports
+through $\mathfrak D$ need not be the image of the product of the GKT
+transports under any automorphism (see the example after
+Definition~\ref{def:gkt-transport}).  As
+a first step towards multiplying functions carried along different paths, we
+correct each factor by a degree-weighted interpolation of the residual
+transports, so that the corrected product is such an image, and we compute
+the associator between parenthesizations.
 
 \begin{definition}[Transports along a path]
 \label{def:gkt-transport}
-Let $\gamma$ be such a path.
+Fix a labelled truncation (Section~\ref{subsec:raywise-factorization}), a
+deformation order, and a region of $\mathfrak D$
+(Definition~\ref{def:Jacobi-wall}), the \emph{target region}, and work in the
+corresponding finite nilpotent quotient.  Let $\gamma$ be a path transverse
+to the walls that ends in the target region and realizes an admissible path
+$\mathfrak p$ (Definition~\ref{def:framed-path}).
 \begin{enumerate}
-\item The \emph{transport through $\mathfrak D$} along $\gamma$ is the
-composite $P_\gamma$, in the order in which they are met, of the slab
-transitions and of the contributions $\Theta_{\mathfrak d}^{\pm1}$ of the
-walls crossed by $\gamma$ (Definition~\ref{def:Jacobi-wall}).  It carries the
-chart algebra at the initial point of $\gamma$ to the chart algebra of the
-target region.  In the notation of Section~\ref{subsec:KS-classes},
-$P_\gamma=P_{\mathfrak p}$ for the admissible path $\mathfrak p$ that $\gamma$
-realizes.
+\item The \emph{transport through $\mathfrak D$} along $\gamma$ is
+$P_\gamma=P_{\mathfrak p}$ (Section~\ref{subsec:KS-classes}), the composite,
+in the order met, of the slab transitions and of the contributions
+$\Theta_{\mathfrak d}^{\pm1}$ of the crossed walls
+(Definition~\ref{def:Jacobi-wall}), from the chart algebra at the start of
+$\gamma$ to that of the target region.
 \item The \emph{GKT transport} $P^{\GKT}_\gamma$ is obtained from $P_\gamma$
 by replacing, for every crossed wall $\mathfrak d$ whose factor lies in the
 ray group of a shifted ray $\mathfrak r$, the contribution
-$\Theta_{\mathfrak d}$ of a positive crossing by $\exp(G_{\mathfrak r})$ and
-the contribution $\Theta_{\mathfrak d}^{-1}$ of a negative crossing by
-$\exp(-G_{\mathfrak r})$, where $G_{\mathfrak r}$ is the GKT logarithm of
+$\Theta_{\mathfrak d}^{\pm1}$ by $\exp(\pm G_{\mathfrak r})$, with
+$G_{\mathfrak r}$ the GKT logarithm of
 Definition~\ref{def:raywise-logarithms}; at a chord, $\mathfrak r$ is the
 chord ray, on either half of the chord.  The slab transitions are not
 changed.
-\item The \emph{residual transport} of $\gamma$ is
-\[
- \mathcal Q_\gamma=P_\gamma\bigl(P^{\GKT}_\gamma\bigr)^{-1},
-\]
-an automorphism of the chart algebra of the target region, congruent to the
-identity modulo the ideal generated by the $t_i$.
+\item The \emph{residual transport} of $\gamma$ is the automorphism
+$\mathcal Q_\gamma=P_\gamma(P^{\GKT}_\gamma)^{-1}$ of the chart algebra of
+the target region, congruent to the identity modulo the ideal generated by
+the $t_i$.
 \end{enumerate}
 \end{definition}
 
-The GKT transport depends on the path and not only on its endpoints, and it
-is not in general a GKT transition.  For the two labels of twists $(1,0)$
-and $(0,1)$ of Proposition~\ref{prop:first-decoration}, the paths
-$\gamma_+$ and $\gamma_-$ of Proposition~\ref{prop:two-label-transport} run
-in one chart from $\ell$ to $r$, and their transports through $\mathfrak D$ are the path-ordered products
-$\Theta_{\gamma_+}=\Theta_{\gamma_-}=\Sigma_1\Sigma_2$.  The GKT transport
-along $\gamma_+$ is the transition \eqref{eq:mixed-GKT-transition},
-$\Sigma_2Z_{1/4}\Sigma_1=Z_1\Sigma_1\Sigma_2$, and that along $\gamma_-$ is
-$\Sigma_1\Sigma_2$.  With $Z_c$ as in \eqref{eq:mixed-total-factor}, the
-residual transports of $\gamma_+$ and $\gamma_-$ are therefore $Z_{-1}$ and
-the identity, although the two paths have the same endpoints.  If the system
-contains two labels $j,j'$ of twist $\alpha$, the GKT transport along $\gamma_+$ omits the GKT factor
-$\exp(\frac12t_jt_{j'}X_{2,0})$, whose ray carries no wall.  On the negative
-half-chords the wall factor and $\exp(G_{\mathfrak r})$ agree for labelled
-systems with at most three labels, but not in general: for a support $J$ of
-type $(3\alpha,\beta)$ the GKT factor on the ray of $(2,1)$ has the
-component $\frac{15}8t_JX_{3,1}$, whereas the negative half-chord factor has
-no $t_J$-component and the positive half-chord factor has the component
-$-\frac38t_JX_{3,1}$.
+For the two labels of twists $(1,0)$ and $(0,1)$ of
+Proposition~\ref{prop:first-decoration}, the paths $\gamma_\pm$ of
+Proposition~\ref{prop:two-label-transport} lie in one chart and have the same
+endpoints.  Both have transport $\Sigma_1\Sigma_2$ through $\mathfrak D$, but
+by \eqref{eq:mixed-GKT-transition} and
+Proposition~\ref{prop:two-label-transport}(3) their GKT transports are
+$\Sigma_2Z_{1/4}\Sigma_1=Z_1\Sigma_1\Sigma_2$ and $\Sigma_1\Sigma_2$, with
+$Z_c$ as in \eqref{eq:mixed-total-factor}.  Thus the GKT transport depends
+on the path and not only on its endpoints, and the residual transports are
+$Z_{-1}$ and the identity.  For $f_1,f_2$ in the chart algebra at the initial
+point, the product of the transports through $\mathfrak D$ is $Z_{-1}(a)\,b$,
+where $a=Z_1\Sigma_1\Sigma_2f_1$ and $b=\Sigma_1\Sigma_2f_2$ are the GKT
+transports and run through the whole algebra.  Since $Z_{-1}\neq\mathrm{id}$,
+this product is not the image of $ab$ under any automorphism independent of
+$f_1,f_2$, by Proposition~\ref{prop:corridor-groupoid}.
 
-\subsection{Two factors}
+\subsection{Corrected products}
 
-Let $\gamma_1,\gamma_2$ be two paths as above, let $f_i$ be a function in
-the chart algebra at the initial point of $\gamma_i$, let $\mu$ be the
-multiplication of the chart algebra of the target region, and write
-$\mathcal Q_i=\mathcal Q_{\gamma_i}$.  Replacing the wall factors by GKT
-factors changes the transported function $P_{\gamma_i}f_i$ into
-$P^{\GKT}_{\gamma_i}f_i=\mathcal Q_i^{-1}P_{\gamma_i}f_i$.  If
-$\mathcal Q_1=\mathcal Q_2=\mathcal Q$, then
-$\mu(P_{\gamma_1}f_1,P_{\gamma_2}f_2)
-=\mathcal Q\,\mu(P^{\GKT}_{\gamma_1}f_1,P^{\GKT}_{\gamma_2}f_2)$, so the two
-products differ by one automorphism of the target algebra.  In general
-$\mathcal Q_1\neq\mathcal Q_2$, and we correct the two factors so that they
-differ from their GKT transports by one common automorphism.  Rational powers
-of automorphisms congruent to the identity are the finite polynomials
-$g^c=\exp(c\log g)$.  The \emph{midpoint} of $\mathcal Q_1$ and
-$\mathcal Q_2$ and the \emph{corrections} of the two factors are
-\begin{equation}\label{eq:residual-midpoint}
- H=\mathcal Q_1(\mathcal Q_1^{-1}\mathcal Q_2)^{1/2},
- \qquad C_i=H\mathcal Q_i^{-1}.
-\end{equation}
-Thus $H$ is the value at $c=\frac12$ of the one-parameter family
-$c\mapsto\mathcal Q_1(\mathcal Q_1^{-1}\mathcal Q_2)^c$, which runs from
-$\mathcal Q_1$ at $c=0$ to $\mathcal Q_2$ at $c=1$.
+Let $\gamma_1,\dots,\gamma_n$ be paths as in
+Definition~\ref{def:gkt-transport}, let $f_i$ be a function in
+the chart algebra at the initial point of $\gamma_i$, and write
+$\mathcal Q_i=\mathcal Q_{\gamma_i}$, so that
+$P_{\gamma_i}f_i=\mathcal Q_iP^{\GKT}_{\gamma_i}f_i$.  Rational powers of
+automorphisms congruent to the identity are the finite polynomials
+$g^c=\exp(c\log g)$, $c\in\QQ$, and for such $g,h$ we put
+$g\mathbin{\#_c}h=g(g^{-1}h)^c$, which runs from $g$ at $c=0$ to $h$ at
+$c=1$.  If $g$ and $h$ commute, then
+$\log(g\mathbin{\#_c}h)=(1-c)\log g+c\log h$.  For $n=2$ the \emph{midpoint} of
+the residual transports is $H=\mathcal Q_1\mathbin{\#_{1/2}}\mathcal Q_2$,
+and the \emph{corrections} are $C_i=H\mathcal Q_i^{-1}$.
 
 \begin{lemma}[Midpoint correction]\label{prop:residual-midpoint}
-The midpoint is symmetric in $\mathcal Q_1,\mathcal Q_2$, and
+Let $g,h$ be as above and $c\in\QQ$.
+\begin{enumerate}
+\item $g\mathbin{\#_c}h=h\mathbin{\#_{1-c}}g$; in particular $H$ is symmetric
+in $\mathcal Q_1,\mathcal Q_2$.
+\item For $n=2$,
 \begin{equation}\label{eq:corrected-product}
  C_iP_{\gamma_i}=HP^{\GKT}_{\gamma_i},
  \qquad
- \mu(C_1P_{\gamma_1}f_1,C_2P_{\gamma_2}f_2)
- =H\mu(P^{\GKT}_{\gamma_1}f_1,P^{\GKT}_{\gamma_2}f_2).
+ (C_1P_{\gamma_1}f_1)(C_2P_{\gamma_2}f_2)
+ =H\bigl((P^{\GKT}_{\gamma_1}f_1)(P^{\GKT}_{\gamma_2}f_2)\bigr).
 \end{equation}
-It is natural under finite restriction.  If both paths are continued by a
-common path from the target region, with transport $\Psi$ through
-$\mathfrak D$ and GKT transport $\Psi'$, then $\mathcal Q_i$ is replaced by
-$\Psi\mathcal Q_i\Psi'^{-1}$ and $H$ by $\Psi H\Psi'^{-1}$.
+\item These constructions are natural under finite restriction.  If all paths
+are continued by a common path from the target region, with transport $\Psi$
+through $\mathfrak D$ and GKT transport $\Psi'$, then $\mathcal Q_i$ is
+replaced by $\Psi\mathcal Q_i\Psi'^{-1}$, and
+$(\Psi g\Psi'^{-1})\mathbin{\#_c}(\Psi h\Psi'^{-1})
+=\Psi(g\mathbin{\#_c}h)\Psi'^{-1}$; in particular $H$ is replaced by
+$\Psi H\Psi'^{-1}$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-With $\phi=\mathcal Q_1^{-1}\mathcal Q_2$,
-$\mathcal Q_2(\mathcal Q_2^{-1}\mathcal Q_1)^{1/2}
-=\mathcal Q_1\phi(\phi^{-1})^{1/2}=\mathcal Q_1\phi^{1/2}$, proving symmetry.
-The first identity in \eqref{eq:corrected-product} follows from
-$\mathcal Q_i=P_{\gamma_i}(P^{\GKT}_{\gamma_i})^{-1}$; the second uses that
-$H$ is an algebra automorphism.  After continuation, $P_{\gamma_i}$ and
-$P^{\GKT}_{\gamma_i}$ become $\Psi P_{\gamma_i}$ and
-$\Psi'P^{\GKT}_{\gamma_i}$, so $\mathcal Q_i$ becomes
-$\Psi\mathcal Q_i\Psi'^{-1}$ and $\mathcal Q_1^{-1}\mathcal Q_2$ becomes
-$\Psi'\mathcal Q_1^{-1}\mathcal Q_2\Psi'^{-1}$.  Rational powers commute with
-conjugation, since $\log$ and $\exp$ do, which gives the formula for $H$.
+(1) With $\phi=g^{-1}h$, $h(h^{-1}g)^{1-c}=g\phi(\phi^{-1})^{1-c}=g\phi^c$.
+(2) The first identity is $\mathcal Q_i=P_{\gamma_i}(P^{\GKT}_{\gamma_i})^{-1}$,
+and the second follows because $H$ is an algebra automorphism.  (3) Finite
+restriction commutes with composition, $\log$ and $\exp$.  After
+continuation, $P_{\gamma_i}$ and $P^{\GKT}_{\gamma_i}$ become
+$\Psi P_{\gamma_i}$ and $\Psi'P^{\GKT}_{\gamma_i}$, so $\mathcal Q_i$ becomes
+$\Psi\mathcal Q_i\Psi'^{-1}$; moreover
+$(\Psi g\Psi'^{-1})^{-1}\Psi h\Psi'^{-1}=\Psi'g^{-1}h\Psi'^{-1}$, and
+rational powers commute with conjugation, since $\log$ and $\exp$ do.
 \end{proof}
 
-For the paths $\gamma_1=\gamma_+$ and $\gamma_2=\gamma_-$ above and functions
-$f_1,f_2$ in the chart algebra at $\ell$, the midpoint is $H=Z_{-1/2}$, the corrected factors
-are $Z_{1/2}\Sigma_1\Sigma_2f_1$ and $Z_{-1/2}\Sigma_1\Sigma_2f_2$, and their
-product is the image under $Z_{-1/2}$ of the product
+For $\gamma_+$ and $\gamma_-$ above, $H=Z_{-1/2}$, and
+the corrected product $(Z_{1/2}\Sigma_1\Sigma_2f_1)(Z_{-1/2}\Sigma_1\Sigma_2f_2)$
+is the image under $Z_{-1/2}$ of the product
 $(Z_1\Sigma_1\Sigma_2f_1)(\Sigma_1\Sigma_2f_2)$ of the GKT transports.
-Without the corrections, the product $(\Sigma_1\Sigma_2f_1)(\Sigma_1\Sigma_2f_2)$
-of the transports through $\mathfrak D$ is not the image of that product
-under any automorphism of the target algebra independent of $f_1$ and $f_2$,
-by the last assertion of Proposition~\ref{prop:corridor-groupoid}.
-
-\subsection{Several factors}
-
-Let $\gamma_1,\dots,\gamma_n$ be paths as above, with functions $f_i$ and
-residual transports $\mathcal Q_i=\mathcal Q_{\gamma_i}$, and let each input
-$i$ carry a positive degree $r_i$.  For positive degrees $r,s$ and
-automorphisms $g,h$ congruent to the identity, set
-\begin{equation}\label{eq:weighted-interpolation}
- M_{r,s}(g,h)=g(g^{-1}h)^{s/(r+s)},
-\end{equation}
-the value at $c=s/(r+s)$ of the family $c\mapsto g(g^{-1}h)^c$ from $g$ to
-$h$; thus
-$M_{r,r}(\mathcal Q_1,\mathcal Q_2)=H$.  Then $M_{r,s}(g,h)=M_{s,r}(h,g)$,
-and $M_{r,s}(\Psi g\Psi'^{-1},\Psi h\Psi'^{-1})=\Psi M_{r,s}(g,h)\Psi'^{-1}$
-for all $\Psi,\Psi'$ for which both sides are defined, by the computation in
-the proof of Lemma~\ref{prop:residual-midpoint}.
 
 \begin{definition}[Interpolants and corrected products]
 \label{def:corrected-product}
-A \emph{product tree} $\mathsf T$ on the inputs $1,\dots,n$ is a planar
+Let each input $i$ carry a positive rational \emph{degree} $r_i$.  A
+\emph{product tree} $\mathsf T$ on the inputs $1,\dots,n$ is a planar
 rooted binary tree whose leaves are $1,\dots,n$ in this order, that is, a
-parenthesization of a product of $n$ factors; each vertex carries the sum of
-the degrees of the leaves below it.
-\begin{enumerate}
-\item The \emph{interpolant} $H_{\mathsf T}$ is defined recursively:
-$H_{\mathsf T}=\mathcal Q_i$ if $\mathsf T$ is the leaf $i$, and
-$H_{\mathsf T}=M_{r,s}(H_{\mathsf T_1},H_{\mathsf T_2})$ if the root of
-$\mathsf T$ has subtrees $\mathsf T_1,\mathsf T_2$ of degrees $r,s$.
-\item The \emph{corrected product} $\mathsf P_{\mathsf T}$ is defined by the
-same recursion: $\mathsf P_{\mathsf T}=P_{\gamma_i}f_i$ if $\mathsf T$ is the
-leaf $i$, and
+parenthesization of a product of $n$ factors; its degree $|\mathsf T|$ is the
+sum of the degrees of its leaves.  If $\mathsf T$ is the leaf $i$, its
+\emph{interpolant} is $H_{\mathsf T}=\mathcal Q_i$ and its \emph{corrected
+product} is $\mathsf P_{\mathsf T}=P_{\gamma_i}f_i$.  If the root of
+$\mathsf T$ has left and right subtrees $\mathsf T_1,\mathsf T_2$, then
 \[
+ H_{\mathsf T}=H_{\mathsf T_1}\mathbin{\#_{|\mathsf T_2|/|\mathsf T|}}H_{\mathsf T_2},
+ \qquad
  \mathsf P_{\mathsf T}
- =\mu\bigl(H_{\mathsf T}H_{\mathsf T_1}^{-1}\mathsf P_{\mathsf T_1},\,
- H_{\mathsf T}H_{\mathsf T_2}^{-1}\mathsf P_{\mathsf T_2}\bigr).
+ =\bigl(H_{\mathsf T}H_{\mathsf T_1}^{-1}\mathsf P_{\mathsf T_1}\bigr)
+  \bigl(H_{\mathsf T}H_{\mathsf T_2}^{-1}\mathsf P_{\mathsf T_2}\bigr).
 \]
-\end{enumerate}
 \end{definition}
 
-At each vertex, the two products of the subtrees are corrected by the
-automorphisms $H_{\mathsf T}H_{\mathsf T_j}^{-1}$ before they are
-multiplied.  For two leaves of equal degree, $H_{\mathsf T}=H$ and these
-corrections are the $C_i$ of \eqref{eq:residual-midpoint}.  The degrees make
-the interpolant independent of the tree when the residual transports
-commute: if the $\mathcal Q_i$ commute, induction on $\mathsf T$ gives
-\[
- \log H_{\mathsf T}=\frac{\sum_ir_i\log\mathcal Q_i}{\sum_ir_i}
-\]
-for every product tree $\mathsf T$.
+For two leaves of equal degree, $H_{\mathsf T}=H$ and the corrections
+$H_{\mathsf T}H_{\mathsf T_j}^{-1}$ are the $C_i$.  If the $\mathcal Q_i$
+commute, induction on $\mathsf T$ gives
+$\log H_{\mathsf T}=\sum_ir_i\log\mathcal Q_i\big/\sum_ir_i$ for every
+product tree $\mathsf T$, whereas iterated midpoints, which ignore the
+degrees, give three commuting residual transports the weights
+$(\frac14,\frac14,\frac12)$ or $(\frac12,\frac14,\frac14)$, depending on the
+parenthesization.
 
 \begin{proposition}[Degree-weighted coherence]
 \label{thm:residual-coherence}
 For every product tree $\mathsf T$,
-\[
- \mathsf P_{\mathsf T}=H_{\mathsf T}\prod_iP^{\GKT}_{\gamma_i}f_i.
-\]
+$\mathsf P_{\mathsf T}=H_{\mathsf T}\prod_iP^{\GKT}_{\gamma_i}f_i$.
 For product trees $\mathsf T,\mathsf T',\mathsf T''$ on the same inputs, the
 \emph{tree transition}
-$\mathcal A_{\mathsf T\leftarrow\mathsf T'}=H_{\mathsf T}H_{\mathsf T'}^{-1}$
+$\mathcal V_{\mathsf T\leftarrow\mathsf T'}=H_{\mathsf T}H_{\mathsf T'}^{-1}$
 carries $\mathsf P_{\mathsf T'}$ to $\mathsf P_{\mathsf T}$, and
-\[
- \mathcal A_{\mathsf T\leftarrow\mathsf T'}
- \mathcal A_{\mathsf T'\leftarrow\mathsf T''}
- =\mathcal A_{\mathsf T\leftarrow\mathsf T''}.
-\]
+$\mathcal V_{\mathsf T\leftarrow\mathsf T'}
+\mathcal V_{\mathsf T'\leftarrow\mathsf T''}
+=\mathcal V_{\mathsf T\leftarrow\mathsf T''}$.
 In particular the composite of the tree transitions around any cycle of
 trees is the identity; for four inputs this includes the pentagon of the
 associahedron.  Let $\mathcal U$ be the quotient of the free associative
@@ -222,103 +170,90 @@ letter twice, let $\mathcal Q_1=e^x$, $\mathcal Q_2=e^y$, $\mathcal Q_3=e^z$
 in $\mathcal U$ have equal degrees, and let $\mathsf T_\ell=((1,2),3)$ and
 $\mathsf T_r=(1,(2,3))$.  Then
 \begin{equation}\label{eq:first-associator}
- \log\mathcal A_{\mathsf T_\ell\leftarrow\mathsf T_r}
+ \log\mathcal V_{\mathsf T_\ell\leftarrow\mathsf T_r}
  =\log\bigl(H_{\mathsf T_\ell}H_{\mathsf T_r}^{-1}\bigr)
  =\frac1{72}[[x,z],y].
 \end{equation}
-In particular $\mathcal A_{\mathsf T_\ell\leftarrow\mathsf T_r}$ is not the
+In particular $\mathcal V_{\mathsf T_\ell\leftarrow\mathsf T_r}$ is not the
 identity, and the two corrected triple products differ in general.
 \end{proposition}
 
 \begin{proof}
-At an internal vertex, the corrections carry both products of the subtrees
-to the same interpolant $H_{\mathsf T}$.  Since this interpolant is an
-algebra automorphism, induction gives the displayed form of
-$\mathsf P_{\mathsf T}$.  Ratios of interpolants carry one tree product to
-another, and cancellation proves the cocycle identity.
-Baker--Campbell--Hausdorff expansion for three equal degrees gives the
-common linear term $(x+y+z)/3$, no quadratic difference, and, modulo words
-containing a letter twice, the cubic difference
+For a leaf, $\mathsf P_{\mathsf T}=\mathcal Q_iP^{\GKT}_{\gamma_i}f_i$.  By
+induction, the two corrected subtree products at the root are $H_{\mathsf T}$
+applied to the products of the GKT transports over the two subtrees; since
+$H_{\mathsf T}$ is an algebra automorphism, this gives
+$\mathsf P_{\mathsf T}$, and the statements on tree transitions follow by
+cancellation.  For $g=e^U$, $h=e^V$, the Baker--Campbell--Hausdorff formula
+gives, modulo brackets of four or more factors $U,V$,
 \[
- \frac1{72}(xzy-zxy-yxz+yzx)
- =\frac1{72}[[x,z],y],
+ \log(g\mathbin{\#_c}h)
+ =(1-c)U+cV-\tfrac1{12}c(1-c)\bigl([U,[U,V]]+[V,[V,U]]\bigr).
 \]
-which is \eqref{eq:first-associator}.  By comparison, unweighted iteration
-of the midpoint assigns leaf weights $(1/4,1/4,1/2)$ and $(1/2,1/4,1/4)$ in
-the two parenthesizations already in the abelian quotient.
+In $\mathcal U$ every word of length at least four contains a repeated
+letter and vanishes, and so do the cubic terms for $(U,V)=(x,y)$ and
+$(y,z)$.  Hence $\log H_{(1,2)}=\frac12(x+y)$ and
+$\log H_{(2,3)}=\frac12(y+z)$.  With $(U,V,c)=(\frac12(x+y),z,\frac13)$ and
+$(x,\frac12(y+z),\frac23)$, for which $c(1-c)/12=1/54$,
+\begin{align*}
+ \log H_{\mathsf T_\ell}
+ &=\tfrac13(x+y+z)-\tfrac1{216}\bigl([x,[y,z]]+[y,[x,z]]\bigr),\\
+ \log H_{\mathsf T_r}
+ &=\tfrac13(x+y+z)-\tfrac1{216}\bigl([y,[z,x]]+[z,[y,x]]\bigr).
+\end{align*}
+Their linear parts agree and they have no quadratic part, so their brackets
+vanish in $\mathcal U$, and $\log(H_{\mathsf T_\ell}H_{\mathsf T_r}^{-1})$ is
+their difference.  Since $-[y,[z,x]]=[y,[x,z]]$ and, by the Jacobi identity,
+$[x,[y,z]]-[z,[y,x]]=[y,[x,z]]$, this difference is
+$-\frac3{216}[y,[x,z]]=\frac1{72}[[x,z],y]$, a nonzero element of
+$\mathcal U$.
 \end{proof}
-
-Without the square-zero condition,
-$\log\mathcal A_{\mathsf T_\ell\leftarrow\mathsf T_r}$ has further cubic
-terms, such as multiples of $[x,[x,y]]$.
 
 \subsection{Change of paths}
 
-A change of the paths acts on the individual factors, which we call the
-\emph{legs} of the product, as well as on the interpolant.  Let
-$\boldsymbol\gamma=(\gamma_i)$ and $\boldsymbol\gamma'=(\gamma'_i)$ be two
+Let $\boldsymbol\gamma=(\gamma_i)$ and $\boldsymbol\gamma'=(\gamma'_i)$ be
 tuples of paths as above such that $\gamma_i$ and $\gamma'_i$ have the same
-endpoints for every $i$.  For a fixed product tree, write
-$H_{\boldsymbol\gamma}$ and $H_{\boldsymbol\gamma'}$ for the interpolants of
-the two tuples, and $H_{\boldsymbol\gamma,\mathsf T}$ when the tree
-$\mathsf T$ is to be specified.
-
-\begin{definition}[Leg maps and output map]
-\label{def:leg-output-maps}
-The \emph{leg maps} and the \emph{output map} of the change from
-$\boldsymbol\gamma$ to $\boldsymbol\gamma'$ are the automorphisms of the
-chart algebra of the target region
-\begin{equation}\label{eq:corridor-maps}
- W_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
-   =P^{\GKT}_{\gamma'_i}\bigl(P^{\GKT}_{\gamma_i}\bigr)^{-1},
- \qquad
- B^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
-   =H_{\boldsymbol\gamma'}H_{\boldsymbol\gamma}^{-1}.
-\end{equation}
-The leg map $W_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}$ changes
-the GKT transport of the $i$th leg, and the output map changes the
-interpolant.
-\end{definition}
+endpoints for every $i$, and write $H_{\boldsymbol\gamma,\mathsf T}$ for the
+interpolant of $\boldsymbol\gamma$ and the product tree $\mathsf T$.  The
+\emph{leg maps} $\mathcal G_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
+=P^{\GKT}_{\gamma'_i}(P^{\GKT}_{\gamma_i})^{-1}$ and the \emph{transitions}
+$\mathcal V_{(\boldsymbol\gamma',\mathsf T')\leftarrow(\boldsymbol\gamma,\mathsf T)}
+=H_{\boldsymbol\gamma',\mathsf T'}H_{\boldsymbol\gamma,\mathsf T}^{-1}$ are
+automorphisms of the chart algebra of the target region.
 
 \begin{proposition}[Change of admissible paths]
 \label{prop:corridor-groupoid}
-For $a_i=P^{\GKT}_{\gamma_i}f_i$,
+For a product tree $\mathsf T$ and $a_i=P^{\GKT}_{\gamma_i}f_i$, the
+corrected product of $\boldsymbol\gamma'$ and $\mathsf T$ is
 \begin{equation}\label{eq:corridor-square}
- H_{\boldsymbol\gamma'}\prod_iP^{\GKT}_{\gamma'_i}f_i
- =B^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}H_{\boldsymbol\gamma}
-   \prod_i\bigl(W_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}a_i\bigr).
+ H_{\boldsymbol\gamma',\mathsf T}\prod_iP^{\GKT}_{\gamma'_i}f_i
+ =\mathcal V_{(\boldsymbol\gamma',\mathsf T)\leftarrow(\boldsymbol\gamma,\mathsf T)}
+  H_{\boldsymbol\gamma,\mathsf T}
+  \prod_i\mathcal G_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}a_i.
 \end{equation}
-The leg maps and output maps compose under successive changes of paths, and
-every composite of output maps and of the tree transitions of
-Proposition~\ref{thm:residual-coherence} from
-$(\boldsymbol\gamma,\mathsf T)$ to $(\boldsymbol\gamma',\mathsf T')$ equals
-$H_{\boldsymbol\gamma',\mathsf T'}H_{\boldsymbol\gamma,\mathsf T}^{-1}$.
-
-The leg maps cannot in general be absorbed into one automorphism of the
-target algebra: if one leg changes by a nontrivial unital automorphism $W$
-and another leg is fixed, no automorphism $\psi$ of the target algebra
-satisfies $\psi(ab)=W(a)b$ for all $a,b$.
+The leg maps satisfy
+$\mathcal G_i^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma'}
+\mathcal G_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
+=\mathcal G_i^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma}$, and every
+composite of transitions from $(\boldsymbol\gamma,\mathsf T)$ to
+$(\boldsymbol\gamma',\mathsf T')$, in particular of tree transitions
+($\boldsymbol\gamma'=\boldsymbol\gamma$) and of transitions changing only
+the paths ($\mathsf T'=\mathsf T$), equals
+$\mathcal V_{(\boldsymbol\gamma',\mathsf T')\leftarrow(\boldsymbol\gamma,\mathsf T)}$.
+If $\phi\neq\mathrm{id}$ is an automorphism of the target algebra, no
+automorphism carries $ab$ to $\phi(a)b$ for all $a,b$; hence, if one leg map
+is not the identity and another is, the leg maps cannot be absorbed into one
+automorphism of the target algebra.
 \end{proposition}
 
 \begin{proof}
 The identities
-$P^{\GKT}_{\gamma'_i}f_i=W_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}a_i$
-and $B^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}H_{\boldsymbol\gamma}
-=H_{\boldsymbol\gamma'}$ give \eqref{eq:corridor-square}.  For a third tuple
-$\boldsymbol\gamma''$, cancellation gives
-\[
- W_i^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma'}
- W_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
- =W_i^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma},
- \qquad
- B^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma'}
- B^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}
- =B^{\boldsymbol\gamma''\leftarrow\boldsymbol\gamma}.
-\]
-Tree transitions are likewise ratios of the corresponding interpolants, so
-every composite telescopes to
-$H_{\boldsymbol\gamma',\mathsf T'}H_{\boldsymbol\gamma,\mathsf T}^{-1}$.
-Finally, if $\psi(ab)=W(a)b$, then $b=1$ gives $\psi=W$, whereas $a=1$ gives
-$\psi=\mathrm{id}$.  Hence such a $\psi$ exists only when the leg change is
-trivial.
+$P^{\GKT}_{\gamma'_i}f_i=\mathcal G_i^{\boldsymbol\gamma'\leftarrow\boldsymbol\gamma}a_i$
+and $\mathcal V_{(\boldsymbol\gamma',\mathsf T)\leftarrow(\boldsymbol\gamma,\mathsf T)}
+H_{\boldsymbol\gamma,\mathsf T}=H_{\boldsymbol\gamma',\mathsf T}$ give
+\eqref{eq:corridor-square}, whose left side is the corrected product by
+Proposition~\ref{thm:residual-coherence}.  The leg maps and the transitions
+are ratios, so their composites telescope.  Finally, an automorphism carrying
+$ab$ to $\phi(a)b$ for all $a,b$ equals $\phi$, by $b=1$, and the identity,
+by $a=1$.
 \end{proof}

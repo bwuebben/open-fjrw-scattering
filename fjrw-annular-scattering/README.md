@@ -36,11 +36,11 @@ for f in fjrw-annular-scattering/src/*.sage; do sage "$f"; done
 | `check_gkt_wall_operation.sage` | 5 | the first mixed truncation: GKT transition and wall factors |
 | `check_gkt_three_label_operation.sage` | 5 | three-label truncations of the all-order factorization |
 | `check_gkt_four_label_operation.sage` | 5 | four-label truncations of the all-order factorization |
-| `check_residual_associator.sage` | 5 | the degree-weighted residual associator |
+| `check_residual_associator.sage` | App. D | the degree-weighted residual associator |
 | `check_period_module_intertwiner.sage` | 6 | transport of the twisted de Rham complex |
-| `check_marginal_calibration.sage` | 6 | the marginal calibration |
-| `check_marginal_saito_series.py` | 6 | the primary marginal Saito series |
-| `check_mixed_primary_saito_slice.py` | 6 | the first mixed primary slice |
+| `check_marginal_calibration.sage` | App. E | the marginal calibration |
+| `check_marginal_saito_series.py` | App. E | the primary marginal Saito series |
+| `check_mixed_primary_saito_slice.py` | App. E | the first mixed primary slice |
 | `check_two_label_endpoint.py` | 7 | the two-label truncations, the maximal normal form and the period classes |
 
 The programs verify finite algebraic identities. The geometric statements of

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Exact checks for Theorem 6.3 (Marginal period calibration) of Section 6.
+"""Exact checks for Theorem E.3 (Marginal period calibration) of Appendix E.
 
 For n labelled primary markings of twist (2,2), the balanced graphs have
 boundary degrees (4,0),(0,4) when n is even and (2,2) when n is odd.  The
 chamber-index equation A(J,0,nu)=0 of GKT Definition 3.47 determines the
 reflection-fixed invariants from all lower ones.  The script computes the
-resulting potential series lambda(t), mu(t), checks the period equations
+resulting potential series lambda(t), mu(t) (the series frak a(t), frak b(t)
+of eq:A-series and eq:B-series), checks the period equations
 varpi_0 = 1, varpi_2 = t (eq:period-inverse), the residue normalization (eq:residue-gauge and
 eq:KS-gauge), and the hypergeometric form (eq:NY-form).  It uses the
 A-invariant engine src/a_invariants.py at the top of the repository.

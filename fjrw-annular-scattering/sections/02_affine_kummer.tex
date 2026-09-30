@@ -28,11 +28,11 @@ Consider the marginal quartic pencil
 \end{equation}
 and the toric-boundary degeneration
 \begin{equation}\label{eq:toric-degeneration}
- XYZ+q\bigl(X^4+Y^4+Z^2+sX^2Y^2\bigr)=0.
+ XYZ+\eta\bigl(X^4+Y^4+Z^2+sX^2Y^2\bigr)=0.
 \end{equation}
-For $q\ne0$, division by $q$ and the substitution
-$Z'=Z+XY/(2q)$ give the same pencil with effective parameter
-$s-1/(4q^2)$.  At $q=0$ the fiber is the toric boundary.
+For $\eta\ne0$, division by $\eta$ and the substitution
+$Z'=Z+XY/(2\eta)$ give the same pencil with effective parameter
+$s-1/(4\eta^2)$.  At $\eta=0$ the fiber is the toric boundary.
 
 \begin{proposition}\label{prop:coherent-degeneration}
 The family \eqref{eq:toric-degeneration} is a relative anticanonical section
@@ -55,33 +55,35 @@ the four boundary points indexing $X^4,Y^4,Z^2,X^2Y^2$.  Assigning height
 zero to the origin and height one to the boundary gives the star
 subdivision, hence the stated coherent degeneration.
 
-On $Y\ne0$, with $x=X/Y$ and $z=Z/Y^2$, a smooth toric node has equation
+On $Y\ne0$, with $x=X/Y$ and $z=Z/Y^2$, the point $x=z=0$ is a node of
+the toric boundary at a smooth point of $\PP(1,1,2)$, and near it the family
+has equation
 \[
- xz+q(z^2+x^4+sx^2+1)=0.
+ xz+\eta(z^2+x^4+sx^2+1)=0.
 \]
 The parenthesized term is a unit at the node, so an étale change of
-coordinates gives $xz=q$.  At $[0:0:1]$, pass to the canonical stack chart
+coordinates gives $xz=\eta$.  At $[0:0:1]$, pass to the canonical stack chart
 with residual involution $(x,y)\mapsto(-x,-y)$.  The equation is again
-$xy=q$ up to a unit.  On the coarse chart set
-$a=x^2,b=xy,c=y^2$; since $ac=b^2$, eliminating $b$ gives $ac=q^2$ up to a
-unit.
+$xy=\eta$ up to a unit.  On the coarse chart set
+$\xi_0=x^2$, $\xi_1=xy$, $\xi_2=y^2$; since $\xi_0\xi_2=\xi_1^2$,
+eliminating $\xi_1$ gives $\xi_0\xi_2=\eta^2$ up to a unit.
 \end{proof}
 
 Let $u$ denote the primitive character along the length-two slab $\rho$.
-The slab function of $\rho$ may be written $f_\rho=1+az^u+z^{2u}$, with a
-free coefficient $a$, the \emph{slab parameter}.  The associated curve is
+The slab function of $\rho$ may be written $f_\rho=1+a_\rho z^u+z^{2u}$, with a
+free coefficient $a_\rho$, the \emph{slab parameter}.  The associated curve is
 compared with
 \eqref{eq:quartic-pencil} by
 \begin{equation}\label{eq:curve-mirror-map}
- s^2=\frac{4a^2}{a^2-4},
- \qquad a^2=\frac{4s^2}{s^2-4}.
+ s^2=\frac{4a_\rho^2}{a_\rho^2-4},
+ \qquad a_\rho^2=\frac{4s^2}{s^2-4}.
 \end{equation}
 Indeed, eliminating $U$ from
-$U+V+aV^{-1}+U^{-1}V^{-2}=0$ gives
-$Y^2=(V^2+a)^2-4$, and rescaling by a square root of $a^2-4$ gives the
+$U+V+a_\rho V^{-1}+U^{-1}V^{-2}=0$ gives
+$Y^2=(V^2+a_\rho)^2-4$, and rescaling by a square root of $a_\rho^2-4$ gives the
 quartic.  Equation~\eqref{eq:curve-mirror-map} is a comparison of the
-anticanonical curves.  At the two values $a=\pm2$ the slab function
-$f_\rho=(1\pm z^u)^2$ is a square, the curve $Y^2=(V^2+a)^2-4$ acquires a
+anticanonical curves.  At the two values $a_\rho=\pm2$ the slab function
+$f_\rho=(1\pm z^u)^2$ is a square, the curve $Y^2=(V^2+a_\rho)^2-4$ acquires a
 node, and \eqref{eq:curve-mirror-map} gives $s=\infty$.  We call these
 values the \emph{cusps}; the term refers to degenerate values of the
 parameter, as for the cusps of a modular curve, and not to a cuspidal
@@ -111,22 +113,18 @@ support map for walls is the cofactor
  L=\det(\iota)\iota^{-T}
   =\begin{pmatrix}-2&0\\1&1\end{pmatrix}.
 \end{equation}
-If
-\[
- H_\partial=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
- \qquad J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
-\]
-then
+For a pair $(a,b)$, whether a bidegree, an element of $M$ in standard
+coordinates or a vector in the coordinates $(s_1,s_2)$, write
+$(a,b)^\perp=(b,-a)$.  Then, for $q\in\ZZ^2_{x,y}$,
 \begin{equation}\label{eq:cofactor-identity}
- J\iota H_\partial=L,
- \qquad L^T\iota=\det(\iota)\,\mathrm{Id}.
+ (Lq)^\perp=\iota(q^\perp),
+ \qquad L^T\iota=\det(\iota)\,\mathrm{Id},
 \end{equation}
-For $q=(q_1,q_2)\in\ZZ^2_{x,y}$ write $q^\perp=H_\partial q=(q_2,-q_1)$.
-Since $J^{-1}=H_\partial$, the first identity gives
-$\iota(q^\perp)=H_\partial Lq=(Lq)^\perp$, the rotation being applied in
-the coordinates $(s_1,s_2)$; by the second, $\iota(q^\perp)\in M$
-annihilates $Lq$.  Section~\ref{subsec:cofactor-supports} coorients the wall
-of direction $Lq$ by this normal.
+where $(Lq)^\perp$ is formed in the coordinates $(s_1,s_2)$ and
+$\iota(q^\perp)$ in the standard coordinates of $M$, which are dual to them.
+By the second identity, $\iota(q^\perp)\in M$ annihilates $Lq$.
+Section~\ref{subsec:cofactor-supports} coorients the wall of direction $Lq$
+by this normal.
 
 The Landau--Ginzburg variables enter through the linear map
 \begin{equation}\label{eq:tilde-M}
@@ -143,7 +141,7 @@ $x^4$, $y^4$, $x^2y^2$ and $xy$ to $z^{v_X}$, $z^{v_Y}$, $z^{m_*}$ and
 $z^{F(1,1)}$.  Thus $\widetilde M$ is, under the dictionary, the lattice of
 exponents of Laurent monomials in $x$ and $y$, while the fan lattice $M$ is the character lattice
 of the dual torus $\Spec\Bbbk[M]$, on which the Laurent polynomial
-$U+V+aV^{-1}+U^{-1}V^{-2}$ above and the slab functions live.  As for the
+$U+V+a_\rho V^{-1}+U^{-1}V^{-2}$ above and the slab functions live.  As for the
 Landau--Ginzburg mirror of a toric variety, whose monomials have the rays of
 the fan as exponents, the exponents of slab functions, wall functions and
 derivations lie on the Legendre-dual side, in $M$ and $\widetilde M$, while
@@ -170,12 +168,12 @@ characters to monomials is a homomorphism of exponent lattices, and it is
 determined by its values on $(4,0)$ and $(0,4)$, which span
 $\ZZ^2_{x,y}\otimes\QQ$.  On the side of the CPS complex, the characters of
 $M$ are the exponents of the slab functions and of the Laurent polynomial
-$U+V+aV^{-1}+U^{-1}V^{-2}$ above.  In the coordinates $U=z^{v_X}$ and
+$U+V+a_\rho V^{-1}+U^{-1}V^{-2}$ above.  In the coordinates $U=z^{v_X}$ and
 $V=z^{v_Z}$ of the torus $\Spec\Bbbk[M]$, its monomials $U$,
 $U^{-1}V^{-2}$ and $V$ have the three rays $v_X$, $v_Y$ and $v_Z$ of the fan
 as exponents, and $V^{-1}$ has the midpoint $m_*$ of the non-basic edge.  The
 dictionary sends $x^4$, $y^4$ and $x^2y^2$ to $U$, $U^{-1}V^{-2}$ and
-$V^{-1}$.  The coefficient of $V^{-1}$ is the slab parameter $a$, which is
+$V^{-1}$.  The coefficient of $V^{-1}$ is the slab parameter $a_\rho$, which is
 related to the marginal parameter $s$ by \eqref{eq:curve-mirror-map}, and the
 remaining monomial $V$ has as exponent the ray $v_Z$ of the divisor of the
 suspension variable.
@@ -204,7 +202,7 @@ the plane $M^\vee\otimes\RR$ of $\Delta$ are in the coordinates $(s_1,s_2)$
 of \eqref{eq:polygons} and are marked as such, as are $F$-coordinates of
 elements of $M^\vee\otimes\QQ$.
 
-For $q\in\ZZ^2_{x,y}$ let $q^\perp=(q_2,-q_1)$ be as above, and denote by
+Let $q=(q_1,q_2)\in\ZZ^2_{x,y}$, so that $q^\perp=(q_2,-q_1)$, and denote by
 $\partial_v$ the invariant logarithmic derivation in direction $v\in\ZZ^2$,
 so that $\partial_v(x^ay^b)=\langle v,(a,b)\rangle x^ay^b$.  The derivation
 \[
@@ -241,9 +239,9 @@ exponents by $F(q-\kappa)$.
 \end{proposition}
 
 \begin{proof}
-For $\ell\in\ZZ^2_{x,y}$,
+For $q'\in\ZZ^2_{x,y}$,
 \[
- \langle F^{-T}q^\perp,F\ell\rangle=\langle q^\perp,\ell\rangle.
+ \langle F^{-T}q^\perp,Fq'\rangle=\langle q^\perp,q'\rangle.
 \]
 This proves integrality and \eqref{eq:transported-derivation}.  Since
 $\langle\widetilde n_q,F(q)\rangle=\langle q^\perp,q\rangle=0$, the
@@ -598,6 +596,22 @@ parity subgroup for the transversal $\{1,\gamma_A\}$, and its five edges
 other than the transversal edge correspond to the generators
 \eqref{eq:parity-matrices}.
 
+\emph{Chart algebras.}  Every vertex of the path tree $\Tcal$ of
+Section~\ref{subsec:root-orbit}, a reduced edge path from $S_0$ to a sheet,
+carries the frame obtained from that of $S_0$ by transport along the path;
+the frames of $S_0$ and $S_1$ fixed above are those at the empty path and at
+the path that crosses the arc over $c_A$ carrying no transition.  The
+\emph{chart algebra} of a sheet, or of a point or a region of $\Acal^\circ$
+read in the frame at a vertex, is $\Bbbk[\widetilde M]$ in that frame, over
+the Kummer ring of the relevant finite stage: for a finite rooted subtree
+$T\subset\Tcal$ containing the vertex, it is the Kummer ring
+$R_T^{\mathrm{root}}$ of \eqref{eq:finite-kummer-ring}, into which
+$\Bbbk[\widetilde M]$ in that frame maps by pull-back along the path of the
+vertex (Section~\ref{subsec:root-stage-regularity}), tensored with the
+coefficient ring in use, such as $R/\mathfrak m^N$ in
+\eqref{eq:annular-root-object} or a truncated coefficient ring of
+Section~\ref{sec:compactification}.
+
 For $V\in\{\widetilde A,B_0,B_1,\widetilde C\}$ let $u_V\in\widetilde M$ be
 the primitive vector spanning the invariant line of $H_V$, and let
 $x_V=z^{2\epsilon_Vu_V}$ with the signs $\epsilon_V$ below.  The exponent
@@ -608,7 +622,7 @@ Appendix~\ref{app:calculations}, transported linearly along $\gamma_A$ for
 $B_1$.  The pulled-back slab functions are
 \[
  f_{\widetilde A}=1+x_{\widetilde A},\qquad
- f_{B_i}=1+ax_{B_i}+x_{B_i}^2,\qquad
+ f_{B_i}=1+a_\rho x_{B_i}+x_{B_i}^2,\qquad
  f_{\widetilde C}=1+x_{\widetilde C},
 \]
 of degree $e_V=1,2,2,1$ in $x_V$.  Let $N_V\in\widetilde M^\vee$ be the
@@ -665,7 +679,7 @@ ring $R_V^{\mathrm{root}}$ extending the transition of the disk: on
 characters $m\in M$, the transports about $\widetilde A$, $B_0$ and $\widetilde C$
 based in $S_0$ are the disk transports about $A$ twice, $B$ once and $C$
 twice, and the transport about $B_1$ is the disk transport about $B$ written
-in the frame of $S_1$.  For $a\neq\pm2$ the root degrees $2,4,4,2$ are
+in the frame of $S_1$.  For $a_\rho\neq\pm2$ the root degrees $2,4,4,2$ are
 minimal.
 \end{proposition}
 
@@ -685,7 +699,7 @@ $f_V^{2\langle n_V,m\rangle}=g_V^{\langle N_V,m\rangle}$; at $B_0$ and $B_1$
 it traverses it once, giving $f_V^{\langle n_V,m\rangle}=g_V^{\langle
 N_V,m\rangle}$.  Since $N_V$ is primitive, $\langle N_V,m\rangle=1$ for some
 $m\in\widetilde M$, so the slab factor of that character is a $d_V$th root
-of $f_V$.  For $a\neq\pm2$ the Laurent polynomial $f_V$ vanishes to order
+of $f_V$.  For $a_\rho\neq\pm2$ the Laurent polynomial $f_V$ vanishes to order
 one along each component of its zero divisor, so its class in
 $\Bbbk(\widetilde M)^\times/\Bbbk(\widetilde M)^{\times d_V}$ has order
 $d_V$, and no proper divisor of $d_V$ suffices.
@@ -705,12 +719,12 @@ along $\gamma_{\mathrm{core}}$ has slab factors, powers of $f_C$ and of the
 transport of $f_A$, whereas the transport of the lifted system along
 $\gamma_{\mathrm{core}}$ is the monomial map with linear part $K$.
 
-At the two cusps $a=\pm2$ the degree at $B_0$ and $B_1$ drops to two.  If
-$f_B(a,z)=1+az+z^2$, then
+At the two cusps $a_\rho=\pm2$ the degree at $B_0$ and $B_1$ drops to two.  If
+$f_B(a_\rho,z)=1+a_\rho z+z^2$, then
 \begin{equation}\label{eq:cusp-roots}
 \begin{aligned}
- a=2:&\quad g^4-f_B=(g^2-(1+z))(g^2+(1+z)),\\
- a=-2:&\quad g^4-f_B=(g^2-(1-z))(g^2+(1-z)).
+ a_\rho=2:&\quad g^4-f_B=(g^2-(1+z))(g^2+(1+z)),\\
+ a_\rho=-2:&\quad g^4-f_B=(g^2-(1-z))(g^2+(1-z)).
 \end{aligned}
 \end{equation}
 Away from the reduced zero divisor these are two connected quadratic
@@ -718,13 +732,14 @@ torsors; their closures meet over the divisor.  We retain this fourth-root
 stack rather than replacing it by one connected square-root cover.
 
 \subsection{The infinite root orbit}
+\label{subsec:root-orbit}
 
 The failure of finite Kummer closure already occurs on the overlap of the
 $\widetilde A$ and $B_0$ charts.  Write
 \[
  x_A=x_{\widetilde A}=z^{2u_{\widetilde A}},\qquad
  x_B=x_{B_0}=z^{2u_{B_0}},\qquad f_A=1+x_A,\qquad
- f_B(x)=1+ax+x^2,
+ f_B(x)=1+a_\rho x+x^2,
 \]
 and let $\mathcal K=\Bbbk(x_A,x_B)$.  Since
 $\langle N_{\widetilde A},2u_{B_0}\rangle=8$ and $d_{\widetilde A}=2$, the
@@ -734,8 +749,8 @@ $\widetilde A$-slab shear fixes $f_A$ and sends
 \end{equation}
 The transport about $\widetilde A$ also applies the linear monodromy, and
 $H_A(2u_{B_0})=2u_{B_0}-4\cdot2u_{\widetilde A}$; it therefore fixes $x_A$
-and sends $x_B$ to $x_A^{-4}f_A^4x_B=(1+x_A^{-1})^4x_B$.  For $a\neq\pm2$
-write $f_B(x)=(1+\lambda x)(1+\lambda^{-1}x)$ with $\lambda+\lambda^{-1}=a$
+and sends $x_B$ to $x_A^{-4}f_A^4x_B=(1+x_A^{-1})^4x_B$.  For $a_\rho\neq\pm2$
+write $f_B(x)=(1+\lambda x)(1+\lambda^{-1}x)$ with $\lambda+\lambda^{-1}=a_\rho$
 and $\lambda^2\neq1$.
 
 \begin{theorem}[Infinite Kummer orbit]\label{thm:infinite-root-orbit}
@@ -744,7 +759,7 @@ of $\mathcal K$ fixing $x_A$ with $\omega_u(x_B)=ux_B$.  The slab shear
 \eqref{eq:shear}, with $u=f_A^4$, and the transport about $\widetilde A$,
 with $u=(1+x_A^{-1})^4$, are of this form.
 \begin{enumerate}
-\item If $a\neq\pm2$, closure of a fourth root of $f_B(x_B)$ under all
+\item If $a_\rho\neq\pm2$, closure of a fourth root of $f_B(x_B)$ under all
 powers of $\omega_u$ requires the fourth roots $g_n$ of
 \begin{equation}\label{eq:root-tower}
  g_n^4=f_B(u^nx_B)
@@ -753,7 +768,7 @@ powers of $\omega_u$ requires the fourth roots $g_n$ of
 \end{equation}
 and the classes of these radicands are linearly independent over $\ZZ/4$ in
 $\mathcal K^\times/\mathcal K^{\times4}$.
-\item If $a=\pm2$, then $f_B(u^nx_B)=(1\pm u^nx_B)^2$, and the classes of
+\item If $a_\rho=\pm2$, then $f_B(u^nx_B)=(1\pm u^nx_B)^2$, and the classes of
 $1\pm u^nx_B$, $n\in\ZZ$, are linearly independent over $\ZZ/2$ in
 $\mathcal K^\times/\mathcal K^{\times2}$.
 \item In either case no finite extension of $\mathcal K$ containing a fourth root
@@ -765,7 +780,7 @@ $\widetilde A$.
 \end{theorem}
 
 \begin{proof}
-Suppose $a\neq\pm2$.  In the principal ideal domain $\Bbbk(x_A)[x_B]$,
+Suppose $a_\rho\neq\pm2$.  In the principal ideal domain $\Bbbk(x_A)[x_B]$,
 \[
  f_B(u^nx_B)
  =u^{2n}\bigl(x_B+\lambda^{-1}u^{-n}\bigr)\bigl(x_B+\lambda u^{-n}\bigr).
@@ -783,10 +798,10 @@ argument applies to the primes $x_B\pm u^{-n}$ of $1\pm u^nx_B$.
 For (3), let $\mathcal K'\supset\mathcal K$ be finite, let $\widetilde\omega$ be an
 automorphism of $\mathcal K'$ extending $\omega_u$, and let $h\in\mathcal K'$ satisfy
 $h^4=f_B(x_B)$.  Then $\widetilde\omega^n(h)^4=f_B(u^nx_B)$ for every
-$n\in\ZZ$.  If $a\neq\pm2$, the field $\Bbbk$ contains the fourth roots of
+$n\in\ZZ$.  If $a_\rho\neq\pm2$, the field $\Bbbk$ contains the fourth roots of
 unity, so by Kummer theory and (1) the subfield generated by the
 $\widetilde\omega^n(h)$ with $|n|\leq r$ has degree $4^{2r+1}$ over $\mathcal K$
-for every $r$, which is impossible.  If $a=\pm2$, then
+for every $r$, which is impossible.  If $a_\rho=\pm2$, then
 $\widetilde\omega^n(h)^2=\pm(1\pm u^nx_B)$, and since $-1$ is a square in
 $\Bbbk$, $\mathcal K'$ contains square roots of all $1\pm u^nx_B$; by (2) the same
 degree argument applies with $2^{2r+1}$.
@@ -803,11 +818,11 @@ equivalently the homotopy classes of paths in $\Acal^\circ$ from a base
 point $b_0\in S_0$ to $b_0$ or to the other lift $b_1\in S_1$ of its image
 in $\Delta$; its root is the empty path at $S_0$.
 
-Let $Z=\Spec\Bbbk[\widetilde M]$ be the torus of the sheet $S_0$, and let
+Let $\mathbb T=\Spec\Bbbk[\widetilde M]$ be the torus of the sheet $S_0$, and let
 $T\subset\Tcal$ be a finite rooted subtree.  We call an edge of $T$ a
-\emph{root edge} if it crosses, in either direction, an arc carrying a
+\emph{Kummer edge} if it crosses, in either direction, an arc carrying a
 lifted slab map; edges crossing the other two arcs adjoin no root.
-Number the root edges $e=1,\dots,s$, the edge $e$ crossing the arc of the
+Number the Kummer edges $e=1,\dots,\ell$, the edge $e$ crossing the arc of the
 singular point $V_e$.  It has the root degree $d_e=d_{V_e}$ and the
 \emph{transported radicand} $\varrho_e$, the transport of $f_{V_e}$ to $S_0$
 along the path of $T$ preceding $e$.  The vectors $u_V$ lie in the
@@ -818,31 +833,31 @@ lifted slab map therefore multiplies a transported character
 $z^{2\epsilon_{V'}u_{V'}}$ by a power of the root it uses with exponent
 divisible by four, that is, by an integral power of the corresponding
 transported radicand.  By induction along the path, every $\varrho_e$ is a
-rational function on $Z$.  Let $U_T\subset Z$ be the complement of the zeros
-and poles of $\varrho_1,\dots,\varrho_s$, and put
+rational function on $\mathbb T$.  Let $U_T\subset\mathbb T$ be the complement of the zeros
+and poles of $\varrho_1,\dots,\varrho_\ell$, and put
 $G_T=\prod_e\mu_{d_e}$.  The \emph{Kummer ring} of $T$ is
 \begin{equation}\label{eq:finite-kummer-ring}
  R_T^{\mathrm{root}}
- =\mathcal O(U_T)[r_1,\dots,r_s]\big/\bigl(r_e^{d_e}-\varrho_e\bigr)_{e},
+ =\mathcal O(U_T)[r_1,\dots,r_\ell]\big/\bigl(r_e^{d_e}-\varrho_e\bigr)_{e},
 \end{equation}
 on which $\zeta\in G_T$ acts by $r_e\mapsto\zeta_er_e$.  It is finite étale
 over $\mathcal O(U_T)$, and $\Spec R_T^{\mathrm{root}}$ is a $G_T$-torsor
-over $U_T$.  The lifted slab map at the root edge $e$ uses the root $r_e$,
+over $U_T$.  The lifted slab map at the Kummer edge $e$ uses the root $r_e$,
 the transport of $g_{V_e}$, so transport along the paths of $T$ is defined
 on $R_T^{\mathrm{root}}$.  Let $D_e$ be the divisor of zeros of
-$\varrho_e$ on $Z$.  The \emph{finite root stack} of $T$ is
+$\varrho_e$ on $\mathbb T$.  The \emph{finite root stack} of $T$ is
 \[
- \Xfrak_T=\sqrt[d_1]{(Z,D_1)}\times_Z\cdots\times_Z\sqrt[d_s]{(Z,D_s)},
+ \Xfrak_T=\sqrt[d_1]{(\mathbb T,D_1)}\times_{\mathbb T}\cdots\times_{\mathbb T}\sqrt[d_\ell]{(\mathbb T,D_\ell)},
 \]
 in the convention \eqref{eq:root-stack-chart-app}.  Over $U_T$ it is $U_T$
 itself, the quotient of $\Spec R_T^{\mathrm{root}}$ by $G_T$.
 Section~\ref{sec:compactification} extends $\Spec R_T^{\mathrm{root}}$ to a
-Kummer cover $P_T$ of $Z$ with $\Xfrak_T=[P_T/G_T]$; we call $\Xfrak_T$ with
+Kummer cover $P_T$ of $\mathbb T$ with $\Xfrak_T=[P_T/G_T]$; we call $\Xfrak_T$ with
 its atlas $P_T$ the \emph{finite root-stack presentation} of $T$.
 Transport acts on $R_T^{\mathrm{root}}$, that is, on $P_T$ over $U_T$, and
 not on $\Xfrak_T$, because the lifted slab maps do not commute with $G_T$.
 By Appendix~\ref{app:calculations}, the stabilizer of $\Xfrak_T$ at a
-geometric point over $z\in Z$ is the product of the factors
+geometric point over $z\in\mathbb T$ is the product of the factors
 $\mu_{d_e}$ with $z\in D_e$.  If $T\subset T'$, localization
 followed by adjunction of the new roots maps $R_T^{\mathrm{root}}$
 injectively to $R_{T'}^{\mathrm{root}}$, and forgetting the new roots gives
@@ -926,8 +941,8 @@ are defined over one of them after a further finite enlargement.  Rooted union g
 refinement.
 
 For the negative assertion, let $u=(1+x_A^{-1})^4$, let $\lambda$ be a root
-of $\lambda^2-a\lambda+1$ (so $\lambda=\pm1$ when $a=\pm2$), and let $w$ be a
-geometric point of $Z$ with $x_A=-\frac12$ and $x_B=-\lambda^{-1}$.  There
+of $\lambda^2-a_\rho\lambda+1$ (so $\lambda=\pm1$ when $a_\rho=\pm2$), and let $w$ be a
+geometric point of $\mathbb T$ with $x_A=-\frac12$ and $x_B=-\lambda^{-1}$.  There
 $f_A=\frac12$ and $u=1$, so every radicand $f_B(u^nx_B)$ in
 \eqref{eq:root-tower} vanishes.  For a finite set $S\subset\ZZ$, let $T$ be
 the rooted union of the paths $\gamma_{\widetilde A}^n$ followed by a

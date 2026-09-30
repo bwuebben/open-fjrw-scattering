@@ -158,6 +158,7 @@ carry $W^{\min}$ to $W^{\max}$.
 \end{remark}
 
 \subsection{The maximal normal form}
+\label{subsec:maximal-normal-form}
 
 For $a,b\in\QQ$ put
 \[
@@ -175,7 +176,7 @@ On the family $V(a,b)$ this operation is the maximal normal form of
 Proposition~\ref{rem:normal-form-general} for the labels $i,j$; that normal
 form keeps, for each support, only the balanced coefficient of greatest
 $x$-degree.  The operation $\mathcal N^{\max}$ is idempotent and constant on
-$Z$-orbits.
+the orbits of the flows $Z_c$.
 Deleting the $xy^5$ term instead would give $V(0,b)$, which differs from
 $\mathcal N^{\max}V(a,b)$ whenever $a\neq0$.
 
@@ -202,7 +203,8 @@ $V(0,m)$.
 
 The normal form transfers the mixed coefficient of $W^{\min}$ to $W^{\max}$;
 it does not compute it.  The coefficient is fixed by periods,
-which in turn do not select a representative in a $Z$-orbit.  Let
+which in turn do not select a representative in an orbit of the flows
+$Z_c$.  Let
 $W_0=x^4+y^4$ and $\Omega=dx\wedge dy$, and let $\nabla_0=\hbar d+dW_0\wedge$ act
 on polynomial differential forms over $R_2[\hbar,\hbar^{-1}]$; this is the
 operator of \eqref{eq:Brieskorn-module} over that ring.  Call a one-form \emph{relative} if its
@@ -273,8 +275,8 @@ grow.
 The class in Proposition~\ref{prop:relative-exact}(1) vanishes exactly when
 $a+b=12$.  This is the GKT chamber condition for the support $\{i,j\}$,
 which is a period condition \cite[Def.~3.47(3) and Thm.~4.9]{grossetal2022open}.
-The periods of $V(a,b)$ depend only on $a+b$, and potentials in one $Z$-orbit
-have the same periods.  Selecting the extremal representative within an
+The periods of $V(a,b)$ depend only on $a+b$, and potentials in one orbit of
+the flows $Z_c$ have the same periods.  Selecting the extremal representative within an
 orbit therefore requires a normal-form rule; for these two labels, the rule
 producing $W^{\max}$ is $\mathcal N^{\max}$.
 
@@ -367,16 +369,17 @@ Let $\Wcal$ be a labelled truncation (Definition~\ref{def:coefficient-window})
 whose monomial set consists of square-free monomials, so that $R_{\Wcal,N}$ is
 a quotient of $A_{\mathcal I}\otimes_\QQ\Bbbk$, with $A_{\mathcal I}$ the
 labelled ring \eqref{eq:labelled-ring}, under $u_{i,1}\mapsto t_i$ and
-$u_{i,d}\mapsto0$ for $d\neq1$.  For a support $J$, the \emph{diagonal} of $J$
-consists of the coefficients of the monomials $t_Jx^{k_1}y^{k_2}$ with
-$(k_1,k_2)$ one of the balanced profiles $b_{J,h}$ of
-\eqref{eq:balanced-profiles}.  Let $W^{\min}$ and $W^{\max}$ denote the images
+$u_{i,d}\mapsto0$ for $d\neq1$.  For a support $J$, the \emph{balanced
+string} of $J$ consists of the coefficients of the monomials
+$t_Jx^{k_1}y^{k_2}$ with $(k_1,k_2)$ one of the balanced profiles $b_{J,h}$
+of \eqref{eq:balanced-profiles}, which form an arithmetic progression with
+step $(4,-4)$.  Let $W^{\min}$ and $W^{\max}$ denote the images
 over $R_{\Wcal,N}$ of the extremal GKT potentials of the labels of $\Wcal$.
 \begin{enumerate}
 \item Let $V=x^4+y^4+\cdots$ be a potential over $R_{\Wcal,N}$ supported on
 balanced monomials.  The orbit of $V$ under the group of the GKT critical
 algebra of $\Wcal$ contains exactly one potential whose coefficients on the
-diagonal of each support $J$ vanish except at $b_J^{\max}$.  We call it the
+balanced string of each support $J$ vanish except at $b_J^{\max}$.  We call it the
 \emph{maximal normal form} $\mathcal N^{\max}V$ of $V$.
 \item On the family $V(a,b)$, $\mathcal N^{\max}$ is the operation
 \eqref{eq:endpoint-normal-form}; for the two labels of twist $(1,0)$ of
@@ -389,14 +392,14 @@ to $W^{\max}$.
 \end{proposition}
 
 \begin{proof}
-(1) The critical generators act triangularly on each diagonal
+(1) The critical generators act triangularly on each balanced string
 \cite[Thm.~1.3]{wuebben2026boundary}.  Hence the normal form exists and is
 unique; it is constructed support by support in increasing $|J|$.
 
 (2) The balanced profiles $b_J^{\max}$ of the supports $\{i\}$, $\{j\}$ and
 $\{i,j\}$ are $(5,0)$, $(4,1)$ and $(5,1)$.  The potential
-$V(0,a+b)=Z_{a/8}V(a,b)$ lies in the orbit of $V(a,b)$, and its diagonal
-coefficients vanish except at these profiles, so it is
+$V(0,a+b)=Z_{a/8}V(a,b)$ lies in the orbit of $V(a,b)$, and its
+coefficients on the balanced strings vanish except at these profiles, so it is
 $\mathcal N^{\max}V(a,b)$ by (1).  For the two labels of
 Proposition~\ref{prop:same-twist} the profiles $b_J^{\max}$ of the singletons
 and of the pair are $(5,0)$ and $(6,0)$.  The normal form used there is

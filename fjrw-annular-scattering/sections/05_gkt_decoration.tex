@@ -194,6 +194,7 @@ $J$, weighted by $(-1)^{|J|+k_2}$ times the zero counts of the homotopy on the
 corresponding critical graphs.
 
 \subsection{Labelled critical algebras}
+\label{subsec:labelled-critical}
 
 Let $Q=\widetilde M/4\widetilde M\simeq(\ZZ/4)^2$ be the twist group of
 \eqref{eq:GKT-residue-group}, the group of GKT twists modulo $4$.  An
@@ -330,6 +331,7 @@ proved in Appendix~\ref{app:gkt-completion}).  Every GKT factor used below is
 therefore the jump of a finite homotopy of canonical multisections.
 
 \subsection{The first mixed ray}
+\label{subsec:first-mixed-ray}
 
 Take two distinct labels with
 \[
@@ -638,8 +640,8 @@ of $|J|$;
 \item the residual logarithms vanish on singleton supports:
 $G_J=S_J=-\frac12t_iX_{\tau(i)}$ and $R_J=0$ for $J=\{i\}$;
 \item the factorization \eqref{eq:decorated-word} is natural under
-relabelling, deletion of labels, restriction of finite labelled systems
-closed under the dependencies of Appendix~\ref{app:gkt-completion},
+relabelling, deletion of labels, restriction of the finite
+assembling-closed systems of Appendix~\ref{app:gkt-completion},
 reduction of deformation order, and Jacobi transport along admissible paths (Section~\ref{subsec:cofactor-supports}).
 \end{enumerate}
 \end{proposition}
@@ -691,10 +693,14 @@ $t_1t_2X_{1,1}$ on the first mixed ray $\RR_{\geq0}\kappa$.  This ray also
 contains the image $X_\kappa^\kappa$ of the degree-zero generator.  If labels
 of twist $(2,2)$ and descendent degree zero are admitted, the GKT transition
 has on this ray the degree-zero component $\exp(fX_{0,0})$, where
-$f=\frac1{32}t_{2,2}^2+O(t_{2,2}^4)$ in the symmetric variable $t_{2,2}$ of
-Section~\ref{sec:primary-frobenius}; this component survives on the primary
-slice, where all descendent variables vanish.  Every wall of $\mathfrak D$ is
-congruent to the identity modulo $\mathfrak m=(t_1,t_2)$
+$f=\frac1{32}t_{2,2}^2+O(t_{2,2}^4)$.  Here $t_{2,2}$ is the variable of
+GKT's symmetric potential \cite[Def.~4.12]{grossetal2022open} for these
+labels: the ring map of \cite[Lem.~4.14]{grossetal2022open} sends
+$t_{2,2}^m/m!$ to the sum of the monomials $u_{J,\mathbf 0}$ over the
+$m$-element sets $J$ of them \cite[(4.12)]{grossetal2022open}.  It is the
+variable $t$ of Lemma~\ref{lem:reflection-fixed}.  This component survives
+on the \emph{primary slice}, where all descendent variables vanish.  Every
+wall of $\mathfrak D$ is congruent to the identity modulo $\mathfrak m=(t_1,t_2)$
 (Definition~\ref{def:Jacobi-wall}), so the diagram has no wall on the primary
 slice, and the residual component there is $\exp(-fX_{0,0})$.
 
@@ -710,29 +716,24 @@ this automorphism.  For functions carried along different paths the residual
 transports differ in general: for the paths $\gamma_+$ and $\gamma_-$ of
 Proposition~\ref{prop:two-label-transport}, which have the same endpoints,
 they are $Z_{-1}$ and the identity.  Appendix~\ref{app:residual-coherence}
-corrects each factor by a degree-weighted interpolation of the residual
-transports, so that the corrected product is the image of the product of
-the GKT transports under one automorphism of the target algebra
-(Lemma~\ref{prop:residual-midpoint} and
-Proposition~\ref{thm:residual-coherence}).  The corrected products for
-different parenthesizations are related by automorphisms that satisfy the
-cocycle identity; for three factors the automorphism relating the two
-parenthesizations is not the identity in general
-(Proposition~\ref{thm:residual-coherence}).  Changes of the paths act
-compatibly on the corrected products
-(Proposition~\ref{prop:corridor-groupoid}).
+gives a degree-weighted correction of the products, coherent up to an
+explicit associator (Lemma~\ref{prop:residual-midpoint} and
+Propositions~\ref{thm:residual-coherence} and~\ref{prop:corridor-groupoid}).
 \end{remark}
 
 \subsection{Compatible homotopies of canonical multisections}
 
 A \emph{GKT graph datum} is a graded open $(4,4)$-graph $\Gamma$ together
 with a descendent vector $\mathbf d$ on its internal labels; its support is
-the monomial $u_{I(\Gamma),\mathbf d}$.  A \emph{finite dependency-closed
-partial system} $\mathbb D=(I,P,\mathcal E)$ records a finite twist-labelled
+the monomial $u_{I(\Gamma),\mathbf d}$.  A \emph{finite assembling-closed
+system} $\mathbb D=(I,P,\mathcal E)$ records a finite twist-labelled
 set $I$, a finite set $P$ of labelled monomials closed under divisors, and a
 finite set $\mathcal E$ of graph data whose supports lie in $P$.  The graph
-data are closed under the connected-component and boundary dependencies of
-the assembling relation \eqref{eq:GKT-assembling}, and, for every support in
+data are closed under the assembling relation \eqref{eq:GKT-assembling}:
+with each graph datum they contain the data of its connected components and
+of the connected components of the bases of its boundary graphs, whose
+multisections prescribe its multisection on the boundary.  Moreover, for
+every support in
 the monomial set that carries a balanced graph, they contain all graph data
 of that support whose graph is balanced or critical; the monomials and the
 graph data are invariant under twist-preserving permutations of the labels.
@@ -743,7 +744,7 @@ extension arguments.
 
 \begin{theorem}[Compatible GKT homotopies]
 \label{thm:compatible-GKT-realization}
-There are finite dependency-closed partial systems
+There are finite assembling-closed systems
 $\mathbb D_n=(I_n,P_n,\mathcal E_n)$, $n\geq1$, with
 $\mathbb D_1\subset\mathbb D_2\subset\cdots$, exhausting all GKT graph data,
 compatible canonical families realizing the two extremal chamber indices,

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Exact check of the mixed primary slice, eq:mixed-primary-potential (Section 6).
+"""Exact check of the mixed primary slice, eq:mixed-primary-potential
+(Appendix E.2, Marginal calibration).
 
 Set u=t_(1,1,0) and t=t_(2,2,0).  The chamber-index equations A(J,0,nu)=0 of
 GKT Definition 3.47 determine the first mixed open invariants of the

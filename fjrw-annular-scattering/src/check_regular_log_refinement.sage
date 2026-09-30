@@ -2,7 +2,7 @@
 (Proposition C.1 and Theorem C.2).
 
 Part 1 checks the multiple-root obstruction of Proposition C.1.  Write the
-B_0 slab function as 1 + a*x + x^2 = (1 + lam*x)(1 + x/lam) with
+B_0 slab function as 1 + a_rho*x + x^2 = (1 + lam*x)(1 + x/lam) with
 lam != +-1, and put u = (1 + x_A^(-1))^4, the factor by which transport
 about the branch point A~ multiplies x_B.  The transported radicands are
 

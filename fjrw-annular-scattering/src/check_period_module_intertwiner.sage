@@ -1,4 +1,4 @@
-"""Exact chain-level checks for Proposition 6.4(1) (Transported primary Frobenius
+"""Exact chain-level checks for Proposition 6.3(1) (Transported primary Frobenius
 structure: transport of Brieskorn modules).
 
 For a Hamiltonian wall field X_(a,b) of eq:quartic-vector-field
@@ -16,7 +16,8 @@ two-form is fixed and that the action is not scalar on polynomial
 representatives.  Finally, for each lifted slab map
 z^m -> g_V^<N_V,m> z^m with g_V^(d_V) = 1 + z^(p_V) and <N_V,p_V> = 0, it
 checks that the transported form dU^dV equals g_V^<N_V,kappa> dz_1^dz_2,
-the multiplier of eq:slab-conformal, with exponents (-2,-2,2,-2).
+the multiplier of eq:slab-conformal (Section 3, used in Section 6.2), with
+exponents (-2,-2,2,-2).
 
 Run:  sage check_period_module_intertwiner.sage
 """

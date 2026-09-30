@@ -23,17 +23,17 @@ the boundary circle whose holonomy has the normal form of width $w_i$ in
 \subsection{Labelled truncations}
 
 \begin{definition}\label{def:coefficient-window}
-A \emph{labelled truncation} $\Wcal=(\Omega_\Wcal,\tau,P)$ consists of
-a finite set $\Omega_\Wcal$ of labels, each of descendent degree one; a map
-$\tau:\Omega_\Wcal\to\{1,2\}$, the label $i$ having twist $(1,0)$ if
+A \emph{labelled truncation} $\Wcal=(I_\Wcal,\tau,P)$ consists of
+a finite set $I_\Wcal$ of labels, each of descendent degree one; a map
+$\tau:I_\Wcal\to\{1,2\}$, the label $i$ having twist $(1,0)$ if
 $\tau(i)=1$ and twist $(0,1)$ if $\tau(i)=2$; and a finite set $P$ of
-monomials in variables $t_i$, $i\in\Omega_\Wcal$, which contains $1$ and is
+monomials in variables $t_i$, $i\in I_\Wcal$, which contains $1$ and is
 closed under taking divisors.  For $N\geq1$, the \emph{truncated
 coefficient ring} of $\Wcal$ at order $N$ is
 \begin{equation}\label{eq:window-ring}
- R_{\Wcal,N}=\Bbbk[t_i:i\in\Omega_\Wcal]\Big/
+ R_{\Wcal,N}=\Bbbk[t_i:i\in I_\Wcal]\Big/
  \bigl(\mathfrak m_{\Wcal}^N+\langle m:m\notin P\rangle\bigr),
- \qquad \mathfrak m_{\Wcal}=(t_i:i\in\Omega_\Wcal).
+ \qquad \mathfrak m_{\Wcal}=(t_i:i\in I_\Wcal).
 \end{equation}
 \end{definition}
 
@@ -52,11 +52,11 @@ because $\upsilon_\Wcal(\mathfrak m)\subset\mathfrak m_\Wcal$, so that
 $\upsilon_\Wcal(\mathfrak m^N)\subset\mathfrak m_\Wcal^N$.  The walls of
 $\Dscr$, which are defined modulo $\mathfrak m^N$, are base-changed to
 $R_{\Wcal,N}$ along $\upsilon_\Wcal$.  Let
-$\Wcal'=(\Omega_{\Wcal'},\tau',P')$ contain $\Wcal$, in the sense that
-$\Omega_\Wcal\subset\Omega_{\Wcal'}$, $\tau'|_{\Omega_\Wcal}=\tau$ and
+$\Wcal'=(I_{\Wcal'},\tau',P')$ contain $\Wcal$, in the sense that
+$I_\Wcal\subset I_{\Wcal'}$, $\tau'|_{I_\Wcal}=\tau$ and
 $P\subset P'$, and let $N\leq N'$.  The $\Bbbk$-algebra surjection
-$R_{\Wcal',N'}\to R_{\Wcal,N}$ that fixes $t_i$ for $i\in\Omega_\Wcal$ and
-sends $t_i$ to $0$ for $i\notin\Omega_\Wcal$ is well defined, because a
+$R_{\Wcal',N'}\to R_{\Wcal,N}$ that fixes $t_i$ for $i\in I_\Wcal$ and
+sends $t_i$ to $0$ for $i\notin I_\Wcal$ is well defined, because a
 monomial outside $P'$ either contains such a $t_i$ or lies outside $P$.  It
 is compatible with $\upsilon_{\Wcal'}$, $\upsilon_\Wcal$ and the reduction
 $\Bbbk[t_1,t_2]/\mathfrak m^{N'}\to\Bbbk[t_1,t_2]/\mathfrak m^N$.  For a
@@ -329,15 +329,15 @@ applies to it, and the second does not.
 \subsection{Kummer covers of the finite root-stack presentations}
 \label{subsec:root-stage-regularity}
 
-Let $Z=\Spec\Bbbk[\widetilde M]$ be the character torus in the frame of the
+Let $\mathbb T=\Spec\Bbbk[\widetilde M]$ be the character torus in the frame of the
 sheet $S_0$ of Section~\ref{subsec:kummer-charts}, which is the frame at the
 root of the path tree $\Tcal$, and let $T\subset\Tcal$ be a finite rooted
-subtree.  As in Section~\ref{sec:affine-kummer}, a \emph{root edge} of $T$ is
+subtree.  As in Section~\ref{sec:affine-kummer}, a \emph{Kummer edge} of $T$ is
 an edge $e$ that crosses an arc carrying a lifted slab map, say the arc
 at $V$; it has the root degree $d_e=d_V\in\{2,4\}$ and the transported
 radicand $\varrho_e\in\Bbbk(\widetilde M)^\times$, the slab function $f_V$
 pulled back to the frame of $S_0$ along the path of $T$ that precedes
-$e$.  We write $e'\prec e$ if the root edge $e'$ lies on that path, and
+$e$.  We write $e'\prec e$ if the Kummer edge $e'$ lies on that path, and
 $r_e$ for the root adjoined at $e$, so that $r_e^{d_e}=\varrho_e$.  In
 $F$-coordinates put
 \[
@@ -350,7 +350,7 @@ $F$-coordinates put
 spanned by the four vectors $u_V$ of \eqref{eq:root-data}.  It is preserved
 by the matrices \eqref{eq:parity-matrices} and their inverses, and every
 conormal $N_V$ of \eqref{eq:root-data} takes values in $4\ZZ$ on it.
-\item For every root edge $e$ of $T$, at the arc of $V$,
+\item For every Kummer edge $e$ of $T$, at the arc of $V$,
 \[
  \varrho_e=f_V(y_e),\qquad
  y_e=z^{m_e}\prod_{e'\prec e}\varrho_{e'}^{\,k_{ee'}},
@@ -361,7 +361,7 @@ conormal $N_V$ of \eqref{eq:root-data} takes values in $4\ZZ$ on it.
 without common prime factor such that
 $\varrho_e=\Phi_eH_e^{-d_e}$ and every prime factor of
 $H_e$ divides $\Phi_{e'}$ for some $e'\prec e$.  In particular
-$\operatorname{div}\Phi_e$ is the divisor of zeros of $\varrho_e$ on $Z$.
+$\operatorname{div}\Phi_e$ is the divisor of zeros of $\varrho_e$ on $\mathbb T$.
 \end{enumerate}
 \end{lemma}
 
@@ -381,7 +381,7 @@ transitions across the arcs met by the path
 (Section~\ref{subsec:kummer-charts}).  On a character $z^{m'}$ such a
 transition replaces $m'$ by its image under one of the matrices
 \eqref{eq:parity-matrices}, their inverses or the identity; if the arc
-carries the lifted slab map at $W$ and is crossed at the root edge $e'$,
+carries the lifted slab map at $W$ and is crossed at the Kummer edge $e'$,
 it also multiplies by $r_{e'}^{\pm\langle N_W,m''\rangle}$, where $m''$ is
 $m'$ or its image under the linear part of the transition.  By induction
 along the path, the pull-back of $z^m$ is $z^{Gm}\prod_{e'}
@@ -393,7 +393,7 @@ of $2\epsilon_Vu_V$ under such a product, so it lies in $2\widetilde M_u$ by
 (1).  By (1) again every $j_{e'}$ lies in $8\ZZ$, and
 $r_{e'}^{j_{e'}}=\varrho_{e'}^{\,j_{e'}/d_{e'}}$.
 
-(3) Let $C\subset Z$ be a prime divisor and $v_C$ its valuation.  By (2),
+(3) Let $C\subset\mathbb T$ be a prime divisor and $v_C$ its valuation.  By (2),
 $v_C(y_e)=\sum_{e'}k_{ee'}v_C(\varrho_{e'})$ is even, since
 $8/d_{e'}\in\{2,4\}$.  The polynomial $f_V$ is monic of degree
 $d_V/2$ with constant term one.  Hence $v_C(\varrho_e)=0$ if
@@ -405,20 +405,20 @@ some $\varrho_{e'}$, $e'\prec e$, has a zero or a pole, and hence, by
 induction along the path, along which some $\Phi_{e''}$, $e''\prec e$,
 vanishes.  Since $\Bbbk[\widetilde M]$ is factorial, we may take for $H_e$
 the product of $h_C^{-v_C(\varrho_e)/d_e}$ over the poles $C=\{h_C=0\}$ of
-$\varrho_e$, and $\Phi_e=\varrho_eH_e^{d_e}$, which has no poles on $Z$.
+$\varrho_e$, and $\Phi_e=\varrho_eH_e^{d_e}$, which has no poles on $\mathbb T$.
 \end{proof}
 
 The argument uses only that $f_V$ is monic of degree $d_V/2$ with constant
-term one, so it applies at the cusps $a=\pm2$ as well; there the
+term one, so it applies at the cusps $a_\rho=\pm2$ as well; there the
 $B$-radicands are squares by \eqref{eq:cusp-roots}.  We fix such
-$\Phi_e$ for every root edge $e$ of $\Tcal$; they are unique up to
+$\Phi_e$ for every Kummer edge $e$ of $\Tcal$; they are unique up to
 $d_e$th powers of units of $\Bbbk[\widetilde M]$.  By
 Lemma~\ref{lem:transported-radicands}(3), the divisor $D_e$ of zeros of
 $\varrho_e$ (Section~\ref{sec:affine-kummer}) is the effective Cartier
 divisor $\operatorname{div}\Phi_e$.  Let $D_T=\bigcup_eD_e$ with
 its reduced structure; since every pole of $\varrho_e$ lies on
 some $D_{e'}$, the complement $U_T$ of the zeros and poles of the
-transported radicands of $T$ is $Z\setminus D_T$.  A divisor $D_e$
+transported radicands of $T$ is $\mathbb T\setminus D_T$.  A divisor $D_e$
 may share components with a divisor $D_{e'}$, $e'\prec e$: along
 $\gamma_{\widetilde A}^2$ both crossings of the arc at $\widetilde A$ have the
 radicand $f_{\widetilde A}$.  Put
@@ -427,11 +427,11 @@ radicand $f_{\widetilde A}$.  Put
  \qquad
  G_T=\prod_e\mu_{d_e},
 \]
-over the root edges $e$ of $T$, with $\zeta\in G_T$ acting by
+over the Kummer edges $e$ of $T$, with $\zeta\in G_T$ acting by
 $g_e\mapsto\zeta_eg_e$.  The scheme $P_T$ is finite and flat
-over $Z$.  With the convention \eqref{eq:root-stack-chart-app}, the quotient
-$\Xfrak_T=[P_T/G_T]$ is the fiber product over $Z$ of the root stacks
-$\sqrt[d_e]{(Z,D_e)}$, and an iterated root stack along
+over $\mathbb T$.  With the convention \eqref{eq:root-stack-chart-app}, the quotient
+$\Xfrak_T=[P_T/G_T]$ is the fiber product over $\mathbb T$ of the root stacks
+$\sqrt[d_e]{(\mathbb T,D_e)}$, and an iterated root stack along
 pulled-back divisors is this fiber product \cite[Def.~2.6]{cadman2007}.
 Thus $P_T\to\Xfrak_T$ is a $G_T$-torsor, and the finite stages defined
 after Definition~\ref{def:coefficient-window} are
@@ -439,23 +439,23 @@ $\Xfrak_{T,\Wcal,N}=[P_{T,\Wcal,N}/G_T]$ with
 $P_{T,\Wcal,N}=P_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}$.  We call $P_T$ the
 \emph{Kummer cover} of $\Xfrak_T$.
 
-Let $P_T^\circ\subset P_T$ be the preimage of $Z\setminus D_T$.  It is a
-finite \'etale $G_T$-torsor over $Z\setminus D_T$, over which
-$\Xfrak_T\to Z$ is an isomorphism.  By
+Let $P_T^\circ\subset P_T$ be the preimage of $\mathbb T\setminus D_T$.  It is a
+finite \'etale $G_T$-torsor over $\mathbb T\setminus D_T$, over which
+$\Xfrak_T\to\mathbb T$ is an isomorphism.  By
 Lemma~\ref{lem:transported-radicands}(3), $H_e$ is a unit on
-$Z\setminus D_T$, and
+$\mathbb T\setminus D_T$, and
 \[
  r_e=g_eH_e^{-1}\in\Ocal(P_T^\circ),
  \qquad r_e^{d_e}=\varrho_e ,
 \]
-so that over $Z\setminus D_T$ the equations $\Phi_e$ and the
+so that over $\mathbb T\setminus D_T$ the equations $\Phi_e$ and the
 transported radicands define the same Kummer cover.  Thus $P_T^\circ$ is the
 spectrum of the Kummer ring $R_T^{\mathrm{root}}$ of
 Section~\ref{sec:affine-kummer}, on which Sections~\ref{sec:affine-kummer}
 and~\ref{sec:jacobi-theta} define the lifted transitions and
-$\Lcal_\kappa$, and $P_T$ extends it over $Z$.  For every vertex $v$
+$\Lcal_\kappa$, and $P_T$ extends it over $\mathbb T$.  For every vertex $v$
 of $T$, pull-back along the path of $T$ that ends at $v$, with the root at
-each root edge $e$ of the path taken to be $r_e$, is therefore a
+each Kummer edge $e$ of the path taken to be $r_e$, is therefore a
 homomorphism of $\Bbbk$-algebras from $\Bbbk[\widetilde M]$, in the frame
 at $v$, to $\Ocal(P_T^\circ)$.  The frames of $\Lcal_\kappa$ at the
 vertices of $T$, related by \eqref{eq:line-transition}, differ by units of
@@ -470,28 +470,28 @@ bracket, and the wall automorphisms are defined on $P_T^\circ$, after base
 change along $\upsilon_\Wcal$ on $P_T^\circ\times_{\Spec\Bbbk}\Spec
 R_{\Wcal,N}$.  The lifted transitions are not $G_T$-equivariant, and they
 do not descend to $\Xfrak_T$: $G_T$ fixes the characters and multiplies
-$r_e$ by $\zeta_e$, whereas the lifted slab map at a root edge
+$r_e$ by $\zeta_e$, whereas the lifted slab map at a Kummer edge
 $e$ multiplies $z^m$ by $r_e^{\langle N,m\rangle}$ for a primitive
 conormal $N$, and $\langle N,m\rangle=1$ for some $m$.  Over
-$Z\setminus D_T$ the functions on $\Xfrak_T$ are the functions on
-$Z\setminus D_T$, and the roots are not among them.
+$\mathbb T\setminus D_T$ the functions on $\Xfrak_T$ are the functions on
+$\mathbb T\setminus D_T$, and the roots are not among them.
 
 The Kummer covers, and with them the presentations, are not regular in
-general.  If $T$ contains the three root edges at which the transported
+general.  If $T$ contains the three Kummer edges at which the transported
 $B_0$-radicands $f_B(u^nx_B)$, $u=(1+x_A^{-1})^4$, $n=0,1,2$, of
 Theorem~\ref{thm:infinite-root-orbit} are adjoined, then at the points over
-a specific point of $Z$, at which the root divisors of these three radicands
+a specific point of $\mathbb T$, at which the root divisors of these three radicands
 meet pairwise transversely, $P_T$ is neither regular nor log regular, for
 the trivial log structure or for the log structure of its roots, and
 $\Xfrak_T$ is not regular (Proposition~\ref{prop:root-stage-nonregular}).
 Regularity is recovered by a proper modification
 (Theorem~\ref{thm:regular-presentation}).  For every finite rooted subtree
 $T$ there is a proper morphism $p_T:\mathcal Y_T\to\Xfrak_T$, an
-isomorphism over $Z\setminus D_T$, from a smooth separated
+isomorphism over $\mathbb T\setminus D_T$, from a smooth separated
 Deligne--Mumford stack $\mathcal Y_T$ with a divisor $\mathcal E_T$ that is
 a simple normal crossings divisor on an \'etale atlas; $\mathcal Y_T$ is the
 stack of fourth roots of the boundary components of the minimal log
-resolution of $(Z,D_T)$.  Its fiber product with $P_T$ is proper over
+resolution of $(\mathbb T,D_T)$.  Its fiber product with $P_T$ is proper over
 $P_T$ and isomorphic to it over $P_T^\circ$, so the lifted transitions, the
 Jacobi bracket and the wall automorphisms pull back to it unchanged.  After
 base change to $R_{\Wcal,N}$ both stacks are flat and log smooth, with log

@@ -2,6 +2,7 @@
 \label{sec:jacobi-theta}
 
 \subsection{The volume line and its Jacobi bracket}
+\label{subsec:volume-line}
 
 Local formulas are written in the fixed frame of the sheet $S_0\ni O_0$ of
 Section~\ref{subsec:kummer-charts}, which is the frame at the root of the
@@ -93,7 +94,7 @@ stacks, namely on the spectra of the rings \eqref{eq:local-root-ring} and,
 over a finite rooted subtree $T\subset\Tcal$, on $\Spec R_T^{\mathrm{root}}$
 of \eqref{eq:finite-kummer-ring}.
 
-\begin{proposition}[No scalar frame]\label{prop:no-scalar-frame}
+\begin{proposition}[Hamiltonian derivations do not glue]\label{prop:no-scalar-frame}
 The Lie algebra of $\pi_\kappa$-Hamiltonian derivations of the structure
 sheaf, which contains the two singleton fields $X^\kappa_{(2,1)}$ and
 $X^\kappa_{(1,2)}$, is not preserved under conjugation by any lifted slab
@@ -139,7 +140,7 @@ all nonzero, and $\langle N_V,\kappa\rangle=\pm2$.  Hence every conjugate of
 a singleton field by a lifted slab transition has nonzero divergence and is
 not $\pi_\kappa$-Hamiltonian.  The argument uses only that $f_V$ is a
 nonconstant polynomial in $x_V$, so it applies at every value of the
-slab parameter, including the Fermat value $a=0$.  If the local brackets
+slab parameter, including the Fermat value $a_\rho=0$.  If the local brackets
 glued to a bracket on the structure sheaf, each $\widetilde\theta_V$ would
 be a Poisson map for $\pi_\kappa$, and conjugation by it would preserve
 Hamiltonian derivations.
@@ -212,7 +213,11 @@ locally constant unipotent Jacobi automorphism along $\mathfrak d$,
 congruent to the identity modulo $\mathfrak m$.  The automorphism is written
 in the local frame of $\Lcal_\kappa$ and is transported between charts by
 Proposition~\ref{prop:Jacobi-transport}; the charts and the transitions
-between them are placed as in Section~\ref{subsec:kummer-charts}.
+between them are placed as in Section~\ref{subsec:kummer-charts}.  Unlike
+\cite{grosspandharipandesiebert2010,grosshackingkeel2015,grosssiebert2022},
+we do not require the exponents of $\Theta_{\mathfrak d}$ to be tangent to
+$\mathfrak d$; the placement rule is that of
+Section~\ref{subsec:exponent-lattices}.
 
 Let $\gamma$ be a path transverse to the walls.  A crossing is
 \emph{positive} if the velocity of $\gamma$ pairs positively with the
@@ -239,6 +244,7 @@ path-ordered products are the compatible systems of the finite-stage
 path-ordered products.
 
 \subsection{Scattering of the two initial Hamiltonians}
+\label{subsec:singleton-scattering}
 
 With the singleton parameters $t_1,t_2$, put
 \begin{equation}\label{eq:singleton-generators}
@@ -251,7 +257,7 @@ The \emph{shifted exponent} of $E_{a,b}$ is $\kappa+(a,b)=(a+1,b+1)$, and its
  [E_{a,b},E_{c,d}]
  =-\det\bigl(\kappa+(a,b),\kappa+(c,d)\bigr)E_{a+c,b+d}.
 \end{equation}
-The two incoming GKT normalizations are
+The two incoming singleton Hamiltonians, with GKT's normalization, are
 \begin{equation}\label{eq:incoming-singletons}
  \mathsf A=-\frac12E_{1,0},
  \qquad \mathsf B=-\frac12E_{0,1}.
@@ -275,7 +281,7 @@ $\mathfrak r$.  Rays are ordered by their slopes, and $\mathfrak r_{2,1}$,
 $\mathfrak r_{1,2}$ denote the rays of $(2,1)$ and $(1,2)$, the
 \emph{incoming rays}.
 
-\begin{proposition}[Ordered singleton completion]
+\begin{proposition}[Kontsevich--Soibelman factorization of the singleton commutator]
 \label{prop:singleton-completion}
 Let operators act on functions, the rightmost factor acting first.
 \begin{enumerate}
@@ -340,12 +346,13 @@ elements of total degree at least $d$ form an ideal
 $\widehat{\mathfrak g}^{\geq d}$, the quotient
 $\widehat{\mathfrak g}^{\geq d}/\widehat{\mathfrak g}^{\geq d+1}$ is central
 in $\widehat{\mathfrak g}_{\mathrm{sing}}/\widehat{\mathfrak g}^{\geq d+1}$,
-and modulo $\mathfrak m^N$ only degrees below $N$ survive.  Let
-$\mathsf W=e^{\mathsf A}e^{-\mathsf B}e^{-\mathsf A}e^{\mathsf B}$ be the
-left side of \eqref{eq:singleton-commutator}, and suppose that a product $P$
-of ray factors satisfies $\mathsf WP^{-1}\in\exp(\widehat{\mathfrak g}^{\geq d})$.  The
-degree-$d$ part of $\log(\mathsf WP^{-1})$ decomposes uniquely into ray components;
-since this part is central modulo degree $d+1$, adding each component to the
+and modulo $\mathfrak m^N$ only degrees below $N$ survive.  Suppose that a
+product $P$ of ray factors satisfies
+$e^{\mathsf A}e^{-\mathsf B}e^{-\mathsf A}e^{\mathsf B}P^{-1}
+\in\exp(\widehat{\mathfrak g}^{\geq d})$, the first four factors forming the
+left side of \eqref{eq:singleton-commutator}.  The degree-$d$ part of the
+logarithm of this element decomposes uniquely into ray components; since this
+part is central modulo degree $d+1$, adding each component to the
 logarithm of the corresponding factor removes the discrepancy in degree $d$,
 and no other choice does.  Induction on $d$ gives existence and uniqueness
 in (1).  This is the argument of the Kontsevich--Soibelman lemma
@@ -370,16 +377,20 @@ proves the support statement.  Modulo degree three the left side equals
 $\exp(-[\mathsf A,\mathsf B])=\exp(\tfrac34E_{1,1})$ by
 \eqref{eq:first-bracket}.
 
-For the symmetry, the linear map $\psi(E_{a,b})=-E_{b,a}$ preserves
-\eqref{eq:singleton-bracket}, since exchanging the coordinates of both
-vectors changes the sign of the determinant.  It sends $\mathsf A$ to
-$-\mathsf B$ and $\mathsf B$ to $-\mathsf A$, hence $\mathsf W$ to
-$e^{-\mathsf B}e^{\mathsf A}e^{\mathsf B}e^{-\mathsf A}=\mathsf W^{-1}$, and it
-reverses the order of slopes.  Applying $\psi$ to
+For the symmetry, let $\check\sigma$ be the linear map with
+$\check\sigma(E_{a,b})=-E_{b,a}$; it is induced by the exchange $\sigma$ of
+the coordinates (Section~\ref{subsec:exponent-lattices}) together with the
+exchange of $t_1$ and $t_2$, because $(\sigma q)^\perp=-\sigma(q^\perp)$.
+The map $\check\sigma$ preserves \eqref{eq:singleton-bracket}, since
+exchanging the coordinates of both vectors changes the sign of the
+determinant.  It sends $\mathsf A$ to $-\mathsf B$ and $\mathsf B$ to
+$-\mathsf A$, hence the left side of \eqref{eq:singleton-commutator} to
+$e^{-\mathsf B}e^{\mathsf A}e^{\mathsf B}e^{-\mathsf A}$, which is its
+inverse, and it reverses the order of slopes.  Applying $\check\sigma$ to
 \eqref{eq:singleton-commutator}, and inverting
-\eqref{eq:singleton-commutator}, gives two factorizations of $\mathsf W^{-1}$ with
-slopes decreasing from left to right.  By uniqueness,
-$\psi(C_{\mathfrak r})=-C_{\mathfrak r'}$, where $\mathfrak r'$ is the
+\eqref{eq:singleton-commutator}, gives two factorizations of this inverse
+with slopes decreasing from left to right.  By uniqueness,
+$\check\sigma(C_{\mathfrak r})=-C_{\mathfrak r'}$, where $\mathfrak r'$ is the
 reflection of $\mathfrak r$; comparing coefficients gives $c_{b,a}=c_{a,b}$.
 
 For (3), invert \eqref{eq:singleton-commutator}, multiply by

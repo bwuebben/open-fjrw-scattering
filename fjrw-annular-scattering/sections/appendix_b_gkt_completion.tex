@@ -9,11 +9,12 @@ restriction map on canonical families: by the assembling relation
 \eqref{eq:GKT-assembling}, the multisection on one graph datum is prescribed
 on the boundary of its moduli space by the multisections on the connected
 components of the bases of its boundary graphs.  We therefore restrict along
-finite systems of graph data closed under these dependencies.
+finite systems of graph data closed under this relation, the finite
+assembling-closed systems of Definition~\ref{def:finite-partial-system}.
 
 We use the notions of \cite{grossetal2022open} recalled in
 Subsection~\ref{subsec:gkt-recollections}.  Fix a countable set
-$\Omega_\infty$ of labels with a twist map, containing infinitely many labels
+$I_\infty$ of labels with a twist map, containing infinitely many labels
 of each twist.  Every construction below uses only a finite subset.  The
 relative extension argument is the multisection argument of
 \cite[Lem.~6.5]{buryaketal2024} in its $W$-spin form
@@ -26,7 +27,7 @@ Subsection~\ref{subsec:gkt-relative-extension}.  From
 \cite[Lem.~2.5]{wuebben2026boundary}, and the slope factorization
 \cite[Thm.~1.2]{wuebben2026boundary}.
 
-\subsection{Finite dependency-closed systems}
+\subsection{Finite assembling-closed systems}
 
 For a graded open $(4,4)$-graph $\Gamma$ with finite internal label set and
 descendent vector $\mathbf d$, write
@@ -39,23 +40,27 @@ descendent vector $\mathbf d$, write
 \end{equation}
 We call $\delta$ a \emph{GKT graph datum}.  A family of canonical
 multisections satisfies the assembling relation \eqref{eq:GKT-assembling} on
-every zero or exchange boundary stratum $\Lambda$ of $\Gamma$.  The immediate
-dependencies of $\delta$ are the connected component data of $B\Gamma$ and
-of all $B\Lambda$ occurring there, with restricted descendent vectors.
+every zero or exchange boundary stratum $\Lambda$ of $\Gamma$.  The
+\emph{assembling constituents} of $\delta$ are the connected component data
+of $B\Gamma$ and of all $B\Lambda$ occurring there, with restricted
+descendent vectors; by \eqref{eq:GKT-assembling}, their multisections
+prescribe the multisection of $\delta$ on the boundary.  The
+\emph{assembling closure} of a set of graph data consists of these data and
+their iterated assembling constituents.
 
 \begin{definition}\label{def:finite-partial-system}
-A finite dependency-closed partial system is a triple
+A \emph{finite assembling-closed system} is a triple
 $\mathbb D=(I,P,\mathcal E)$ such that:
 \begin{enumerate}
-\item $I\subset\Omega_\infty$ is finite and twist labelled; $P$ is a finite
+\item $I\subset I_\infty$ is finite and twist labelled; $P$ is a finite
 divisor-closed set of labelled monomials, containing $1$ and invariant under
 twist-preserving permutations of $I$;
 \item $\mathcal E$ is a finite set of graph data containing every iterated
-dependency and connected component datum of each of its elements;
+assembling constituent and connected component datum of each of its elements;
 \item $\operatorname{supp}(\delta)\in P$ for every $\delta\in\mathcal E$;
 \item if a support $u\in P$ carries a balanced graph, then $\mathcal E$
 contains every graph datum of support $u$ whose graph is balanced or
-critical, together with its dependency closure;
+critical, together with its assembling closure;
 \item $\mathcal E$ is invariant under the twist-preserving permutation group of $I$.
 \end{enumerate}
 An inclusion $\mathbb D\subset\mathbb D'$ means inclusion of the label sets,
@@ -64,17 +69,17 @@ therefore the forgetful map.
 \end{definition}
 
 \begin{lemma}[Finite closure]\label{lem:finite-GKT-closure}
-The dependency closure of a finite set of graph data, together with all
+The assembling closure of a finite set of graph data, together with all
 balanced and critical graph data of finitely many supports, is finite.
-Moreover, if $\delta'$ is a dependency of $\delta$, then
+Moreover, if $\delta'$ lies in the assembling closure of $\delta$, then
 \begin{equation}\label{eq:support-divisibility}
  \operatorname{supp}(\delta')\mid\operatorname{supp}(\delta).
 \end{equation}
 \end{lemma}
 
 \begin{proof}
-A dependency uses a subset of the internal labels and the restricted
-descendent vector, proving \eqref{eq:support-divisibility}.  Order connected
+An assembling constituent uses a subset of the internal labels and the
+restricted descendent vector, and iteration proves \eqref{eq:support-divisibility}.  Order connected
 graphs lexicographically by
 \[
  \bigl(|I(\Gamma)|,n(\Gamma),-k_{12}(\Gamma)\bigr),
@@ -82,7 +87,8 @@ graphs lexicographically by
 \]
 Every proper connected base component precedes the original graph.  There is
 no infinite descending chain, and every graph has finitely many boundary
-types.  Thus the finitely branching dependency tree is finite.  A support
+types.  Thus the finitely branching tree of iterated assembling constituents is
+finite.  A support
 has finitely many balanced and critical graph data
 \cite[Notation~2.40]{grossetal2022open}, and permutation orbits are finite.
 \end{proof}
@@ -317,9 +323,9 @@ twist symmetric, the extension may be chosen twist symmetric.
 
 \begin{proof}
 Construct the new data with smooth connected graphs in the order of
-Lemma~\ref{lem:finite-GKT-closure}.  Dependency
-closure and associativity of assembling prescribe compatible boundary
-values, which Lemma~\ref{lem:relative-multisection} extends.  Define the
+Lemma~\ref{lem:finite-GKT-closure}.  Since $\mathcal E'$ is
+assembling-closed, the associativity of assembling prescribes compatible
+boundary values, which Lemma~\ref{lem:relative-multisection} extends.  Define the
 other new data by their prescribed pullbacks and assemblies.
 
 Process the supports of the new balanced graph data by increasing number of
@@ -442,7 +448,7 @@ gives the corresponding completion of homotopies to all graph data.
 
 The proof of Theorem~\ref{thm:compatible-GKT-realization} assembles the
 finite constructions above along an increasing sequence of systems.
-Restriction is taken along dependency-closed systems because, by the
+Restriction is taken along assembling-closed systems because, by the
 assembling relation \eqref{eq:GKT-assembling}, a canonical family is
 determined on the boundary of each moduli space by its multisections on other
 graph data; on such systems, restriction to a smaller system is the
@@ -477,7 +483,7 @@ Theorems~\ref{thm:relative-endpoint-lifting}
 and~\ref{thm:relative-homotopy-lifting}.
 
 \begin{proof}[Proof of Theorem~\ref{thm:compatible-GKT-realization}]
-Choose increasing finite label sets $I_n$ exhausting $\Omega_\infty$,
+Choose increasing finite label sets $I_n$ exhausting $I_\infty$,
 finite divisor-closed sets of labelled monomials in the labels of $I_n$
 whose union is the set of all labelled monomials, and an enumeration of
 all graph data.  Let $P_n$ be the smallest divisor-closed set invariant under
@@ -485,8 +491,8 @@ the twist-preserving permutations of $I_n$ that contains $P_{n-1}$, the $n$th
 of these monomial sets, and the supports of the first $n$ graph data with
 labels in $I_n$.  Let $\mathcal E_n$ consist of $\mathcal E_{n-1}$, these
 graph data, and all balanced and critical graph data of every support in $P_n$
-that carries a balanced graph, closed under dependencies and under the
-twist-preserving permutations of $I_n$.  By
+that carries a balanced graph, closed under taking assembling constituents
+and under the twist-preserving permutations of $I_n$.  By
 Lemma~\ref{lem:finite-GKT-closure}, $\mathcal E_n$ is finite and every
 support of a datum in $\mathcal E_n$ lies in $P_n$.  This gives the systems
 $\mathbb D_n=(I_n,P_n,\mathcal E_n)$.
@@ -510,7 +516,7 @@ finiteness proves Part~(2).  On the interval of such a factor use its
 elementary homotopy; elsewhere use the constant value reached after the
 finitely many such intervals to the left.  Constant collars make these
 pieces join smoothly.  Every assembling identity involves finitely many
-dependencies and hence holds at some finite stage.
+graph data and hence holds at some finite stage.
 
 The completion to all graph data permits application of the argument of
 \cite[Thm.~5.13]{grossetal2022open} at each stage.  Uniqueness of the

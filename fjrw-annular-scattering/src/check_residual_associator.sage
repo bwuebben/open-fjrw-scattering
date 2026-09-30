@@ -1,21 +1,30 @@
 """Exact checks for the degree-weighted residual associator (Appendix D).
 
-The binary residual correction uses the midpoint of two residual transports
-(Lemma D.2).  Iterating an unweighted midpoint on three inputs already fails
-in the abelian quotient because it assigns different leaf weights to the two
-parenthesizations.  Polarization degree supplies the correct weights:
+Appendix D interpolates residual transports with
 
-    M_{r,s}(g,h) = g * (g^-1*h)^(s/(r+s)).
+    g #_c h = g * (g^-1*h)^c.
 
-The weighted recursion is abelianly associative but not strictly associative
-in a noncommutative residual group.  Its defect is the tree transition
-A_{T<-T'}=H_T*H_T'^-1.  This file checks the first defect in the
-free square-zero unipotent group (every word containing a letter twice
-vanishes), the equivariance M(Psi g Psi'^-1, Psi h Psi'^-1) =
-Psi M(g,h) Psi'^-1 of the weighted interpolation, correction of the two
-three-leaf products, and the four-leaf pentagon cocycle (Propositions D.4
-and D.6).
-Without the square-zero condition the associator has further cubic terms.
+At a vertex of a product tree T with subtrees T_1, T_2 the interpolant is
+H_T = H_{T_1} #_c H_{T_2} with c = |T_2|/|T|, the degree of the right subtree
+over the degree of T (Definition D.3); for two inputs of equal degree this is
+the midpoint H = Q_1 #_{1/2} Q_2 of Lemma D.2.  Iterated unweighted midpoints
+give three inputs the leaf weights (1/4,1/4,1/2) and (1/2,1/4,1/4) in the two
+parenthesizations already for commuting inputs; the degree-weighted
+recursion gives each leaf of equal degree the weight 1/3.  The remaining
+defect is the tree transition V_{T<-T'} = H_T*H_T'^-1.
+
+The computation takes place in the quotient U of the free associative algebra
+by the words containing some letter twice (Proposition D.4).  It checks:
+  - the symmetry of the midpoint (Lemma D.2(1));
+  - the leaf weights of the unweighted and of the weighted recursion, and the
+    absence of quadratic terms in log H_T for the two three-leaf trees;
+  - log V_{T_l<-T_r} = (1/72)[[x,z],y] for T_l = ((1,2),3), T_r = (1,(2,3))
+    (Proposition D.4), and that V_{T_l<-T_r} carries the right-parenthesized
+    corrected product to the left-parenthesized one;
+  - the equivariance (Psi g Psi'^-1) #_c (Psi h Psi'^-1) = Psi (g #_c h) Psi'^-1
+    under a common continuation (Lemma D.2(3)), under which the associator is
+    conjugated by Psi;
+  - the pentagon of tree transitions for four inputs (Proposition D.4).
 """
 
 

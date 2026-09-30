@@ -116,6 +116,13 @@ assert marginal_tangent == edge_XY
 assert marginal_conormal == 2 * p_XY
 assert marginal_conormal.dot_product(marginal_tangent) == 0
 assert iota_cofactor.transpose() * iota == iota.det() * identity_matrix(ZZ, 2)
+# The paper states the first identity without the two rotations: with
+# (a,b)^perp = (b,-a), it reads (L q)^perp = iota(q^perp); here
+# H_source q = q^perp and K_target v = -v^perp.
+def perp(v):
+    return vector(ZZ, (v[1], -v[0]))
+for q_test in (vector(ZZ, (1, 0)), vector(ZZ, (0, 1)), vector(ZZ, (2, 1))):
+    assert perp(iota_cofactor * q_test) == iota * perp(q_test)
 
 # An order-two focus-focus monodromy has the following conjugacy class.
 # We display it in a basis whose first vector is tangent to the length-two
@@ -269,7 +276,10 @@ assert gcd([abs(a) for a in (M_q - identity_matrix(ZZ, 2)).list()]) == 4
 
 # Exact degeneration to the toric boundary.  For q != 0, completing the
 # square returns the original quartic pencil with
-# s_eff = s + 1/(4 q^2).
+# s_eff = s + 1/(4 q^2).  The code variable q plays the role of the
+# degeneration parameter eta of Section 2.1 of the paper; the pencil is
+# written here as Z^2 = X^4 + s X^2 Y^2 + Y^4, so the shift of s has the
+# opposite sign to the one in the paper.
 Rq = PolynomialRing(QQ, names=("q", "s"))
 q, s = Rq.gens()
 K = Rq.fraction_field()
@@ -330,7 +340,8 @@ j_gkt_naive = Rw.fraction_field()(16 * (w**2 + 12)**3 / (w**2 - 4)**2)
 assert j_cps != j_gkt_naive
 
 # The correct elliptic comparison varies the free middle coefficient a of the
-# order-two slab 1+a*z+z^2 and takes the distinguished fiber W_a=0.  The
+# order-two slab 1+a*z+z^2 (the slab parameter, written a_rho in the paper)
+# and takes the distinguished fiber W_a=0.  The
 # resulting quartic is v^4+2*a*v^2+(a^2-4).  After h^2=a^2-4 and the standard
 # quartic rescaling, its GKT parameter is s=2*a/h.  Verify the induced
 # j-invariant identity without adjoining h, using s^2=4*a^2/(a^2-4).

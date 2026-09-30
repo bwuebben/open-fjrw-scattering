@@ -1,0 +1,143 @@
+\section{Notation}
+\label{app:notation}
+
+The principal symbols, with the place where each is defined.  Local symbols
+used in a single proof are not listed.
+
+\newcommand{\notationhead}{%
+\toprule
+Symbol & Meaning & Defined in\\
+\midrule}
+
+\medskip
+\noindent
+\begin{tabularx}{\textwidth}{@{}p{0.27\textwidth}X p{0.19\textwidth}@{}}
+\notationhead
+\multicolumn{3}{@{}l}{\emph{Lattices and exponents}}\\
+$M$, $M^\vee$ & fan lattice of $\PP(1,1,2)$ (the lattice $N$ of toric
+geometry), and its dual, the plane of $\Delta$ & Section~\ref{sec:affine-kummer}\\
+$\ZZ^2_{x,y}$ & bidegrees $(a,b)$ of monomials $x^ay^b$ & \eqref{eq:iota}\\
+$\iota$, $F=\frac14\iota$ & coordinate-divisor map; exponent map
+$x^ay^b\mapsto z^{F(a,b)}$ & \eqref{eq:iota}, \eqref{eq:tilde-M}\\
+$\widetilde M$, $\widetilde M^\vee$ & $F(\ZZ^2_{x,y})\supset M$, index eight;
+its dual & \eqref{eq:tilde-M}\\
+$\widetilde M/M$ & fractional-exponent group $\ZZ/2\oplus\ZZ/4$ &
+\eqref{eq:sector-group}\\
+$L$ & cofactor $\det(\iota)\iota^{-T}=-\frac12F^{-T}$, the support map &
+\eqref{eq:cofactor}\\
+$\psi$ & auxiliary quadratic function with $Lq=d\psi(F(q))$ &
+Section~\ref{subsec:exponent-lattices}\\
+$\sigma$, $S$ & exchange of $x$ and $y$; its action $F\sigma F^{-1}$ on
+$M$ & Section~\ref{subsec:exponent-lattices}\\
+$\kappa$, $X^\kappa_q$ & the exponent $(1,1)$ of $xy$; Hamiltonian field of
+$x^{q_1}y^{q_2}$ & Section~\ref{subsec:exponent-lattices}\\
+$\widetilde n_q$ & $F^{-T}q^\perp$, the direction of $X^\kappa_q$ &
+\eqref{eq:normal-q}\\
+$X_{a,b}$, $E_{a,b}$ & $X^\kappa_{\kappa+(a,b)}$ and $t_1^at_2^bX_{a,b}$ &
+Section~\ref{subsec:intro-notation}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{The base}}\\
+$\Delta$, $\Delta^\vee$, $O$ & anticanonical polygon, its polar, central
+vertex & \eqref{eq:polygons}\\
+$\varphi$ & polarization & Section~\ref{subsec:parity-cover}\\
+$A,B,C$, $p_V$ & singular points; vertex of $\Delta$ on the star edge
+through $V$ & Section~\ref{subsec:parity-cover}\\
+$c_V$ & outer half-edge of $\Delta$ from $V$ to $p_V$; its preimage arcs in
+$\overline\Acal$ are the cuts & Section~\ref{subsec:kummer-charts}\\
+$T_A,T_B,T_C$ & monodromies of $M$ about the singular points &
+\eqref{eq:disk-monodromies}\\
+$a_\rho$ & slab parameter; cusps $a_\rho=\pm2$ &
+Section~\ref{sec:affine-kummer}\\
+$\overline\Acal$, $\Acal^\circ$ & the annulus; complement of its four
+singular points & Theorem~\ref{thm:parity-cover}\\
+$B_0,B_1$, $\widetilde A,\widetilde C$ & focus--focus points; ramification
+points & Theorem~\ref{thm:parity-cover}\\
+$\gamma_{\mathrm{core}}$, $K$ & core loop; holonomy along it &
+Section~\ref{subsec:parity-cover}, \eqref{eq:intro-K}\\
+$S_0,S_1$, $O_0,O_1$ & sheets; lifts of $O$ &
+Section~\ref{subsec:kummer-charts}\\
+$p_{\mathrm{fr}}$ & fractional-exponent cover &
+Section~\ref{subsec:kummer-charts}\\
+$Q$ & twist group $\widetilde M/4\widetilde M$; the twist cover trivializes
+it & Section~\ref{subsec:core-holonomy}\\
+\bottomrule
+\end{tabularx}
+
+\medskip
+\noindent
+\begin{tabularx}{\textwidth}{@{}p{0.27\textwidth}X p{0.19\textwidth}@{}}
+\notationhead
+\multicolumn{3}{@{}l}{\emph{Coefficients}}\\
+$H_V$ & monodromy of $\widetilde M$ about a singular point $V$ of
+$\overline\Acal$, in $F$-coordinates & \eqref{eq:monodromy-sign}\\
+$u_V,N_V,d_V,g_V,f_V$ & invariant character, conormal, root degree, root and
+slab function at $V\in\{\widetilde A,B_0,B_1,\widetilde C\}$ &
+\eqref{eq:root-data}\\
+$\widetilde\theta_V$ & lifted slab map & Section~\ref{subsec:kummer-charts}\\
+chart algebra & $\Bbbk[\widetilde M]$ in the frame of a region, over a
+Kummer ring & Section~\ref{subsec:kummer-charts}\\
+$\Pi$, $\Tcal$, $T$ & $\pi_1(\Acal^\circ)$; path tree; finite rooted subtree &
+Section~\ref{subsec:root-orbit}\\
+$e$, $\varrho_e$, $D_e$, $D_T$ & Kummer edge; its radicand; root divisors &
+Section~\ref{subsec:root-orbit}\\
+$\mathbb T$, $P_T$, $G_T$, $\Xfrak_T$ & character torus; Kummer cover;
+its group; root stack $[P_T/G_T]$ &
+Sections~\ref{subsec:root-orbit}, \ref{subsec:root-stage-regularity}\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Brackets and walls}}\\
+$\Omega_\kappa$, $\pi_\kappa$, $\Lcal_\kappa$ & volume form, bivector, volume
+line & Section~\ref{subsec:volume-line}\\
+$\mathfrak g_\kappa$ & Hamiltonian wall algebra &
+Section~\ref{subsec:volume-line}\\
+$\mathsf A$, $\mathsf B$; $t_1,t_2$; $\mathfrak m$ & singleton
+Hamiltonians; singleton parameters; singleton ideal &
+Section~\ref{subsec:intro-notation}\\
+$C_{\mathfrak r}$, $c_{p,q}$ & logarithms of the ray factors of the
+singleton commutator; their coefficients &
+Proposition~\ref{prop:singleton-completion}\\
+$a_{p,q}$ & coefficients in the ordered factorization of
+$e^{\mathsf A}e^{\mathsf B}$ & \eqref{eq:increasing-slope-factorization}\\
+$\Theta_\gamma$ & path-ordered product along $\gamma$ &
+Definition~\ref{def:Jacobi-wall}\\
+$\gamma_\pm$ & paths passing the joint above and below $O$ &
+Theorem~\ref{thm:annular-consistency}\\
+$\mathfrak D$ & the wall structure (the diagram) &
+Theorem~\ref{thm:annular-consistency}\\
+$\mathfrak p$, $P_{\mathfrak p}$ & admissible path; its transition map &
+Definition~\ref{def:framed-path}, Section~\ref{subsec:KS-classes}\\
+\bottomrule
+\end{tabularx}
+
+\medskip
+\noindent
+\begin{tabularx}{\textwidth}{@{}p{0.27\textwidth}X p{0.19\textwidth}@{}}
+\notationhead
+\multicolumn{3}{@{}l}{\emph{GKT data and the comparison}}\\
+$k_1,k_2,k_{12}$ & numbers of $r$-tails, $s$-tails and fully twisted
+tails & Section~\ref{subsec:gkt-recollections}\\
+$\nu$, $W^\nu$ & chamber index; its potential &
+Section~\ref{subsec:gkt-recollections}\\
+$X_k$ & GKT critical generator, $X_k=X^\kappa_{k+\kappa}$ &
+Section~\ref{subsec:gkt-recollections}\\
+$\mathcal I$, $A_{\mathcal I}$, $u_{i,d}$ & labels with twists; labelled
+ring; its variables & \eqref{eq:labelled-ring}\\
+$b_{J,h}$, $k_{J,h}$ & balanced profiles and critical exponents of $J$ &
+\eqref{eq:balanced-profiles}\\
+$\nu^{\min},\nu^{\max}$, $W^{\min},W^{\max}$ & extremal chamber indices;
+extremal GKT potentials & Section~\ref{subsec:labelled-critical},
+\eqref{eq:mixed-potentials}\\
+$\Sigma_1,\Sigma_2$, $Z_c$ & singleton factors; flows
+$\exp(c\,t_1t_2X_{1,1})$ & Section~\ref{subsec:first-mixed-ray}\\
+$G_{\mathrm{mix}},R_{\mathrm{mix}}$ & mixed GKT factor; mixed residual
+factor & Section~\ref{subsec:first-mixed-ray}\\
+$G_{\mathfrak r},S_{\mathfrak r},R_{\mathfrak r}$ & GKT, wall and residual
+logarithms & Definition~\ref{def:raywise-logarithms}\\
+$\Wcal$, $I_\Wcal$, $R_{\Wcal,N}$, $\upsilon_\Wcal$ & labelled truncation,
+its labels, its ring, base change & Definition~\ref{def:coefficient-window}\\
+$\mathbb D$ & finite assembling-closed system &
+Definition~\ref{def:finite-partial-system}\\
+$t_{a,b}$ & primary variables & Section~\ref{sec:primary-frobenius}\\
+$V(a,b)$, $\mathcal N^{\max}$ & two-label family; maximal normal form &
+Section~\ref{subsec:maximal-normal-form}\\
+\bottomrule
+\end{tabularx}
