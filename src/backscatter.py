@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 r"""
-backscatter.py -- the monotonicity of bends (Paper 2, Theorem 6.5): the
+backscatter.py -- the monotonicity of bends (Paper 2, Proposition 6.5): the
 primitive-form shift is the monotone-bending mechanism; plus the exhaustive far-side census.
 
-Monotonicity of bends (Paper 2, Theorem 6.5): a foreign transported initial monomial
+Monotonicity of bends (Paper 2, Proposition 6.5): a foreign transported initial monomial
 contributes to slot m in m's OWN chamber only along paths whose bend rays lie strictly
 between dir(initial monomial) and dir(m).  The exponent identity m + B(1,1) = w_sigma + sum(beta_f)
 (beta_f = boundary directions on the crossed rays, B = number of bend factors >= 1),
@@ -25,11 +25,11 @@ This script:
  [2] exhaustively enumerates candidate foreign own-chamber contributions in the two
      computed sectors of x^5+y^5 (all diagonals dividing t23^i t33^j, i+j <= 4):
      result: none (so the computed anchored values are fully explained by Paper 2,
-     Proposition 6.3 and Theorems 6.5 and 6.7);
+     Propositions 6.3 and 6.5 and Theorem 6.7);
  [3] probes for the smallest far-side candidates over composite diagonals with
      descendents (l <= 2, d <= 3, r = s = 5) and checks each against the theorem:
      every candidate arrives from the (1,1)-side of its target's ray.  These are the
-     far-side bends absorbed by the initial coefficients (Paper 2, Theorem 1.4; canonical_seeds.py).
+     far-side bends absorbed by the initial coefficients (Paper 2, Theorem 1.3; canonical_seeds.py).
 
 Run: ./venv/bin/python src/backscatter.py
 """
@@ -140,7 +140,7 @@ def candidates(r, s, D):
 
 
 def main():
-    print("== Monotonicity of bends (Paper 2, Thm 6.5) and the far-side census ==")
+    print("== Monotonicity of bends (Paper 2, Prop. 6.5) and the far-side census ==")
     n = check_sign_identity()
     print(f"[1] sign identity B(m1-m2) = cross(m,w)+sum cross(m,beta): {n} random checks OK;")
     print("    sign forcing confirmed: from below only into slots above the diagonal,")
@@ -159,7 +159,7 @@ def main():
             assert not cs, (D, cs)
     print("[2] computed sectors (all diagonals dividing t23^i t33^j, i+j <= 4):")
     print(f"    foreign own-chamber candidates: {total} -- NONE.  The computed anchored values")
-    print("    are fully explained by Paper 2, Prop. 6.3 and Thms 6.5 and 6.7.")
+    print("    are fully explained by Paper 2, Props. 6.3 and 6.5 and Thm 6.7.")
 
     # [3] the probe: composite diagonals with descendents
     found = []
@@ -190,7 +190,7 @@ def main():
               f"--bends {list(vs)}--> slot {m}")
     if found:
         print("    these are the far-side bends of Paper 2, Example 6.13; the initial coefficients of")
-        print("    Paper 2, Thm 1.4 absorb them (canonical_seeds.py)")
+        print("    Paper 2, Thm 1.3 absorb them (canonical_seeds.py)")
     print("ALL CHECKS PASSED")
 
 

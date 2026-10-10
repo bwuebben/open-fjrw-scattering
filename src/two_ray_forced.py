@@ -55,7 +55,7 @@ def main():
     N, bal, crit = diagonal(m)
     assert N == 2 and bal == [(0, 10), (5, 5), (10, 0)] and crit == [(1, 6), (6, 1)]
 
-    # nu^min keeps only e_0, nu^max only e_N (Paper 2, Thm 1.2); the value is that of
+    # nu^min keeps only e_0, nu^max only e_N (Paper 2, Thm 1.1); the value is that of
     # Paper 2, Example 6.20.
     v = Fraction(34, 625)
     nu_min = [v, Fraction(0), Fraction(0)]

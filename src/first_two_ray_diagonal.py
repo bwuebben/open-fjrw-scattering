@@ -23,7 +23,7 @@ Computed here, exactly:
       right-hand side supplied by the lower orders;
   (4) the resulting extreme value nu^min_{(0,10)}.
 
-Lower-order input, in the minimal normal form of Paper 2, Theorem 1.2 (only the
+Lower-order input, in the minimal normal form of Paper 2, Theorem 1.1 (only the
 eps_0 coefficient survives on each diagonal), computed in canonical_diagram.py and
 a_invariants.py and re-derived in check_lower_orders below:
     |J| = 1   nu_{(3,3)}  = 1        ([GKT] Thm 5.1 normalization)
@@ -147,7 +147,7 @@ def main():
         a_p, b_p = R * k2, S * k1
         print(f"  Lambda_{p}: boundary {(k1,k2)}  ->  v_{p} = {a_p} eps_{p} - {b_p} eps_{p-1}")
     print("  (triangular, hence independent: 3 coefficients - 2 torsor directions")
-    print("   = 1 invariant combination, matching Paper 2, Thm 1.5)")
+    print("   = 1 invariant combination, matching Paper 2, Thm 1.4)")
 
     print()
     print("=" * 68)
@@ -182,7 +182,7 @@ def main():
     sol = sp.solve(expr.subs({v1: 0, v2: 0}), v0)
     assert len(sol) == 1
     nu_min = sp.nsimplify(sol[0])
-    print(f"  the minimal normal form (Paper 2, Thm 1.2) kills eps_1, eps_2; the condition then gives")
+    print(f"  the minimal normal form (Paper 2, Thm 1.1) kills eps_1, eps_2; the condition then gives")
     print(f"      nu^min_({bal[0][0]},{bal[0][1]}) = {nu_min}")
     print(f"  i.e.  <tau_0^(3,3)^5 sigma_1^{bal[0][0]} sigma_2^{bal[0][1]} sigma_12>^min = {nu_min}")
 

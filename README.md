@@ -37,16 +37,17 @@ whenever a critical graph of weight zero occurs.
 ### Paper 2: Slope-ordered factorization of wall-crossing
 
 [`slope-ordered-factorization/slope-ordered-factorization.pdf`](slope-ordered-factorization/slope-ordered-factorization.pdf)
-proves that the wall term of each critical disk lies on the ray spanned by its
+proves that the wall term of each critical graph lies on the ray spanned by its
 numbers of boundary marked points, and that the transformation between the
 two extremal systems of invariants factors uniquely into automorphisms
 supported on these rays, ordered by slope. With descendents the
 factorization holds in every finite truncation, where it is realized by a
 homotopy of boundary conditions whose jumps occur ray by ray; in general a
 single homotopy in the normal form of the GKT extension lemma does not
-achieve this. In each finite truncation the invariants between consecutive
-rays are obtained by transport across the rays from initial constants, not
-all of which wall-crossing produces. Exact `x^5+y^5` calculations give the
+achieve this. In each finite truncation the potential between consecutive
+rays is obtained by transport across the rays from initial constants, and
+nonzero constants occur beyond `x^r`, `y^s` and the terms with one internal
+marking. Exact `x^5+y^5` calculations give the
 first ray factors, and the closed correlators are checked against the open
 topological recursion with Sage and admcycles.
 

@@ -21,14 +21,14 @@ Checked here:
  [1] the A-conditions solved on every sector diagonal in the min and max gauges
      (labeled-partition convention, a_invariants.py); in particular the new absolute
      invariant nu41 = -2/5;
- [2] the canonical boundary-ray factorization (Paper 2, Theorem 1.2)
+ [2] the canonical boundary-ray factorization (Paper 2, Theorem 1.1)
      g^{min->max} = theta_(1,3) o theta_(1,2) o theta_(2,3) o theta_(1,1)
      (slope-ordered, bottom-up: rays (1,1) < (2,3) < (1,2) < (1,3)),
      with the two order-4 wall coefficients (c12 on ray (2,3), c02 on ray (1,3);
      Paper 2, Section 7: -1/750 and -1/1250) solved from g(W^min) = W^max -- an
      overdetermined nonlinear system whose consistency includes the commutator
      [theta_(1,2), theta_(1,1)] contribution;
- [3] the transport representation (Paper 2, Theorem 1.4) on this sector: seeding each
+ [3] the transport representation (Paper 2, Theorem 1.3) on this sector: seeding each
      monomial with its anchored value (its coefficient at its anchor cut, Paper 2,
      Definition 6.4) reproduces the potential in all five chambers.
 

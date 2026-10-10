@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 r"""
 transport_engine.py -- a NONLINEAR check of the transport representation (Paper 2,
-Theorem 1.4): the pure-t33 sector of x^5+y^5 through order t^4.
+Theorem 1.3): the pure-t33 sector of x^5+y^5 through order t^4.
 
 Input (computed in canonical_diagram.py and a_invariants.py): the t33-tower normal forms
     nu^min: nu_(1,6) = -2/5 (t^2), nu_(4,4) = 1/5 (t^3, invariant), nu_(2,7) = -12/25 (t^4)
@@ -31,7 +31,7 @@ Checked here:
        <tau0^(3,3)^4 sigma_1^2 sigma_2^7 sigma_12>^min = -12/25
      from the wall function alone.  Symmetrically T(top) = W^max.
  [3] the invariant t^3 slot (x^4y^4) is fixed by the wall exactly (X_11(x^3y^3) = 0,
-     X_11(x^4y^4) = 0): it is its own seed, as in Paper 2, Theorem 1.4.
+     X_11(x^4y^4) = 0): it is its own seed, as in Paper 2, Theorem 1.3.
 
 Run: ./venv/bin/python src/transport_engine.py
 """

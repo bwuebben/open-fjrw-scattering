@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 r"""
 Exact checks for the ordered broken-line chain formula used in ray transport
-(Paper 2, Lemma 6.9 and Theorem 6.10).
+(Paper 2, Lemma 6.9 and Proposition 6.10).
 
 The script checks the two coefficients that distinguish the formula:
   (1) the factorial-weighted double bend in the pure t_(3,3) tower;

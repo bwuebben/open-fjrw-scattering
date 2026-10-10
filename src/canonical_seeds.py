@@ -4,11 +4,11 @@ canonical_seeds.py -- (1) the census of foreign own-chamber contributions, with 
 targets anchored on the side of the ray toward the (1,1)-direction (the anchor convention
 of Paper 2, Definition 6.4); (2) the first off-ray far-side case D = {(0,0,2),(2,1,0)},
 solved completely (Paper 2, Example 6.13); and (3) an instance of the transport
-representation (Paper 2, Theorems 1.4 and 6.8): the initial coefficients are the
+representation (Paper 2, Theorems 1.3 and 6.8): the initial coefficients are the
 cut-independent constants V := W|_D - W_{<u}, and with initial coefficient := V the
 transport identity W~ = W (W~ the transport potential) holds by induction on
 divisibility.  Taking the anchored value as the initial coefficient gives V exactly when
-no foreign bending reaches the anchor cut (Paper 2, Theorem 1.4) and fails otherwise --
+no foreign bending reaches the anchor cut (Paper 2, consequence (a) after Theorem 6.8) and fails otherwise --
 as the off-ray case shows, where the extreme slot (7,1) carries the nonzero initial
 coefficient -10/3 behind a normal-form zero (0 = initial coefficient + far-side bend 10/3).
 

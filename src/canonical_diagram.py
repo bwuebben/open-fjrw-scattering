@@ -2,9 +2,9 @@
 r"""
 canonical_diagram.py -- the canonical boundary-ray factorization D^{5,5} of the open FJRW
 theory of x^5+y^5: extremal normal forms and the first wall functions (Paper 2,
-Theorem 1.2 and Example 5.1).
+Theorem 1.1 and Example 5.1).
 
-Extremal normal forms (Paper 2, Theorem 1.2):
+Extremal normal forms (Paper 2, Theorem 1.1):
 on every (J,d)-diagonal with N >= 1, the infinitesimal wall action moves the coefficient
 vector (nu_0,...,nu_N) along the triangular directions
       w_p = r(k_2(p+1)+1) e_{p+1} - s(k_1(p)+1) e_p ,   p = 0..N-1,
@@ -13,7 +13,7 @@ induction there exist UNIQUE chamber indices nu^min (only p=0 survives per diago
 nu^max (only p=N survives).  This uses no periods, so it holds on narrow and broad
 diagonals alike.
 
-The canonical factorization (Paper 2, Theorem 1.2): D_0^{r,s} is the deformation-filtered,
+The canonical factorization (Paper 2, Theorem 1.1): D_0^{r,s} is the deformation-filtered,
 boundary-ray-ordered factorization of the unique g in the enlarged group with
 W^{nu^max} = g(W^{nu^min}). This is a canonical, choice-free system of primary
 wall functions. The boundary ray of X_(k1,k2) is (k1+1,k2+1).

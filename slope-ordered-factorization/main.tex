@@ -56,21 +56,24 @@ Landau--Ginzburg models, boundary conditions}
 \begin{document}
 
 \begin{abstract}
-We prove that in the genus-zero open FJRW theory of $x^r+y^s$ of Gross, Kelly
-and Tessler, the wall term of each critical disk lies on the ray spanned by
-its numbers of boundary marked points, and that the wall-crossing
-transformation between the two extremal systems of invariants, in which on each set of invariants related by walls only the coefficient of least, respectively greatest, $x$-degree can be nonzero, factors uniquely into automorphisms
-supported on these rays and ordered by slope.  The proof rests on the
-Kontsevich--Soibelman ordered-product lemma, applied with the filtration by
-the number of markings since the ray assignment is not a grading, and on the
-simply transitive action of the wall-crossing group once a torus direction
-is added to its Lie algebra.  With descendents the factorization holds in
-every finite truncation, where it is realized by a homotopy of boundary
-conditions whose jumps occur ray by ray; in general no single homotopy in
-the normal form of the Gross--Kelly--Tessler extension lemma does this.  In
-each finite truncation the invariants between consecutive rays are obtained
-by transport across the rays from constants analogous to theta-function
-coefficients, not all of which wall-crossing produces.
+We prove that for the genus-zero open FJRW invariants of $x^r+y^s$ of Gross,
+Kelly and Tessler, which depend on boundary conditions through a wall-crossing
+group, the transformation between the two extremal systems of invariants
+factors uniquely into automorphisms supported on rays in the quadrant of
+boundary-marking numbers, ordered by slope; in the extremal systems, among
+invariants related by walls only the one of least, respectively greatest,
+$x$-degree can be nonzero.  Each critical graph contributes on the ray of its
+boundary-marking numbers, the unique ray whose monomials its wall-crossing
+term fixes.  The proof combines the Kontsevich--Soibelman
+ordered-product lemma, with a filtration in place of a grading, and the simply
+transitive action of the group once a torus direction is adjoined.  With
+descendents the factorization holds in every finite truncation and is realized
+there by a homotopy of boundary conditions whose jumps occur ray by ray; in
+general no single homotopy from the Gross--Kelly--Tessler extension lemma does
+this.  In each truncation the potential between consecutive rays is obtained
+by transport from constants analogous to theta-function coefficients, and
+nonzero constants occur beyond those of $x^r$, $y^s$ and the terms with one
+internal marking.
 \end{abstract}
 
 \maketitle
@@ -115,7 +118,7 @@ on the strata where a critical graph and a balanced graph meet at a boundary
 node, and the invariants change only through these zeros.  GKT assemble the
 change at each time at which such zeros occur into an automorphism of the
 potential below: the exponential of the wall terms of the critical graphs, the
-Hamiltonian vector fields attached to them (see the conventions in
+Hamiltonian vector fields attached to them (see the notation in
 \S\ref{ssec:results}), weighted, up to explicit signs, by their zero counts.
 The total change is the time-ordered product of these exponentials
 \cite[proofs of Thms.~5.4 and~5.9]{GKT}; this jump formula is restated in
@@ -140,7 +143,7 @@ empty multiset contributes $x^r+y^s$, by the normalization $\nu=-1$ for
 balanced graphs without internal markings, and over the labeled ring of
 \cite[Def.~4.6]{GKT}
 the same formula holds without the symmetry factor.  Up to the sign and
-symmetry factor, which are constant along each diagonal (see the conventions in
+symmetry factor, which are constant along each diagonal (see the notation in
 \S\ref{ssec:results}),
 the coefficient of $u_{J,\mathbf d}x^{\beta_1}y^{\beta_2}$ is thus the invariant
 of the balanced graph of boundary degree $\beta$ over $(J,\mathbf d)$.
@@ -155,7 +158,7 @@ marking; the condition $\Ascr(J,\mathbf d,\nu)=(-1)^{d_1}$ when $J$ is a single
 marking with descendent exponent $d_1$; and the condition
 $\Ascr(J,\mathbf d,\nu)=0$ when $|J|\ge2$ and $N(J,\mathbf d)\ge0$, that is,
 when balanced graphs over $(J,\mathbf d)$ exist (the integer
-$N(J,\mathbf d)$ is defined in the conventions of \S\ref{ssec:results}, and
+$N(J,\mathbf d)$ is defined in Definition~\ref{def:diagonal}, and
 \S\ref{sec:algebra}
 shows that this is the inequality of \cite[Def.~3.47]{GKT}).  Here $\Ascr$ is a
 $\Gamma$-function-weighted polynomial in the invariants, recalled in
@@ -202,9 +205,7 @@ $g^{\min\to\max}$, the wall-crossing transformation between the two extremal
 systems, in which the coefficients on every wall-bearing diagonal
 (\S\ref{ssec:results}) vanish except at one end, is realized by homotopies of
 boundary conditions; the ray factors, but not the chosen homotopies, are
-compatible in the coefficientwise limit.  By \emph{geometric wall-crossing} we
-mean this realization of the factorization by homotopies of boundary
-conditions whose jumps occur ray by ray.
+compatible in the coefficientwise limit.
 
 The paper also shows that the system of
 open invariants at every slope cut, a direction in the quadrant taken on one
@@ -214,59 +215,12 @@ monomials of the potential that do not depend on the cut.  The quadrant organize
 wall-crossing from one of its edges to the other; it does not by itself carry
 the singular integral-affine structure of a Gross--Siebert base.  For
 $x^4+y^4$ the companion paper \cite{annular} constructs a singular
-integral-affine annulus and on it a wall structure, consistent at its two joints, whose singleton walls are the ray factors of $g^{\min\to\max}$ for a single first-descendent marking of twist $(1,0)$ or $(0,1)$, but whose first wall carrying one marking of each of these twists is not (Remark~\ref{rem:interpretation}).
+integral-affine annulus with a wall structure, consistent at its two joints,
+whose walls for a single first-descendent marking of twist $(1,0)$ or $(0,1)$
+are ray factors of $g^{\min\to\max}$ (Remark~\ref{rem:interpretation}).
 
 \subsection{Results}
 \label{ssec:results}
-In order of importance, the main new results are the following.
-\begin{enumerate}
-\item[(a)] The wall term of a critical graph fixes exactly the monomials whose
-exponents are proportional to its boundary degree, as a wall of a scattering
-diagram fixes the monomials along it; its boundary ray is therefore the unique
-ray whose monomials it fixes, and the walls are placed there
-(Proposition~\ref{prop:placement}).  Along these rays the transition element
-$g^{\min\to\max}$ between the two extremal systems factors without choices
-(Theorem~\ref{thm:canonical}).  By contrast, the jump formula of \cite[proof of Thm.~5.9]{GKT} orders the total jump of a normal-form homotopy by homotopy time, with one
-factor for each subset of internal markings and factors that mix boundary
-rays; the times and their order are auxiliary choices of the extension lemma
-(Remark~\ref{rem:timeorder}).  The factorization itself is the
-Kontsevich--Soibelman ordered-product lemma, applied with the filtration by
-the number of markings because the ray assignment is not a grading
-(Theorem~\ref{thm:presentation}(ii)).
-\item[(b)] In each finite coefficient quotient this factorization is realized
-by concatenated homotopies of boundary conditions, one ray at a time
-(Theorem~\ref{thm:georealization}), whereas a single homotopy in the normal
-form of the GKT extension lemma makes all critical graphs with the same internal
-markings jump at once and so cannot in general separate their rays
-(Proposition~\ref{prop:obstruction} and Corollary~\ref{cor:nosimple}).
-\item[(c)] The invariants at every slope cut are transported through the ray
-factors from initial coefficients (Theorem~\ref{thm:transport}); nonzero
-initial coefficients occur beyond those of $x^r$ and $y^s$, so the open theory
-is strictly richer than the part generated from $x^r+y^s$ by wall-crossing
-(Observation~\ref{obs:richer}).
-\end{enumerate}
-Theorems~\ref{thm:canonical}, \ref{thm:georealization} and~\ref{thm:transport}
-below state the main parts of (a)--(c) in this order; they are preceded by
-Theorem~\ref{thm:presentation}, whose part (ii) is the factorization lemma
-used in (a).  Under \emph{Further results}, Theorem~\ref{thm:effective} makes
-explicit on each diagonal how the conditions of GKT determine the invariants,
-and Theorem~\ref{thm:trichotomy} classifies the wall terms by weight.
-
-Two further results are recalled from the companion note \cite{note}, where
-they are proved over the symmetric coefficient ring.  First, the transitivity
-asserted in \cite[Thm.~4.27]{GKT} requires adjoining to the Lie algebra of
-\cite[Def.~4.23]{GKT} the torus direction $x\partial_x-y\partial_y$ of the
-wall terms of critical graphs with one boundary marking of each type, and the
-enlarged group acts freely and transitively \cite[Prop.~1.4 and
-Rem.~3.1]{note}; the proof extends the invariance of the polynomials $\Ascr$,
-which GKT derive from a period formula stated for residues at most
-$(r-2,s-2)$, to all residues through a Laplace integral.  Here the torsor property is proved over the labeled ring of \cite[Def.~4.6]{GKT} as well (Lemma~\ref{lem:enlarged}), as the realization theorem requires, using the all-residue invariance (Lemma~\ref{lem:allresidue}), whose Laplace computation \cite[proof of Prop.~1.4]{note} already carries out over that ring; and
-Proposition~\ref{prop:nontransitive} adds an explicit primary instance of the
-failure, for $r=s=4$ and two labels of twist $(2,2)$; \cite[Ex.~3.2]{note}
-gives a descendent one.  Second, Theorem~\ref{thm:trichotomy}, including the
-threshold (iii), is also in the companion note \cite[\S2, Lem.~4.2 and
-Prop.~7.1]{note}.
-
 The organizing fact is a dictionary between the wall-crossing algebra of
 \cite{GKT} and the tropical vertex.  The wall term of a critical graph is the
 monomial of its internal markings times the Hamiltonian vector field, for the
@@ -281,189 +235,157 @@ single fully twisted boundary point $\sigma_{12}$, which balanced graphs carry
 and critical graphs do not.  Consequently the wall term of a critical graph lies
 on its boundary ray, and all results below are organized by these rays.
 
-\subsection*{Conventions}
-Throughout, $\gfrak^{r,s}$ denotes the Landau--Ginzburg wall-crossing Lie algebra
-of \cite[Def.~4.23]{GKT}: it is spanned by the \emph{wall terms}
-$u_{J,\mathbf d}X_{k}$, $k=(k_1,k_2)$, with
+In order of importance, the main new results are the following.
+\begin{enumerate}
+\item[(a)] The wall term of a critical graph fixes exactly the monomials whose
+exponents are proportional to its boundary degree, as a wall of a scattering
+diagram fixes the monomials along it; its boundary ray is therefore the unique
+ray whose monomials it fixes, and the walls are placed there.  Along these
+rays the transition element $g^{\min\to\max}$ between the two extremal systems
+factors without choices (Theorem~\ref{thm:canonical}).  By contrast, the jump
+formula of \cite[proof of Thm.~5.9]{GKT} orders the total jump of a
+normal-form homotopy by homotopy time, with one factor for each subset of
+internal markings and factors that mix boundary rays; the times and their
+order are auxiliary choices of the extension lemma
+(Remark~\ref{rem:timeorder}).
+\item[(b)] In each finite coefficient quotient this factorization is realized
+by concatenated homotopies of boundary conditions, one ray at a time, whereas
+a single homotopy in the normal form of the GKT extension lemma makes all
+critical graphs with the same internal markings jump at once and so cannot in
+general separate their rays (Theorem~\ref{thm:georealization}).
+\item[(c)] The invariants at every slope cut are transported through the ray
+factors from initial coefficients (Theorem~\ref{thm:transport}); nonzero
+initial coefficients occur beyond those of $x^r$, $y^s$ and the monomials with
+one internal marking, so the open theory is strictly richer than the part
+generated from these by wall-crossing (Observation~\ref{obs:richer}).
+\end{enumerate}
+Theorems~\ref{thm:canonical}, \ref{thm:georealization}
+and~\ref{thm:transport} below state (a)--(c) in this order; they rest on the
+ordered factorization of Proposition~\ref{prop:ordered}, discussed below.
+Under \emph{Further results},
+Theorem~\ref{thm:effective} makes explicit on each diagonal how the conditions
+of GKT determine the invariants, and Theorem~\ref{thm:trichotomy} classifies
+the wall terms by weight.
+
+Two further results are recalled from the companion note \cite{note}, where
+they are proved over the symmetric coefficient ring.  First, the transitivity
+asserted in \cite[Thm.~4.27]{GKT} requires adjoining to the Lie algebra of
+\cite[Def.~4.23]{GKT} the torus direction $x\partial_x-y\partial_y$ of the
+wall terms of critical graphs with one boundary marking of each type, and the
+enlarged group acts freely and transitively \cite[Prop.~1.4 and
+Rem.~3.1]{note}; the proof extends the invariance of the polynomials $\Ascr$,
+which GKT derive from a period formula stated for residues at most
+$(r-2,s-2)$, to all residues through a Laplace integral.  Here the torsor property is
+proved over the labeled ring of \cite[Def.~4.6]{GKT} as well
+(Lemma~\ref{lem:enlarged}), as the realization theorem requires.  The proof
+uses the all-residue invariance (Lemma~\ref{lem:allresidue}), whose Laplace
+computation \cite[proof of Prop.~1.4]{note} already carries out over that
+ring.  Proposition~\ref{prop:nontransitive} adds an explicit primary instance of the
+failure, for $r=s=4$ and two labels of twist $(2,2)$; \cite[Ex.~3.2]{note}
+gives a descendent one.  Second, Theorem~\ref{thm:trichotomy}, including the
+threshold (iii), is also in the companion note \cite[\S2, Lem.~4.2 and
+Prop.~7.1]{note}.
+
+\subsection*{Notation}
+The statements below use the following notation; further conventions are in
+\S\ref{ssec:setting}.  The Landau--Ginzburg wall-crossing Lie algebra
+$\gfrak^{r,s}$ of \cite[Def.~4.23]{GKT} is spanned by the \emph{wall terms}
+$u_{J,\mathbf d}X_{k}$, $k=(k_1,k_2)\in\ZZ^2_{\ge0}\setminus\{(0,0)\}$, where
+$u_{J,\mathbf d}$ is the deformation monomial of \S\ref{ssec:theory} (we write
+$t_{a,b}=t_{a,b,0}$) and
 \[
 X_{k}=X_{k_{1},k_{2}}=x^{k_{1}}y^{k_{2}}\bigl((k_{2}{+}1)x\partial_{x}-(k_{1}{+}1)
 y\partial_{y}\bigr)
 \]
-the Hamiltonian vector field of $x^{k_{1}+1}y^{k_{2}+1}$ for $dx\wedge dy$ (so
-that $X_{k}=(xy)^{-1}g_{k+(1,1)}$ for the vector field
-$g_\alpha=z^\alpha(\alpha_2x\partial_x-\alpha_1y\partial_y)$ of the tropical
-vertex), and
-$u_{J,\mathbf d}$ the deformation monomial of \S\ref{ssec:theory} (the
-descendent index of $t_{a,b,d}$ is suppressed when $d=0$; \emph{primary} means
-that all $d_j=0$; the \emph{deformation ideal} $\mathfrak m$ is the ideal
-generated by the $t_{a,b,d}$), subject to the
-congruences $k_{1}\equiv r(J)\ (\mathrm{mod}\ r)$, $k_{2}\equiv s(J)\
-(\mathrm{mod}\ s)$ and the dimension constraint
+is the Hamiltonian vector field of $x^{k_{1}+1}y^{k_{2}+1}$ for $dx\wedge dy$,
+subject to the dimension constraint
 \begin{equation}
 \label{eq:dimconstraint}
 sk_{1}+rk_{2}=m(J,\mathbf d)-rs,
 \qquad
-m(J,\mathbf d)=rs+\sum_{j}\bigl(sa_{j}+rb_{j}+rs(d_{j}-1)\bigr).
+m(J,\mathbf d)=rs+\sum_{j}\bigl(sa_{j}+rb_{j}+rs(d_{j}-1)\bigr),
 \end{equation}
-
-We call $k$ the \emph{Lie bidegree}, or bidegree, of $X_k$; a critical graph
-of boundary degree $\beta=(\beta_1,\beta_2)$ carries wall terms of Lie bidegree
-$k=\beta-(1,1)$ (Proposition~\ref{prop:shift}).  Throughout, $k$ denotes a Lie
-bidegree and $\beta$ a boundary degree.  The \emph{slope} of a nonzero
-boundary degree $\beta$, and of the ray it spans, is
-$\beta_2/\beta_1\in[0,\infty]$; the $\sigma_1$-axis has slope $0$ and the
-$\sigma_2$-axis slope $\infty$.  A \emph{slope-ordered product} of
+whose right-hand side is the \emph{Euler weight} $w(J,\mathbf d)$ of
+$u_{J,\mathbf d}$, and to the congruences $k_1\equiv r(J)\ (\mathrm{mod}\ r)$,
+$k_2\equiv s(J)\ (\mathrm{mod}\ s)$, where
+$\sum_{j}a_j=r(J)+r\ell_1$ and $\sum_{j}b_j=s(J)+s\ell_2$ with
+$0\le r(J)<r$ and $0\le s(J)<s$.  We call $k$ the \emph{Lie bidegree}, or
+bidegree, of $X_k$.  A critical graph of boundary degree
+$\beta=(\beta_1,\beta_2)$ carries wall terms of Lie bidegree $k=\beta-(1,1)$
+(Proposition~\ref{prop:shift}; for a marginal critical graph, of boundary
+degree $(1,1)$, this is the torus term adjoined below), and its
+\emph{boundary ray} is $\RR_{\ge0}\beta=\RR_{\ge0}(k_1+1,k_2+1)$.  An element
+of the Lie algebra is \emph{supported on} a boundary ray $\rho$ if it is a
+combination of wall terms whose boundary ray is $\rho$, and an automorphism is
+supported on $\rho$ if it is the exponential of such an element.  The \emph{slope} of $\beta$, and of
+its ray, is $\beta_2/\beta_1\in[0,\infty]$.  A \emph{slope-ordered product} of
 automorphisms supported on rays composes them in the order of the slopes of
 their rays; in increasing order the factor of least slope acts first, so that
 for factors $\exp(\eta_i)$ on rays $\rho_i$ with
 $\operatorname{slope}(\rho_1)<\cdots<\operatorname{slope}(\rho_L)$ the product
-is $\exp(\eta_L)\circ\cdots\circ\exp(\eta_1)$.
+is $\exp(\eta_L)\circ\cdots\circ\exp(\eta_1)$.  \emph{Primary} means that all
+descendent exponents $d_j$ vanish, and the \emph{deformation ideal}
+$\mathfrak m$ is the ideal generated by the parameters $t_{a,b,d}$.
 
-The right-hand side of
-\eqref{eq:dimconstraint} is the \emph{Euler weight} $w(J,\mathbf d)$ of the
-monomial $u_{J,\mathbf d}$.  Write
-\[
- \sum_{j\in J}a_j=r(J)+r\ell_1,\quad 0\le r(J)<r,\qquad
- \sum_{j\in J}b_j=s(J)+s\ell_2,\quad 0\le s(J)<s,
-\]
-and set
-\[
- N(J,\mathbf d)=\ell_1+\ell_2-|J|+1+\sum_{j\in J}d_j.
-\]
-By \cite[Not.~2.40]{GKT}, when $N\ge0$ there are $N+1$ balanced
-graphs, whose coefficients in the potential we call the \emph{balanced
-coefficients}, and when $N\ge1$ there are $N$ critical
-graphs; below the respective thresholds those sets are empty.  For fixed
-$(J,\mathbf d)$ the $N+1$ balanced coefficients form the
-\emph{$(J,\mathbf d)$-diagonal}, also called the \emph{diagonal} of
-$u_{J,\mathbf d}$ (Definition~\ref{def:diagonal}): the points
-$(r(J)+pr,\ s(J)+(N-p)s)$, $0\le p\le N$, spaced by $(r,-s)$ along a line in
-the boundary-degree plane.  The wall term of each of the $N$ intervening
-critical graphs changes $x^r+y^s$ by a \emph{wall vector} supported on two
-adjacent points of the diagonal \eqref{eq:wallvector}.  The diagonal and its monomial are
+For fixed $(J,\mathbf d)$ let
+$N=N(J,\mathbf d)=\ell_1+\ell_2-|J|+1+\sum_{j}d_j$
+(Definition~\ref{def:diagonal}).  There are $N+1$ balanced graphs when
+$N\ge0$ and $N$ critical graphs when $N\ge1$ \cite[Not.~2.40]{GKT}.  The $N+1$
+coefficients of the balanced graphs in the potential, the \emph{balanced
+coefficients}, form the \emph{$(J,\mathbf d)$-diagonal}, also called the
+diagonal of $u_{J,\mathbf d}$; their boundary degrees are spaced by $(r,-s)$
+along a line.  The wall term of each of the $N$ intervening critical graphs
+changes $x^r+y^s$ by a \emph{wall vector} supported on two adjacent points of
+the diagonal \eqref{eq:wallvector}.  The diagonal and its monomial are
 \emph{wall-bearing} if $N\ge1$, and \emph{marginal} if $w(J,\mathbf d)=0$.
-
-We include the wall terms of bidegree $(0,0)$ that occur when $w=0$.  Thus
-\[
-\widetilde\gfrak^{\,r,s}=\gfrak^{r,s}\oplus
-\bigoplus_{\substack{\varnothing\ne J,\;w(J,\mathbf d)=0,\;N(J,\mathbf d)\ge1\\
-r(J)=s(J)=0}}
-\QQ\,u_{J,\mathbf d}(x\partial_x-y\partial_y),
-\qquad
-\widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s}).
-\]
-Remark~\ref{rem:torus} proves that this is a Lie algebra; its marginal torus
-summands are omitted from \cite[Def.~4.23]{GKT}.  The enlarged group acts
-freely and transitively on $\Om(I)$, the \emph{torsor action}
-(Lemma~\ref{lem:enlarged}; \cite[Prop.~1.4]{note}), while the transitivity
-asserted in \cite[Thm.~4.27]{GKT} fails without these summands as soon as a
-marginal critical graph occurs (\cite[Rem.~3.1]{note};
-Remark~\ref{rem:torus}, Proposition~\ref{prop:nontransitive}).  Any two
-realizable systems $\nu,\nu'$ are thus related by a unique element of
-$\widetilde G^{r,s}$, the \emph{transition element} from $\nu$ to $\nu'$.
-All statements below are for the enlarged algebra and its group.
-
-As in GKT, a \emph{family} is indexed by graphs, and a \emph{homotopy} is a
-one-parameter deformation, of a single multisection or of a family.  A
-\emph{family of simple canonical homotopies}
-\cite[Defs.~3.36--3.37]{GKT}, which we also call a \emph{homotopy of boundary
-conditions}, is a homotopy $(\mathfrak s_T)_{T\in[0,1]}$ of families of
-canonical multisections, compatible on boundary strata.  The extension lemma
-\cite[Lem.~3.40]{GKT}, recalled as Lemma~\ref{lem:gktextension}, constructs
-such a homotopy between any two families of canonical multisections that are
-transverse to the zero section.  The \emph{jumps} of such a homotopy are the
-automorphisms by which its potential changes at the zeros of the homotopy on
-critical boundary strata, given by the jump formula of \cite[proof of
-Thm.~5.9]{GKT} restated in \S\ref{sec:presentation}; their time-ordered
-product is its \emph{total jump}.
-
-A
-finite set $S$ of deformation monomials is \emph{divisor-closed} if every
-monomial dividing an element of $S$ belongs to $S$; reduction to $S$ means
-quotienting out all other deformation monomials.  The \emph{boundary ray} of
-a wall term $u_{J,\mathbf d}X_{k}$ is $\RR_{\ge0}(k_1+1,k_2+1)$, the ray of the
-boundary degree of its critical graph.  The \emph{boundary-degree quadrant}
-$C_\partial$ is the closed first quadrant of the boundary-degree plane
-(Definition~\ref{def:sector}), with edges the $\sigma_1$-axis and the
-$\sigma_2$-axis.  A \emph{slope cut} is a direction in $C_\partial$, taken on
-one side of the wall when a wall lies on that direction.  It plays the role of
-the endpoint of a path in the path-ordered products of \cite{GPS10}, and,
-because the descendent walls are dense in $C_\partial$
-(Proposition~\ref{prop:localfinite}), slope cuts replace the chambers of a
-finite wall structure (Definition~\ref{def:sector}).  The
-\emph{$\sigma_1$-edge cut} and the \emph{$\sigma_2$-edge cut} are the cuts at
-the two edges of $C_\partial$.
+The \emph{enlarged algebra} $\widetilde\gfrak^{\,r,s}$ adjoins to
+$\gfrak^{r,s}$ the wall terms $u_{J,\mathbf d}(x\partial_x-y\partial_y)$ of
+bidegree $(0,0)$ of the critical graphs on marginal diagonals with
+$J\ne\varnothing$; their critical graphs have boundary degree $(1,1)$.  The
+group $\widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s})$ acts freely and
+transitively on the set $\Om(I)$ of realizable systems, the \emph{torsor
+action} (Lemma~\ref{lem:enlarged}; \cite[Prop.~1.4]{note}), so any two
+realizable systems $\nu,\nu'$ are related by a unique element of
+$\widetilde G^{r,s}$, the \emph{transition element} from $\nu$ to $\nu'$.  All
+statements are for the enlarged algebra and its group.  A finite set $S$ of
+deformation monomials is \emph{divisor-closed} if every monomial dividing an
+element of $S$ belongs to $S$, and \emph{reduction to $S$} means quotienting
+out all other deformation monomials.
 
 \subsection*{Main theorems}
-The first theorem collects two general statements, on homotopies of boundary
-conditions and on the group.
+Every element of the enlarged group factors along the boundary rays
+(Proposition~\ref{prop:ordered}): in the primary algebra, modulo every power
+of $\mathfrak m$, it is uniquely a slope-ordered product of exponentials of
+elements supported on single boundary rays, and with descendents the same
+holds on every finite divisor-closed coefficient set.  This is the
+Kontsevich--Soibelman ordered-product lemma \cite{KS06}, \cite[\S0.3 and
+Thm.~1.4]{GPS10}, here over the boundary rays, whose directions are the Lie
+bidegrees shifted by $(1,1)$ and therefore do not form a Lie grading.  The
+induction still works because each ray subalgebra is abelian, the bracket
+being proportional to the determinant of the directions of the two boundary
+rays, and the filtration by the number of markings replaces the grading.  The
+main theorem applies this to one canonical element.
 
-\begin{theorem}[Slope-ordered boundary-ray factorization; \S\ref{sec:presentation}]
-\label{thm:presentation}
-(i) (Path independence for boundary conditions.) For any homotopy of
-boundary conditions supplied by \cite[Lem.~3.40]{GKT} with equal endpoints,
-the time-ordered
-product of its jumps, the critical-graph jump automorphisms of the jump formula
-of \cite[proof of Thm.~5.9]{GKT} (restated in \S\ref{sec:presentation}), is
-the identity; for such homotopies with arbitrary endpoints, the total jump
-depends only on the endpoints. (ii) (Boundary-ray factorization.) In the primary
-algebra, modulo every power of the deformation ideal, every element of the
-enlarged wall-crossing group factors uniquely as a slope-ordered product of
-exponentials supported on the boundary rays
-$\RR_{\ge0}(k_{1}{+}1,k_{2}{+}1)$; the marginal torus terms belong to the
-$(1,1)$-ray. The compatible factorizations define its completed boundary-ray
-factorization. In the full descendent algebra the same factorization is taken
-on finite divisor-closed coefficient sets and passed to the coefficientwise
-limit.
-\end{theorem}
-
-Part (i) holds because the action is free (Lemma~\ref{lem:enlarged}): the
-product of the jumps around a loop of boundary conditions fixes a potential,
-hence is the identity.  It is a consistency statement in the space of
-boundary conditions, distinct from consistency of the ray diagram in the
-quadrant in the sense of \cite{GPS10}.  Part (ii) is the
-Kontsevich--Soibelman ordered-product lemma \cite{KS06},
-\cite[\S0.3 and Thm.~1.4]{GPS10}, here over the boundary rays, whose
-directions are the Lie bidegrees shifted by $(1,1)$ and therefore do not form a
-Lie grading.  The induction still works because each ray subalgebra is
-abelian, the bracket being proportional to the determinant of the directions
-of the two boundary rays, and the filtration by the number of markings
-replaces the grading.
-
-In each finite truncation the factorization (ii) of an element $g$ is a
-finite wall structure of the shape of a scattering diagram, whose
-path-ordered product from one edge of the quadrant to the other is $g$.  Apart
-from the factors on the $(1,1)$-ray, its automorphisms are the rational-power
-wall-crossings of Proposition~\ref{prop:shift}, which multiply $x$ and $y$ by
-rational powers of binomials $1+c\,x^{k_1}y^{k_2}$ \cite[Lem.~4.21]{GKT},
-not elements of the tropical vertex group of \cite{GPS10}.  For the transition
-element $g^{\min\to\max}$ between the extremal systems of Theorem~\ref{thm:canonical}
-below, this product is not the identity unless every ray factor is trivial.
-Accordingly the diagram $\Dscr^{r,s}$ defined after Theorem~\ref{thm:canonical} is not
-the consistent completion of an initial diagram: it is the
-Kontsevich--Soibelman factorization of one prescribed element,
-$g^{\min\to\max}$.  In the
-graded setting of Kontsevich--Soibelman and Bridgeland \cite{KS06,Bridgeland},
-ordered factorization over the rays of the grading identifies each group
-element with the consistent scattering diagram whose path-ordered product
-between two opposite chambers is that element; $\Dscr^{r,s}$ is the analogue
-of that diagram for $g^{\min\to\max}$, read along a path from one edge of the
-quadrant to the other, but the boundary rays do not come from a grading of
-$\widetilde\gfrak^{\,r,s}$ (Proposition~\ref{prop:shift}), so the standard
-bijection does not apply verbatim, and Theorem~\ref{thm:presentation}(ii)
-supplies the factorization instead.
-
-\begin{theorem}[Extremal systems and the boundary-ray factorization
-$\Dscr^{r,s}$; \S\ref{sec:canonical}]
-\label{thm:canonical}
-On every wall-bearing diagonal, including a marginal diagonal, the wall action
-on the $N{+}1$ balanced coefficients is triangular; consequently there exist
-unique realizable systems $\nu^{\min}$ and $\nu^{\max}$ in which, on every such
-diagonal, only the extreme coefficient survives. The factorization, in
-increasing order of slope, of the unique group element $g^{\min\to\max}$
-carrying $W^{\nu^{\min}}$ to $W^{\nu^{\max}}$ is a completed primary
-boundary-ray factorization $\Dscr^{r,s}_{0}$, which involves no choices and is
-computable order by order.
+\begin{theorem}[Slope-ordered factorization between the extremal systems;
+\S\ref{sec:canonical}]
+\label{thm:canonical}\mbox{}
+\begin{enumerate}
+\item[(i)] On every wall-bearing diagonal, including a marginal diagonal, the
+wall action on the $N{+}1$ balanced coefficients is triangular; consequently
+there exist unique realizable systems $\nu^{\min}$ and $\nu^{\max}$ in which,
+on every such diagonal, only the coefficient of least, respectively greatest,
+$x$-degree survives.
+\item[(ii)] In the primary algebra, modulo every power of the deformation
+ideal, the transition element $g^{\min\to\max}$ from $\nu^{\min}$ to
+$\nu^{\max}$ factors uniquely as a product, in increasing order of slope, of
+exponentials of elements supported on single boundary rays.  These
+factorizations are compatible and define the completed primary factorization
+$\Dscr^{r,s}_{0}$, which involves no choices and is computable order by order.
+\item[(iii)] The rays are forced: the vector field of the wall term of a
+critical graph annihilates a monomial $x^{\alpha_1}y^{\alpha_2}$,
+$\alpha\in\ZZ^2_{\ge0}$, if and only if $\alpha$ lies on the boundary ray of
+that graph.
+\end{enumerate}
 \end{theorem}
 
 We call $\nu^{\min}$ and $\nu^{\max}$ the \emph{minimal} and \emph{maximal
@@ -473,16 +395,23 @@ the one of greatest $x$-degree in $\nu^{\max}$.  For a finite labeled set $I$,
 $\nu^{\min}_I$ and $\nu^{\max}_I$ denote the restrictions of $\nu^{\min}$ and
 $\nu^{\max}$ to the labeled set $I$.  In the full descendent algebra the
 proof gives compatible factorizations of $g^{\min\to\max}$ on all finite
-divisor-closed coefficient sets (Theorem~\ref{thm:presentation}(ii)); their
-coefficientwise limit, read on slope cuts, is the descendent extension
-$\Dscr^{r,s}$ of $\Dscr^{r,s}_{0}$.  The wall action is triangular because
+divisor-closed coefficient sets (Proposition~\ref{prop:ordered}); their
+coefficientwise limit, read on slope cuts (defined before
+Theorem~\ref{thm:transport}), is the descendent extension
+$\Dscr^{r,s}$ of $\Dscr^{r,s}_{0}$.  Part~(iii) is the identity
+$X_{k}(x^{\alpha_1}y^{\alpha_2})=\bigl((k_2{+}1)\alpha_1-(k_1{+}1)\alpha_2\bigr)
+x^{\alpha_1+k_1}y^{\alpha_2+k_2}$ (Proposition~\ref{prop:placement}): the
+factors are placed on the boundary rays, and not on the rays of the Lie
+bidegrees, because these are the rays whose monomials they fix.  The wall
+action is triangular because
 the $N$ wall vectors of a diagonal are supported on the $N$ pairs of adjacent
 points with indices $\{p-1,p\}$, $1\le p\le N$, one pair each, with nonzero
 entries at both points ($\lambda_p,\mu_p>0$ in \eqref{eq:wallvector}).  The existence
-of $\nu^{\min}$ and $\nu^{\max}$ is the triangular elimination of \cite[proof of Thm.~4.27,
-Step~3]{GKT}, with the torus direction adjoined; the new statement in
-Theorem~\ref{thm:canonical} is the factorization of $g^{\min\to\max}$ along
-the boundary rays, which involves no choices.  We write $\theta_{\rho}$ for
+of $\nu^{\min}$ and $\nu^{\max}$ in (i) is the triangular elimination of
+\cite[proof of Thm.~4.27, Step~3]{GKT}, with the torus direction adjoined;
+the new statements in Theorem~\ref{thm:canonical} are the factorization (ii)
+of $g^{\min\to\max}$ along the boundary rays, which involves no choices, and
+the placement (iii).  We write $\theta_{\rho}$ for
 the factor of $\Dscr^{r,s}$ supported on the ray $\rho$ and call it the
 \emph{ray factor} of $\rho$; it collects all critical-graph terms for which
 $(k_{1}{+}1,k_{2}{+}1)$ lies on $\rho$ (Proposition~\ref{prop:shift}).  For
@@ -496,6 +425,28 @@ $x^{5}+y^{5}$ the walls of $\Dscr^{5,5}$ begin
 where the subscripts are the primitive boundary degrees on the rays.  The ray
 factors are computed by solving $\nu^{\max}-\nu^{\min}$ diagonal by diagonal,
 order by order, against the wall vectors (Example~\ref{ex:walls}).
+
+In each finite truncation the factorization of an element $g$ is a finite
+set of rays carrying automorphisms, in the shape of a scattering diagram,
+whose path-ordered product from one edge of the quadrant to the other is $g$.
+Apart from the factors on the $(1,1)$-ray, its automorphisms are the
+rational-power wall-crossings of Proposition~\ref{prop:shift}, which multiply
+$x$ and $y$ by rational powers of binomials $1+c\,x^{k_1}y^{k_2}$
+\cite[Lem.~4.21]{GKT}, not elements of the tropical vertex group of
+\cite{GPS10}.  For the transition element $g^{\min\to\max}$ this product is not the
+identity unless every ray factor is trivial.  Accordingly the diagram
+$\Dscr^{r,s}$ is not the consistent
+completion of a diagram of incoming walls: it is the Kontsevich--Soibelman
+factorization of one prescribed element, $g^{\min\to\max}$.  In the graded
+setting of Kontsevich--Soibelman and Bridgeland \cite{KS06,Bridgeland},
+ordered factorization over the rays of the grading identifies each group
+element with the consistent scattering diagram whose path-ordered product
+between two opposite chambers is that element; $\Dscr^{r,s}$ is the analogue
+of that diagram for $g^{\min\to\max}$, read along a path from one edge of the
+quadrant to the other, but the boundary rays do not come from a grading of
+$\widetilde\gfrak^{\,r,s}$ (Proposition~\ref{prop:shift}), so the standard
+bijection does not apply verbatim, and Proposition~\ref{prop:ordered}
+supplies the factorization instead.
 
 The worked case $x^{5}+y^{5}$ (\S\ref{sec:canonical} and Appendix~\ref{sec:x5y5})
 produces, beyond the ray factors above, the invariant relations and values
@@ -528,43 +479,58 @@ with boundary insertions $\sigma_{1}^{\beta_{1}}\sigma_{2}^{\beta_{2}}\sigma_{12
 the suppressed
 insertions are the two interior markings $(a_1,b_1)$ and $(a_2,b_2)$.
 
-The realization theorem uses the normal form of the extension lemma.  A
-\emph{normal-form homotopy} is a homotopy of boundary conditions as
-constructed in \cite[Lem.~3.40]{GKT} (Lemma~\ref{lem:gktextension}): each subset $A$
-of the internal labels has one time $T_A$, and every jump of a critical graph
-with internal marking set $A$ occurs at $T_A$ (\S\ref{sec:presentation}).  The
-theorem also uses labeled sets large enough for symmetrization to be
-injective.  In the universal finite-order statements below, the finite
-labeled set $I$ is chosen \emph{saturated} at the order under consideration:
-when one works modulo the $K$th power of the deformation ideal, it carries at
-least $K-1$ labels of every primary twist, and, on a finite divisor-closed
-set $S$, at least $n_{a,b}(S)$ labels of every twist $(a,b)$, with
-$n_{a,b}(S)$ as in the next theorem.
+The realization theorem concerns homotopies of boundary conditions.  A
+\emph{homotopy of boundary conditions} is a family of simple canonical
+homotopies \cite[Defs.~3.36--3.37]{GKT}, a homotopy of families of canonical
+multisections compatible on boundary strata.  A \emph{normal-form homotopy}
+is one constructed by the extension lemma \cite[Lem.~3.40]{GKT}
+(Lemma~\ref{lem:gktextension}): each subset $A$ of the internal labels has
+one time $T_A$, and every zero of the homotopy of a critical graph with
+internal marking set $A$ occurs at $T_A$ (\S\ref{sec:presentation}).  For a
+normal-form homotopy, or a concatenation of such, the \emph{jumps} are the
+automorphisms by which its potential changes at these zeros, given by the
+jump formula of \cite[proof of Thm.~5.9]{GKT} (\S\ref{sec:presentation}),
+and their time-ordered product is its \emph{total jump}.  Freeness of the
+action gives path independence: for such a homotopy with equal endpoints the
+total jump is the identity (Remark~\ref{rem:pathindep}).  This is consistency
+in the space of boundary conditions, distinct from consistency of the ray
+diagram in the quadrant in the sense of \cite{GPS10}.  In
+Theorem~\ref{thm:georealization}(i) the labeled set $I$ carries enough labels
+that no monomial of $S$ lies in the ideal $\mathrm{Ideal}(I)$ of
+\cite[Def.~4.10]{GKT}, on whose quotient symmetrization is injective
+\cite[Lem.~4.14]{GKT}; part~(ii) concerns labeled systems and needs only
+labels of twist $(3,3)$.
 
 \begin{theorem}[Realization by homotopies in a finite coefficient quotient;
   \S\ref{ssec:realization}]
-\label{thm:georealization}
-Let $S$ be a finite divisor-closed set of deformation monomials containing
-$1$.  Choose a finite labeled set $I$ with at least
+\label{thm:georealization}\mbox{}
+\begin{enumerate}
+\item[(i)] Let $S$ be a finite divisor-closed set of deformation monomials
+containing $1$, and choose a finite labeled set $I$ with at least
 \[
 n_{a,b}(S):=\max_{u\in S}\sum_{d\ge0}\operatorname{ord}_{t_{a,b,d}}(u)
 \]
-  labels of every twist $(a,b)$ occurring in $S$.  The reduction to $S$ of the factorization $\Dscr^{r,s}$ (Theorem~\ref{thm:canonical} and the paragraph after it), the \emph{quotient
-factorization}, has finitely many rays $\rho_1,\dots,\rho_L$, listed in
-increasing slope.  There is a homotopy of boundary conditions, that is, a
-family of simple canonical homotopies in the sense of
-\cite[Defs.~3.36--3.37]{GKT}, obtained by concatenating normal-form
-homotopies, from a family of canonical multisections realizing
+labels of every twist $(a,b)$ occurring in $S$.  The reduction to $S$ of the
+factorization $\Dscr^{r,s}$ (Theorem~\ref{thm:canonical} and the paragraph
+after it), the \emph{quotient factorization}, has finitely many rays
+$\rho_1,\dots,\rho_L$, listed in increasing slope.  There is a homotopy of
+boundary conditions, obtained by concatenating normal-form homotopies, from a family of canonical multisections realizing
 $\nu_I^{\min}$ to one realizing $\nu_I^{\max}$; every
 time slice is a family of canonical multisections \cite[Def.~3.22]{GKT}.
-After reduction to the quotient supported on $S$ every nonzero
+After reduction to $S$ every nonzero
 jump is supported on a single boundary ray, the rays carrying
 nonzero reduced jumps occur in increasing slope as the homotopy time
 increases, and the total reduced jump on $\rho_{i}$ is the ray factor
 $\theta_{\rho_{i}}$ of Theorem~\ref{thm:canonical}.
+\item[(ii)] A single normal-form homotopy does not suffice in general: for
+$x^{5}+y^{5}$ modulo $\mathfrak m^{6}$, with $I$ carrying at least five labels
+of twist $(3,3)$, no normal-form homotopy between families of canonical
+multisections realizing $\nu_I^{\min}$ and $\nu_I^{\max}$ has all of its
+jumps supported on single rays.
+\end{enumerate}
 \end{theorem}
 
-The proof (\S\ref{ssec:realization}) treats one ray at a time.  The
+The proof of (i) (\S\ref{ssec:realization}) treats one ray at a time.  The
 intermediate systems, obtained from $\nu_I^{\min}$ by applying the factors
 $\theta_{\rho_1},\theta_{\rho_2},\dots$ in turn, are realized by canonical
 families by \cite[Cor.~5.14]{GKT}, and consecutive ones are joined by a single
@@ -579,14 +545,16 @@ unique, and this uniqueness, together with the abelianness of the subalgebra
 of each ray, forces every internal jump of that homotopy onto the prescribed
 ray; the concatenation may reuse a marking subset in later homotopies.  A final
 normal-form homotopy joining the result to a realization of $\nu_I^{\max}$ is
-trivial in the quotient.  The label count $n_{a,b}(S)$ makes symmetrization
-injective \cite[Lem.~4.14]{GKT}, so the labeled statement descends to the
-symmetric one.  The increasing order of slopes is the convention fixed in
-Theorem~\ref{thm:canonical}: by Theorem~\ref{thm:presentation}(ii),
+trivial in the quotient.  The label count $n_{a,b}(S)$ keeps the monomials
+of $S$ out of $\mathrm{Ideal}(I)$ \cite[Def.~4.10]{GKT}, on whose quotient
+symmetrization is injective \cite[Lem.~4.14]{GKT}, so the labeled statement
+descends to the symmetric one.  The increasing order of slopes is the convention fixed in
+Theorem~\ref{thm:canonical}: by Proposition~\ref{prop:ordered},
 $g^{\min\to\max}$ also factors uniquely in decreasing order of slopes, and the
 same construction realizes that factorization (Remark~\ref{rem:conjform}).
 
-A concatenation is needed whenever a diagonal carries two wall terms with
+Part~(ii) is Corollary~\ref{cor:nosimple}, an instance of a general
+obstruction: a concatenation is needed whenever a diagonal carries two wall terms with
 nonzero reduced coefficients that receive no contribution from lower-order
 terms, as for
 $t_{3,3}^5$ in $x^5+y^5$ or for any descendent singleton $t_{a,b,2}$: a single
@@ -602,7 +570,14 @@ the chambers of its angular endpoints
 (Proposition~\ref{thm:positionobstruction7}).
 
 The last main result is algebraic and concerns transport through the
-quadrant $C_\partial$.  The \emph{transport}
+\emph{boundary-degree quadrant} $C_\partial$, the closed first quadrant of
+the boundary-degree plane, with \emph{edges} the $\sigma_1$-axis and the
+$\sigma_2$-axis.  A \emph{slope cut} is a direction in $C_\partial$, taken on
+one side of the wall when a wall lies on that direction
+(Definition~\ref{def:sector}); it plays the role of the endpoint of a path in
+the path-ordered products of \cite{GPS10}.  The \emph{$\sigma_1$-edge cut} and
+the \emph{$\sigma_2$-edge cut} are the cuts at the two edges.  The
+\emph{transport}
 $\Psi(q)$ to a slope cut $q$ is the slope-ordered product of the ray factors
 from the $\sigma_1$-edge cut up to $q$, that is, the path-ordered product, in
 the sense of \cite{GPS10}, along a path from the $\sigma_1$-edge to $q$, taken
@@ -642,10 +617,11 @@ expression in lower-order data, so their difference does not depend on the
 cut.  This part is formal.  What gives the representation content is that
 the initial system is not generated by wall-crossing
 (Observation~\ref{obs:richer}): transport through the ray factors from
-$x^r+y^s$ alone does not produce the potential, because nonzero initial
-coefficients occur beyond those of $x^r$ and $y^s$, for instance the invariant
-$\tfrac15$ of \eqref{eq:newinvariants}, on a diagonal without wall terms, which
-no ray action can produce.  In the smooth Fano case of \cite{Gross10,CPS}, by
+$x^r+y^s$ and the monomials with one internal marking does not produce the
+potential, because nonzero initial coefficients occur beyond these, for
+instance the invariant $\tfrac15$ of \eqref{eq:newinvariants}, with three
+internal markings, on a diagonal without wall terms, which no ray action can
+produce.  In the smooth Fano case of \cite{Gross10,CPS}, by
 contrast, the potential is generated by broken lines from its initial
 monomials.  A coefficient whose initial
 coefficient is zero is given at every cut by transport of lower initial
@@ -665,8 +641,13 @@ the role of the
 coefficient of $\vartheta_m$ in an expansion $\sum_m\mathrm{init}_m\vartheta_m$
 of the potential, which is therefore not the analogue of
 $\vartheta_{(r,0)}+\vartheta_{(0,s)}$, and the anchor cut replaces the
-asymptotic end of a broken line with initial monomial $z^m$.  The ordered-chain formula of
-Theorem~\ref{thm:seedinversion} expresses each initial coefficient as an
+asymptotic end of a broken line with initial monomial $z^m$.  The
+initial coefficients do not depend on the side of the anchor cut, since the
+factor on the ray of $m$ fixes $m$ (Proposition~\ref{prop:placement}); the
+anchored values do, and the $(1,1)$-side is the one for which
+Proposition~\ref{thm:nobackscatter} controls the foreign bending at the anchor
+cut.  The ordered-chain formula of
+Proposition~\ref{thm:seedinversion} expresses each initial coefficient as an
 alternating sum of anchored values weighted by bend chains.
 
 \subsubsection*{Further results}
@@ -733,7 +714,8 @@ is present; each is the wall term of a critical graph over $(J,\mathbf d)$
 
 \begin{theorem}[Weight trichotomy and the threshold; \S\ref{sec:algebra}]
 \label{thm:trichotomy}
-In the enlarged algebra $\widetilde\gfrak^{\,r,s}$ defined above, the
+In the enlarged algebra $\widetilde\gfrak^{\,r,s}$, described in
+\S\ref{ssec:results} and displayed in \S\ref{ssec:setting}, the
 following hold.
 \begin{enumerate}
 \item[(i)] For a nonempty marking multiset $J$, wall terms over the
@@ -769,7 +751,7 @@ Theorem, equation and section numbers for \cite{GKT} refer to
 arXiv:2203.02435v3, which is the text quoted throughout.
 
 First, as the companion note shows \cite[Rem.~3.1 and Ex.~3.2]{note}, the
-marginal torus summands adjoined in \S\ref{ssec:results} are
+marginal torus summands adjoined in \S\ref{ssec:setting} are
 needed for the transitivity of \cite[Thm.~4.27]{GKT}: with the Lie algebra of
 \cite[Def.~4.23]{GKT}, the action is not transitive, for instance, for $r=s=4$
 and two labels of twist $(2,2)$ (Proposition~\ref{prop:nontransitive}), and
@@ -808,8 +790,8 @@ stated there as faithfulness; freeness is the form used here
 \subsection{Method}
 The argument combines the grading and torsor action of the GKT wall-crossing
 group with ordered factorization in a strictly convex cone, the
-Kontsevich--Soibelman ordered-product lemma over the boundary rays (see the
-discussion after Theorem~\ref{thm:presentation}).  The period
+Kontsevich--Soibelman ordered-product lemma over the boundary rays (Proposition~\ref{prop:ordered} and the discussion before
+Theorem~\ref{thm:canonical}).  The period
 relations determine the transverse coordinate on each diagonal, with the
 Laplace functional of Lemma~\ref{lem:allresidue} on the broad diagonals.  The
 GKT extension lemma realizes each prescribed finite
@@ -826,12 +808,63 @@ enter no proof; the programs are available at
 \section{The wall-crossing algebra of critical graphs}
 \label{sec:algebra}
 
+\subsection{Setting and notation}
+\label{ssec:setting}
+This subsection completes the notation of \S\ref{ssec:results}.  In a
+deformation monomial $u_{J,\mathbf d}=\prod_{j}t_{a_{j},b_{j},d_{j}}$ the
+descendent index of $t_{a,b,d}$ is suppressed when $d=0$.  For a multiset $J$
+of internal twists with descendents $\mathbf d$, write
+\[
+ \sum_{j\in J}a_j=r(J)+r\ell_1,\quad 0\le r(J)<r,\qquad
+ \sum_{j\in J}b_j=s(J)+s\ell_2,\quad 0\le s(J)<s.
+\]
+A wall term $u_{J,\mathbf d}X_{k}$ of $\gfrak^{r,s}$ is subject to the
+congruences $k_{1}\equiv r(J)\ (\mathrm{mod}\ r)$,
+$k_{2}\equiv s(J)\ (\mathrm{mod}\ s)$ and to \eqref{eq:dimconstraint}.  The
+integer $N(J,\mathbf d)=\ell_1+\ell_2-|J|+1+\sum_{j\in J}d_j$ of
+Definition~\ref{def:diagonal} counts the balanced and the critical graphs over
+$(J,\mathbf d)$; below the respective thresholds $N\ge0$ and $N\ge1$ those
+sets are empty.  The points of the $(J,\mathbf d)$-diagonal are
+$(r(J)+pr,\ s(J)+(N-p)s)$, $0\le p\le N$.
+
+Including the wall terms of bidegree $(0,0)$ that occur when $w=0$, the
+enlarged algebra is
+\[
+\widetilde\gfrak^{\,r,s}=\gfrak^{r,s}\oplus
+\bigoplus_{\substack{\varnothing\ne J,\;w(J,\mathbf d)=0,\;N(J,\mathbf d)\ge1\\
+r(J)=s(J)=0}}
+\QQ\,u_{J,\mathbf d}(x\partial_x-y\partial_y),
+\qquad
+\widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s}).
+\]
+Remark~\ref{rem:torus} proves that this is a Lie algebra; its marginal torus
+summands are omitted from \cite[Def.~4.23]{GKT}.  The enlarged group acts
+freely and transitively on $\Om(I)$, the \emph{torsor action}
+(Lemma~\ref{lem:enlarged}; \cite[Prop.~1.4]{note}), while the transitivity
+asserted in \cite[Thm.~4.27]{GKT} fails without these summands as soon as a
+marginal critical graph occurs (\cite[Rem.~3.1]{note};
+Remark~\ref{rem:torus}, Proposition~\ref{prop:nontransitive}).
+
+As in GKT, a \emph{family} is indexed by graphs, and a \emph{homotopy} is a
+one-parameter deformation, of a single multisection or of a family.  A
+homotopy of boundary conditions $(\mathfrak s_T)_{T\in[0,1]}$ is thus a
+homotopy of families of canonical multisections, compatible on boundary
+strata.  The extension lemma \cite[Lem.~3.40]{GKT}, recalled as
+Lemma~\ref{lem:gktextension}, constructs such a homotopy between any two
+families of canonical multisections that are transverse to the zero section;
+its jumps are given by the jump formula of \cite[proof of Thm.~5.9]{GKT},
+restated in \S\ref{sec:presentation}.  Reduction to a finite divisor-closed
+set $S$ means quotienting out all other deformation monomials.  Because the
+descendent walls are dense in $C_\partial$ (Proposition~\ref{prop:localfinite}),
+slope cuts replace the chambers of a finite set of walls
+(Definition~\ref{def:sector}).
+
+\subsection{Critical graphs and the enlarged algebra}
+\label{ssec:critical}
 We recall the objects of \cite[\S2.4, \S4.3]{GKT} in the notation used
-throughout, with the internal and boundary markings of \S\ref{ssec:theory}.
-For a multiset $J$ of internal
-twists with descendents $\mathbf d$, set $r(J)\equiv\sum_{j}a_{j}$
-$(\mathrm{mod}\ r)$, $s(J)\equiv\sum_{j}b_{j}$ $(\mathrm{mod}\ s)$, and
-$m(J,\mathbf d)$ as in \eqref{eq:dimconstraint}.
+throughout, with the internal and boundary markings of \S\ref{ssec:theory}
+and with $r(J)$, $s(J)$ as in \S\ref{ssec:setting} and $m(J,\mathbf d)$ as in
+\eqref{eq:dimconstraint}.
 
 \begin{definition}[{\cite[Not.~2.40]{GKT}}]
 \label{def:diagonal}
@@ -1108,7 +1141,7 @@ $\eta_u$ can cancel. (Individually, a positive-weight wall term contributes
 $r(k_{2}{+}1)x^{k_{1}+r}y^{k_{2}}-s(k_{1}{+}1)x^{k_{1}}y^{k_{2}+s}$, while a
 torus term contributes $r\,x^{r}-s\,y^{s}$.) So $g$ moves every potential, which is freeness and not
 merely faithfulness. The distinction matters downstream: uniqueness of the
-transition element, used in Theorem~\ref{thm:presentation}(i), needs trivial
+transition element, used in Remark~\ref{rem:pathindep}, needs trivial
 stabilizers, and faithfulness alone does not supply them for a nonabelian group.
 The argument of \cite[Thm.~4.27, Step~2]{GKT} likewise establishes freeness,
 though it is stated there as faithfulness. All uses below are through this lemma.
@@ -1164,7 +1197,10 @@ the sums over the descendent vectors $\mathbf d$ on $A$ and the critical graphs
 $\Lambda$ with internal marking set $A$ and descendent vector $\mathbf d$.
 Here $X_\Lambda=X_{k(\Lambda)}$, where $k(\Lambda)=\beta(\Lambda)-(1,1)$ is the
 Lie bidegree of $\Lambda$ (Proposition~\ref{prop:shift}) and $k_2(\Lambda)$ its
-second component; $u_{A,\mathbf d}=\prod_{j\in A}u_{j,d_j}$ is the monomial of
+second component, one less than the number of boundary points of $\Lambda$ of
+twist $(0,s-2)$ (elsewhere in \cite{GKT} that number itself is written
+$k_2(\Lambda)$, and in \cite[Not.~5.7]{GKT} the present $k_2(\Lambda)$
+appears as $k_2(0)$); $u_{A,\mathbf d}=\prod_{j\in A}u_{j,d_j}$ is the monomial of
 the internal markings in the labeled ring of \cite[Def.~4.6]{GKT}, so that
 $u_{A,\mathbf d}X_\Lambda$ is the wall term of $\Lambda$; and $\Delta(\Lambda)$ is
 the signed count of zeros of the homotopy of
@@ -1176,21 +1212,21 @@ over $\Lambda$ runs over the set $Q_0(A,\mathbf d)$ of \cite[Not.~5.7]{GKT},
 whose conditions are the congruences and \eqref{eq:dimconstraint} for
 $k(\Lambda)$.)
 
-\begin{proof}[Proof of Theorem~\ref{thm:presentation}(i)]
-Let $(\mathfrak s_{T})_{T\in[0,1]}$ be a homotopy of boundary conditions
-supplied by \cite[Lem.~3.40]{GKT}, with $\mathfrak s_{1}=\mathfrak s_{0}$, jump times
-$T_{1}<\dots<T_{M}$, the times of the marking subsets $A_1,\dots,A_M$, and
-jump elements $g_{i}\in\widetilde G^{r,s}$ (Lemma~\ref{lem:enlarged}) given by
-the jump formula above
-(\cite[proof of Thm.~5.9, eqns.~(5.33)--(5.37)]{GKT}). By that proof the potential
-$W^{\mathfrak s_{T}}$ is constant between jumps and transforms by $g_{i}$ at $T_{i}$;
-around the loop, $W^{\mathfrak s_{0}}=(g_{M}\circ\cdots\circ g_{1})(W^{\mathfrak s_{0}})$, and
-freeness (Lemma~\ref{lem:enlarged}) gives $g_{M}\circ\cdots\circ
-g_{1}=\mathrm{id}$. For two such paths with fixed endpoints, their total jumps
-$g,g'$ satisfy $g'g^{-1}(W^{\mathfrak s_{1}})=W^{\mathfrak s_{1}}$, hence $g'=g$.
-\end{proof}
+\begin{proposition}[Ordered factorization]
+\label{prop:ordered}
+Over the symmetric coefficient ring and over the labeled ring $A_I$ of
+\cite[Def.~4.6]{GKT}, the following holds.  In the primary algebra, modulo
+every power of the deformation ideal, every
+element of the enlarged wall-crossing group $\widetilde G^{r,s}$ factors
+uniquely as a slope-ordered product of exponentials supported on the boundary
+rays $\RR_{\ge0}(k_{1}{+}1,k_{2}{+}1)$; the marginal torus terms belong to the
+$(1,1)$-ray.  The compatible factorizations define its completed boundary-ray
+factorization.  In the full descendent algebra the same factorization is
+taken on finite divisor-closed coefficient sets and passed to the
+coefficientwise limit.
+\end{proposition}
 
-\begin{proof}[Proof of Theorem~\ref{thm:presentation}(ii)]
+\begin{proof}
 Let $\mathfrak m$ be the deformation ideal and first work in the primary
 quotient
 \[
@@ -1204,7 +1240,9 @@ $[F^{p},F^{q}]\subseteq F^{p+q}$ (here and below $F^\bullet$ also denotes the
 induced filtration on the quotient). For a rational boundary ray $\rho$ let
 $L_{\rho}$ be the span of the wall terms $uX_{k_{1},k_{2}}$ for which
 $(k_{1}{+}1,k_{2}{+}1)\in\rho$, placing a marginal wall term
-$u(x\partial_x-y\partial_y)$ in $\rho=\RR_{\ge0}(1,1)$. Then
+$u(x\partial_x-y\partial_y)$ in $\rho=\RR_{\ge0}(1,1)$; by
+Proposition~\ref{prop:placement} these are the rays whose monomials the wall
+terms fix. Then
 $L_{<K}=\bigoplus_{\rho}L_{\rho}$, with only finitely many summands.
 
 Each $L_{\rho}$ is abelian. Indeed,
@@ -1236,11 +1274,39 @@ where two ordered factorizations differ, the same direct-sum decomposition
 forces all differences to vanish, proving uniqueness. The construction is
 compatible as $K$ varies.
 
+Over the labeled ring $A_I$ the same argument applies with the filtration by
+the number $|A|$ of labels of the label monomials $u_A$ in place of $|J|$:
+the products of label monomials are again label monomials or zero, so
+$[F^{p},F^{q}]\subseteq F^{p+q}$, and the bracket formula above does not
+involve the coefficients.
+
 For descendents, perform the same construction after quotienting to any finite
 divisor-closed set of deformation monomials. Its complement is upward closed,
 so this is a Lie-algebra quotient, and the compatible finite constructions give
 the asserted coefficientwise factorization.
 \end{proof}
+
+\begin{remark}[Path independence]
+\label{rem:pathindep}
+For any homotopy of boundary conditions supplied by \cite[Lem.~3.40]{GKT},
+or concatenation of such homotopies, with equal endpoints, the time-ordered
+product of its jumps is the identity;
+for such homotopies with arbitrary endpoints, the total jump depends only on
+the endpoints.  Indeed, let $(\mathfrak s_{T})_{T\in[0,1]}$ be a homotopy of boundary conditions
+supplied by \cite[Lem.~3.40]{GKT}, with $\mathfrak s_{1}=\mathfrak s_{0}$, jump times
+$T_{1}<\dots<T_{M}$, the times of the marking subsets $A_1,\dots,A_M$, and
+jump elements $g_{i}\in\widetilde G^{r,s}$ (Lemma~\ref{lem:enlarged}) given by
+the jump formula above
+(\cite[proof of Thm.~5.9, eqns.~(5.33)--(5.37)]{GKT}). By that proof the potential
+$W^{\mathfrak s_{T}}$ is constant between jumps and transforms by $g_{i}$ at $T_{i}$;
+around the loop, $W^{\mathfrak s_{0}}=(g_{M}\circ\cdots\circ g_{1})(W^{\mathfrak s_{0}})$, and
+freeness (Lemma~\ref{lem:enlarged}) gives $g_{M}\circ\cdots\circ
+g_{1}=\mathrm{id}$. For two such paths with fixed endpoints, their total jumps
+$g,g'$ satisfy $g'g^{-1}(W^{\mathfrak s_{1}})=W^{\mathfrak s_{1}}$, hence $g'=g$.
+For a concatenation of such homotopies the same argument applies: its
+potential is constant between the finitely many jump times of its pieces and
+transforms by an element of $\widetilde G^{r,s}$ at each of them.
+\end{remark}
 
 \begin{remark}
 \label{rem:timeorder}
@@ -1460,8 +1526,8 @@ affected.
 \label{sec:canonical}
 
 \begin{proof}[Proof of Theorem~\ref{thm:canonical}]
-Work in a primary quotient modulo $F^K$, or more generally on a finite
-divisor-closed coefficient set as in Theorem~\ref{thm:presentation}(ii).
+Part~(iii) is Proposition~\ref{prop:placement}.  For (i) and (ii), work in a primary quotient modulo $F^K$, or more generally on a finite
+divisor-closed coefficient set as in Proposition~\ref{prop:ordered}.
 For existence and uniqueness of $\nu^{\min}$, order its monomials by total
 degree. At each step, on each wall-bearing diagonal the span of the wall
 vectors $v_{p}=\lambda_{p}\varepsilon_{p}-\mu_{p}\varepsilon_{p-1}$ ($\lambda_{p},\mu_{p}>0$) is complementary to
@@ -1475,7 +1541,7 @@ preserves $\Om(I)$ (Lemma~\ref{lem:enlarged}). Uniqueness follows from
 freeness (Lemma~\ref{lem:enlarged}) plus the same triangularity: a nontrivial leading correction moves some
 $\nu_{p\ge1}$. The construction for $\nu^{\max}$ is symmetric (complement of
 $\QQ\varepsilon_{N}$). The factorization, in increasing order of slope, of the unique
-$g^{\min\to\max}$ (Theorem~\ref{thm:presentation}(ii)) is then determined
+$g^{\min\to\max}$ (Proposition~\ref{prop:ordered}) is then determined
 without choices, and its ray factors are computed order by order from the
 extremal systems. Uniqueness
 makes these constructions compatible under restriction, giving the primary
@@ -1594,13 +1660,14 @@ transport. The placement is not a convention but forced
 (Proposition~\ref{prop:placement}), and the same computation shows that the
 $(1,1)$-shift of Proposition~\ref{prop:shift}, the removal of the
 $\sigma_{12}$-insertion, is what makes bending along a transported monomial
-monotone in slope (Theorem~\ref{thm:nobackscatter}).
+monotone in slope (Proposition~\ref{thm:nobackscatter}).
 
 
-\begin{proposition}[Forced placement]
+\begin{proposition}[Forced placement; $=$ Theorem~\ref{thm:canonical}(iii)]
 \label{prop:placement}
-The vector field $X_{k_{1},k_{2}}$ fixes exactly the monomials proportional to
-its boundary-monomial direction $(k_{1}{+}1,k_{2}{+}1)$.  Thus the boundary
+The vector field $X_{k_{1},k_{2}}$ annihilates a monomial
+$x^{\alpha_1}y^{\alpha_2}$, $\alpha\in\ZZ^2_{\ge0}$, exactly when $\alpha$ lies
+on the ray of its boundary-monomial direction $(k_{1}{+}1,k_{2}{+}1)$.  Thus the boundary
 ray of a critical graph is the unique ray whose monomials its wall term
 fixes, which is why the walls are placed there, and a monomial is fixed by the
 walls on the ray of its own exponent.
@@ -1610,12 +1677,14 @@ walls on the ray of its own exponent.
 $X_{k_{1},k_{2}}(x^{\alpha_1}y^{\alpha_2})=\bigl((k_{2}{+}1)\alpha_1
 -(k_{1}{+}1)\alpha_2\bigr)x^{\alpha_1+k_{1}}y^{\alpha_2+k_{2}}$, and the
 coefficient is the determinant of $\alpha=(\alpha_1,\alpha_2)$ against
-$(k_{1}{+}1,k_{2}{+}1)$, vanishing precisely on the ray.
+$(k_{1}{+}1,k_{2}{+}1)$.  It vanishes precisely on the line through
+$(k_{1}{+}1,k_{2}{+}1)$, which meets $\ZZ^2_{\ge0}$ only on the ray since
+$k_1+1,k_2+1>0$.
 \end{proof}
 
 If the two edges of the quadrant were identified, their ordered crossing would
 define a loop with holonomy $g^{\min\to\max}\ne\mathrm{id}$
-(Theorem~\ref{thm:canonical}); in $C_\partial$ the edges remain distinct
+(Example~\ref{ex:walls}); in $C_\partial$ the edges remain distinct
 (Proposition~\ref{thm:positionobstruction7}).
 
 \begin{proposition}[Interlacing and extreme support]
@@ -1670,7 +1739,7 @@ the $(1,1)$-direction, the convention of Definition~\ref{def:anchor}. Call a
 bending contribution to a coefficient \emph{foreign} if it originates from an
 initial coefficient other than the coefficient's own.
 
-\begin{theorem}[Monotonicity of bends]
+\begin{proposition}[Monotonicity of bends]
 \label{thm:nobackscatter}
 Along a path with $n_b$ bend factors, using wall terms of boundary degrees
 $\beta_f$, from an initial monomial of exponent $\alpha'$ into a
@@ -1686,15 +1755,17 @@ $(1,1)$-direction: at its anchor cut, a monomial below the $(1,1)$-direction
 receives foreign bending only along paths descending in slope, one above it
 only along paths ascending, and a monomial on the $(1,1)$-direction receives
 none.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 Summing the per-bend exponent motion gives
 $\alpha+n_b(1,1)=\alpha'+\sum_{f}\beta_{f}$; the displayed identity is obtained
-by applying $\det(\alpha,\cdot)$ to it. Transport is monotone, so every crossed ray lies strictly
-between the directions of $\alpha'$ and $\alpha$. For a path from below, the
-direction of $\alpha'$ and all crossed rays are strictly shallower than $\alpha$, so the right side is
-negative, forcing $\det(\alpha,(1,1))<0$, i.e.\ $\alpha$ strictly above
+by applying $\det(\alpha,\cdot)$ to it. Transport is monotone, so every crossed ray lies
+between the directions of $\alpha'$ and $\alpha$, a crossed ray on the direction of
+$\alpha$ contributing $\det(\alpha,\beta_f)=0$; and $\det(\alpha,\alpha')\ne0$,
+since otherwise $q_{m'}=q_m$ and the path is empty. For a path from below, the
+direction of $\alpha'$ is strictly shallower than $\alpha$ and no crossed ray is
+steeper, so the right side is negative, forcing $\det(\alpha,(1,1))<0$, i.e.\ $\alpha$ strictly above
 the $(1,1)$-direction; from above it is positive, forcing $\alpha$ strictly below. A monomial on the
 $(1,1)$-direction, where $\det(\alpha,(1,1))$ vanishes, excludes both.
 \end{proof}
@@ -1812,10 +1883,12 @@ finitely many initial coefficients of divisors and bend factors contribute to
 a fixed monomial),
 completing the induction. Uniqueness is
 immediate: $V$ is determined by $W$ and the lower initial coefficients. Anchor
-assignments affect only the higher-order terms of the transports, hence the
-initial coefficients at higher orders, never the existence or uniqueness of the decomposition; the
-$(1,1)$-side assignment is the one compatible with
-Theorem~\ref{thm:nobackscatter}.
+assignments through directions other than the monomial's own affect only the
+higher-order terms of the transports, hence the initial coefficients at higher
+orders, never the existence or uniqueness of the decomposition.  The side of
+the anchor cut does not affect them, since the factor on the ray of $m$ fixes
+$m$ (Proposition~\ref{prop:placement}); the $(1,1)$-side assignment is the one
+compatible with Proposition~\ref{thm:nobackscatter}.
 \end{proof}
 
 \emph{Consequences.}  (a) On a coefficient receiving no foreign bending at its
@@ -1838,7 +1911,7 @@ $g^{\min\to\max}(W^{\nu^{\min}})=W^{\nu^{\max}}$; there the coefficient of
 greatest, respectively least, $x$-degree of every wall-bearing diagonal
 vanishes (Theorem~\ref{thm:canonical}; Proposition~\ref{prop:interlace}
 identifies the extremal systems with the two extreme chambers), which gives
-(b).  Theorem~\ref{thm:nobackscatter} restricts the direction from which foreign
+(b).  Proposition~\ref{thm:nobackscatter} restricts the direction from which foreign
 bending can arrive: none reaches the anchor cut of a monomial from beyond its
 own direction, and none reaches the anchor cut of a monomial on the
 $(1,1)$-direction.
@@ -1900,7 +1973,7 @@ Lemma~\ref{lem:bendchain} is an explicit formula for $\mathcal K_{mm'}$: retain 
 chains whose deformation labels multiply $u_E$ to $u_D$ and whose exponent
 increments carry $\alpha'$ to $\alpha$.
 
-\begin{theorem}[Triangular inversion]
+\begin{proposition}[Triangular inversion]
 \label{thm:seedinversion}
 On every finite divisor-closed coefficient set, let $\mathrm{anc}_m$ be the
 anchored value of the monomial $m$ and $\mathrm{init}_m$ its initial
@@ -1922,7 +1995,7 @@ where $<$ includes strict divisibility of the deformation monomials and the
 intermediate boundary exponents are summed.  Thus every initial coefficient is
 a finite alternating sum of anchored values weighted by ordered
 bend chains.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 Evaluate Theorem~\ref{thm:transport} at the anchor cut of $m$.  The initial
@@ -1949,11 +2022,11 @@ coefficients $\mathrm{init}_m$.  The observation rests on
 Example~\ref{ex:middleseeds}, which follows it.
 \begin{observation}
 \label{obs:richer}
-The open theory is strictly richer than the part generated from $x^r+y^s$ by
-wall-crossing. Bend chains generate
-exactly the part of the potential reachable by transport from the initial
-coefficients; the initial system is input that the
-ray factors do not produce, and it is not zero. This has no analogue in the
+The open theory is strictly richer than the part generated by wall-crossing
+from $x^r+y^s$ and the monomials with one internal marking. Bend chains
+generate exactly the part of the potential reachable by transport from the
+initial coefficients; the initial system is input that the ray factors do not
+produce, and it is not supported on these monomials. This has no analogue in the
 smooth Fano case of \cite{Gross10,CPS}, where the potential is generated by
 broken lines from its initial monomials. An example is the invariant $\tfrac15$ of
 \eqref{eq:newinvariants}, on a diagonal without wall terms, which no ray action
@@ -1966,11 +2039,14 @@ balanced monomial in the same example.
 \begin{proof}
 By Theorem~\ref{thm:transport7} and Lemma~\ref{lem:bendchain}, every cut
 potential is the sum of the bend chains from the initial coefficients; by the
-uniqueness there, the part generated from $x^r+y^s$ differs from the potential
-once an initial coefficient other than those of $x^r,y^s$ is nonzero.  In
-Example~\ref{ex:middleseeds} the coefficient $\tfrac15$ receives no bending,
+uniqueness there, the part generated from $x^r+y^s$ and the monomials with one
+internal marking differs from the potential once an initial coefficient of a
+monomial with at least two internal markings is nonzero.  In
+Example~\ref{ex:middleseeds} the coefficient $\tfrac15$, over $t_{3,3}^{3}$,
+receives no bending,
 so by Consequence~(a) after Theorem~\ref{thm:transport7} it is such an initial
-coefficient, and so is $-\tfrac{25}{16}$, by Theorem~\ref{thm:linearorder}.
+coefficient.  The value $-\tfrac{25}{16}$, on the one-marking monomial
+$t_{3,3,2}$, is an initial coefficient by Theorem~\ref{thm:linearorder}.
 \end{proof}
 
 \begin{example}[Initial coefficients not generated by wall-crossing]
@@ -2027,7 +2103,7 @@ three chambers, since both wall vectors are annihilated by the weights.
 
 \begin{example}[An anchored value need not be an initial coefficient]
 \label{ex:farside}
-Theorem~\ref{thm:nobackscatter} excludes foreign contributions only from beyond
+Proposition~\ref{thm:nobackscatter} excludes foreign contributions only from beyond
 the target's own direction; contributions from the $(1,1)$-side may remain at
 the anchor cut.  Composite diagonals (those of monomials with at least two
 internal markings) with descendents exhibit this behavior.  For $x^5+y^5$ we
@@ -2121,7 +2197,7 @@ quadrant into open angular sectors.
 \end{proof}
 
 \begin{theorem}[Realization by homotopies in a finite coefficient quotient;
-  $=$ Theorem~\ref{thm:georealization}]
+  $=$ Theorem~\ref{thm:georealization}(i)]
 \label{conj:geometric}
 Let $S$ be a finite divisor-closed set of deformation monomials containing
 $1$, and choose a finite labeled set $I$ with at least $n_{a,b}(S)$ labels of
@@ -2134,7 +2210,7 @@ simple canonical homotopies in the sense of \cite[Defs.~3.36--3.37]{GKT},
 obtained by concatenating normal-form homotopies, from a family of canonical multisections realizing $\nu_I^{\min}$ to
 one realizing $\nu_I^{\max}$ (the restrictions of the minimal and maximal
 systems to $I$); every time slice is a family of canonical multisections
-\cite[Def.~3.22]{GKT}.  After reduction to the quotient supported on $S$ every
+\cite[Def.~3.22]{GKT}.  After reduction to $S$ every
 nonzero jump is supported on a single boundary ray, the rays carrying nonzero
 reduced jumps occur in increasing slope as $T$ increases, and the total
 reduced jump on $\rho_{i}$
@@ -2160,13 +2236,13 @@ t_{a,b,d}\longmapsto
 \]
 where $\operatorname{tw}(i)$ denotes the twist of the label $i$.
 Let $\mathfrak q_{I,S}$ be the labeled monomial ideal whose monomials have
-symmetric type outside $S$.  Lemma~4.14 of \cite{GKT} says that symmetrization induces
-an injection
+symmetric type outside $S$.  By \cite[Lem.~4.14]{GKT} and the label bound,
+symmetrization induces an injection
 \[
  \QQ[t_{a,b,d}]/\mathfrak q_S\hookrightarrow A_I/\mathfrak q_{I,S}.
 \]
 Indeed, a monomial in $S$ maps to the nonempty sum over injective assignments
-of its occurrences to labels of the required twists; the saturation bound
+of its occurrences to labels of the required twists; the label bound
 $n_{a,b}(S)$ makes the sum nonempty, and distinct symmetric monomials have
 disjoint labeled supports. The induced
 map on the enlarged Lie algebra preserves boundary rays, including the
@@ -2181,7 +2257,7 @@ suppress the labeled-lift symbol in the action of a symmetric factor.
 Twist-preserving permutations fix the two symmetric extremal systems, hence by
 freeness fix $g^{\min\to\max}$; they also preserve every boundary-ray
 subspace. Uniqueness of the factorization in
-Theorem~\ref{thm:presentation}(ii), whose filtered proof applies verbatim
+Proposition~\ref{prop:ordered}, whose filtered proof applies verbatim
 over the labeled coefficient ring, therefore makes each
 $\theta_{\rho_i}$ symmetric.
 Write the boundary-ray factorization, in the composition convention of
@@ -2235,7 +2311,7 @@ $\lvert A\rvert$. The exact-$A$ component of the logarithm of the target is
 supported on $\rho_i$; by induction all $\eta_B$ for $B\subsetneq A$ are supported
 there as well. Every Lie word in $P_A$ therefore vanishes because the
 boundary-ray subalgebra is abelian, as proved in
-Theorem~\ref{thm:presentation}(ii). Thus $\eta_A$ equals the target's exact-$A$
+Proposition~\ref{prop:ordered}. Thus $\eta_A$ equals the target's exact-$A$
 component and is supported on $\rho_i$. This proves the claim, including for
 the torus terms of the enlarged algebra.
 
@@ -2365,7 +2441,7 @@ construction takes them as given: the zeros are moved onto a prescribed
 $T_{I(\Gamma)}$ by a diffeomorphism preserving the moduli factor, and the
 finitely many non-transverse times are kept off the $T_{A}$ by re-extending
 transversally at each prescribed time. Visible jumps sharing a ray commute by the abelianness proved in
-Theorem~\ref{thm:presentation}(ii). Full freeness identifies the total jump
+Proposition~\ref{prop:ordered}. Full freeness identifies the total jump
 with $g^{\min\to\max}$; after reduction, its grouping by ray is therefore the
 unique slope-ordered factorization
 $\prod^{\rightarrow}_{\rho}\theta_{\rho}$. Symmetry and injectivity descend
@@ -2443,7 +2519,10 @@ chamber-index condition is $\Ascr(J,\mathbf 0,\nu)=0$, which reads
 \;=\;\tfrac{204}{15625}:
 \]
 three coefficients against two torsor directions and one condition, as
-Theorem~\ref{thm:effective} requires. In the minimal system of
+Theorem~\ref{thm:effective} requires.  The right-hand side is minus the part
+of $\Ascr$ with $h\ge2$, evaluated on the lower-order values of the minimal
+system: $-\tfrac25$, $\tfrac15$ and $-\tfrac{12}{25}$ over $t_{3,3}^{2}$,
+$t_{3,3}^{3}$ and $t_{3,3}^{4}$, and the one-marking normalization $1$. In the minimal system of
 Theorem~\ref{thm:canonical} this gives
 \[
 \bigl\langle(\tau_{0}^{(3,3)})^{5}\,\sigma_{2}^{10}\sigma_{12}\bigr\rangle^{\min}
@@ -2460,8 +2539,9 @@ in \S\ref{sec:canonical} and in \S\ref{sec:geometric} has $N\le1$, which is
 why the difficulty does not surface there.
 
 The hypothesis of Proposition~\ref{prop:obstruction} is met here. Take $I$ to carry
-exactly five markings of twist $(3,3)$, so that this monomial is realized by a single
-marking set and the wall terms above it share one time. Writing
+at least five markings of twist $(3,3)$.  For each five-element set $A$ of these
+labels the labeled diagonal $(A,\mathbf 0)$ carries the same two wall terms, at
+the one time $T_A$, and the argument below applies to it verbatim. Writing
 $\nu^{\max}-\nu^{\min}=c_{1}v_{1}+c_{2}v_{2}$ and reading the extreme rows gives
 $c_{1}=c_{2}=\tfrac{34}{3125}$, the middle row being consistent; more generally
 $c_{1}=\nu_{0}/\mu_{1}$ and $c_{p+1}=\lambda_{p}c_{p}/\mu_{p+1}$, where $\nu_0$ is
@@ -2483,12 +2563,12 @@ all. What is special about $x^{5}+y^{5}$ is that it is the first symmetric
 hyperbolic Fermat pair and this is its first primary occurrence.
 \end{example}
 
-\begin{corollary}
+\begin{corollary}[$=$ Theorem~\ref{thm:georealization}(ii)]
 \label{cor:nosimple}
 For $x^{5}+y^{5}$ modulo $\mathfrak m^{6}$, and $I$ carrying at least five
 labels of twist $(3,3)$, no normal-form homotopy supplied by
 \cite[Lem.~3.40]{GKT} between families realizing the minimal and maximal
-systems $\nu^{\min}$ and $\nu^{\max}$ has all of its jumps supported on single
+systems $\nu_I^{\min}$ and $\nu_I^{\max}$ has all of its jumps supported on single
 rays.
 \end{corollary}
 
@@ -2549,7 +2629,7 @@ $\nu^{\min}$ and $\nu^{\max}$.  In a finite primary
 quotient these cuts bound actual open chambers; in the descendent completion
 only the algebraic ray factors are asserted to be coefficientwise compatible.
 The marginal torus terms of
-Theorem~\ref{thm:presentation}(ii) are carried by the $(1,1)$-ray, whose fixed
+Proposition~\ref{prop:ordered} are carried by the $(1,1)$-ray, whose fixed
 monomials are exactly its own.  The increasing order of slopes is a choice made in the construction: the same argument realizes the factorization of
 $g^{\min\to\max}$ in decreasing order of slopes.
 \end{remark}
@@ -2871,7 +2951,6 @@ J.\ Eur.\ Math.\ Soc.\ 19 (2017), no.~4, 1189--1229; arXiv:1405.4530.
 modularity and wall-crossing}, Ph.D.\ thesis, University of Birmingham, 2024;
 \texttt{etheses.bham.ac.uk/id/eprint/15556}.
 
-\enlargethispage{2\baselineskip}
 \bibitem[Wue26a]{note} B.~J.~Wuebben,
 \emph{The central-charge threshold for wall-crossing in two-variable open FJRW
 theory}, companion note (2026),
