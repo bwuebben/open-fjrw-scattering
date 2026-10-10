@@ -34,9 +34,9 @@ simply transitively on systems of invariants once the torus vector field
 `x∂x−y∂y` is adjoined to its Lie algebra; without it, transitivity fails
 whenever a critical graph of weight zero occurs.
 
-### Paper 2: Boundary-ray factorization
+### Paper 2: Slope-ordered factorization of wall-crossing
 
-[`boundary-ray-factorization/boundary-ray-factorization.pdf`](boundary-ray-factorization/boundary-ray-factorization.pdf)
+[`slope-ordered-factorization/slope-ordered-factorization.pdf`](slope-ordered-factorization/slope-ordered-factorization.pdf)
 proves that the wall term of each critical disk lies on the ray spanned by its
 numbers of boundary marked points, and that the transformation between the
 two extremal systems of invariants factors uniquely into automorphisms
@@ -82,7 +82,7 @@ primitive form, through the annular charts.
 
 ```text
 central-charge-threshold/      Paper 1 source and PDF
-boundary-ray-factorization/    Paper 2 source and PDF
+slope-ordered-factorization/   Paper 2 source and PDF
 fjrw-annular-scattering/       Paper 3 source, PDF, and exact checks
 src/                            shared verification programs (Papers 1 and 2;
                                 two Paper 3 checks import src/a_invariants.py)
