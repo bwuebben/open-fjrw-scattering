@@ -292,7 +292,7 @@ expected = Zp**2 - X**4 - (s + 1 / (4 * q**2)) * X**2 * Y**2 - Y**4
 assert transformed == expected
 assert (F_q - X * Y * Z) / q == Z**2 - X**4 - s * X**2 * Y**2 - Y**4
 
-# Leading primary marginal GKT factor in the symmetric potential convention.
+# Leading primary marginal factor of the GKT transition in the symmetric potential convention.
 # The raw invariants satisfy nu_40 + nu_04 = -1/4, but a term with two
 # identical (2,2) markings appears in W^{nu,sym} with factor (-1)^(2-1)/2!.
 # The two extreme potentials therefore differ by
@@ -379,24 +379,24 @@ j_gkt_via_a = Ka(
 assert j_slab == j_gkt_via_a
 
 # The fourth-root Kummer cover of the variable B-slab changes type at the two
-# cusps a=+/-2.  The generic class has order four by the simple zero
-# valuations of 1+a*z+z^2.  At a cusp the slab is a square, and the degree-four
+# nodal values a=+/-2.  The generic class has order four by the simple zero
+# valuations of 1+a*z+z^2.  At a nodal value the slab is a square, and the degree-four
 # equation splits into two quadratic components.  The valuation argument is
 # given in the proof of the infinite Kummer orbit theorem (Section 2.5); this
 # block checks the identities.
 Rzg = PolynomialRing(QQ, names=("zroot", "groot"))
 (zroot, groot) = Rzg.gens()
-positive_cusp_slab = (1 + zroot) ** 2
-negative_cusp_slab = (1 - zroot) ** 2
-assert groot**4 - positive_cusp_slab == (
+positive_nodal_slab = (1 + zroot) ** 2
+negative_nodal_slab = (1 - zroot) ** 2
+assert groot**4 - positive_nodal_slab == (
     groot**2 - (1 + zroot)
 ) * (groot**2 + (1 + zroot))
-assert groot**4 - negative_cusp_slab == (
+assert groot**4 - negative_nodal_slab == (
     groot**2 - (1 - zroot)
 ) * (groot**2 + (1 - zroot))
 
 # Inverting the map gives a^2=4*s^2/(s^2-4).  Hence the unresolved value
-# a=2 is the s=infinity cusp.  If s_eff=s0+1/(4*q^2), then
+# a=2 corresponds to s=infinity.  If s_eff=s0+1/(4*q^2), then
 # a=2+64*q^4-512*s0*q^6+O(q^8).
 Rs0 = PolynomialRing(QQ, names=("s0",))
 (s0,) = Rs0.gens()
@@ -1145,7 +1145,7 @@ assert primitive_form_root_transition_weights == {
 
 # Every old CPS slab tangent becomes twice primitive on the cover.  Pairing a
 # lifted primitive conormal with any pulled-back old slab exponent is divisible
-# by eight.  Hence cross-pullback by one root-slab shear acts on every other
+# by eight.  Hence cross-pullback by one lifted slab map acts on every other
 # old slab monomial through an integral power of the shearing slab function;
 # it creates no additional finite root phase.
 lifted_direction_cover_coordinates = {
@@ -1220,7 +1220,7 @@ for k_left in (
         )
         assert twisted_bracket_normal == determinant_coefficient * target_normal
 
-# A root-slab shear is conformally symplectic rather than symplectic for
+# A lifted slab map is conformally symplectic rather than symplectic for
 # Omega_kappa.  Its formal logarithm is
 #
 #   S_V=(1/d_V)log(1+z^p) partial_N,
@@ -1961,7 +1961,7 @@ print("naive CPS/GKT parameter identification:", "fails")
 print("variable-slab w=0 j-invariant:", factor(j_slab))
 print("successful mirror map:", "s^2=4*a^2/(a^2-4)")
 print("B-slab fourth-root torsor at a=+/-2:", "splits into two quadratic components")
-print("cusp expansion a(q):", a_series.add_bigoh(8))
+print("expansion of a(q) at s = infinity:", a_series.add_bigoh(8))
 print("extreme-gauge parameter tau(t):", tau_extreme.add_bigoh(6))
 print(
     "GHS endpoint-character weights:",

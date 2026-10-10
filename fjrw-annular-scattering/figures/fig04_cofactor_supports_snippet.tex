@@ -22,7 +22,7 @@
 
   \draw[branch] (-.5,-.5)--(1.5,-.5);
   \node[focus,label={[black!70]below left:$A$}] at (-.5,-.5) {};
-  \node[focus,label={[black!70]below right:$C$}] at (1.5,-.5) {};
+  \node[focus,label={[black!70]above right:$C$}] at (1.5,-.5) {};
 
   \draw[singletonone] (-1,.75)--(O)--(1.333,-1);
   \draw[singletontwo] (-.5,.75)--(O)--(.667,-1);
@@ -64,14 +64,14 @@
   \draw[completion] (Ozero)--(4.88,1);
   \draw[completion] (Ozero)--(5.10,.64);
   \draw[completion] (Ozero)--(5.53,1);
-  \node[focus,label={[black!70]right:$B_0$}] at (5.10,.64) {};
+  \node[focus,label={[black!70]left:$B_0$}] at (5.10,.64) {};
 
   \draw[singletonone] (6.94,-1)--(Oone)--(6.94,1);
   \draw[singletontwo] (8.12,-1)--(Oone)--(8.12,1);
-  \draw[completion] (Oone)--(7.10,1);
-  \draw[completion] (Oone)--(7.56,.70);
-  \draw[completion] (Oone)--(7.82,1);
-  \node[focus,label={[black!70]right:$B_1$}] at (7.56,.70) {};
+  \draw[completion] (Oone)--(7.10,-1);
+  \draw[completion] (Oone)--(7.56,-.70);
+  \draw[completion] (Oone)--(7.82,-1);
+  \node[focus,label={[black!70]left:$B_1$}] at (7.56,-.70) {};
 
   \node[focus,label={[black!70]above:$\widetilde A$}] at (6.08,-.62) {};
   \node[focus,label={[black!70]above:$\widetilde C$}] at (6.61,-.62) {};

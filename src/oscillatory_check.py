@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 r"""
 oscillatory_check.py -- direct symbolic verification of the seed open-invariant
-relations from GKT Theorem 0.3, bypassing Notation 3.41 entirely.
+relations from GKT Theorem 0.3, without using the expansion of A in [GKT] Notation 3.42.
 
-Method (this IS the proof of [GKT] Thm 0.2 -- "integration by parts"): write the
+Method (the mechanism of the proof of [GKT] Thm 0.2, integration by parts): write the
 potential shape [GKT p.9]
 
     W^nu = x^r + y^s + sum_{l>=1} sum_{A in A_l} sum_{balanced Gamma_{A,p}}
@@ -11,7 +11,7 @@ potential shape [GKT p.9]
 
 expand  int_{Xi_{a,b}} e^{W/hbar} Omega = sum over multisets of inserted terms of
 prod(c_i/hbar) / (multiplicities!) * P_a(sum k1) P_b(sum k2),  with the period
-recursion (Lemma 7.1)
+recursion (Paper 2, Lemma 4.1)
 
     P_a(p) = delta_{ap} (p<=r-2),  P_a(r-1)=0,  P_a(p) = -hbar (p-r+1)/r P_a(p-r),
 
@@ -20,24 +20,22 @@ and impose [GKT Thm 0.3]: at each t-monomial with d(A)<0 the integral has NO ter
 l=1).  This determines the wall-invariant combinations of the l=2 seed invariants
 with no convention ambiguity.
 
-Findings certified here:
+Results checked here:
   (1) r=s=4, t_{2,2}^2 (identical twists, |Aut|=2):
         <tau0^{2,2}tau0^{2,2}sigma_1^4 sigma_12> + <...sigma_2^4...> = -1/4,
-      NOT the -1/8 of [GKTsurvey Ex 5.5].  The survey example's h=2 term of
-      Notation 5.3 carries 1/2! but counts the ordered partitions of the multiset
-      {(2,2),(2,2)} once instead of twice (the labeled-set count of [GKT Not 3.41]);
-      Theorem 0.2-consistency forces the labeled count.  ==> survey Ex 5.5 errata
-      candidate (factor 2), to be reported after independent re-derivation.
-  (2) r=s=5, t_{2,3}t_{3,2} (distinct twists):  nu_{(5,0)} + nu_{(0,5)} = -1/5,
-      NOT -1/10 (paper2 Ex 6.3 / open_invariants.py / notes gap3 Lemma 3 inherit the
-      survey's convention and are superseded).  Same for the second seed pair
-      t_{2,2}t_{3,3}.
-  (3) The corrected general l=2 seed relation for x^r + y^s, seed {(a1,b1),(a2,b2)}
-      with a1+a2=r, b1+b2=s, d=0:
+      where [GKTsurvey Ex 5.5] states -1/8.  Read over the multiset {(2,2),(2,2)},
+      the h=2 term of [GKTsurvey Notation 5.3] (which carries 1/2!) counts the
+      ordered partitions once; the labeled-set count of [GKT Notation 3.42 and
+      Thm 4.9] counts them twice, and consistency with [GKT] Theorem 0.2 forces the
+      labeled count (Paper 2, Remark 4.3).
+  (2) r=s=5, t_{2,3}t_{3,2} (distinct twists):  nu_{(5,0)} + nu_{(0,5)} = -1/5.
+      Same for the second seed pair t_{2,2}t_{3,3}.
+  (3) The general l=2 seed relation for x^r + y^s (Paper 2, eq. (4)), seed
+      {(a1,b1),(a2,b2)} with a1+a2=r, b1+b2=s, d=0:
         nu_{(r,0)}/r + nu_{(0,s)}/s = -1/(rs),
-      i.e. for r=s:  <sigma_1^r> + <sigma_2^r> = -1/r   (not -1/(2r)).
-  (4) r=s=5, t_{3,3}^2 (the FIRST WALL diagonal of the corrected scattering
-      structure, J={(3,3),(3,3)}, walls X_{1,1}):
+      i.e. for r=s:  <sigma_1^r> + <sigma_2^r> = -1/r.
+  (4) r=s=5, t_{3,3}^2 (the diagonal of the first symmetric positive-weight primary
+      wall, J={(3,3),(3,3)}, wall X_{1,1}; Paper 2, eq. (2)):
         nu_{(1,6)} + nu_{(6,1)} = -2/5.
       Only the sum is wall-invariant; the difference jumps across t_{3,3}^2 X_{1,1}.
 
@@ -50,7 +48,7 @@ hbar = sp.Symbol("hbar")
 
 
 def P(r, a, p):
-    """Good-basis period moments of x^r (Lemma 7.1), symbolic in hbar."""
+    """Good-basis period moments of x^r (Paper 2, Lemma 4.1), symbolic in hbar."""
     if p < 0:
         return sp.Integer(0)
     if p <= r - 2:
@@ -82,7 +80,7 @@ def seed_relation_l2(r, s, twist1, twist2):
                 nu_r0 * P(r, a, r) * P(s, b, 0) + nu_0s * P(r, a, 0) * P(s, b, s)
             )
             # (ii) double insertion of the two l=1 terms t_{ai,bi} x^{ai} y^{bi}
-            #     (coefficients nu_singleton = 1 by Thm 0.7 (1)/(2));
+            #     (coefficients nu_singleton = 1 by [GKT] Thm 0.7(1));
             #     identical twists: (1/2!) (t x^a y^b)^2; distinct: cross term, no 1/2
             if identical:
                 double = sp.Rational(1, 2) / hbar**2 * P(r, a, 2 * a1) * P(s, b, 2 * b1)
@@ -156,13 +154,13 @@ def check_first_wall_t33sq():
 
 
 def survey_ex55_conventions():
-    """Show which Notation 3.41 partition convention matches Thm 0.2 at r=4.
+    """Show which [GKT] Notation 3.42 partition convention matches Thm 0.2 at r=4.
 
     A(A,nu) must equal |Aut(A)| * (-1)^l * [hbar^0 coefficient of the expansion].
     labeled convention  : h=2 term = 2 * (1/2!) * (1/16) * nu_single^2 = 1/16
     survey Ex 5.5 as printed:               (1/2!) * (1/16)            = 1/32
     Expansion coefficient (from check_r4): C = (nu40+nu04)/8 + 1/32, so
-    A = 2*C = (nu40+nu04)/4 + 1/16  ==> labeled convention. Certified numerically."""
+    A = 2*C = (nu40+nu04)/4 + 1/16  ==> labeled convention. Checked symbolically below."""
     nu40, nu04 = sp.symbols("nu40 nu04")
     C = (nu40 + nu04) / 8 + sp.Rational(1, 32)
     A_from_expansion = 2 * C
@@ -176,16 +174,17 @@ def survey_ex55_conventions():
 def main():
     print("== Seed open invariants directly from GKT Thm 0.3 (oscillatory expansion) ==")
     t = check_r4()
-    print(f"[1] r=4, seed {{(2,2),(2,2)}}:  nu40+nu04 = {t}   (survey Ex 5.5 says -1/8: factor-2 slip)")
+    print(f"[1] r=4, seed {{(2,2),(2,2)}}:  nu40+nu04 = {t}   (survey Ex 5.5 states -1/8)")
     for pair, tt in check_r5():
-        print(f"[2] r=5, seed {pair}:  nu50+nu05 = {tt}   (old Lemma 3 said -1/10)")
+        print(f"[2] r=5, seed {pair}:  nu50+nu05 = {tt}")
     for (r, s), pair in check_general_rs():
         print(f"[3] (r,s)=({r},{s}), seed {pair}:  relation is  nu_r0/r + nu_0s/s = -1/(rs)")
     t = check_first_wall_t33sq()
     print(f"[4] r=5, t_33^2 first-wall diagonal:  nu16+nu61 = {t}   (only the sum is wall-invariant)")
     assert survey_ex55_conventions()
-    print("[5] Notation 3.41 convention pinned by Thm 0.2-consistency: labeled-set ordered")
-    print("    partitions with 1/h!  (multiset execution in survey Ex 5.5 loses a factor 2)")
+    print("[5] GKT Notation 3.42 convention fixed by consistency with GKT Thm 0.2: ordered")
+    print("    partitions of the labeled set with 1/h!  (the multiset reading of survey Ex 5.5")
+    print("    counts the h=2 term once, giving half the value)")
     print("ALL CHECKS PASSED")
 
 

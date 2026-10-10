@@ -2,28 +2,25 @@
 """
 mirror_periods.py -- exact oscillatory-integral periods for the mirror theorem
 [GKT, Theorem 0.3],
-    int_{Xi_{a,b}} e^{W/hbar} dx dy = J-function (closed FJRW invariants A(A,d)),
-computed for x^5+y^5 so we can track exactly where the SCATTERING correction to W enters.
+    int_{Xi_{a,b}} e^{W/hbar} dx dy = delta_{a,0} delta_{b,0} + (closed extended FJRW invariants),
+computed for x^5+y^5, to see how a term x^{r-1} y^{s-1} of the potential W enters the
+good-basis periods.
 
 The 1-variable periods of x^5, P_a(p) = int_{Xi_a} x^p e^{x^5/hbar} dx (good basis a in 0..r-2),
-satisfy (integration by parts, boundary vanishing on the good cycles):
+satisfy (integration by parts, boundary vanishing on the good cycles; Paper 2, Lemma 4.1):
     P_a(p) = delta_{a,p}           (0 <= p <= r-2)
     P_a(r-1) = 0                   (the x^{r-1} moment VANISHES)   <-- the key fact
     P_a(p) = -(hbar*(p-(r-1))/r) * P_a(p-r)    (p >= r)
 The two-variable moment is M_{a,b}(p,q) = P_a(p) P_b(q).
 
-FINDING (this is what attempting Step C for the leading node-splitting produced).
-The leading scattering wall (scattering_symbolic.py) contributes a correction ~ x^4 y^4 =
-x^{r-1} y^{s-1} to the potential W. Its LINEAR contribution to the mirror integral is
-(1/hbar) M_{a,b}(r-1,s-1) = (1/hbar) P_a(r-1) P_b(s-1) = 0 for every (a,b): the leading wall is
-INVISIBLE in the mirror integral at its own order (t^2). It first enters at ORDER t^3 (l=3),
-via the cross-term x^{r-1}y^{s-1} * x^alpha y^beta = x^{r-1+alpha} y^{s-1+beta}, whose moment
-M_{a,b}(r-1+alpha, s-1+beta) is nonzero (= alpha*beta*hbar^2/r^2 at (a,b)=(alpha-1,beta-1)).
-
-Thus the leading wall is period-invisible at its own order and first contributes
-to the good-basis periods through cross-terms at order three.  This script is the
-period-recurrence certificate; the boundary-dependent transport is checked by
-the dedicated transport scripts.
+RESULT.  A term c x^4 y^4 = c x^{r-1} y^{s-1} of the potential W contributes linearly
+(1/hbar) c M_{a,b}(r-1,s-1) = (1/hbar) c P_a(r-1) P_b(s-1) = 0 for every (a,b): it is
+INVISIBLE to the good-basis periods at linear order. It first enters through the
+quadratic cross-terms x^{r-1}y^{s-1} * x^alpha y^beta = x^{r-1+alpha} y^{s-1+beta}, whose
+moment M_{a,b}(r-1+alpha, s-1+beta) is nonzero (= alpha*beta*hbar^2/r^2 at
+(a,b)=(alpha-1,beta-1)).  This is why the coefficient of t_{3,3}^3 x^4 y^4 of x^5+y^5
+(r(J) = 4 = r-1) is not fixed by a period condition (Paper 2, Remark 4.2).  The
+boundary-dependent transport is checked in mixed_sector.py and the other transport scripts.
 
 Run:  python3 mirror_periods.py
 """
@@ -56,7 +53,7 @@ def _check(name, cond):
 def run():
     r = s = 5
     print("=" * 74)
-    print("Mirror-theorem periods for x^5+y^5 and the first wall contribution")
+    print("Mirror-theorem periods for x^5+y^5 and the x^{r-1}y^{s-1} term")
     print("=" * 74)
     print("\n1-variable periods P_a(p) = int_{Xi_a} x^p e^{x^5/hbar}:")
     print("   p:   " + "  ".join(f"{p:>8}" for p in range(9)))
@@ -68,13 +65,13 @@ def run():
     _check("the x^{r-1} moment vanishes: P_a(4)=0 for all a",
            all(period(a, r - 1) == 0 for a in range(r - 1)))
 
-    print("\nLeading scattering correction ~ x^4 y^4 (X_{3,3}); its order-t^2 contribution")
+    print("\nA term ~ x^4 y^4 of W; its linear contribution")
     print("to int_{Xi_{a,b}} e^{W/hbar} is (1/hbar) P_a(4) P_b(4):")
     lead = {(a, b): moment(a, b, r - 1, s - 1) for a in range(r - 1) for b in range(s - 1)}
-    _check("leading scattering is INVISIBLE at order t^2 (all (a,b) give 0)",
+    _check("x^4 y^4 is INVISIBLE at linear order (all (a,b) give 0)",
            all(v == 0 for v in lead.values()))
 
-    print("\nOrder t^3: x^4 y^4 crossed with x^alpha y^beta -> nonzero moment M(4+a,4+b):")
+    print("\nQuadratic order: x^4 y^4 crossed with x^alpha y^beta -> nonzero moment M(4+a,4+b):")
     ok_pattern = True
     for (al, be) in [(1, 1), (2, 1), (1, 2), (2, 2), (1, 3), (3, 1)]:
         nz = {(a, b): sp.simplify(moment(a, b, r - 1 + al, s - 1 + be))
@@ -85,14 +82,14 @@ def run():
         exp = {(al - 1, be - 1): sp.Rational(al * be, 25) * h**2}
         if nz != exp:
             ok_pattern = False
-    _check("order-t^3 moments follow the pattern  M -> alpha*beta*hbar^2/25 at (alpha-1,beta-1)",
+    _check("quadratic cross-term moments follow the pattern  M -> alpha*beta*hbar^2/25 at (alpha-1,beta-1)",
            ok_pattern)
 
     print("\n" + "=" * 74)
-    print("FINDING: the leading scattering enters the FJRW mirror theorem at ORDER t^3 (l=3),")
-    print("not t^2 -- because the x^{r-1} moment vanishes. So the leading node-splitting the")
-    print("scattering realizes is an l=3 phenomenon; the concrete t^3 moments are above.")
-    print("Boundary-dependent transport is certified by the dedicated transport scripts.")
+    print("RESULT: a term x^{r-1}y^{s-1} of W is invisible to the good-basis periods at linear")
+    print("order, because the x^{r-1} moment vanishes; it enters only through the quadratic")
+    print("cross-terms, whose moments are listed above (cf. Paper 2, Remark 4.2).")
+    print("Boundary-dependent transport is checked in mixed_sector.py and the other transport scripts.")
     print("=" * 74)
 
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 r"""
-gkt_algebra.py -- certification of the positive-weight wall-crossing algebra
+gkt_algebra.py -- verification of the positive-weight wall-crossing algebra
 of GKT Definition 4.23 and its critical-graph grading.
 
-The definitive objects, from [GKT] = arXiv:2203.02435v3:
+The objects, from [GKT] = arXiv:2203.02435v3:
 
-  * Def 4.23:  g^{r,s}_{A_I,(k1,k2)} is spanned by  u_{J,d} X_{k1,k2}  with
+  * Def 4.23:  for (k1,k2) != (0,0), g^{r,s}_{A_I,(k1,k2)} is spanned by  u_{J,d} X_{k1,k2}  with
         k1 = r(J) mod r,   k2 = s(J) mod s,   s*k1 + r*k2 = m(J,d) - rs,
     where  X_{k1,k2} = x^{k1} y^{k2} ((k2+1) x d_x - (k1+1) y d_y)  (Hamiltonian of
     x^{k1+1}y^{k2+1} for dx^dy),  m(J,d) = rs + sum_j (s a_j + r b_j + rs(d_j - 1)),
@@ -21,27 +21,33 @@ The definitive objects, from [GKT] = arXiv:2203.02435v3:
     #s-points - 1) -- the (1,1)-shift = removing the single fully-twisted point sigma_12
     that balanced graphs carry and critical graphs do not.
 
-Certified here (exact arithmetic, no floats):
+Checked here (exact arithmetic, no floats):
   (1) additivity of the Def 4.23 constraint (bracket closure), symbolically over
       random multisets;
-  (2) the paper's old seeds t_{2,3}X_{1,2}, t_{3,2}X_{2,1} (r=s=5) and t_{2,2}X_{1,1}
-      (r=s=4) VIOLATE Def 4.23; the old leading wall 5 t_{2,3}t_{3,2} X_{3,3} too;
-  (3) x^4+y^4 has NO d=0 critical graphs at all (all primary deformations have
-      non-positive weight; only (2,2) is marginal), so primary open invariants of
-      x^4+y^4 do not wall-cross; first walls are descendent-seeded (t_{a,b,1}X_{a,b});
-  (4) x^5+y^5: first primary (d=0) wall is the critical graph J={(3,3),(3,3)}, N=1,
-      Lie degrees (1,1): element t_{3,3}^2 X_{1,1}; enumeration of all d=0 walls to
-      t-order 4;
-  (5) the balanced/critical (N+1 vs N) count of Notation 2.40 reproduced by brute
+  (2) x^4+y^4: no positive-weight d=0 walls.  Every primary twist (a,b) has
+      s*a + r*b - rs = 4a + 4b - 16 <= 0, with equality only at (2,2), so every d=0
+      graded piece of Def 4.23 is empty (also checked by enumeration for |J| <= 6);
+      its d=0 critical graphs are marginal (Lie bidegree (0,0), the torus direction
+      excluded by GKT Def. 4.23).  The primary invariants of x^4+y^4 nevertheless
+      depend on the boundary conditions (Paper 1, Theorem 1.1 and Proposition 7.1).
+      Positive-weight walls first appear with one descendent: t_{a,b,1} X_{a,b} for
+      every twist (a,b) != (0,0); the unit twist (0,0) first carries walls at d=2,
+      with Lie degrees (0,4) and (4,0);
+  (3) x^5+y^5: the positive-weight d=0 walls with |J| = 2 are
+        {(2,3),(3,3)} -> X_{0,1},   {(3,2),(3,3)} -> X_{1,0},   {(3,3),(3,3)} -> X_{1,1}
+      (wall Hamiltonians xy^2, x^2y, x^2y^2; Paper 1, Table 1); for J={(3,3),(3,3)}:
+      N=1, balanced degrees (1,6),(6,1), critical degree (2,2), Lie degrees (1,1),
+      element t_{3,3}^2 X_{1,1}; enumeration of all d=0 walls to t-order 4;
+  (4) the balanced/critical (N+1 vs N) count of Notation 2.40 reproduced by brute
       enumeration of the congruence + dimension constraints;
-  (6) g^{r,s}.W_0 is period-invisible: for v = u X_{k1,k2} in g^{r,s},
+  (5) g^{r,s}.W_0 is period-invisible: for v = u X_{k1,k2} in g^{r,s},
       v(W_0) = u (r(k2+1) x^{k1+r} y^{k2} - s(k1+1) x^{k1} y^{k2+s})  has vanishing
-      good-basis periods, via P_a(p) = -hbar(p-r+1)/r * P_a(p-r)  (Lemma 7.1);
-      certified symbolically in hbar;
-  (7) the balanced support (potential monomials) IS the E-homogeneity line
-      s*k1 + r*k2 = m(J,d) (Thm 0.2/(0.6)); the old notes' target monomial
-      t_{2,3}t_{3,2} x^{r-1}y^{s-1} violates it (its legal home at r=s=5 is
-      t_{3,3}^3 x^4 y^4, a single-balanced-graph N=0 coefficient with NO wall).
+      good-basis periods, via P_a(p) = -hbar(p-r+1)/r * P_a(p-r)  (Paper 2, Lemma 4.1);
+      verified symbolically in hbar;
+  (6) the balanced support (potential monomials) is the E-homogeneity line
+      s*k1 + r*k2 = m(J,d) ([GKT] eqn (0.6)); for J={(2,3),(3,2)} at r=s=5 it is
+      {(5,0),(0,5)}, so t_{2,3}t_{3,2} x^4 y^4 is not E-homogeneous; the monomial
+      x^4 y^4 occurs with t_{3,3}^3, a single-balanced-graph N=0 coefficient with no wall.
 
 Run: ./venv/bin/python src/gkt_algebra.py
 """
@@ -128,22 +134,6 @@ def check_additivity(trials=500, seed=1):
     return True
 
 
-def check_old_seeds_violate():
-    """The paper's old seeding is not in g^{r,s} (Def 4.23)."""
-    viol = []
-    # r=s=5: t_{2,3} X_{1,2}, t_{3,2} X_{2,1}, and the old leading wall t23 t32 X_{3,3}
-    assert (1, 2) not in lie_degrees(5, 5, [(2, 3)], [0]);  viol.append(("5,5", "t23*X_{1,2}"))
-    assert (2, 1) not in lie_degrees(5, 5, [(3, 2)], [0]);  viol.append(("5,5", "t32*X_{2,1}"))
-    assert (3, 3) not in lie_degrees(5, 5, [(2, 3), (3, 2)], [0, 0]); viol.append(("5,5", "t23*t32*X_{3,3}"))
-    # in fact the (J,d)=({(2,3)},0) graded piece is EMPTY (marginal deformation):
-    assert lie_degrees(5, 5, [(2, 3)], [0]) == []
-    assert lie_degrees(5, 5, [(2, 3), (3, 2)], [0, 0]) == []
-    # r=s=4: old first wall t_{2,2}(^2) X_{1,1}
-    assert (1, 1) not in lie_degrees(4, 4, [(2, 2)], [0]); viol.append(("4,4", "t22*X_{1,1}"))
-    assert lie_degrees(4, 4, [(2, 2), (2, 2)], [0, 0]) == []
-    return viol
-
-
 def enumerate_d0_walls(r, s, max_l):
     """All d=0 graded pieces (J multiset, Lie degrees) with nonempty g^{r,s}, |J|<=max_l."""
     twists = [(a, b) for a in range(r - 1) for b in range(s - 1)]
@@ -157,10 +147,12 @@ def enumerate_d0_walls(r, s, max_l):
 
 
 def check_x4y4_no_primary_walls():
+    """x^4+y^4: no positive-weight d=0 walls (its d=0 critical graphs are marginal);
+    the positive-weight walls with one descendent."""
     # every twist (a,b), a,b<=2 has s a + r b - rs = 4a+4b-16 <= 0, marginal iff (2,2)
     assert all(4 * a + 4 * b - 16 <= 0 for a in range(3) for b in range(3))
     assert enumerate_d0_walls(4, 4, 6) == []
-    # first walls are descendent-seeded: t_{a,b,1} X_{a,b} for every twist != (0,0)
+    # one descendent: t_{a,b,1} X_{a,b} is a positive-weight wall for every twist != (0,0)
     for a in range(3):
         for b in range(3):
             degs = lie_degrees(4, 4, [(a, b)], [1])
@@ -176,9 +168,9 @@ def check_x4y4_no_primary_walls():
 
 def check_x5y5_first_wall():
     walls = enumerate_d0_walls(5, 5, 4)
-    # the l=2 walls: {(2,3),(3,3)} -> (0,1) [axis!], {(3,2),(3,3)} -> (1,0) [axis!],
-    # {(3,3),(3,3)} -> (1,1).  NOTE k1=0 or k2=0 occurs: GKT's algebra is NOT confined
-    # to the open cone k1,k2>=1 the paper assumed.
+    # the l=2 walls: {(2,3),(3,3)} -> (0,1), {(3,2),(3,3)} -> (1,0), {(3,3),(3,3)} -> (1,1).
+    # Lie degrees with k1=0 or k2=0 occur: the algebra of Def 4.23 is not confined
+    # to the open cone k1,k2>=1.
     l2 = [(J, degs) for J, degs in walls if len(J) == 2]
     assert l2 == [
         (((2, 3), (3, 3)), [(0, 1)]),
@@ -207,8 +199,8 @@ def check_notation238_vs_bruteforce(trials=300, seed=2):
         lie = lie_degrees(r, s, J, d)
         shifted = {(k1 - 1, k2 - 1) for (k1, k2) in crit}
         # (1,1)-shifted critical boundary degrees = Def 4.23 solutions, except that a
-        # critical graph of Lie degree (0,0) (E-weight-0; the excluded torus direction
-        # x d_x - y d_y, kept out of g^{r,s} for nilpotency) carries no group summand.
+        # critical graph of Lie degree (0,0) (E-weight 0; the torus direction
+        # x d_x - y d_y, excluded by GKT Def. 4.23) carries no summand of g^{r,s}.
         assert shifted - {(0, 0)} == set(lie), (r, s, J, d, sorted(shifted), lie)
     return True
 
@@ -218,12 +210,11 @@ def check_period_invisibility():
 
     P_a(p): p<=r-2: delta_{ap}; p=r-1: 0; else -hbar(p-r+1)/r * P_a(p-r).
     v = X_{k1,k2}: v(W_0) = r(k2+1) x^{k1+r} y^{k2} - s(k1+1) x^{k1} y^{k2+s}.
-    Period against Xi_{a,b}: r(k2+1) P_a(k1+r) P_b(k2) - s(k1+1) P_a(k1) P_b(k2+s)
-      = r(k2+1) * (-hbar(k1+1)/r) P_a(k1) P_b(k2)
-        - s(k1+1) * (-hbar(k2+1)/s) P_a(k1) P_b(k2)  ... wait sign: P_b(k2+s) =
-        -hbar(k2+1)/s P_b(k2).  Sum = -hbar(k1+1)(k2+1) P P + hbar(k1+1)(k2+1) P P = 0.
-    Certified numerically-symbolically below for all k1,k2 <= 12, all (a,b), r,s in
-    {3,4,5,6}.
+    Period against Xi_{a,b}: r(k2+1) P_a(k1+r) P_b(k2) - s(k1+1) P_a(k1) P_b(k2+s).
+    Since P_a(k1+r) = -hbar(k1+1)/r P_a(k1) and P_b(k2+s) = -hbar(k2+1)/s P_b(k2),
+    this is -hbar(k1+1)(k2+1) P_a(k1) P_b(k2) + hbar(k1+1)(k2+1) P_a(k1) P_b(k2) = 0.
+    Verified symbolically below for all (k1,k2) != (0,0) with k1,k2 <= 12, all (a,b),
+    and r = s in {3,4,5,6}; and for (r,s) = (3,5) with k1,k2 <= 9.
     """
     hbar = sp.Symbol("hbar")
 
@@ -261,11 +252,11 @@ def check_period_invisibility():
 
 
 def check_old_target_monomial():
-    """t_{2,3}t_{3,2} x^4 y^4 violates E-homogeneity; the legal home of x^4y^4 at
-    r=s=5 is t_{3,3}^3 (N=0, no wall)."""
-    # old notes' target: J={(2,3),(3,2)}, monomial (4,4): needs 5*4+5*4 = m(J,0) = 25
+    """t_{2,3}t_{3,2} x^4 y^4 is not E-homogeneous; at r=s=5 the monomial x^4y^4 occurs
+    with t_{3,3}^3 (N=0, no wall)."""
+    # J={(2,3),(3,2)} with monomial (4,4) would need 5*4+5*4 = m(J,0), but m(J,0) = 25
     assert 5 * 4 + 5 * 4 != m_minus_rs(5, 5, [(2, 3), (3, 2)], [0, 0]) + 25
-    # legal balanced support of that J: (5,0),(0,5)
+    # balanced support of that J: (5,0),(0,5)
     assert sorted(balanced_degrees(5, 5, [(2, 3), (3, 2)], [0, 0])) == [(0, 5), (5, 0)]
     # x^4y^4 lives at J={(3,3)}^3, d=0, with N=0 (single balanced graph, no critical):
     J3 = [(3, 3)] * 3
@@ -276,27 +267,26 @@ def check_old_target_monomial():
 
 
 def main():
-    print("== GKT Def 4.23 wall-crossing algebra: certification ==")
+    print("== GKT Def 4.23 wall-crossing algebra: verification ==")
     assert check_additivity()
     print("[1] bracket closure (additivity of m(J,d)-rs): OK (500 random cases)")
-    viol = check_old_seeds_violate()
-    print(f"[2] old paper seeds violate Def 4.23: {', '.join(w for _, w in viol)}  -- all confirmed NOT in g^(r,s)")
     assert check_x4y4_no_primary_walls()
-    print("[3] x^4+y^4: NO d=0 critical graphs (primary invariants do not wall-cross);")
-    print("    first walls are descendent-seeded t_{a,b,1}X_{a,b}")
+    print("[2] x^4+y^4: no positive-weight d=0 walls; its d=0 critical graphs are marginal")
+    print("    (Lie bidegree (0,0), the torus direction excluded by GKT Def. 4.23);")
+    print("    positive-weight walls first appear with one descendent: t_{a,b,1}X_{a,b}")
     walls = check_x5y5_first_wall()
-    print("[4] x^5+y^5 d=0 walls to t-order 4:")
+    print("[3] x^5+y^5 d=0 walls to t-order 4:")
     for J, degs in walls:
         print(f"      J={list(J)}  ->  X degrees {degs}")
-    print("    first wall: t_{3,3}^2 X_{1,1}; Notation 2.40: N=1, balanced {(1,6),(6,1)}, crit {(2,2)};")
+    print("    J={(3,3),(3,3)}: t_{3,3}^2 X_{1,1}; Notation 2.40: N=1, balanced {(1,6),(6,1)}, crit {(2,2)};")
     print("    Lie degrees = crit boundary degrees - (1,1)   [the sigma_12 / primitive-form shift]")
     assert check_notation238_vs_bruteforce()
-    print("[5] Notation 2.40 classification == brute-force constraint enumeration: OK (300 random cases)")
+    print("[4] Notation 2.40 classification == brute-force constraint enumeration: OK (300 random cases)")
     assert check_period_invisibility()
-    print("[6] g^{r,s}.W_0 is period-invisible (symbolic in hbar; r=s=3..6 and (r,s)=(3,5)): OK")
+    print("[5] g^{r,s}.W_0 is period-invisible (symbolic in hbar; r=s=3..6 and (r,s)=(3,5)): OK")
     assert check_old_target_monomial()
-    print("[7] old l=3 target t_23 t_32 x^4y^4 violates E-homogeneity; legal home of x^4y^4")
-    print("    at r=s=5 is t_{3,3}^3 (N=0: single balanced graph, NO wall)")
+    print("[6] t_23 t_32 x^4y^4 is not E-homogeneous (balanced support of {(2,3),(3,2)}: (5,0),(0,5));")
+    print("    at r=s=5, x^4y^4 occurs with t_{3,3}^3 (N=0: single balanced graph, no wall)")
     print("ALL CHECKS PASSED")
 
 

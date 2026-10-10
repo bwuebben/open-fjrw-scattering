@@ -1,4 +1,4 @@
-\section{Calibration of the GKT primary potential of \texorpdfstring{$x^4+y^4$}{x\^{}4+y\^{}4}}
+\section{Normalization of the GKT primary potential of \texorpdfstring{$x^4+y^4$}{x\^{}4+y\^{}4}}
 \label{app:primary-calibration}
 
 This appendix normalizes the source of the transport in
@@ -12,7 +12,8 @@ the reflection-fixed primary potential $W^{\GKT}_{\mathrm{prim}}$ used in
 Section~\ref{sec:primary-frobenius}.
 Appendix~\ref{subsec:marginal-calibration} computes its restriction to the
 marginal line, identifies it with the flat structure of Noumi and Yamada, and
-determines the first open invariants of the reflection-fixed chamber index.
+determines the first open invariants of the symmetric chamber indices with
+primary potential $W^{\GKT}_{\mathrm{prim}}$.
 We use the notation of Section~\ref{sec:primary-frobenius}: the source-chart
 coordinates $x,y$, the fields \eqref{eq:quartic-vector-field}, the primary
 variables $t_{a,b}$ and the ring $A_{\mathrm{prim}}$ of
@@ -24,7 +25,7 @@ recalled in Section~\ref{subsec:gkt-recollections}.
 \subsection{The reflection-fixed primary potential}
 \label{subsec:reflection-fixed}
 
-Let $I$ be a finite set of internal marking labels, each carrying a twist
+Let $I$ be a finite set of labels, each carrying a twist
 $(a,b)$ with $0\leq a,b\leq2$, and let $n_{a,b}$ be the number of labels of
 twist $(a,b)$.  Put
 $A^{\mathrm{prim}}_I=\QQ[t_{a,b}]/(t_{a,b}^{n_{a,b}+1})$.  For a symmetric
@@ -36,7 +37,7 @@ $t_{a,b,d}$, $d>0$; its coefficients lie in $A^{\mathrm{prim}}_I$.  In
 twist-preserving permutations of the labels
 \cite[Notation~3.42]{grossetal2022open}; the exchange of the two coordinates
 is the separate involution $\sigma$ of \eqref{eq:reflection}.  Let
-$\mathcal P(I)$ be the set of the potentials $W^\nu_{\mathrm{prim}}$.  We
+$\operatorname{Pot}(I)$ be the set of the potentials $W^\nu_{\mathrm{prim}}$.  We
 call $I$ \emph{$\sigma$-stable} if $n_{a,b}=n_{b,a}$ for all $a,b$; then
 $\sigma$ acts on $A^{\mathrm{prim}}_I[x,y]$.  The $\sigma$-stable label sets
 are cofinal, and $\varprojlim A^{\mathrm{prim}}_I=A_{\mathrm{prim}}$.
@@ -45,13 +46,13 @@ are cofinal, and $\varprojlim A^{\mathrm{prim}}_I=A_{\mathrm{prim}}$.
 \label{lem:reflection-fixed}
 Let $I$ be $\sigma$-stable and put $t=t_{2,2}$.
 \begin{enumerate}
-\item Every element of $\mathcal P(I)$ is a polynomial of degree at most four
+\item Every element of $\operatorname{Pot}(I)$ is a polynomial of degree at most four
 in $x,y$.  The automorphisms $\exp(fX_{0,0})$, with $f$ in the image of
 $t^2\QQ[t^2]$ in $A^{\mathrm{prim}}_I$, act freely and transitively on
-$\mathcal P(I)$.
-\item The involution $\sigma$ maps $\mathcal P(I)$ to itself, and
+$\operatorname{Pot}(I)$.
+\item The involution $\sigma$ maps $\operatorname{Pot}(I)$ to itself, and
 $\sigma\exp(fX_{0,0})\sigma^{-1}=\exp(-fX_{0,0})$.
-\item $\mathcal P(I)$ contains exactly one $\sigma$-fixed potential $W_I$.  If
+\item $\operatorname{Pot}(I)$ contains exactly one $\sigma$-fixed potential $W_I$.  If
 $I\subset I'$ are $\sigma$-stable, $W_{I'}$ reduces to $W_I$.
 \end{enumerate}
 Consequently the $W_I$ define a polynomial
@@ -117,7 +118,7 @@ $f=\sum_kc_{2k}t^{2k}/(2k)!$.
 Conversely, for $f\in t^2\QQ[t^2]$ the element $\psi_I(f)X_{0,0}$ lies in the
 Lie algebra of $\widetilde G$, so $\exp(\psi_I(f)X_{0,0})W^\nu=W^{\nu''}$ for a
 chamber index $\nu''$ bounded by $I$.  A labelled potential determines its
-chamber index, because the balanced graphs over a given marking set and
+chamber index, because the balanced graphs over a given label set and
 descendent vector have distinct balanced profiles.  Since
 $\exp(\psi_I(f)X_{0,0})$ and $W^\nu$ are fixed by every twist-preserving
 permutation, $\nu''$ is symmetric, and its primary part is
@@ -147,7 +148,7 @@ from those for $\nu$, and $\nu^\sigma$ is symmetric.  Formula
 $W^{\nu^\sigma,\mathrm{sym}}=\sigma(W^{\nu,\mathrm{sym}})$.  The conjugation
 formula follows from $\sigma(t)=t$ and $\sigma X_{0,0}\sigma^{-1}=-X_{0,0}$.
 
-(3) Fix $W\in\mathcal P(I)$ and write $\sigma W=\exp(gX_{0,0})W$, using (1)
+(3) Fix $W\in\operatorname{Pot}(I)$ and write $\sigma W=\exp(gX_{0,0})W$, using (1)
 and (2).  For $h$ in the image of $t^2\QQ[t^2]$,
 \[
  \sigma\bigl(\exp(hX_{0,0})W\bigr)
@@ -161,11 +162,16 @@ preserves the conditions of \cite[Def.~3.47]{grossetal2022open}, which for a
 subset of $I$ involve only such graphs.  Restriction reduces
 $W^\nu_{\mathrm{prim}}$ along $A^{\mathrm{prim}}_{I'}\to A^{\mathrm{prim}}_I$
 and commutes with $\sigma$, so the image of $W_{I'}$ is a $\sigma$-fixed
-element of $\mathcal P(I)$, namely $W_I$.
+element of $\operatorname{Pot}(I)$, namely $W_I$.
 \end{proof}
 
 We call $W^{\GKT}_{\mathrm{prim}}$ the \emph{reflection-fixed primary
-potential}.  The variable $t_{0,0}$ has Euler weight $16$, so it occurs
+potential}, and a symmetric chamber index $\nu$, bounded by a
+$\sigma$-stable label set $I$, with $W^\nu_{\mathrm{prim}}=W_I$ a
+\emph{reflection-fixed chamber index}.  Lemma~\ref{lem:reflection-fixed}
+fixes only the primary part, so such indices are not unique; their primary
+invariants, the only ones quoted below, are determined by
+$W^{\GKT}_{\mathrm{prim}}$.  The variable $t_{0,0}$ has Euler weight $16$, so it occurs
 only in monomials $t_{0,0}t_{2,2}^k$ of degree zero in $x,y$; write their
 sum as
 $c(t_{2,2})t_{0,0}$.  The $\Xi_{0,0}$ period of $W^{\GKT}_{\mathrm{prim}}$ is
@@ -183,8 +189,8 @@ Euler weight zero.  The congruences
 $k_1\equiv r_J$, $k_2\equiv s_J$ modulo $4$ of
 \cite[Prop.~2.31(a)]{grossetal2022open} allow only $t^{2k}x^4$, $t^{2k}y^4$
 and $t^{2k+1}x^2y^2$, and $\sigma$-invariance equates the coefficients of
-$x^4$ and $y^4$.  By \cite[Cor.~4.17]{grossetal2022open}, applied at every
-finite level, $dx\wedge dy$ is a primitive form for
+$x^4$ and $y^4$.  By \cite[Cor.~4.17]{grossetal2022open}, applied for every
+$\sigma$-stable label set $I$, $dx\wedge dy$ is a primitive form for
 $W^{\GKT}_{\mathrm{prim}}$ in the sense of \cite[Def.~4.3]{grossetal2022open},
 with the nine $t_{a,b}$ as flat coordinates.  By
 \cite[Rem.~4.5]{grossetal2022open} these flat coordinates agree with those of
@@ -210,7 +216,7 @@ the Fermat point its invariants in $H_{4,4}$ form a subspace of dimension
 six.
 \end{remark}
 
-\subsection{Marginal calibration}
+\subsection{The flat coordinate on the marginal line}
 \label{subsec:marginal-calibration}
 
 Set $t=t_{2,2}$.  The marginal quartics are
@@ -251,7 +257,7 @@ $\varpi_2/\hbar$ are the periods of
 $(W_{\mathfrak a,\mathfrak b,\mathfrak a},\Omega)$ over $\Xi_{0,0}$ and
 $\Xi_{2,2}$, and the other seven periods vanish.
 
-\begin{theorem}[Marginal period calibration]
+\begin{theorem}[Periods and flat coordinate on the marginal line]
 \label{thm:marginal-calibration}
 There is a unique pair $\mathfrak a(t),\mathfrak b(t)\in\QQ[[t]]$, with $\mathfrak a(0)=1$ and
 $\mathfrak b(t)=t+O(t^2)$, such that
@@ -269,13 +275,13 @@ is the restriction of $W^{\GKT}_{\mathrm{prim}}$ to the marginal line, and
        +\frac{t^6}{61440}+O(t^8),\label{eq:A-series}\\
  \mathfrak b(t)&=t+\frac{t^5}{1280}+O(t^9).\label{eq:B-series}
 \end{align}
-For two markings of twist $(2,2)$, the open invariants of the
+For two labels of twist $(2,2)$, the open invariants of every
 reflection-fixed chamber index at the balanced profiles $(4,0)$ and $(0,4)$
 are
 \begin{equation}\label{eq:marginal-invariants}
  \nu_{(4,0)}=\nu_{(0,4)}=-\frac18,
 \end{equation}
-and for three such markings its open invariant vanishes.  The first
+and for three such labels its open invariant vanishes.  The first
 correction visible in the Jacobian algebra of $W^{\mathrm{flat}}_t$ is the
 term $t^3/32$ in the relations
 \begin{equation}\label{eq:marginal-product}
@@ -324,9 +330,13 @@ At order $t^2$,
 so $\mathfrak a-1=t^2/16+O(t^3)$.  By the sign and the order-two automorphism
 factor in \cite[(4.11)]{grossetal2022open}, the coefficient of $t^2x^4$,
 respectively $t^2y^4$, is $-1/2$ times the corresponding invariant for two
-markings.  Hence \eqref{eq:marginal-invariants}.  The coefficient of $t^3$
+labels.  Hence \eqref{eq:marginal-invariants}.  In particular
+$\nu_{(4,0)}+\nu_{(0,4)}=-\frac14$, in agreement with the period
+computation of \cite[Rem.~4.3]{wuebben2026boundary}; this is the sum
+considered in \cite[Ex.~5.5]{grossetal2026survey}, and it differs from the
+value $-\frac18$ printed there.  The coefficient of $t^3$
 in the second period equation gives the vanishing of the invariant for three
-markings.  Finally the Jacobian relation is $x^3=-\mathfrak b(2\mathfrak a)^{-1}xy^2$, and expansion
+labels.  Finally the Jacobian relation is $x^3=-\mathfrak b(2\mathfrak a)^{-1}xy^2$, and expansion
 of $-\mathfrak b/(2\mathfrak a)$ gives \eqref{eq:marginal-product}.
 \end{proof}
 
@@ -351,7 +361,8 @@ Hence \eqref{eq:period-inverse} is equivalent to
 \end{equation}
 The second relation is the flat coordinate of the simple elliptic
 singularity $x^4+y^4$ along its marginal deformation computed by Noumi and
-Yamada \cite{noumiyamada1998flat}, as quoted in \cite[(7)]{strachan2010}.
+Yamada \cite{noumiyamada1998flat}, as quoted in
+\cite[(7), case $\widetilde E_7$]{strachan2010}.
 The statements of \cite[Props.~4.2.6--4.2.8]{maher2024predictions} for
 elliptic singularities of Fermat type (the primitive form as the reciprocal
 of a Gauss hypergeometric function times the volume form after Morse
@@ -362,7 +373,7 @@ primitive form
 $d\tilde x\wedge d\tilde y/{}_2F_1(\frac14,\frac14;\frac12;\frac{s^2}4)$ is
 $dx\wedge dy$, the normalization of \cite{grossetal2022open} used in
 Theorem~\ref{thm:marginal-calibration}.  In this normalization the
-coefficients of the potential are determined by the open invariants of the
+coefficients of the potential are determined by the open invariants of a
 reflection-fixed chamber index through \cite[(4.11)]{grossetal2022open}, and
 the series \eqref{eq:A-series}--\eqref{eq:B-series} and the invariants
 \eqref{eq:marginal-invariants} refer to it.
@@ -390,51 +401,52 @@ $-t/(2(1+ct^2))=-t/2+(c/2)t^3+O(t^5)$.
 
 Off the marginal line the flat coordinates are simultaneous, and on the first
 two-parameter slice this already fixes a term that the critical locus does
-not see.  Set $u=t_{1,1}$ and $t=t_{2,2}$.  Through total degree three, the
+not see.  Set $v=t_{1,1}$ and $t=t_{2,2}$.  Through total degree three, the
 restriction of $W^{\GKT}_{\mathrm{prim}}$ to the slice on which the other
 seven $t_{a,b}$ vanish is
 \begin{equation}\label{eq:mixed-primary-potential}
- W_{u,t}
+ W_{v,t}
  =\left(1+\frac{t^2}{16}\right)(x^4+y^4)
   +tx^2y^2
-  +\left(u-\frac{ut^2}{16}\right)xy
-  -\frac{u^2t}{32}+O((u,t)^4).
+  +\left(v-\frac{vt^2}{16}\right)xy
+  -\frac{v^2t}{32}+O((v,t)^4).
 \end{equation}
-The two new open invariants of the reflection-fixed chamber index are
+The two new open invariants of every reflection-fixed chamber index are
 \[
- \nu_{ut^2;(1,1)}=-\frac18,
+ \nu_{vt^2;(1,1)}=-\frac18,
  \qquad
- \nu_{u^2t;(0,0)}=-\frac1{16}.
+ \nu_{v^2t;(0,0)}=-\frac1{16}.
 \]
 They are the solutions of the chamber conditions
 \cite[Def.~3.47(3)]{grossetal2022open} for the supports $J$ consisting of
-one marking of twist $(1,1)$ and two of twist $(2,2)$, respectively two of
+one label of twist $(1,1)$ and two of twist $(2,2)$, respectively two of
 twist $(1,1)$ and one of twist $(2,2)$; both supports satisfy the
 inequality in that condition.  These supports have the single balanced
 profiles $(1,1)$ and $(0,0)$, and no two-element support containing a
-marking of twist $(1,1)$ has a balanced profile.  In the expression
+label of twist $(1,1)$ has a balanced profile.  In the expression
 $A(J,\mathbf 0,\nu)$ of Section~\ref{subsec:gkt-recollections}, with the
 weights \eqref{eq:quartic-Gamma-weight}, the two conditions therefore read
 \[
- \nu_{ut^2;(1,1)}+\tfrac12\bigl(\nu_{(4,0)}+\nu_{(0,4)}\bigr)+\tfrac14=0,
+ \nu_{vt^2;(1,1)}+\tfrac12\bigl(\nu_{(4,0)}+\nu_{(0,4)}\bigr)+\tfrac14=0,
  \qquad
- \nu_{u^2t;(0,0)}+\tfrac1{16}=0,
+ \nu_{v^2t;(0,0)}+\tfrac1{16}=0,
 \]
-where the middle term comes from the partition that separates the marking
+where the middle term comes from the partition that separates the label
 of twist $(1,1)$, the terms $\frac14$ and $\frac1{16}$ come from the
 partitions into singletons, and $\nu_{(4,0)}=\nu_{(0,4)}=-\frac18$ by
-\eqref{eq:marginal-invariants}.  The repeated-marking automorphisms in
-\cite[(4.11)]{grossetal2022open} divide the two invariants by two, giving
+\eqref{eq:marginal-invariants}.  The order-two automorphism factors in
+\cite[(4.11)]{grossetal2022open}, from the two labels of equal twist, divide
+the two invariants by two, giving
 the last two corrections in \eqref{eq:mixed-primary-potential}.  The
 periods confirm these values.  For the $\Xi_{1,1}$ period, the direct
-correction $-\frac{ut^2}{16}xy$, the cross term of $uxy$ with
-$\frac{t^2}{16}(x^4+y^4)$, and the cubic term $uxy(tx^2y^2)^2$ contribute
+correction $-\frac{vt^2}{16}xy$, the cross term of $vxy$ with
+$\frac{t^2}{16}(x^4+y^4)$, and the cubic term $vxy(tx^2y^2)^2$ contribute
 \[
- -\frac{ut^2}{16\hbar},\qquad
- -\frac{ut^2}{16\hbar},\qquad
- \frac{ut^2}{8\hbar};
+ -\frac{vt^2}{16\hbar},\qquad
+ -\frac{vt^2}{16\hbar},\qquad
+ \frac{vt^2}{8\hbar};
 \]
 for $\Xi_{0,0}$ the two contributions are
-$-u^2t/(32\hbar)$ and $u^2t/(32\hbar)$.  Both sums vanish, as the flatness
-of $u$ and $t$ requires.  Thus the constant term $-u^2t/32$ is fixed by the
+$-v^2t/(32\hbar)$ and $v^2t/(32\hbar)$.  Both sums vanish, as the flatness
+of $v$ and $t$ requires.  Thus the constant term $-v^2t/32$ is fixed by the
 oscillatory integral although it is invisible to the critical locus.

@@ -14,9 +14,9 @@ rho_n^+ vanishes with gradient (-16n, lam), and rho_n^- = 1 - lam^(-2) is a
 unit.  The Kummer cover with the fourth roots of rho_0, rho_1, rho_2 has
 Jacobian rank two at the point over p, hence a tangent space of dimension
 three over a surface; adjoining a further root through p does not change
-this.  The cusps lam = +-1 are checked as well.
+this.  The nodal values lam = +-1 are checked as well.
 
-Part 2 checks the B-cusp case of the local root formula in the proof of
+Part 2 checks the nodal case of the B-slab of the local root formula in the proof of
 Theorem C.2, and Part 3 the integrality of the exponents 4a/d for the root
 degrees d = 2, 4 after the fourth root of every component x_j = y_j^4 of a
 simple normal crossings divisor is adjoined.
@@ -92,7 +92,7 @@ for lv in [2, 3, -5, QQ(1) / 3, QQ(7) / 2]:
         assert J.rank() <= 3
         assert len(P.gens()) - J.rank() >= 3
 
-# The cusps lam = +-1: fourth roots of (R_n^+)^2 and square roots of R_n^+.
+# The nodal values lam = +-1: fourth roots of (R_n^+)^2 and square roots of R_n^+.
 C.<a1, b1, s0, s1, s2> = PolynomialRing(QQ, 5)
 CF = C.fraction_field()
 uc = (1 + 1 / CF(a1)) ** 4
@@ -110,13 +110,13 @@ for sign in (1, -1):
 
 
 # ---------------------------------------------------------------------------
-# 2. The B-cusp and the fourth-root formula.
+# 2. The nodal B-slab and the fourth-root formula.
 # ---------------------------------------------------------------------------
 
 B.<h, g, y> = PolynomialRing(QQ, 3)
-naive_cusp = g ** 4 - h ** 2
-assert naive_cusp == (g ** 2 - h) * (g ** 2 + h)
-assert vector([naive_cusp.derivative(h), naive_cusp.derivative(g)]).subs(
+naive_node = g ** 4 - h ** 2
+assert naive_node == (g ** 2 - h) * (g ** 2 + h)
+assert vector([naive_node.derivative(h), naive_node.derivative(g)]).subs(
     {h: 0, g: 0}
 ) == vector([0, 0])
 
@@ -143,5 +143,5 @@ print("regularity checks: PASS")
 print("  multiple-root Jacobian rank:", jacobian_at_point.rank())
 print("  multiple-root tangent dimension:", tangent_dimension)
 print("  branch gradients at (-1/2,-1/lam):", branch_gradients)
-print("  cusp chart: h=y^4, g=eta*y^2")
+print("  nodal chart: h=y^4, g=eta*y^2")
 print("  common root order of the boundary components:", L)

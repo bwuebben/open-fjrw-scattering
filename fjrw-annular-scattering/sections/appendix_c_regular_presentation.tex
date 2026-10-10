@@ -6,28 +6,28 @@ of Section~\ref{subsec:root-stage-regularity}, whose notation we keep.  Thus
 $\mathbb T=\Spec\Bbbk[\widetilde M]$ is the character torus in the frame of the
 sheet $S_0$, and $T\subset\Tcal$ is a finite rooted subtree.  At a Kummer edge
 $e$ of $T$ we have the root degree $d_e\in\{2,4\}$, the transported radicand
-$\varrho_e$, the Laurent polynomial $\Phi_e$ of
+$\varrho_e$, the Laurent polynomial $\widehat\varrho_e$ of
 Lemma~\ref{lem:transported-radicands} and the divisor
-$D_e=\operatorname{div}\Phi_e$ of zeros of $\varrho_e$; moreover
+$D_e=\operatorname{div}\widehat\varrho_e$ of zeros of $\varrho_e$; moreover
 $D_T=\bigcup_eD_e$, the scheme $P_T$ is the Kummer cover, with
 group $G_T=\prod_e\mu_{d_e}$, so that $\Xfrak_T=[P_T/G_T]$, and $P_T^\circ$
 is the preimage of $\mathbb T\setminus D_T$ in $P_T$.
 
-\subsection{A multiple-root obstruction}
+\subsection{Non-regularity where three root divisors meet}
 
-\begin{proposition}[A multiple-root obstruction]
+\begin{proposition}[Non-regularity where three root divisors meet]
 \label{prop:root-stage-nonregular}
 Write $f_B(x)=1+a_\rho x+x^2=(1+\lambda x)(1+\lambda^{-1}x)$ for the $B_0$-slab
 function, with $\lambda\neq\pm1$, and let
 \[
- \varrho_n=f_B\bigl(u^nx_B\bigr),\qquad u=\bigl(1+x_A^{-1}\bigr)^4,\qquad n\in\ZZ,
+ \varrho_n=f_B\bigl(h^nx_B\bigr),\qquad h=\bigl(1+x_A^{-1}\bigr)^4,\qquad n\in\ZZ,
 \]
 be the transported $B_0$-radicands of Theorem~\ref{thm:infinite-root-orbit},
 adjoined at the crossings $e_n$ of the $B_0$-arc that follow the paths
 $\gamma_{\widetilde A}^n$.  Let $T\subset\Tcal$ contain
-$e_0,e_1,e_2$, and let $p\in\mathbb T$ be a point with
-$(x_A,x_B)(p)=(-\tfrac12,-\lambda^{-1})$.  Then the Kummer cover $P_T$ is not
-regular at any point $\hat p$ over $p$.  At $\hat p$ it is not log regular,
+$e_0,e_1,e_2$, and let $w\in\mathbb T$ be a point with
+$(x_A,x_B)(w)=(-\tfrac12,-\lambda^{-1})$.  Then the Kummer cover $P_T$ is not
+regular at any point $\hat w$ over $w$.  At $\hat w$ it is not log regular,
 either with the trivial log structure or with the log structure given by
 the chart from the free commutative monoid on the Kummer edges of $T$ that
 sends each Kummer edge $e$ to $g_e$.  In particular $\Xfrak_T$ is not regular.
@@ -37,43 +37,43 @@ sends each Kummer edge $e$ to $g_e$.  In particular $\Xfrak_T$ is not regular.
 The characters $x_A=z^{2u_{\widetilde A}}$ and $x_B=z^{2u_{B_0}}$ have
 linearly independent exponents, so $(x_A,x_B):\mathbb T\to\mathbb G_m^2$ is
 \'etale, and $x_A+\frac12$, $x_B+\lambda^{-1}$ form a regular system of
-parameters of $\Ocal_{\mathbb T,p}$; we compute differentials in these coordinates.
-Put $\varrho_n^\pm=1+\lambda^{\pm1}u^nx_B$, so that
-$\varrho_n=\varrho_n^+\varrho_n^-$.  Then $u(p)=1$ and $f_A(p)=\tfrac12\neq0$,
+parameters of $\Ocal_{\mathbb T,w}$; we compute differentials in these coordinates.
+Put $\varrho_n^\pm=1+\lambda^{\pm1}h^nx_B$, so that
+$\varrho_n=\varrho_n^+\varrho_n^-$.  Then $h(w)=1$ and $f_A(w)=\tfrac12\neq0$,
 and for every $n$
 \[
- \varrho_n^+(p)=0,\qquad \varrho_n^-(p)=1-\lambda^{-2}\neq0,\qquad
- \nabla\varrho_n^+(p)=(-16n,\lambda).
+ \varrho_n^+(w)=0,\qquad \varrho_n^-(w)=1-\lambda^{-2}\neq0,\qquad
+ \nabla\varrho_n^+(w)=(-16n,\lambda).
 \]
-Near $p$ each $\varrho_n$ is a unit times $\varrho_n^+$.  For $n=0,1,2$ the
+Near $w$ each $\varrho_n$ is a unit times $\varrho_n^+$.  For $n=0,1,2$ the
 gradients $(0,\lambda),(-16,\lambda),(-32,\lambda)$ are pairwise
 independent, so the three root divisors are smooth and pairwise transverse
-at $p$.
+at $w$.
 
 For $n\geq0$ the radicand $\varrho_n$ is a Laurent polynomial, so we may
-take $\Phi_{e_n}=\varrho_n$ in Lemma~\ref{lem:transported-radicands}; the
-fixed $\Phi_{e_n}$ differs from $\varrho_n$ by the fourth power of a unit
+take $\widehat\varrho_{e_n}=\varrho_n$ in Lemma~\ref{lem:transported-radicands}; the
+fixed $\widehat\varrho_{e_n}$ differs from $\varrho_n$ by the fourth power of a unit
 $v$, which changes $P_T$ by the isomorphism $g\mapsto vg$.  Write
 $g_0,g_1,g_2$ for the roots at $e_0,e_1,e_2$, of degree four, and
 $g_3,\ldots,g_k$ for the roots at the other Kummer edges of $T$, with $d_j$
-and $\Phi_j$ accordingly.  Then
-$P_T=\Spec\Ocal_{\mathbb T}[g_0,\ldots,g_k]/(g_j^{d_j}-\Phi_j)$ is finite and flat
+and $\widehat\varrho_j$ accordingly.  Then
+$P_T=\Spec\Ocal_{\mathbb T}[g_0,\ldots,g_k]/(g_j^{d_j}-\widehat\varrho_j)$ is finite and flat
 over the surface $\mathbb T$, hence of dimension two at every point, and
-$g_0,g_1,g_2$ vanish at every point $\hat p$ over $p$.  The Jacobian of the
-defining equations at $\hat p$ has rank at most $2+(k-2)=k$, because the
+$g_0,g_1,g_2$ vanish at every point $\hat w$ over $w$.  The Jacobian of the
+defining equations at $\hat w$ has rank at most $2+(k-2)=k$, because the
 rows of $g_j^4-\varrho_j$, $j\leq2$, vanish in the $g$-columns.  The tangent
-space at $\hat p$ therefore has dimension at least $(k+3)-k=3>2$, and $P_T$
-is not regular at $\hat p$.  With the trivial log structure, log regularity
-at $\hat p$ is regularity \cite[Def.~2.1]{kato1994toric}, so it fails.  With
-the log structure of the roots, the characteristic monoid at $\hat p$ is
-free on the Kummer edges whose roots vanish at $\hat p$, so its rank is at
-least three, and the ideal $\mathfrak a_{\hat p}\subset\Ocal_{\hat p}$
+space at $\hat w$ therefore has dimension at least $(k+3)-k=3>2$, and $P_T$
+is not regular at $\hat w$.  With the trivial log structure, log regularity
+at $\hat w$ is regularity \cite[Def.~2.1]{kato1994toric}, so it fails.  With
+the log structure of the roots, the characteristic monoid at $\hat w$ is
+free on the Kummer edges whose roots vanish at $\hat w$, so its rank is at
+least three, and the ideal $\mathfrak a_{\hat w}\subset\Ocal_{\hat w}$
 generated by the images of the nonunits of the log structure contains
-$g_0,g_1,g_2$.  The quotient $\Ocal_{\hat p}/\mathfrak a_{\hat p}$ is finite
-over $\Ocal_{\mathbb T,p}/(\varrho_0^+,\varrho_1^+)=\Bbbk$, because $\varrho_0^+$ and
-$\varrho_1^+$ vanish transversely at $p$, and so has dimension zero.  Kato's
+$g_0,g_1,g_2$.  The quotient $\Ocal_{\hat w}/\mathfrak a_{\hat w}$ is finite
+over $\Ocal_{\mathbb T,w}/(\varrho_0^+,\varrho_1^+)=\Bbbk$, because $\varrho_0^+$ and
+$\varrho_1^+$ vanish transversely at $w$, and so has dimension zero.  Kato's
 condition
-$\dim\Ocal_{\hat p}=\dim(\Ocal_{\hat p}/\mathfrak a_{\hat p})+\operatorname{rank}$
+$\dim\Ocal_{\hat w}=\dim(\Ocal_{\hat w}/\mathfrak a_{\hat w})+\operatorname{rank}$
 \cite[Def.~2.1]{kato1994toric} would read $2=0+\operatorname{rank}$ with a
 rank of at least three, so it fails.  Since $P_T\to\Xfrak_T$ is \'etale and
 surjective, $\Xfrak_T$ is not regular.  A tree of this kind exists: by
@@ -83,11 +83,14 @@ $\gamma_{\widetilde A}^n$, $n=0,1,2$, followed by a crossing of the
 $B_0$-arc, and their rooted union is a finite subtree.
 \end{proof}
 
-At the cusps $a_\rho=\pm2$ the same point, with $\lambda=\pm1$, gives the same
+At the nodal values $a_\rho=\pm2$ the same point, with $\lambda=\pm1$, gives the same
 conclusion.  There $\varrho_n=(\varrho_n^+)^2$ by \eqref{eq:cusp-roots}, and
 both the fourth roots of $\varrho_n$ and the square roots of $\varrho_n^+$,
-whose gradients at $p$ are again $(-16n,\lambda)$, give Kummer covers whose
-tangent space at the points over $p$ has dimension at least three.
+whose gradients at $w$ are again $(-16n,\lambda)$, give Kummer covers whose
+tangent space at the points over $w$ has dimension at least three.  The
+argument for log regularity applies verbatim: the three roots at
+$e_0,e_1,e_2$ vanish at these points, so the rank is at least three, while
+the quotient by the ideal of the log structure has dimension zero.
 
 \subsection{A regular dominating presentation}
 
@@ -176,7 +179,7 @@ to $4\mathcal E_j$.  Where $E_{j_1},\ldots,E_{j_l}$ meet, with local
 equations $x_1,\ldots,x_l$ forming part of a regular system of parameters,
 $\mathcal Y_T$ has the \'etale chart
 $U=\Spec\Ocal[y_1,\ldots,y_l]/(y_1^4-x_1,\ldots,y_l^4-x_l)$ with its action
-of $\mu_4^l$ \cite[Ex.~3.1]{cadman2007}; it is smooth over $\Bbbk$, and
+of $\mu_4^l$ \cite[Ex.~3.1 and Def.~2.6]{cadman2007}; it is smooth over $\Bbbk$, and
 $\mathcal E_T=\bigcup_j\mathcal E_j$ is $y_1\cdots y_l=0$ on it.  Since
 $\mu_4$ is \'etale in characteristic zero, $\mathcal Y_T$ is a smooth
 separated Deligne--Mumford stack and $\mathcal E_T$ is a simple normal
@@ -191,16 +194,16 @@ with $\Ocal(\pi_T^*D_e)$ define a morphism
 $\mathcal Y_T\to\sqrt[d_e]{(\mathbb T,D_e)}$ over $\pi_T$
 \cite[Defs.~2.1, 2.3]{cadman2007}.  Together these give $p_T$, which is
 proper because $\mathcal Y_T\to\mathbb T$ is proper and $\Xfrak_T\to\mathbb T$ is
-separated.  Locally $\pi_T^*\Phi_e=v_e\prod_jx_j^{a_{ej}}$
+separated.  Locally $\pi_T^*\widehat\varrho_e=v_e\prod_jx_j^{a_{ej}}$
 with $v_e$ a unit, so after the \'etale extension
 $\eta_e^{d_e}=v_e$ a $d_e$th root of
-$\pi_T^*\Phi_e$ is a unit times a monomial in the boundary
+$\pi_T^*\widehat\varrho_e$ is a unit times a monomial in the boundary
 coordinates:
 \begin{equation}\label{eq:resolved-root-formula}
  g_e=\eta_e
  \prod_{j}y_j^{4a_{ej}/d_e},
  \qquad
- g_e^{d_e}=\pi_T^*\Phi_e .
+ g_e^{d_e}=\pi_T^*\widehat\varrho_e .
 \end{equation}
 
 \emph{The Kummer cover.}  As a base change of the $G_T$-torsor

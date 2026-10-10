@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 verify_thm05.py -- NARROW numerical verification of the Gross-Kelly-Tessler open
-topological recursion ([GKT] Thm 0.5 / eq 0.8) for x^5+y^5, using our independently
-computed closed FJRW invariants (rspin.py). This is the numerical content of the
-node-splitting identities used in Paper 2's transport analysis.
+topological recursion ([GKT] Thm 0.5 / eq 0.8) for x^5+y^5, using the independently
+computed closed FJRW invariants of rspin.py, restricted to narrow node twists. The full
+check of Paper 2, Appendix A, including the extended sectors, is verify_thm05_full.sage.
 
-The canonical open invariant (survey Thm 5.4 form; NO leading sign):
+The values of A ([GKT] Cor. 5.11 = survey Thm 5.4; NO leading sign):
     A(A,d) = (-1)^{d_1}                                            if A={(a_1,b_1)} singleton
            = 0                                                     if d(A,d) < 0
            = < tau_{d(A,d)}^{(r-r(A)-2, s-s(A)-2)} prod tau_{d_i}^{(a_i,b_i)} >^ext   if d(A,d) >= 0
@@ -18,7 +18,7 @@ The recursion (eq 0.8), for j1 in J:
         - A(J, d),                z_{a,b} = (r-2-a, s-2-b).
 
 We sum only the NARROW node twists a,b in {0,...,r-2}. Where narrow-RHS == LHS, the
-extended (a or b = -1) terms provably vanished (the LHS is exact via Thm 5.4). A
+extended (a or b = -1) terms provably vanished (the LHS is exact via [GKT] Cor. 5.11). A
 mismatch would flag a genuine extended instance -- there are NONE among the computable
 narrow instances. The convention (no leading sign) is the one the recursion itself
 makes self-consistent, e.g. J={(1,1),(1,1)}: 0 = <(1,1)^3>*A({(1,1)},0) - A(J,0) = 1-1.
@@ -61,7 +61,7 @@ def Aval(tws, ds):
     dA = int(dA)
     ex = (r - 2 - rA, s - 2 - sA)
     if ex[0] < 0 or ex[1] < 0:
-        return None, False               # extended insertion -> gap #2
+        return None, False               # extended insertion: see verify_thm05_full.sage
     v = cval([(ex, dA)] + [(tw, d) for tw, d in zip(tws, ds)])
     return (v, v is not None)
 
@@ -109,7 +109,7 @@ def run():
     print("NARROW verification: GKT open topological recursion (Thm 0.5) for x^5+y^5")
     print("=" * 74)
     st, lhs, rhs, base, _ = verify([(1, 1), (1, 1)], [0, 0], 0)
-    _check(f"anchor J={{(1,1),(1,1)}}: 0 = <(1,1)^3>*A - A(J,0) = {rhs}-{base}", st == 'match')
+    _check(f"base case J={{(1,1),(1,1)}}: 0 = <(1,1)^3>*A - A(J,0) = {rhs}-{base}", st == 'match')
 
     pool = [(1, 1), (2, 1), (1, 2), (2, 2), (1, 3), (3, 1), (2, 3), (3, 2)]
     match = mismatch = skip = nz = frac = 0
@@ -141,11 +141,10 @@ def run():
     print(f"\n  e.g. J={{(1,1),(1,1),(1,3)}}: base A(J,0)=-1/5 is reproduced by a single")
     print(f"       node-splitting with fractional vertex weight -1/5  (rhs_sum={rhs}, base={base}).")
     print("\n" + "=" * 74)
-    print("GKT's PROVEN open topological recursion is satisfied by our independently")
-    print("computed closed FJRW invariants, in every narrow instance. This validates the")
-    print("invariants against GKT's geometry and confirms the narrow node-splitting")
-    print("numerically. The extended tw=-1 sector is checked independently by")
-    print("verify_thm05_full.sage; transport labeling is tested by the transport scripts.")
+    print("GKT's open topological recursion (Thm 0.5) is satisfied by the independently")
+    print("computed closed FJRW invariants of rspin.py, in every narrow instance. This")
+    print("checks the invariants against GKT's theorem and the narrow node-splitting")
+    print("numerically. The extended tw=-1 sector is checked by verify_thm05_full.sage.")
     print("=" * 74)
 
 

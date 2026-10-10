@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 r"""
-a_invariants.py -- the invariant combinations A(J,d,nu) of [GKT] Notation 3.41, in the
-LABELED-PARTITION convention forced by Theorem 4.9 (= Thm 0.2), and the relations they
-impose on the open FJRW invariants of x^r + y^s.
+a_invariants.py -- the invariant combinations A(J,d,nu) of [GKT] Notation 3.42, in the
+LABELED-PARTITION convention forced by [GKT] Theorem 4.9 (cf. Theorem 0.2), and the
+relations they impose on the open FJRW invariants of x^r + y^s.
 
-Convention (the 2026-07-18b correction, twice confirmed):
+Convention:
   A(J,d,nu) = sum over UNORDERED set partitions {J_1,...,J_h} of the labeled set J
               (equivalently: ordered tuples with 1/h!, since distinct label-blocks
               admit h! orderings) of
@@ -15,29 +15,31 @@ Convention (the 2026-07-18b correction, twice confirmed):
   s k1 + r k2 = m(J_i, d|J_i).  All Gamma-ratios are rational (arguments differ by
   integers); everything here is exact.
 
-The convention is pinned INDEPENDENTLY of the oscillatory route by a case where GKT's
-proven Theorem 5.4(2) supplies the value:  J = {(1,1),(1,1)}, d=0 at r=s=5 has
-d(J,0)=0 and
+The convention is fixed independently of the oscillatory route by a case where
+[GKT] Cor. 5.11(3) (= Theorem 5.4(2) of the GKT survey) supplies the value:
+J = {(1,1),(1,1)}, d=0 at r=s=5 has d(J,0)=0 and
     A = <tau_0^{(1,1)} tau_0^{(1,1)} tau_0^{(1,1)}>^{x^5+y^5} = 1   (Frobenius algebra),
-while the Notation 3.41 expansion is (labeled count) 1 * nu_single^2 = 1  vs (the
-survey Ex 5.5 style halved count) 1/2.  Only the labeled count is consistent -- the
-same counting question as survey Ex 5.5, decided by a PROVEN theorem plus closed data.
+while the Notation 3.42 expansion gives (labeled count) 1 * nu_single^2 = 1, against
+1/2 for the halved count of the survey's Ex. 5.5.  Only the labeled count is
+consistent; this is the counting question of survey Ex. 5.5 (Paper 2, Remark 4.3),
+decided here by a theorem of [GKT] and closed data.
 
-Checks below (ALL exact):
- [1] the convention pin above, plus the convention-neutral Cor 0.6 check
-     A({(1,1),(2,2)},0) = <tau_0^{(0,0)}tau_0^{(1,1)}tau_0^{(2,2)}> = 1;
+Checks below (all exact):
+ [1] the convention check above, plus the convention-independent check of
+     [GKT] Cor. 5.11(3):  A({(1,1),(2,2)},0) = <tau_0^{(0,0)}tau_0^{(1,1)}tau_0^{(2,2)}> = 1;
  [2] seed vanishings reproduce the oscillatory-route relations of oscillatory_check.py:
      r=4: nu40+nu04 = -1/4;  r=5 (both seed pairs): nu50+nu05 = -1/5;
  [3] first wall t_{3,3}^2:  A({(3,3)^2},0)=0  ==>  nu16+nu61 = -2/5  (same as the
      oscillatory route -- two independent derivations);
- [4] NEW INVARIANT, invisible diagonal t_{3,3}^3 (r(J)=4=r-1, good-basis periods see
-     nothing; N=0 so no walls -- the value is absolute):
+ [4] a new invariant on the broad diagonal t_{3,3}^3 (r(J)=4=r-1, so the
+     good-basis periods vanish there; N=0, so no walls and the value is absolute):
        A({(3,3)^3},0) = nu44 + 3(nu16+nu61) + 1 = 0
        ==>  <tau_0^{(3,3)}tau_0^{(3,3)}tau_0^{(3,3)} sigma_1^4 sigma_2^4 sigma_12> = 1/5;
  [5] quartic marginal cubic block:
        A({(2,2)^3},0) = nu22^(3) + (9/4)(nu40+nu04) + 9/16 = 0
        and nu40+nu04=-1/4  ==>  nu22^(3)=0;
- [6] descendent seed (condition (2), A(singleton,(1)) = -1), e.g. (3,3):
+ [6] descendent seed (condition (2) of [GKT] Thm 0.7 / Def. 3.47: A(singleton,(1)) = -1),
+     e.g. (3,3):
        nu_{(8,3)} + nu_{(3,8)} = -5/4  (descendent-boundary seed relation).
 
 Run: ./venv/bin/python src/a_invariants.py
@@ -105,7 +107,7 @@ def A_invariant(J, r, s, nu):
     """A(J,d,nu) for the labeled multiset J = [(a,b,d), ...] (labels = positions).
 
     nu: callable(part_key, k1, k2) -> sympy expression, with part_key the sorted
-    tuple of (a,b,d) in the part.  Singleton d=0 parts default to 1 (Thm 5.1) if
+    tuple of (a,b,d) in the part.  Singleton d=0 parts default to 1 ([GKT] Thm 5.1) if
     nu returns None."""
     labels = list(range(len(J)))
     rJ, sJ = r_of(J, r), s_of(J, s)
@@ -133,7 +135,7 @@ def A_invariant(J, r, s, nu):
                 v = nu(key, k1, k2)
                 if v is None:
                     if len(part) == 1 and part[0][2] == 0:
-                        v = sp.Integer(1)  # Thm 5.1 normalization
+                        v = sp.Integer(1)  # [GKT] Thm 5.1 normalization
                     else:
                         raise KeyError((key, k1, k2))
                 term *= v
@@ -150,19 +152,19 @@ def nu_from_dict(d):
 # ---------------------------------------------------------------- the checks
 
 def check_convention_pin():
-    """[1] A({(1,1)^2},0) at r=s=5: d(J,0)=0 and Thm 5.4(2) gives the closed value
+    """[1] A({(1,1)^2},0) at r=s=5: d(J,0)=0 and [GKT] Cor. 5.11(3) gives the closed value
     <tau0^{(1,1)}^3> = 1 (A_4 Frobenius: e1*e1=e2, eta(e2,e1)=1, tensor-squared with
     positive sign).  The labeled count yields exactly 1."""
     J = [(1, 1, 0), (1, 1, 0)]
     assert d_of(J, 5, 5) == 0
     val = A_invariant(J, 5, 5, nu_from_dict({}))
     assert val == 1, val
-    # the halved (survey-Ex-5.5-style) count would give 1/2 -- demonstrate:
+    # the halved count (as in survey Ex. 5.5) would give 1/2:
     # its only contribution is the h=2 all-singleton partition, weight 1, nu^2=1,
     # counted once WITH the 1/2! retained.
     halved = sp.Rational(1, 2)
     assert halved != val
-    # convention-neutral Cor 0.6 check: distinct parts
+    # convention-independent check of [GKT] Cor. 5.11(3): distinct parts
     J2 = [(1, 1, 0), (2, 2, 0)]
     assert d_of(J2, 5, 5) == 0
     val2 = A_invariant(J2, 5, 5, nu_from_dict({}))
@@ -211,7 +213,7 @@ def check_first_wall():
 
 
 def check_t33_cubed():
-    """[4] the invisible diagonal t_{3,3}^3: A({(3,3)^3},0)=0 determines the
+    """[4] the broad diagonal t_{3,3}^3: A({(3,3)^3},0)=0 determines the
     wall-free coefficient nu44 absolutely."""
     nu16, nu61, nu44 = sp.symbols("nu16 nu61 nu44")
     J = [(3, 3, 0)] * 3
@@ -255,7 +257,7 @@ def check_t22_cubed_r4():
 
 
 def check_descendent_seed():
-    """[6] condition (2): A({(3,3)},(1)) = (-1)^1 = -1  ==>  nu83+nu38 = -5/4."""
+    """[6] condition (2) of [GKT] Thm 0.7: A({(3,3)},(1)) = (-1)^1 = -1  ==>  nu83+nu38 = -5/4."""
     nu83, nu38 = sp.symbols("nu83 nu38")
     J = [(3, 3, 1)]
     A = A_invariant(J, 5, 5, nu_from_dict({
@@ -271,21 +273,21 @@ def check_descendent_seed():
 def main():
     print("== A(J,d,nu) in the labeled convention: relations and checks ==")
     assert check_convention_pin()
-    print("[1] convention PIN via proven Thm 5.4(2): A({(1,1)^2},0) = <tau0^{(1,1)}^3> = 1")
-    print("    labeled count: 1 (correct); survey-Ex-5.5-style count: 1/2 (fails).")
-    print("    + neutral check A({(1,1),(2,2)},0) = <tau0^{(0,0)}tau0^{(1,1)}tau0^{(2,2)}> = 1: OK")
+    print("[1] convention fixed by GKT Cor. 5.11(3): A({(1,1)^2},0) = <tau0^{(1,1)}^3> = 1")
+    print("    labeled count: 1 (consistent); halved count of survey Ex. 5.5: 1/2 (inconsistent).")
+    print("    + convention-independent check A({(1,1),(2,2)},0) = <tau0^{(0,0)}tau0^{(1,1)}tau0^{(2,2)}> = 1: OK")
     assert check_seed_vanishings()
     print("[2] seed vanishings == oscillatory route: r=4: -1/4;  r=5 both pairs: -1/5")
     assert check_first_wall()
     print("[3] first wall t_33^2: nu16+nu61 = -2/5 (independent re-derivation, matches)")
     v = check_t33_cubed()
-    print(f"[4] NEW invariant (invisible diagonal, wall-free): "
+    print(f"[4] new invariant (broad diagonal, wall-free): "
           f"<tau0^(3,3)^3 sigma_1^4 sigma_2^4 sigma_12> = {v}")
     cubic_v = check_t22_cubed_r4()
     print(f"[5] r=4 marginal cubic block: nu22^(3) = {cubic_v} "
           "(the lower partition weights cancel)")
     assert check_descendent_seed()
-    print("[6] descendent seed (condition (2), d=1 at (3,3)): nu83+nu38 = -5/4")
+    print("[6] descendent seed (GKT Thm 0.7 condition (2), d=1 at (3,3)): nu83+nu38 = -5/4")
     print("ALL CHECKS PASSED")
 
 

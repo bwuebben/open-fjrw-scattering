@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-scattering.py -- leading-order scattering for the affine wall-crossing algebra
-g^{r,s}, computed by explicit automorphism composition (exp of the Section-5
-vector fields acting on functions). Self-validating go/no-go for Framing 1:
-two walls scatter, and a single correction wall at the sum direction restores
-consistency to leading order -- the FJRW analogue of the tropical-vertex baby
-scattering 1+tx, 1+sy -> 1+st,xy.
+scattering.py -- leading-order scattering in the Lie algebra of the vector fields
+X_{a,b} that generate the wall-crossing algebra g^{r,s} (Paper 1, Section 5), computed
+by explicit automorphism composition (exp of the vector fields acting on functions).
+Check: two walls scatter, and a single correction wall at the sum direction restores
+consistency to leading order -- the analogue of the basic tropical-vertex scattering,
+in which 1+tx and 1+sy produce 1+stxy.
 
-Generators (Section 5):  X_{a,b} = x^a y^b((b+1)x d_x - (a+1)y d_y),
-bracket [X_{a,b},X_{c,d}] = ((b+1)(c+1)-(a+1)(d+1)) X_{a+c,b+d}  (certified).
+Generators (Paper 1, Section 5):  X_{a,b} = x^a y^b((b+1)x d_x - (a+1)y d_y),
+bracket [X_{a,b},X_{c,d}] = ((b+1)(c+1)-(a+1)(d+1)) X_{a+c,b+d}  (Paper 1, Lemma 5.2;
+verified in census.py).
 
 An automorphism theta = exp(V) (V a vector field, nilpotent mod truncation) acts
 on the ring by  theta(f) = sum_n V^n(f)/n!  = f(theta(x), theta(y)); it is a ring
@@ -17,7 +18,7 @@ homomorphism, so composition is substitution. We form the group commutator
 of the two wall automorphisms and show its leading nontrivial term is [u,v]
 applied, i.e. Phi = exp([u,v] + higher). Hence adding one wall exp(-[u,v]) at the
 sum direction cancels the obstruction: exp(-[u,v]) . Phi = id to leading order.
-The scattering coefficient IS the Section-5 structure constant.
+The scattering coefficient IS the structure constant of Paper 1, Lemma 5.2.
 
 Everything exact (fractions.Fraction); truncated at total degree <= N.
 Run:  python3 scattering.py
@@ -149,7 +150,7 @@ def _check(name, cond):
 
 def run():
     print("=" * 74)
-    print("Leading-order scattering in g^{r,s} (affine wall-crossing algebra)")
+    print("Leading-order scattering of the wall vector fields X_{a,b}")
     print("=" * 74)
 
     N = 11
@@ -161,7 +162,7 @@ def run():
 
     print("\nWalls: u = X_{1,2} (dir (1,2)),  v = X_{2,1} (dir (2,1))")
     br = bracket(u, v, N)
-    print("Section-5 bracket [u,v] = 5 X_{3,3}; check as vector field:")
+    print("Bracket (Paper 1, Lemma 5.2) [u,v] = 5 X_{3,3}; check as vector field:")
     _check("[X_{1,2},X_{2,1}] == 5 X_{3,3}",
            br[0] == scale(X(3, 3)[0], 5) and br[1] == scale(X(3, 3)[1], 5))
 
@@ -201,7 +202,7 @@ def run():
            all(k[0] + k[1] != 7 for k in dpx) and all(k[0] + k[1] != 7 for k in dpy))
     md2_str = f"degree {md2}" if md2 < 99 else f"beyond truncation N={N}"
     print(f"      residual obstruction now first appears at {md2_str}: the NEXT")
-    print(f"      scattering order. Its directions are the next critical-graph walls:")
+    print(f"      scattering order. Its directions are those of the next brackets:")
     # identify the directions of the residual (grade = function-degree minus the base)
     # a residual term c*x^i y^j in delta(x) comes from a wall X_{m} with m=(i-1,j)
     resid_dirs = set()
@@ -211,13 +212,14 @@ def run():
         resid_dirs.add((i, j - 1))
     resid_dirs = sorted(d for d in resid_dirs if d[0] >= 1 and d[1] >= 1)
     print(f"      residual wall directions (a,b): {resid_dirs}")
-    print(f"      note (1,2)+2*(2,1)=(5,4) and 2*(1,2)+(2,1)=(4,5): the degree-10 walls.")
+    print(f"      note (1,2)+2*(2,1)=(5,4) and 2*(1,2)+(2,1)=(4,5): the degree-10 BCH terms.")
 
     print("\n" + "=" * 74)
-    print("GO: the two walls scatter, and a single wall at the sum direction (3,3)")
+    print("RESULT: the two walls scatter, and a single wall at the sum direction (3,3)")
     print("restores consistency to leading order. The scattering coefficient is the")
-    print("This script certifies the leading BCH correction; higher computed ray factors")
-    print("are checked by canonical_diagram.py and the transport scripts.")
+    print("structure constant of Paper 1, Lemma 5.2. This script checks the leading BCH")
+    print("correction; higher ray factors are checked by canonical_diagram.py and the")
+    print("transport scripts.")
     print("=" * 74)
 
 

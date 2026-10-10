@@ -10,17 +10,18 @@ with the primitive form $dx\wedge dy$ in the sense of
 \cite[Def.~4.3]{grossetal2022open}, recalled below.  The annular geometry
 enters only through the transition maps between charts; these are algebra
 isomorphisms onto their images, and they preserve the Frobenius structure by
-transport of structure (Proposition~\ref{thm:primary-Frobenius}).  The source
-structure is calibrated in Appendix~\ref{app:primary-calibration},
-independently of the annulus: the primary potential has a unique
+transport of structure (Proposition~\ref{thm:primary-Frobenius}).  The
+structure at the start of the transport is normalized in
+Appendix~\ref{app:primary-calibration}, independently of the annulus: the primary potential has a unique
 representative $W^{\GKT}_{\mathrm{prim}}$ invariant under the exchange of the
 coordinates, for which $dx\wedge dy$ is a primitive form with the nine
 primary variables as flat coordinates (Lemma~\ref{lem:reflection-fixed} and
 the discussion after it).
 On the marginal line $W^{\GKT}_{\mathrm{prim}}$ is the flat structure of
 Noumi and Yamada with primitive form normalized to $dx\wedge dy$, and its
-coefficients give the first open invariants of the reflection-fixed chamber
-index (Theorem~\ref{thm:marginal-calibration}).
+coefficients give the first open invariants of every symmetric chamber index
+with primary potential $W^{\GKT}_{\mathrm{prim}}$
+(Theorem~\ref{thm:marginal-calibration}).
 
 In the \emph{source chart}, given by the fixed frame of the sheet $S_0$
 (Sections~\ref{sec:affine-kummer} and~\ref{sec:jacobi-theta}), we write
@@ -38,7 +39,7 @@ $dx\wedge dy$, are
 \end{equation}
 The symmetric deformation variables of \cite[Def.~4.10]{grossetal2022open}
 are $t_{a,b,d}$, $0\leq a,b\leq2$, $d\geq0$, where $(a,b)$ is a twist and $d$
-is the descendent index.  The \emph{primary variables} are those with $d=0$,
+is the descendent degree.  The \emph{primary variables} are those with $d=0$,
 and we write
 $t_{a,b}=t_{a,b,0}$.  The variable $t_{a,b}$ is the parameter dual to the
 monomial $x^ay^b$; the nine monomials $x^ay^b$, $0\leq a,b\leq2$, form a basis
@@ -93,7 +94,7 @@ GKT formulate the definition for a form $f\,dx\wedge dy$ and present it as
 a simplified version of Saito's theory of primitive forms; only $f=1$ occurs
 here.
 
-\subsection{The source Frobenius algebra}
+\subsection{The Frobenius algebra in the source chart}
 \label{subsec:source-Frobenius}
 
 At the Fermat point the primary state space is
@@ -160,8 +161,8 @@ $(x^4+y^4,\mu_4^2)$.
 Modulo quadratic terms in the $t_{a,b}$,
 $W^{\GKT}_{\mathrm{prim}}\equiv x^4+y^4+\sum t_{a,b}x^ay^b$
 \cite[Def.~3.47(1) and (4.11)]{grossetal2022open}, which gives the
-congruence for $\Phi^0_{a,b}$.  Over each quotient $A^{\mathrm{prim}}_I$,
-where $\mathfrak m_{\mathrm{prim}}$ is nilpotent, the nine monomials $x^ay^b$
+congruence for $\Phi^0_{a,b}$.  Over each quotient $A^{\mathrm{prim}}_I$ of
+$A_{\mathrm{prim}}$ (Appendix~\ref{subsec:reflection-fixed}), where $\mathfrak m_{\mathrm{prim}}$ is nilpotent, the nine monomials $x^ay^b$
 span $\mathcal R_0$ by Nakayama's lemma, since they span
 $\mathcal R_0/\mathfrak m_{\mathrm{prim}}\mathcal R_0=H_{4,4}$.  The
 functional $\epsilon$ vanishes on the Jacobian ideal, and the Gram matrix of
@@ -213,9 +214,13 @@ not over the target chart algebra, a Laurent algebra over which the Jacobian
 quotient of a transported primary potential vanishes because its
 $U_{\mathfrak p}$-derivative is a unit.  The periods are
 formal functionals, since the torus of the target chart does not contain the
-critical point $U_{\mathfrak p}=V_{\mathfrak p}=0$.  By \eqref{eq:slab-conformal}, $dU_{\mathfrak p}\wedge
-dV_{\mathfrak p}$ is the form $\Omega'_\kappa$ of the target chart times the
-unit recorded by the line $\Lcal_\kappa$.
+critical point $U_{\mathfrak p}=V_{\mathfrak p}=0$.  By
+\eqref{eq:line-transition}, and since the wall factors are transports of
+automorphisms that preserve $\Omega_\kappa$ in the frames of $S_0$ and $S_1$,
+every step of $P_{\mathfrak p}$ multiplies $\Omega_\kappa$ by a unit; hence
+$dU_{\mathfrak p}\wedge dV_{\mathfrak p}$ is the form
+$\Omega'_\kappa$ of the target chart times the unit recorded by the line
+$\Lcal_\kappa$.
 
 On the primary slice put
 $W_{\mathfrak p}=P_{\mathfrak p}(W^{\GKT}_{\mathrm{prim}})$,
@@ -313,8 +318,8 @@ $\Phi^{\mathfrak p}_{a,b}$ to $\Phi^{\mathfrak p'}_{a,b}$, and the remaining
 assertions follow from Lemma~\ref{lem:source-Frobenius}.
 \end{proof}
 
-Wall factors, and the residual factors by which they differ from the GKT
-factors (Section~\ref{sec:gkt-decoration}), are flows of the fields
+Wall factors, and the residual factors by which they differ from the
+factors of the GKT transition (Section~\ref{sec:gkt-decoration}), are flows of the fields
 \eqref{eq:quartic-vector-field} with nilpotent coefficients, hence
 volume-preserving right equivalences of $(W,dx\wedge dy)$.  By
 Proposition~\ref{thm:primary-Frobenius}(1), the identities between algebra

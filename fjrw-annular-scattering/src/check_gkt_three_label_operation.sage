@@ -215,7 +215,7 @@ def polynomial_vector(poly, profiles):
 
 
 def solve_gkt_factorization(labels, W_min, W_max):
-    """Recover every GKT factor recursively in increasing support size."""
+    """Recover every factor of the GKT transition recursively in increasing support size."""
 
     count = len(labels)
     generators = []
@@ -334,7 +334,7 @@ def run_case(name, labels):
 
     # Singleton and pair supports recover Proposition 5.3 inside every
     # three-label truncation: the chords agree with the GKT singleton factors,
-    # a mixed pair has scattering -3/4 and GKT factor 1/4 (residual -1), and
+    # a mixed pair has scattering -3/4 and GKT transition factor 1/4 (residual -1), and
     # a same-twist pair has no wall.
     for mask in range(1, 1 << len(labels)):
         size = len(bits(mask))
@@ -424,7 +424,7 @@ assert expected["alpha^2 beta"]["residual"] == expected["alpha beta^2"]["residua
 
 for case in cases:
     print("CASE", case["name"])
-    print("  cubic exponent:", case["k"], "shifted ray:", shifted_ray(case["k"]))
+    print("  cubic exponent:", case["k"], "boundary ray:", shifted_ray(case["k"]))
     print(
         "  extremal invariants:",
         case["minimum_invariant"],

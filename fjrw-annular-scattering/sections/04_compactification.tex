@@ -2,7 +2,7 @@
 \label{sec:compactification}
 
 Except for the two diagonal segments, which end at $B_0$ and $B_1$, the
-walls of the diagram $\Dscr$ of Theorem~\ref{thm:annular-consistency} reach
+walls of the wall structure $\Dscr$ of Theorem~\ref{thm:annular-consistency} reach
 the boundary circles of $\overline\Acal$ transversely.  On the affine side
 each boundary circle has an outward integral-affine continuation, a flare,
 on which the continued supports separate
@@ -20,51 +20,53 @@ $\partial_i\overline\Acal$ ($i=0,1$) denotes
 the boundary circle whose holonomy has the normal form of width $w_i$ in
 \eqref{eq:boundary-holonomies}, so that $(w_0,w_1)=(4,16)$.
 
-\subsection{Labelled truncations}
+\subsection{Truncated coefficient rings}
 
 \begin{definition}\label{def:coefficient-window}
-A \emph{labelled truncation} $\Wcal=(I_\Wcal,\tau,P)$ consists of
+A \emph{labelled truncation} $\Wcal=(I_\Wcal,\tau,\mathscr P)$ consists of
 a finite set $I_\Wcal$ of labels, each of descendent degree one; a map
-$\tau:I_\Wcal\to\{1,2\}$, the label $i$ having twist $(1,0)$ if
-$\tau(i)=1$ and twist $(0,1)$ if $\tau(i)=2$; and a finite set $P$ of
+$\tau:I_\Wcal\to\{\tau_1,\tau_2\}$, where $\tau_1=(1,0)$ and $\tau_2=(0,1)$,
+assigning to each label its twist; and a finite set $\mathscr P$ of
 monomials in variables $t_i$, $i\in I_\Wcal$, which contains $1$ and is
 closed under taking divisors.  For $N\geq1$, the \emph{truncated
 coefficient ring} of $\Wcal$ at order $N$ is
 \begin{equation}\label{eq:window-ring}
  R_{\Wcal,N}=\Bbbk[t_i:i\in I_\Wcal]\Big/
- \bigl(\mathfrak m_{\Wcal}^N+\langle m:m\notin P\rangle\bigr),
+ \bigl(\mathfrak m_{\Wcal}^N+\langle m:m\notin\mathscr P\rangle\bigr),
  \qquad \mathfrak m_{\Wcal}=(t_i:i\in I_\Wcal).
 \end{equation}
 \end{definition}
 
-Since $P$ is closed under divisors, the monomials in $P$ of degree less than
+Since $\mathscr P$ is closed under divisors, the monomials in $\mathscr P$ of degree less than
 $N$ form a basis of $R_{\Wcal,N}$, which is therefore a finite local Artin
 $\Bbbk$-algebra with maximal ideal $\mathfrak m_\Wcal$ and residue field
-$\Bbbk$.  The labels enter the diagram $\Dscr$ through the $\Bbbk$-algebra
+$\Bbbk$.  The labels enter the wall structure $\Dscr$ through the $\Bbbk$-algebra
 homomorphism
 \begin{equation}\label{eq:window-map}
  \upsilon_\Wcal:\Bbbk[t_1,t_2]/\mathfrak m^N\longrightarrow R_{\Wcal,N},
  \qquad
- t_j\longmapsto\sum_{\tau(i)=j}t_i\quad(j=1,2),
+ t_j\longmapsto\sum_{\tau(i)=\tau_j}t_i\quad(j=1,2),
 \end{equation}
 where $\mathfrak m=(t_1,t_2)$ is the singleton ideal.  It is well defined
 because $\upsilon_\Wcal(\mathfrak m)\subset\mathfrak m_\Wcal$, so that
 $\upsilon_\Wcal(\mathfrak m^N)\subset\mathfrak m_\Wcal^N$.  The walls of
 $\Dscr$, which are defined modulo $\mathfrak m^N$, are base-changed to
 $R_{\Wcal,N}$ along $\upsilon_\Wcal$.  Let
-$\Wcal'=(I_{\Wcal'},\tau',P')$ contain $\Wcal$, in the sense that
+$\Wcal'=(I_{\Wcal'},\tau',\mathscr P')$ contain $\Wcal$, in the sense that
 $I_\Wcal\subset I_{\Wcal'}$, $\tau'|_{I_\Wcal}=\tau$ and
-$P\subset P'$, and let $N\leq N'$.  The $\Bbbk$-algebra surjection
+$\mathscr P\subset\mathscr P'$, and let $N\leq N'$.  The $\Bbbk$-algebra surjection
 $R_{\Wcal',N'}\to R_{\Wcal,N}$ that fixes $t_i$ for $i\in I_\Wcal$ and
 sends $t_i$ to $0$ for $i\notin I_\Wcal$ is well defined, because a
-monomial outside $P'$ either contains such a $t_i$ or lies outside $P$.  It
+monomial outside $\mathscr P'$ either contains such a $t_i$ or lies outside $\mathscr P$.  It
 is compatible with $\upsilon_{\Wcal'}$, $\upsilon_\Wcal$ and the reduction
 $\Bbbk[t_1,t_2]/\mathfrak m^{N'}\to\Bbbk[t_1,t_2]/\mathfrak m^N$.  For a
-finite rooted subtree $T\subset\Tcal$ we call
+finite rooted subtree $T\subset\Tcal$, the finite level
+(Section~\ref{subsec:kummer-charts}) of $T$ with coefficient ring
+$R_{\Wcal,N}$ is
 \[
- \Xfrak_{T,\Wcal,N}=\Xfrak_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}
+ \Xfrak_{T,\Wcal,N}=\Xfrak_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}.
 \]
-a \emph{finite stage}.  It is the base change along $\upsilon_\Wcal$ of the
+It is the base change along $\upsilon_\Wcal$ of the
 finite root-stack presentation
 $\Xfrak_T\times_{\Spec\Bbbk}\Spec\Bbbk[t_1,t_2]/\mathfrak m^N$ of
 Theorem~\ref{thm:forced-category}.  Its Kummer cover, on which the lifted
@@ -101,9 +103,12 @@ $\partial_i\overline\Acal$ meets it transversely, in one point, which we
 call the \emph{exit point} of the support.
 
 The consistency criterion of Gross, Hacking and Siebert at a boundary joint
-\cite[Prop.~3.13]{grossetal2016theta} does not apply at an exit point,
-since its convexity hypothesis \cite[Def.~3.12]{grossetal2016theta} fails
-at a point of a straight boundary at which a wall ends.
+\cite[Prop.~3.13]{grossetal2016theta} does not apply at an exit point.  It
+is formulated for walls whose functions have exponents tangent to the wall
+\cite[Def.~2.11]{grossetal2016theta}, through the convexity condition at a
+boundary joint \cite[Def.~3.12]{grossetal2016theta}, defined by the slopes
+\cite[(3.7)]{grossetal2016theta}, whereas here the wall
+supports are transverse to their exponents.
 
 A boundary circle cannot be removed by an affine double either.  A double of
 $\overline\Acal$ along $\partial_i\overline\Acal$ would carry an
@@ -118,7 +123,7 @@ tangent--normal basis of \eqref{eq:collar-holonomy} these are
 and $SU-US=\begin{pmatrix}0&-2w_i\\0&0\end{pmatrix}$ is nonzero, since
 $w_i\in\{4,16\}$.
 
-\subsection{Outward flares}
+\subsection{Affine continuation beyond the boundary circles}
 
 \begin{proposition}[Outward affine flares]\label{prop:outward-flares}
 Let $i\in\{0,1\}$.  In the coordinates $(\mathsf x,\mathsf r)$ of
@@ -214,8 +219,9 @@ supports of slopes $\xi,\xi'$
 meet in $\overline{\mathcal F}_i$ if and only if
 $\xi-\xi'\in w_i\ZZ$, and then they are equal.  By
 \eqref{eq:slope-envelopes}, each family of slopes lies in an interval of
-width smaller than $w_i$, and every difference between a positive and a
-negative slope lies strictly between $0$ and $w_i$.  Hence
+width smaller than $w_i$, and the slope of a support of direction $Lq$
+exceeds that of a support of direction $-Lq$ by an amount strictly between
+$0$ and $w_i$.  Hence
 $\xi-\xi'\in w_i\ZZ$ only if $\xi=\xi'$.  Modulo $\mathfrak m^N$ there are
 only finitely many supports, all passing through the two joints
 (Proposition~\ref{prop:proper-supports} and its proof), so a slope $\xi_*$ with
@@ -245,7 +251,7 @@ increases, and the left side is a support-free ray
 \begin{remark}[Closing the ends]\label{rem:closing-ends}
 The flares are integral-affine objects.  The natural way to close the ends
 algebraically places a toric chart, with the Kummer roots of the finite
-stage, over each of the regions into which the continued supports and a
+level, over each of the regions into which the continued supports and a
 support-free ray cut the compact part $\{\mathsf r\leq\mathsf r_0\}$ of
 $\overline{\mathcal F}_i$, for some $\mathsf r_0>0$.  It transports these
 charts through the wall automorphisms met on the way from a base region and
@@ -294,7 +300,7 @@ the Tate curve is the simplest case, and in the constructions of
 circle is realized over a degeneration parameter: the special fibers of the
 charts are then reducible, and charts that are not adjacent need not meet.
 The rings $R_{\Wcal,N}$ contain no such parameter.  A logarithmic
-compactification of the finite stages, and in particular a closure of the
+compactification of the finite levels, and in particular a closure of the
 flares by boundary divisors flat over $R_{\Wcal,N}$, remains open.
 \end{remark}
 
@@ -314,7 +320,7 @@ intersection complex.
 
 \begin{proof}
 The intersection complex is homeomorphic to a closed disk
-\cite[proof of Thm.~7.5]{carletal2024}.  Under the simplicity assumption the
+\cite[Thm.~7.5 and Thm.~8.1]{carletal2024}.  Under the simplicity assumption the
 dual intersection complex is homeomorphic to $\RR^2$
 \cite[Prop.~7.13]{carletal2024}.  Both have vanishing first cohomology,
 whereas an annulus and an open cylinder have $H^1(-,\Bbbk)\simeq\Bbbk$.
@@ -323,7 +329,8 @@ whereas an annulus and an open cylinder have $H^1(-,\Bbbk)\simeq\Bbbk$.
 The disk-shaped complex of the quartic pair in
 Section~\ref{sec:affine-kummer} is of the kind treated in
 \cite[\S8.1]{carletal2024}: the monodromy $T_B$ has width two, so the
-singular point $B$ is not simple.  The first assertion of the proposition
+singular point $B$, of order two in the terminology of
+\cite[\S8.1]{carletal2024}, is not simple.  The first assertion of the proposition
 applies to it, and the second does not.
 
 \subsection{Kummer covers of the finite root-stack presentations}
@@ -357,11 +364,11 @@ conormal $N_V$ of \eqref{eq:root-data} takes values in $4\ZZ$ on it.
  \qquad
  m_e\in2\widetilde M_u,\quad k_{ee'}\in\tfrac8{d_{e'}}\ZZ .
 \]
-\item There are Laurent polynomials $\Phi_e,H_e\in\Bbbk[\widetilde M]$
+\item There are Laurent polynomials $\widehat\varrho_e,H_e\in\Bbbk[\widetilde M]$
 without common prime factor such that
-$\varrho_e=\Phi_eH_e^{-d_e}$ and every prime factor of
-$H_e$ divides $\Phi_{e'}$ for some $e'\prec e$.  In particular
-$\operatorname{div}\Phi_e$ is the divisor of zeros of $\varrho_e$ on $\mathbb T$.
+$\varrho_e=\widehat\varrho_eH_e^{-d_e}$ and every prime factor of
+$H_e$ divides $\widehat\varrho_{e'}$ for some $e'\prec e$.  In particular
+$\operatorname{div}\widehat\varrho_e$ is the divisor of zeros of $\varrho_e$ on $\mathbb T$.
 \end{enumerate}
 \end{lemma}
 
@@ -381,41 +388,41 @@ transitions across the arcs met by the path
 (Section~\ref{subsec:kummer-charts}).  On a character $z^{m'}$ such a
 transition replaces $m'$ by its image under one of the matrices
 \eqref{eq:parity-matrices}, their inverses or the identity; if the arc
-carries the lifted slab map at $W$ and is crossed at the Kummer edge $e'$,
-it also multiplies by $r_{e'}^{\pm\langle N_W,m''\rangle}$, where $m''$ is
+carries the lifted slab map at $V_{e'}$ and is crossed at the Kummer edge $e'$,
+it also multiplies by $r_{e'}^{\pm\langle N_{V_{e'}},m''\rangle}$, where $m''$ is
 $m'$ or its image under the linear part of the transition.  By induction
 along the path, the pull-back of $z^m$ is $z^{Gm}\prod_{e'}
 r_{e'}^{j_{e'}}$, where $G$ is a product of these matrices and their
-inverses and each $j_{e'}$ has the form $\pm\langle N_W,G'm\rangle$ for
+inverses and each $j_{e'}$ has the form $\pm\langle N_{V_{e'}},G'm\rangle$ for
 such a product $G'$.  In the frame of the sheet from which the arc of $V$
 is crossed, $f_V$ is a polynomial in a character whose exponent is the image
 of $2\epsilon_Vu_V$ under such a product, so it lies in $2\widetilde M_u$ by
 (1).  By (1) again every $j_{e'}$ lies in $8\ZZ$, and
 $r_{e'}^{j_{e'}}=\varrho_{e'}^{\,j_{e'}/d_{e'}}$.
 
-(3) Let $C\subset\mathbb T$ be a prime divisor and $v_C$ its valuation.  By (2),
-$v_C(y_e)=\sum_{e'}k_{ee'}v_C(\varrho_{e'})$ is even, since
+(3) Let $Z\subset\mathbb T$ be a prime divisor and $v_Z$ its valuation.  By (2),
+$v_Z(y_e)=\sum_{e'}k_{ee'}v_Z(\varrho_{e'})$ is even, since
 $8/d_{e'}\in\{2,4\}$.  The polynomial $f_V$ is monic of degree
-$d_V/2$ with constant term one.  Hence $v_C(\varrho_e)=0$ if
-$v_C(y_e)>0$; $v_C(\varrho_e)=\frac{d_V}2v_C(y_e)$, which is divisible by
-$d_V$ because $v_C(y_e)$ is even, if $v_C(y_e)<0$; and
-$v_C(\varrho_e)\geq0$ if $v_C(y_e)=0$.  Thus every pole of $\varrho_e$ has
+$d_V/2$ with constant term one.  Hence $v_Z(\varrho_e)=0$ if
+$v_Z(y_e)>0$; $v_Z(\varrho_e)=\frac{d_V}2v_Z(y_e)$, which is divisible by
+$d_V$ because $v_Z(y_e)$ is even, if $v_Z(y_e)<0$; and
+$v_Z(\varrho_e)\geq0$ if $v_Z(y_e)=0$.  Thus every pole of $\varrho_e$ has
 multiplicity divisible by $d_e$ and lies on a prime divisor along which
 some $\varrho_{e'}$, $e'\prec e$, has a zero or a pole, and hence, by
-induction along the path, along which some $\Phi_{e''}$, $e''\prec e$,
+induction along the path, along which some $\widehat\varrho_{e''}$, $e''\prec e$,
 vanishes.  Since $\Bbbk[\widetilde M]$ is factorial, we may take for $H_e$
-the product of $h_C^{-v_C(\varrho_e)/d_e}$ over the poles $C=\{h_C=0\}$ of
-$\varrho_e$, and $\Phi_e=\varrho_eH_e^{d_e}$, which has no poles on $\mathbb T$.
+the product of $h_Z^{-v_Z(\varrho_e)/d_e}$ over the poles $Z=\{h_Z=0\}$ of
+$\varrho_e$, and $\widehat\varrho_e=\varrho_eH_e^{d_e}$, which has no poles on $\mathbb T$.
 \end{proof}
 
 The argument uses only that $f_V$ is monic of degree $d_V/2$ with constant
-term one, so it applies at the cusps $a_\rho=\pm2$ as well; there the
+term one, so it applies at the nodal values $a_\rho=\pm2$ as well; there the
 $B$-radicands are squares by \eqref{eq:cusp-roots}.  We fix such
-$\Phi_e$ for every Kummer edge $e$ of $\Tcal$; they are unique up to
+$\widehat\varrho_e$ for every Kummer edge $e$ of $\Tcal$; they are unique up to
 $d_e$th powers of units of $\Bbbk[\widetilde M]$.  By
 Lemma~\ref{lem:transported-radicands}(3), the divisor $D_e$ of zeros of
 $\varrho_e$ (Section~\ref{sec:affine-kummer}) is the effective Cartier
-divisor $\operatorname{div}\Phi_e$.  Let $D_T=\bigcup_eD_e$ with
+divisor $\operatorname{div}\widehat\varrho_e$.  Let $D_T=\bigcup_eD_e$ with
 its reduced structure; since every pole of $\varrho_e$ lies on
 some $D_{e'}$, the complement $U_T$ of the zeros and poles of the
 transported radicands of $T$ is $\mathbb T\setminus D_T$.  A divisor $D_e$
@@ -423,7 +430,7 @@ may share components with a divisor $D_{e'}$, $e'\prec e$: along
 $\gamma_{\widetilde A}^2$ both crossings of the arc at $\widetilde A$ have the
 radicand $f_{\widetilde A}$.  Put
 \[
- P_T=\Spec\Bbbk[\widetilde M][g_e]\big/\bigl(g_e^{d_e}-\Phi_e\bigr),
+ P_T=\Spec\Bbbk[\widetilde M][g_e]\big/\bigl(g_e^{d_e}-\widehat\varrho_e\bigr),
  \qquad
  G_T=\prod_e\mu_{d_e},
 \]
@@ -433,8 +440,7 @@ over $\mathbb T$.  With the convention \eqref{eq:root-stack-chart-app}, the quot
 $\Xfrak_T=[P_T/G_T]$ is the fiber product over $\mathbb T$ of the root stacks
 $\sqrt[d_e]{(\mathbb T,D_e)}$, and an iterated root stack along
 pulled-back divisors is this fiber product \cite[Def.~2.6]{cadman2007}.
-Thus $P_T\to\Xfrak_T$ is a $G_T$-torsor, and the finite stages defined
-after Definition~\ref{def:coefficient-window} are
+Thus $P_T\to\Xfrak_T$ is a $G_T$-torsor, and the finite levels are
 $\Xfrak_{T,\Wcal,N}=[P_{T,\Wcal,N}/G_T]$ with
 $P_{T,\Wcal,N}=P_T\times_{\Spec\Bbbk}\Spec R_{\Wcal,N}$.  We call $P_T$ the
 \emph{Kummer cover} of $\Xfrak_T$.
@@ -448,8 +454,8 @@ $\mathbb T\setminus D_T$, and
  r_e=g_eH_e^{-1}\in\Ocal(P_T^\circ),
  \qquad r_e^{d_e}=\varrho_e ,
 \]
-so that over $\mathbb T\setminus D_T$ the equations $\Phi_e$ and the
-transported radicands define the same Kummer cover.  Thus $P_T^\circ$ is the
+so that over $\mathbb T\setminus D_T$ the radicands $\widehat\varrho_e$ and the
+transported radicands $\varrho_e$ define the same Kummer cover.  Thus $P_T^\circ$ is the
 spectrum of the Kummer ring $R_T^{\mathrm{root}}$ of
 Section~\ref{sec:affine-kummer}, on which Sections~\ref{sec:affine-kummer}
 and~\ref{sec:jacobi-theta} define the lifted transitions and
@@ -457,8 +463,8 @@ $\Lcal_\kappa$, and $P_T$ extends it over $\mathbb T$.  For every vertex $v$
 of $T$, pull-back along the path of $T$ that ends at $v$, with the root at
 each Kummer edge $e$ of the path taken to be $r_e$, is therefore a
 homomorphism of $\Bbbk$-algebras from $\Bbbk[\widetilde M]$, in the frame
-at $v$, to $\Ocal(P_T^\circ)$.  The frames of $\Lcal_\kappa$ at the
-vertices of $T$, related by \eqref{eq:line-transition}, differ by units of
+at $v$, to $\Ocal(P_T^\circ)$.  The local generators of $\Lcal_\kappa$ at
+the vertices of $T$, related by \eqref{eq:line-transition}, differ by units of
 $\Ocal(P_T^\circ)$.  A wall automorphism, base-changed along
 $\upsilon_\Wcal$, is the exponential of a derivation of the character ring in
 the frame at a vertex $v$ of $T$, tensored with $R_{\Wcal,N}$, with
@@ -478,7 +484,7 @@ $\mathbb T\setminus D_T$, and the roots are not among them.
 
 The Kummer covers, and with them the presentations, are not regular in
 general.  If $T$ contains the three Kummer edges at which the transported
-$B_0$-radicands $f_B(u^nx_B)$, $u=(1+x_A^{-1})^4$, $n=0,1,2$, of
+$B_0$-radicands $f_B\bigl((1+x_A^{-1})^{4n}x_B\bigr)$, $n=0,1,2$, of
 Theorem~\ref{thm:infinite-root-orbit} are adjoined, then at the points over
 a specific point of $\mathbb T$, at which the root divisors of these three radicands
 meet pairwise transversely, $P_T$ is neither regular nor log regular, for

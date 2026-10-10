@@ -155,7 +155,7 @@ assert quartic_expected["alpha^3 beta"]["residual"][(3, 1)] == (
 # The alpha^4*beta block is the first mixed quintic block with coordinate
 # carry.  Its summed shifted ray (5,2) lies outside the cone spanned by (2,1)
 # and (1,2), so its full-support scattering coefficient vanishes even though
-# both critical GKT factors are nonzero.  This case checks the arbitrary-truncation
+# both critical factors of the GKT transition are nonzero.  This case checks the arbitrary-truncation
 # statement of Proposition 5.5 beyond four labels.
 quintic_labels = (alpha, alpha, alpha, alpha, beta)
 quintic_minimum = endpoint_system(quintic_labels, "minimum")

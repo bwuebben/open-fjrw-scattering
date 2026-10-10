@@ -3,17 +3,18 @@
 Where does a PRIMARY diagonal first carry N >= 2 walls?
 
 Why it matters. In the primary quotient a marking subset A determines a single
-diagonal (A, 0). The jumps of a canonical homotopy of [GKT, Lem. 3.39] are indexed
-by marking subsets, so the jump at t_A is supported on that one diagonal. If that
+diagonal (A, 0). The jumps of a canonical homotopy of [GKT, Lem. 3.40] are indexed
+by marking subsets, so the jump at T_A is supported on that one diagonal. If that
 diagonal carries at most ONE wall, the jump is automatically supported on a single
-ray. Thus one unstaged Lemma-3.39 normal-form family suffices below this degree:
+ray. Thus one Lemma-3.40 normal-form family suffices below this degree:
 
-    every primary diagonal has N <= 1   ==>   no ray staging is needed.
+    every primary diagonal has N <= 1   ==>   no concatenation of legs is needed.
 
-The full finite-order primary realization is now proved by separate ray stages.
-This script verifies N <= 1 everywhere <=> chat_W <= 1 (simple and parabolic),
-the exact maximal-twist formula, and the complete piecewise classification of
-the first |J| at which N >= 2 in the hyperbolic regime.
+In general the finite-order realization uses one leg per ray (Paper 2,
+Theorem 6.15). This script verifies N <= 1 everywhere <=> chat_W <= 1 (simple and
+parabolic), the exact maximal-twist formula, and the complete piecewise
+classification of the first |J| at which N >= 2 in the hyperbolic regime
+(Paper 2, Proposition 6.17 and Remark 6.22).
 """
 from fractions import Fraction
 from itertools import combinations_with_replacement

@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
 r"""
-canonical_diagram.py -- the canonical scattering diagram of open FJRW theory of x^5+y^5:
-normal forms (Theorem E) and the first wall functions (Theorem F).
+canonical_diagram.py -- the canonical boundary-ray factorization D^{5,5} of the open FJRW
+theory of x^5+y^5: extremal normal forms and the first wall functions (Paper 2,
+Theorem 1.2 and Example 5.1).
 
-Theorem E (normal forms / extreme chambers):
+Extremal normal forms (Paper 2, Theorem 1.2):
 on every (J,d)-diagonal with N >= 1, the infinitesimal wall action moves the coefficient
 vector (nu_0,...,nu_N) along the triangular directions
       w_p = r(k_2(p+1)+1) e_{p+1} - s(k_1(p)+1) e_p ,   p = 0..N-1,
 whose span is complementary to the e_0-line (and to the e_N-line).  Hence by t-adic
 induction there exist UNIQUE chamber indices nu^min (only p=0 survives per diagonal) and
-nu^max (only p=N survives).  This uses no periods, so it holds on NS-visible and invisible
+nu^max (only p=N survives).  This uses no periods, so it holds on narrow and broad
 diagonals alike.
 
-Theorem F (the canonical diagram): D_0^{r,s} is the deformation-filtered,
+The canonical factorization (Paper 2, Theorem 1.2): D_0^{r,s} is the deformation-filtered,
 boundary-ray-ordered factorization of the unique g in the enlarged group with
 W^{nu^max} = g(W^{nu^min}). This is a canonical, choice-free system of primary
 wall functions. The boundary ray of X_(k1,k2) is (k1+1,k2+1).
 
-This script certifies, for r=s=5 at t-order 2 (the three first walls):
+This script verifies, for r=s=5 at t-order 2 (the three positive-weight first walls):
  [1] the A(J,0)=0 relations on all three l=2 wall diagonals:
        {(2,3),(3,3)}: (2/5) nu_{(0,6)} + (1/5) nu_{(5,1)} = -2/25,
        {(3,2),(3,3)}: symmetric,
@@ -25,20 +26,21 @@ This script certifies, for r=s=5 at t-order 2 (the three first walls):
  [2] the normal-form values:
        nu^min: nu_{(0,6)} = -1/5, nu_{(1,6)} = -2/5   (p>=1 coefficients = 0),
        nu^max: nu_{(5,1)} = -2/5, nu_{(6,1)} = -2/5   (p<N coefficients = 0);
- [3] the wall functions of the canonical diagram at this order, by solving
+ [3] the wall functions of the canonical factorization at this order, by solving
        W^{nu^max} - W^{nu^min} = c * (u X_{k1,k2})(x^5+y^5)
      on each diagonal -- an OVERDETERMINED system (two monomial components per wall, one
-     unknown c); its consistency is forced by [1] and certifies the mechanism:
+     unknown c); its consistency follows from [1] and is checked here:
        theta_{(1,2)} = exp( (1/25) t_{2,3} t_{3,3} X_{0,1} + ... ),
        theta_{(2,1)} = exp( (1/25) t_{3,2} t_{3,3} X_{1,0} + ... ),
        theta_{(1,1)} = exp( (1/50) t_{3,3}^2  X_{1,1} + ... );
  [4] tower extensions in the min gauge:
-       t_{3,3}^3 (wall-free, gauge-independent):  nu_{(4,4)} = 1/5  (re-used);
+       t_{3,3}^3 (wall-free, gauge-independent):  nu_{(4,4)} = 1/5  (from a_invariants.py);
        t_{3,3}^4 (wall X_{2,2}): A({(3,3)^4},0)=0 gives the weighted relation and the
-       min-gauge value nu^min_{(2,7)};
- [5] two more absolute (wall-free) invariants:
+       min-gauge value nu^min_{(2,7)} (Paper 2, Remark 4.2);
+ [5] another absolute (wall-free) invariant (Paper 2, eq. (3)):
        <tau_0^{(1,2)} tau_0^{(2,1)} tau_0^{(2,2)} sigma_12> = -1/25   (pure-tau disk),
-       and the neutral engine checks A({(2,1),(1,2)},0) = 1 = <tau0^{(0,0)} pairing>,
+       and two convention-independent checks of the A-routine against closed values
+       ([GKT] Cor. 5.11(3)): A({(2,1),(1,2)},0) = 1 = <tau0^{(0,0)} pairing>,
        A({(0,0),(0,0)},0) = 1.
 
 Run: ./venv/bin/python src/canonical_diagram.py
@@ -82,7 +84,7 @@ def check_l2_relations():
         (((3, 2, 0), (3, 3, 0)), 1, 5): nu15,
     }))
     expectedm = sp.Rational(2, 5) * num60 + sp.Rational(1, 5) * nu15 + sp.Rational(2, 25)
-    # x<->y symmetry swaps the roles: boundary (6,0) has k1=6=s(J)-shifted... check weights
+    # x<->y mirror diagonal: the same weights, with (6,0) <-> (0,6) and (1,5) <-> (5,1)
     assert sp.expand(Am - expectedm) == 0, Am
     return True
 
@@ -174,7 +176,7 @@ def pure_tau_invariant():
 
 
 def neutral_checks():
-    """More Cor 0.6 / Thm 5.4(2) cross-checks with closed Frobenius values."""
+    """Further checks of [GKT] Cor. 5.11(3) (survey Thm 5.4(2)) against closed Frobenius values."""
     # A({(2,1),(1,2)},0) = <tau0^{(0,0)} tau0^{(2,1)} tau0^{(1,2)}> = 1
     J = [(2, 1, 0), (1, 2, 0)]
     assert d_of(J, R, S) == 0
@@ -187,7 +189,7 @@ def neutral_checks():
 
 
 def main():
-    print("== The canonical scattering diagram of x^5+y^5: first walls ==")
+    print("== The canonical boundary-ray factorization of x^5+y^5: first walls ==")
     assert check_l2_relations()
     print("[1] l=2 wall-diagonal relations: (2/5)nu06+(1/5)nu51 = -2/25 (and symmetric);")
     print("    (2/5)(nu16+nu61) = -4/25")
@@ -195,7 +197,7 @@ def main():
     print(f"[2] normal forms: nu^min: nu06 = {nf['nu06_min']}, nu16 = {nf['nu16_min']};"
           f"  nu^max: nu51 = {nf['nu51_max']}, nu61 = {nf['nu61_max']}")
     wf = wall_functions_l2(nf)
-    print("[3] wall functions of the canonical diagram (overdetermined solve consistent):")
+    print("[3] wall functions of the canonical factorization (overdetermined solve consistent):")
     print(f"      theta_(1,2) = exp( {wf[(0,1)]} * t_23 t_33 X_01 + ... )")
     print(f"      theta_(2,1) = exp( {wf[(1,0)]} * t_32 t_33 X_10 + ... )")
     print(f"      theta_(1,1) = exp( {wf[(1,1)]} * t_33^2  X_11 + ... )")
@@ -203,9 +205,9 @@ def main():
     print(f"[4] t_33^4 (wall X_22): A-relation {sp.simplify(Arel)} = 0;")
     print(f"      min gauge: nu_(2,7) = {v_min};  max gauge: nu_(7,2) = {v_max}")
     v = pure_tau_invariant()
-    print(f"[5] NEW absolute invariant: <tau0^(1,2) tau0^(2,1) tau0^(2,2) sigma_12> = {v}")
+    print(f"[5] new absolute invariant: <tau0^(1,2) tau0^(2,1) tau0^(2,2) sigma_12> = {v}")
     assert neutral_checks()
-    print("[6] neutral closed-value cross-checks (A = 1 twice): OK")
+    print("[6] convention-independent closed-value checks (A = 1 twice): OK")
     print("ALL CHECKS PASSED")
 
 

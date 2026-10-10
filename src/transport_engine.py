@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 r"""
-transport_engine.py -- the first NONLINEAR test of the broken-line/transport mechanism:
-the pure-t33 sector of x^5+y^5 through order t^4.
+transport_engine.py -- a NONLINEAR check of the transport representation (Paper 2,
+Theorem 1.4): the pure-t33 sector of x^5+y^5 through order t^4.
 
-Objects (all previously certified): the t33-tower normal forms
+Input (computed in canonical_diagram.py and a_invariants.py): the t33-tower normal forms
     nu^min: nu_(1,6) = -2/5 (t^2), nu_(4,4) = 1/5 (t^3, invariant), nu_(2,7) = -12/25 (t^4)
     nu^max: the x<->y mirror,
 potential dressing (-1)^{l-1} nu/|Aut(A)|:
@@ -11,15 +11,16 @@ potential dressing (-1)^{l-1} nu/|Aut(A)|:
     W^max = x^5 + y^5 + t x^3y^3 + (1/5) t^2 x^6 y + (1/30) t^3 x^4y^4 + (1/50) t^4 x^7y^2
 and the order-2 wall function theta_(1,1) = exp((1/50) t^2 X_{1,1}).
 
-Certified here:
+Checked here:
  [1] the general ansatz g = exp((1/50) t^2 X_11 + c4 t^4 X_22) (the only graded pieces of
      the algebra in this sector) satisfies g(W^min) = W^max through t^4 iff c4 = 0 --
      BOTH diagonal slots (x^7y^2 and x^2y^7) give c4 = 0 independently: the
      overdetermined nonlinear system is consistent, the entire order-4 motion being
      produced by the SECOND-ORDER term of the order-2 wall plus its action on the
-     order-2 coefficients.  In particular the canonical diagram has NO X_22-wall at
-     t33^4, and the transport independently confirms nu_(2,7)^min = -12/25 from the
-     A-engine (a genuinely nonlinear cross-validation of the corrected framework).
+     order-2 coefficients.  In particular the canonical factorization has NO X_22-wall
+     at t33^4 (the vanishing coefficient of t_{3,3}^4 on the (1,1) ray, Paper 2,
+     Section 7), and the transport independently reproduces nu_(2,7)^min = -12/25
+     obtained from the A-conditions (a nonlinear cross-check).
  [2] the seed-transport identity holds in this sector through t^4:
      with seeds {x^5 (home: bottom), y^5 (home: top), t x^3y^3 and (1/30)t^3 x^4y^4
      (transport-invariant, on-ray)}, the transport potential in the bottom chamber
@@ -30,7 +31,7 @@ Certified here:
        <tau0^(3,3)^4 sigma_1^2 sigma_2^7 sigma_12>^min = -12/25
      from the wall function alone.  Symmetrically T(top) = W^max.
  [3] the invariant t^3 slot (x^4y^4) is fixed by the wall exactly (X_11(x^3y^3) = 0,
-     X_11(x^4y^4) = 0): it rides as a seed, as required by the transport theorem.
+     X_11(x^4y^4) = 0): it is its own seed, as in Paper 2, Theorem 1.4.
 
 Run: ./venv/bin/python src/transport_engine.py
 """
@@ -96,11 +97,11 @@ def main():
     sols = {sp.solve(sp.Eq(e, 0), c4)[0] for e in eqs}
     assert sols == {0}, (eqs, sols)
     print("[1] g(W^min) = W^max through t^4  <=>  c4 = 0 (both slots independently);")
-    print("    the X_22-wall coefficient of the canonical diagram at t33^4 VANISHES;")
+    print("    the X_22-wall coefficient of the canonical factorization at t33^4 VANISHES;")
     print("    the order-4 motion = second-order term of the t^2 wall + its action on")
-    print("    the t^2 coefficients -- independent nonlinear confirmation of nu_(2,7) = -12/25")
+    print("    the t^2 coefficients -- independent nonlinear check of nu_(2,7) = -12/25")
 
-    # [2] the anchor: T(bottom) = x^5 + invariant seeds + theta^{-1}(y^5)
+    # [2] transport: T(bottom) = x^5 + invariant seeds + theta^{-1}(y^5)
     def v0(f):  # the wall with c4 = 0
         return trunc(sp.Rational(1, 50) * t**2 * X(1, 1, f))
 
@@ -113,13 +114,13 @@ def main():
     T_top = trunc(y**5 + t * x**3 * y**3 + sp.Rational(1, 30) * t**3 * x**4 * y**4
                   + exp_action(v0, x**5))
     assert sp.expand(T_top - Wmax) == 0
-    print("[2] ANCHOR holds through t^4: T(bottom) = W^min and T(top) = W^max exactly;")
+    print("[2] transport identity through t^4: T(bottom) = W^min and T(top) = W^max exactly;")
     print("    single bend of y^5 -> the t^2 coefficient; DOUBLE bend -> the t^4")
     print("    coefficient: the broken-line count computes nu^min_(2,7) = -12/25")
 
     # [3] invariance of the on-ray seeds
     assert X(1, 1, x**3 * y**3) == 0 and X(1, 1, x**4 * y**4) == 0
-    print("[3] on-ray seeds x^3y^3, x^4y^4 fixed by the wall exactly (ride as seeds)")
+    print("[3] on-ray seeds x^3y^3, x^4y^4 fixed by the wall exactly (they are their own seeds)")
     print("ALL CHECKS PASSED")
 
 

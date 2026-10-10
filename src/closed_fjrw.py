@@ -2,10 +2,9 @@
 """
 closed_fjrw.py -- the closed FJRW invariants of the Landau-Ginzburg A-model
 (x^r + y^s, mu_r x mu_s), genus zero. These are the VERTEX WEIGHTS of the
-Gross-Kelly-Tessler open topological recursion (eqn (6.5) of arXiv:2203.02435v3),
-hence the data needed to test Framing 2 (open invariants = broken-line counts) on
-a case with a genuine 2-D scattering vertex -- the smallest such being x^5+y^5
-(hyperbolic, central charge chat = 6/5, N=2 vertices exist).
+Gross-Kelly-Tessler open topological recursion (Thm 0.5 and eqn (6.5) of
+arXiv:2203.02435v3); for x^5+y^5 (hyperbolic, central charge chat = 6/5) they are
+the closed vertex weights of Paper 2, Example A.1.
 
 WHAT IS COMPUTED
 ----------------
@@ -26,11 +25,14 @@ WHAT IS COMPUTED
    < prod tau_{d_i}^{(a_i,b_i)} >_0 are nonzero (a_i,b_i the Jacobi indices):
         e_1 := (sum a_i - (r-2))/r in Z_{>=0},   e_2 := (sum b_i - (s-2))/s in Z_{>=0},
         dimension:  sum d_i + e_1 + e_2 = n - 3.
-   (Derived from the r-spin line-bundle degree; Obs 2.24 of [GKT].)
+   (Integrality is the r-spin line-bundle degree condition, [GKT] Obs. 1.11, eq. (1.14);
+   the dimension condition says that the Witten classes, of degree e_1 + e_2, and the
+   psi-classes fill dim M_{0,n} = n - 3.)
 
 The primary Frobenius data is EXACT and verified (associativity, Frobenius symmetry,
 unit). Values of invariants with e_1+e_2>0 or descendents require the r-spin
-intersection recursion (Witten/FSZ) and are flagged, not fabricated.
+intersection theory; they are computed in rspin.py and printed by
+run_5spin_extension below.
 
 Run:  python3 closed_fjrw.py
 """
@@ -203,18 +205,15 @@ def run(r=5, s=5):
         print(f"     n={n}, all d=0: {cnt} selection-allowed twist-tuples; "
               f"(e1,e2) multiplicities {dict(sorted(e_dist.items()))}")
 
-    # x^5+y^5 2-D vertex data: the vertex of the recursion (eqn 6.5) is a closed
+    # x^5+y^5 vertex data: the vertex of the recursion (eqn 6.5) is a closed
     # extended invariant. The e1=e2=0 ones are the Frobenius 3-points above (value 1);
-    # the e1+e2>0 ones need the r-spin recursion.
-    print(f"\n  --- x^{r}+y^{s} 2-D-vertex testbed note ---")
-    print(f"  The recursion vertex < tau_0^(a,b) prod tau_{{d_i}}^(a_i,b_i) >^ext is a")
-    print(f"  closed invariant. Those with e1=e2=0 and all d=0 ARE the Frobenius")
-    print(f"  3-points above (value 1). The scattering-vertex example X_(1,2),X_(2,1)")
-    print(f"  -> X_(3,3) (from src/scattering.py) needs the vertex weights with the")
-    print(f"  twists of those critical graphs; the e1=e2=0 / primary ones are given")
-    print(f"  here EXACTLY. Invariants with e1+e2>0 or descendents (d>0) require the")
-    print(f"  5-spin (Witten/Faber-Shadrin-Zvonkine) intersection recursion -- the")
-    print("  Higher Witten-class sectors require separate tautological reconstruction.")
+    # the e1+e2>0 ones need the r-spin intersection theory (rspin.py).
+    print(f"\n  --- x^{r}+y^{s} recursion vertex weights ---")
+    print(f"  The recursion vertex < tau_0^(a,b) prod tau_{{d_i}}^(a_i,b_i) >^ext of GKT")
+    print(f"  Thm 0.5 is a closed invariant. Those with e1=e2=0 and all d=0 ARE the")
+    print(f"  Frobenius 3-points above (value 1), given here EXACTLY. Invariants with")
+    print(f"  e1+e2>0 or descendents (d>0) require the r-spin (Witten class)")
+    print("  intersection theory: see rspin.py and the values printed below.")
 
     print("\n" + "=" * 74)
     print("Frobenius algebra EXACT and verified. For the SINGLE-VARIABLE 5-spin (A_4)")
@@ -225,10 +224,11 @@ def run(r=5, s=5):
 
 def run_5spin_extension():
     """The A_4 (5-spin) single-variable genus-0 invariants -- the building blocks for
-    x^5+y^5 = A_4(x) (x) A_4(y). Computed and validated in rspin.py (Saito potential +
-    string/dilaton/TRR). The 3-point of x^5+y^5 factorizes (verified above); the full
-    tensor CohFT (invariants mixing x- and y-Witten classes, e_1,e_2 both > 0) is the
-    remaining step -- the tensor-product / Givental R-matrix computation."""
+    x^5+y^5 = A_4(x) (x) A_4(y) -- computed and validated in rspin.py (Saito potential +
+    string/dilaton/TRR); then the x^5+y^5 tensor correlators: the factorizing ones
+    (e_1=0 or e_2=0), the fully mixed ones with min(e_1,e_2)=1 (genus-0 boundary
+    reconstruction on M_{0,n}), and the symmetric case e_1=e_2=2 at n=7 (codimension-two
+    strata). Paper 2, Example A.1 tabulates these values."""
     print("\n" + "=" * 74)
     print("5-SPIN (A_4) SINGLE-VARIABLE BUILDING BLOCKS  (src/rspin.py, validated)")
     print("=" * 74)
@@ -256,7 +256,7 @@ def run_5spin_extension():
         desc = ' '.join(f"t({a},{b})" for (a, b), d in ins)
         print(f"     (e1,e2)=({e1},{e2}) < {desc} > = {T.correlator(ins)}")
     print("\n  x^5+y^5 FULLY-MIXED primary correlators, min(e_1,e_2)=1 (one Witten class a divisor),")
-    print("  via genus-0 boundary reconstruction on M_{0,n} (self-contained taut_m0n; psi-gated):")
+    print("  via genus-0 boundary reconstruction on M_{0,n} (self-contained taut_m0n; psi-checked):")
     for a, b in [((2,2,2,1,1),(1,1,2,2,2)),               # n=5 (1,1)
                  ((2,2,1,1,1,1),(3,3,3,2,1,1)),           # n=6 (1,2)
                  ((2,2,1,1,1,1,0),(3,3,3,3,3,2,1))]:      # n=7 (1,3)
@@ -268,7 +268,7 @@ def run_5spin_extension():
     v = T.correlator([((a[i], b[i]), 0) for i in range(7)])
     print(f"     < {' '.join(f't({a[i]},{b[i]})' for i in range(7))} > = {v}"
           f"   (permutation-invariant; expect 34/625)")
-    print("  Outside this certificate: min(e_1,e_2)>=2 with e_1!=e_2, or e_1=e_2>=3.")
+    print("  Not computed here: min(e_1,e_2)>=2 with e_1!=e_2, or e_1=e_2>=3.")
     print("=" * 74)
 
 

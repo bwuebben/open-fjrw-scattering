@@ -1,34 +1,36 @@
 #!/usr/bin/env python3
 r"""
-census.py -- certification of the companion note "The central-charge threshold for
-wall-crossing in two-variable open FJRW theory" on the corrected foundations
-([GKT] Def 4.23 conventions; see src/gkt_algebra.py).
+census.py -- exact checks for Paper 1, "The central-charge threshold for
+wall-crossing in two-variable open FJRW theory", in the indexing of
+[GKT] Def 4.23 (see src/gkt_algebra.py).
 
-Certified:
+Checked:
  [1] the ADE list: for c-hat < 1 there is NO primary (d=0) critical graph, for any
-     multiset size m (certified up to the closed-form bound m <= 1/(1-c-hat) forced
-     by the Lemma ell_1+ell_2 <= m*c-hat); the wall-crossing-free pairs over the grid
-     2 <= r,s <= 40 are exactly {(n,2),(2,n)} u {(3,3),(3,4),(4,3),(3,5),(5,3)}
-     (A_{n-1}, D_4, E_6, E_8);
- [2] the trichotomy m_*(r,s) = infinity | 2 | 3 as in the note, over the grid;
- [3] the corrected first-wall census (the note's Table 1): for each listed (r,s),
+     multiset size m (Paper 1, Lemma 4.1: ell_1+ell_2 <= m*c-hat); the enumeration
+     checks the maximal-twist multiset, which maximizes N, for m <= floor(1/(1-c-hat)) + 1.
+     The wall-crossing-free pairs over the grid 2 <= r,s <= 40 are exactly
+     {(n,2),(2,n)} u {(3,3),(3,4),(4,3),(3,5),(5,3)} (A_{n-1}, D_4, E_6, E_8);
+ [2] the trichotomy m_*(r,s) = infinity | 2 | 3 of Paper 1, Theorem 1.2 (where m_* is
+     written n_*), over the grid;
+ [3] the first-wall census (Paper 1, Table 1): for each listed (r,s),
      the critical multisets at m = m_*, each graph's Lie bidegree (k_1,k_2)
      [GKT Def 4.23 indexing: the graph has k_1+1 and k_2+1 boundary points], its
      wall Hamiltonian x^{k_1+1}y^{k_2+1} (the boundary monomial), and the
      MARGINAL/TORUS split: Euler weight 0 <=> Lie bidegree (0,0) <=> the wall
      direction is the torus field x d_x - y d_y (Hamiltonian xy);
  [4] the parabolic pairs (4,4),(3,6),(6,3): exactly ONE critical graph at m_*,
-     the maximal-twist multiset, and its direction is the TORUS direction;
- [5] the universal descendent wall: for every (r,s) and every twist (a,b), the
-     singleton with descendent d=1 is a critical graph (N=1) of Lie bidegree
-     (a,b); it is a genuine pro-nilpotent wall iff (a,b) != (0,0), and the torus
-     direction at (a,b) = (0,0);
+     the maximal-twist multiset, and its direction is the TORUS direction
+     (Paper 1, Proposition 7.1);
+ [5] the universal descendent wall (Paper 1, Proposition 1.3): for every (r,s) with
+     2 <= r,s <= 12 and every twist (a,b), the singleton with descendent d=1 is a
+     critical graph (N=1) of Lie bidegree (a,b); it is a genuine pro-nilpotent wall
+     iff (a,b) != (0,0), and the torus direction at (a,b) = (0,0);
  [6] Lie bidegrees of positive-weight critical graphs coincide with the Def 4.23
      admissible degrees computed independently in gkt_algebra.lie_degrees;
- [7] the Hamiltonian identity X_{a,b} = X_H with H = x^{a+1}y^{b+1}, the
-     divergence-freeness, and the bracket
-     [X_{a,b},X_{c,d}] = ((b+1)(c+1)-(a+1)(d+1)) X_{a+c,b+d}, symbolically over
-     0 <= a,b,c,d <= 4.
+ [7] the Hamiltonian identity X_{a,b} = X_H with H = x^{a+1}y^{b+1} and the
+     divergence-freeness for 0 <= a,b <= 4 (Paper 1, Lemma 6.1), and the bracket
+     [X_{a,b},X_{c,d}] = ((b+1)(c+1)-(a+1)(d+1)) X_{a+c,b+d} (Paper 1, Proposition 6.2,
+     eq. (13)), componentwise for symbolic a,b,c,d.
 
 Run: python src/census.py
 """
@@ -74,7 +76,7 @@ def primary_multisets(r, s, m):
 
 def m_star(r, s, cap=60):
     if chat(r, s) < 1:
-        return None  # infinity (certified separately)
+        return None  # infinity (checked separately in check_ade)
     for m in range(1, cap + 1):
         # maximal-twist multiset maximizes N
         J = [(r - 2, s - 2)] * m
@@ -160,10 +162,6 @@ def check_identities(top=4):
     import sympy as sp
     x, y = sp.symbols("x y")
 
-    def X(a, b, f):
-        return sp.expand(x**a * y**b * ((b + 1) * x * sp.diff(f, x)
-                                        - (a + 1) * y * sp.diff(f, y)))
-
     for a in range(top + 1):
         for b in range(top + 1):
             H = x**(a + 1) * y**(b + 1)
@@ -173,15 +171,23 @@ def check_identities(top=4):
             assert sp.expand(XH_y + (a + 1) * x**a * y**(b + 1)) == 0
             div = sp.diff((b + 1) * x**(a + 1) * y**b, x)                 + sp.diff(-(a + 1) * x**a * y**(b + 1), y)
             assert sp.expand(div) == 0
-    f = sp.Function("f")(x, y)
-    probe = x**3 * y**2 + x * y**5 + 1
-    for a in range(top + 1):
-        for b in range(top + 1):
-            for c in range(top + 1):
-                for d in range(top + 1):
-                    lhs = X(a, b, X(c, d, probe)) - X(c, d, X(a, b, probe))
-                    rhs = ((b + 1) * (c + 1) - (a + 1) * (d + 1)) * X(a + c, b + d, probe)
-                    assert sp.expand(lhs - rhs) == 0, (a, b, c, d)
+    # The bracket identity, componentwise and for symbolic exponents a, b, c, d.
+    xs, ys = sp.symbols("x y", positive=True)
+    a, b, c, d = sp.symbols("a b c d", nonnegative=True, integer=True)
+
+    def field(p, q):  # X_{p,q} as its (d_x, d_y) components
+        return ((q + 1) * xs**(p + 1) * ys**q, -(p + 1) * xs**p * ys**(q + 1))
+
+    def apply(V, h):
+        return V[0] * sp.diff(h, xs) + V[1] * sp.diff(h, ys)
+
+    V, W = field(a, b), field(c, d)
+    bracket = [apply(V, W[i]) - apply(W, V[i]) for i in range(2)]
+    k = (b + 1) * (c + 1) - (a + 1) * (d + 1)
+    target = field(a + c, b + d)
+    for i in range(2):
+        residual = sp.powsimp(sp.expand(bracket[i] - k * target[i]), force=True)
+        assert sp.simplify(residual) == 0, i
     return True
 
 
@@ -190,14 +196,14 @@ def ham(lie):
 
 
 def main():
-    print("== Census certification (corrected conventions) ==")
+    print("== Critical-graph census (Paper 1) ==")
     n = check_ade()
-    print(f"[1] ADE list certified over the 2..40 grid ({n} wall-crossing-free pairs;")
-    print("    negatives certified up to the closed-form bound m <= 1/(1-c-hat))")
+    print(f"[1] ADE list verified over the 2..40 grid ({n} wall-crossing-free pairs;")
+    print("    absence of critical graphs checked for m <= floor(1/(1-c-hat)) + 1)")
     assert check_trichotomy()
-    print("[2] the trichotomy m_*(r,s) = inf | 2 | 3 certified over the grid")
+    print("[2] the trichotomy m_*(r,s) = inf | 2 | 3 verified over the grid")
     rows = first_wall_table()
-    print("[3] the corrected first-wall census:")
+    print("[3] the first-wall census (Paper 1, Table 1):")
     for (r, s, ms, graphs) in rows:
         walls = [g for g in graphs if not g[3]]
         tori = [g for g in graphs if g[3]]
@@ -211,7 +217,7 @@ def main():
     print("    Lie bidegree (a,b); torus at (0,0), pro-nilpotent wall otherwise")
     print("[6] positive-weight Lie bidegrees match Def 4.23 (gkt_algebra.lie_degrees)")
     assert check_identities()
-    print("[7] Hamiltonian identity, divergence-freeness, and the bracket certified")
+    print("[7] Hamiltonian identity, divergence-freeness, and the bracket verified")
     print("ALL CHECKS PASSED")
 
 

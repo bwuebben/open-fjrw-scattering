@@ -4,7 +4,7 @@ rspin.py -- genus-0 r-spin (A_{r-1}) intersection numbers, EXACT and VALIDATED.
 
 Requires sympy (project venv):  ./venv/bin/python src/rspin.py
 
-Two engines, each validated before use:
+Two routines, each validated before use:
 
   (I)  PRIMARY correlators  < tau_0^{a_1} ... tau_0^{a_n} >_0  via the A_{r-1}
        Saito-Givental Frobenius potential of the LG model x^r:
@@ -16,7 +16,7 @@ Two engines, each validated before use:
            overall normalization fixed by  < tau_0^0 tau_0^0 tau_0^{r-2} >_0 = 1.
        VALIDATED: (a) A_2 gives <(tau_0^1)^4>_0 = 1/3 (magnitude, the known value);
                   (b) WDVV associativity holds identically in t for A_2..A_4.
-       SIGN CONVENTION: the residue engine yields correlators with a factor (-1)^e
+       SIGN CONVENTION: the residue routine yields correlators with a factor (-1)^e
        (e = selection index) relative to the all-positive convention -- the standard
        primitive-form (B -> A) phase; reported explicitly.
 
@@ -24,6 +24,9 @@ Two engines, each validated before use:
        the primaries. VALIDATED: r=2 reproduces Witten-Kontsevich (n-3)!/prod d_i!.
 
 Selection rule (genus 0): e=(sum a_i-(r-2))/r in Z>=0, and sum d_i + e = n-3.
+
+The class TensorSebastianiThom computes the genus-0 correlators of
+x^r + y^s = A_{r-1}(x) (x) A_{s-1}(y) from these (Paper 2, Example A.1).
 """
 
 from fractions import Fraction as F
@@ -184,8 +187,9 @@ def wk_genus0(ds):
 # If e_2 = (sum b - (s-2))/s = 0, then W^y(b) is a DEGREE-0 class = the 2D-TQFT
 # value omega^0_y(b) = [sum b_i = s-2] = 1, so the correlator = the single-variable
 # A_{r-1} x-correlator (the descendents ride the x-factor). Symmetrically for e_1=0.
-# The FULLY-MIXED case e_1,e_2 >= 1 needs the 2-variable Saito Frobenius manifold
-# (multivariate residue + mirror map) -- returned as None, NOT fabricated.
+# The FULLY-MIXED case e_1,e_2 >= 1 is computed by boundary reconstruction on
+# \bar M_{0,n}: min(e_1,e_2) = 1 (one Witten class a divisor) for any n, and
+# e_1 = e_2 = 2 (n = 7) via the codimension-two strata; other cases return None.
 # ==========================================================================
 
 class TensorSebastianiThom:
@@ -312,8 +316,8 @@ class TensorSebastianiThom:
         (one Witten class is a divisor). < prod tau_{d_i}^{(a_i,b_i)} > = int W^x(a) W^y(b) psi^d:
         reconstruct the degree-1 Witten divisor (its class is independent of the psi^d), then
         contract with the other class carrying the descendents into the single-variable A_{r-1}
-        correlators (which handle descendents via string/dilaton/TRR). Returns None if the psi-gate
-        on the reconstruction fails."""
+        correlators (which handle descendents via string/dilaton/TRR). Returns None if the
+        independent psi-class check on the reconstruction fails."""
         from taut_m0n import integrate
         n = len(ins); marks = frozenset(range(n))
         a = tuple(t[0][0] for t in ins); b = tuple(t[0][1] for t in ins)
@@ -396,7 +400,7 @@ class TensorSebastianiThom:
     def correlator(self, ins):
         """ins = [((a_i,b_i), d_i)]. Tensor correlator of x^r+y^s = A_{r-1}(x) (x) A_{s-1}(y).
         Factorizing (e_1=0 or e_2=0) via single-variable A. Fully-mixed PRIMARY with min(e_1,e_2)=1
-        (one class is a divisor) via \bar M_{0,n} boundary reconstruction, psi-gated. The symmetric
+        (one class is a divisor) via \bar M_{0,n} boundary reconstruction, psi-checked. The symmetric
         middle case e_1=e_2=2 (n=7) via the codim-2 stratum intersection form. Other mixed with
         min(e_1,e_2)>=2 and e_1!=e_2, or e_1=e_2>=3 -> None (needs higher-codim reconstruction)."""
         r, s = self.r, self.s
@@ -445,17 +449,17 @@ def run():
     if not HAVE_SYMPY:
         print("  sympy missing -- run with ./venv/bin/python"); return
 
-    print("\n[Gate 1] A_2 (r=3): <(tau_0^1)^4> magnitude = 1/3 (known)")
+    print("\n[Check 1] A_2 (r=3): <(tau_0^1)^4> magnitude = 1/3 (known)")
     S3 = SaitoAr(3)
     _check("A_2 3-point <0,0,1> = 1", S3.primary([0, 0, 1]) == 1)
     _check("A_2 <(tau_0^1)^4> = -1/3 (magnitude 1/3; sign (-1)^e)",
            S3.primary([1, 1, 1, 1]) == F(-1, 3))
 
-    print("\n[Gate 2] WDVV associativity holds identically (A_2, A_3, A_4)")
+    print("\n[Check 2] WDVV associativity holds identically (A_2, A_3, A_4)")
     for r in (3, 4, 5):
         _check(f"A_{r-1}: WDVV holds", SaitoAr(r).wdvv_holds())
 
-    print("\n[Gate 3] descendent recursion == Witten-Kontsevich for r=2")
+    print("\n[Check 3] descendent recursion == Witten-Kontsevich for r=2")
     memo = {}; ok = True
     for spec in [(1,0,0,0),(2,0,0,0,0),(1,1,0,0,0),(3,0,0,0,0,0),(2,1,0,0,0,0),(1,1,1,0,0,0)]:
         if correlator(2, [(0, d) for d in spec],
@@ -488,11 +492,11 @@ def run():
         desc = ' '.join(f"t({a},{b})" for (a, b), d in ins)
         print(f"     (e1,e2)=({e1},{e2}) < {desc} > = {T.correlator(ins)}")
     print("\n[TENSOR-MIXED] x^5+y^5 fully-mixed PRIMARY correlators, min(e_1,e_2)=1 (one Witten")
-    print("  class is a divisor), via genus-0 boundary reconstruction on M_{0,n} (psi-gated):")
+    print("  class is a divisor), via genus-0 boundary reconstruction on M_{0,n} (psi-checked):")
     from taut_m0n import verify as _tautverify
-    _check("M_{0,n} tautological engine self-verifies (WK + dP5 Petersen)", _tautverify())
+    _check("M_{0,n} tautological routine passes its self-checks (WK + dP5 Petersen)", _tautverify())
     _check("dP5 method: W^x psi-pairings match A_4 descendents", T.verify_5point_psi((2, 2, 2, 1, 1)))
-    _check("general engine reproduces dP5 <(2,1)(2,1)(2,2)(1,2)(1,2)> = 4/25",
+    _check("general reconstruction reproduces dP5 <(2,1)(2,1)(2,2)(1,2)(1,2)> = 4/25",
            T.correlator([((2,1),0),((2,1),0),((2,2),0),((1,2),0),((1,2),0)]) == F(4, 25))
     print("  n=5 (e_1,e_2)=(1,1):")
     for a, b in [((2,2,2,1,1),(1,1,2,2,2)), ((2,2,2,1,1),(2,2,2,1,1))]:
@@ -506,7 +510,8 @@ def run():
     a, b = (2,2,1,1,1,1,0), (3,3,3,3,3,2,1)
     ins = [((a[i], b[i]), 0) for i in range(7)]
     print(f"     < {' '.join(f't({a[i]},{b[i]})' for i in range(7))} > = {T.correlator(ins)}")
-    print("  (mixed with min(e_1,e_2)>=2 -- both codim>=2, first at n=7 (2,2) -- return None)")
+    print("  (mixed with min(e_1,e_2)>=2: only e_1=e_2=2 at n=7 is computed, see closed_fjrw.py;")
+    print("   the other cases return None)")
 
     print("\n[TENSOR-MIXED-DESCENDENT] min(e_1,e_2)=1 correlators WITH descendents psi^d,")
     print("  validated by the universal CohFT dilaton & string equations:")
@@ -518,10 +523,10 @@ def run():
     print(f"     < tau_1^(0,0) tau_0^(2,1) tau_0^(2,1) tau_0^(2,2) tau_0^(1,2) tau_0^(1,2) > = {dil}")
 
     print("\n" + "=" * 74)
-    print("VALIDATED: A_2 magnitude 1/3; WDVV (A_2..A_4); r=2 Witten-Kontsevich; M_{0,n} engine")
+    print("VALIDATED: A_2 magnitude 1/3; WDVV (A_2..A_4); r=2 Witten-Kontsevich; M_{0,n} routine")
     print("(WK + dP5 Petersen); general reconstruction reproduces dP5; DILATON + STRING for the")
     print("mixed descendents. 5-spin (A_4) + x^5+y^5 tensor: factorizing + all mixed min(e)=1")
-    print("(primary AND descendent, n=5,6,7,...) + (2,2)@n=7 -- exact & gated.")
+    print("(primary AND descendent, n=5,6,7,...) + (2,2)@n=7 -- exact, with independent checks.")
     print("=" * 74)
 
 

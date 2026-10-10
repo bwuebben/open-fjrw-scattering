@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 r"""
-canonical_seeds.py -- (1) the census re-run with the diagonal-side on-ray convention;
-(2) the first off-ray far-side case D = {(0,0,2),(2,1,0)}, solved completely; and
-(3) THEOREM L: the residual lemma dissolves -- seeds are canonical chamber-independent
-constants V := W|_D - F, and with seed := V the transport identity T = W holds by
-divisibility induction.  The naive own-chamber seed rule computes V exactly on
-foreign-free chambers (the Theorem H/J classes) and fails otherwise -- as the off-ray
-case shows, where the EXTREME slot (7,1) carries the nonzero canonical seed -10/3
-hidden behind a normal-form zero (0 = seed + far-side bend 10/3).
+canonical_seeds.py -- (1) the census of foreign own-chamber contributions, with on-ray
+targets anchored on the side of the ray toward the (1,1)-direction (the anchor convention
+of Paper 2, Definition 6.4); (2) the first off-ray far-side case D = {(0,0,2),(2,1,0)},
+solved completely (Paper 2, Example 6.13); and (3) an instance of the transport
+representation (Paper 2, Theorems 1.4 and 6.8): the initial coefficients are the
+cut-independent constants V := W|_D - W_{<u}, and with initial coefficient := V the
+transport identity W~ = W (W~ the transport potential) holds by induction on
+divisibility.  Taking the anchored value as the initial coefficient gives V exactly when
+no foreign bending reaches the anchor cut (Paper 2, Theorem 1.4) and fails otherwise --
+as the off-ray case shows, where the extreme slot (7,1) carries the nonzero initial
+coefficient -10/3 behind a normal-form zero (0 = initial coefficient + far-side bend 10/3).
 
 Run: ./venv/bin/python src/canonical_seeds.py
 """
@@ -25,9 +28,9 @@ from backscatter import bend_choices, cross, submultisets  # noqa: E402
 x, y, u, v = sp.symbols("x y u v")  # u = t_{0,0,2}, v = t_{2,1,0}
 
 
-# ---------------------------------------------------------------- [1] corrected census
+# ------------------------------------------- [1] census with the anchor convention
 def candidates2(r, s, D):
-    """Foreign own-chamber candidates under the DIAGONAL-SIDE on-ray convention."""
+    """Foreign own-chamber candidates, with on-ray targets anchored on the (1,1)-side."""
     out = []
     slots = [tuple(t) for t in part_boundaries(list(D), r, s)]
     for F, rem in submultisets(D):
@@ -43,7 +46,7 @@ def candidates2(r, s, D):
                 for vv in vs:
                     beta = (vv[0] + 1, vv[1] + 1)
                     cw, cm = cross(beta, w), cross(beta, m)
-                    if cw == 0:                     # seed on ray: zero coefficient
+                    if cw == 0:                     # initial monomial on ray: zero coefficient
                         good = False
                         break
                     if cm == 0:                     # m on this ray: diagonal side
@@ -162,11 +165,11 @@ def offray_case():
                  (seed71 * u * v * x**7 * y, 0)]
         return [sum(transport(s, h, c) for s, h in seeds) for c in range(4)]
 
-    # naive own-chamber rule: seed(7,1) = W(c0)-value = 0  ->  FAILS
+    # anchored value as initial coefficient: (7,1)-value = W(c0)-value = 0 does not reproduce W
     T_naive = T_of(sp.Integer(0))
     defects = [sp.expand(Wc[c] - T_naive[c]).coeff(u * v * x**7 * y) for c in range(4)]
     assert defects == [sp.Rational(-10, 3)] * 4, defects
-    # canonical seed V = W - F: constant -10/3 (F = (10/3, 0, 10, 10) per chamber)
+    # initial coefficient V = W - W_{<u}: constant -10/3 (W_{<u} = (10/3, 0, 10, 10) per chamber)
     T_can = T_of(sp.Rational(-10, 3))
     for c in range(4):
         assert sp.expand(Wc[c] - T_can[c]) == 0, c
@@ -174,23 +177,24 @@ def offray_case():
 
 
 def main():
-    print("== Census re-run (diagonal-side rule) + the off-ray case + Theorem L ==")
+    print("== Census with the anchor convention + the off-ray case + initial coefficients ==")
     tot, found = census()
-    print(f"[1] corrected census: computed sectors: {tot} candidates (unchanged);")
+    print(f"[1] census with the (1,1)-side anchor convention: computed sectors: {tot} candidates"
+          " (as in backscatter.py);")
     print(f"    probe (l = 2, twists <= (3,3), d <= 3): {len(found)} candidates")
     print("    first entries:")
     for D, F, vs, w, m in found[:5]:
-        print(f"      D = {list(D)}: seed {w} (on {list(F) if F else 'W0'}) "
+        print(f"      D = {list(D)}: initial monomial {w} (on {list(F) if F else 'W0'}) "
               f"--{list(vs)}--> {m}")
     vec = offray_case()
-    print("[2] off-ray case D = {(0,0,2),(2,1,0)} SOLVED: own wall forced c_D = 1;")
-    print(f"    chamber vectors {vec}; A(D) = 0 in ALL FOUR chambers;")
-    print("    naive own-chamber seeding FAILS (constant defect -10/3 at slot (7,1),")
-    print("    an EXTREME slot: its normal-form zero = seed + far-side bend);")
-    print("    canonical seed V = W - F = -10/3 (chamber-independent) -> T = W EXACTLY")
-    print("[3] THEOREM L: V := W|_D - F is chamber-independent (same-jump argument),")
-    print("    so seed := V makes the transport identity T = W hold on every diagonal")
-    print("    by divisibility induction -- the residual lemma DISSOLVES.")
+    print("[2] off-ray case D = {(0,0,2),(2,1,0)} (Paper 2, Example 6.13): own wall term forced, c_D = 1;")
+    print(f"    chamber vectors {vec}; A(D) = 0 in all four chambers;")
+    print("    the anchored value is not the initial coefficient (constant defect -10/3 at slot (7,1),")
+    print("    an extreme slot: its normal-form zero = initial coefficient + far-side bend);")
+    print("    initial coefficient V = W - W_{<u} = -10/3 (cut-independent) -> W~ = W exactly")
+    print("[3] as in Paper 2, Theorem 6.8: V := W|_D - W_{<u} is cut-independent (equal jumps),")
+    print("    so initial coefficient := V makes the transport identity W~ = W hold on every diagonal")
+    print("    by induction on divisibility.")
     print("ALL CHECKS PASSED")
 
 

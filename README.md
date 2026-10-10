@@ -10,10 +10,10 @@ Landau--Ginzburg model
 ```
 
 and a wall-crossing group describing their dependence on canonical boundary
-conditions. These papers study the first wall-crossing threshold, factor the
-boundary transport by slope, and, for the quartic theory, construct an
-integral-affine annulus carrying a consistent scattering diagram and compare
-it with GKT wall-crossing. References to GKT use
+conditions. These papers determine where wall-crossing begins, factor the
+wall-crossing transformations along rays of boundary degrees, and, for the
+quartic theory, construct an integral-affine annulus carrying a wall
+structure and compare it with GKT wall-crossing. References to GKT use
 version 3 of [*Open FJRW theory and mirror
 symmetry*](https://arxiv.org/abs/2203.02435), published in *Geometry &
 Topology* 30 (2026), 2779--2960.
@@ -23,56 +23,60 @@ Topology* 30 (2026), 2779--2960.
 ### Paper 1: The central-charge threshold
 
 [`central-charge-threshold/central-charge-threshold.pdf`](central-charge-threshold/central-charge-threshold.pdf)
-proves that the primary invariants are independent of canonical boundary
-conditions precisely when the central charge is less than one, equivalently
-for the two-variable Fermat simple singularities. It gives the exact first-wall
-trichotomy, exhibits a universal one-insertion descendent wall, and identifies
-each wall vector field with a Hamiltonian vector field in a graded subalgebra
-of the tropical vertex Lie algebra.
+proves that the genus-zero primary invariants are independent of the choice of
+symmetric canonical boundary conditions if and only if the central charge is
+less than one, that is, exactly for the Fermat simple singularities. It
+determines the least number of interior insertions at which dependence
+appears, shows that a single descendent insertion produces dependence in
+every case, and writes each wall generator as the Hamiltonian vector field
+of a monomial for `dx∧dy`. It also shows that the wall-crossing group acts
+simply transitively on systems of invariants once the torus vector field
+`x∂x−y∂y` is adjoined to its Lie algebra; without it, transitivity fails
+whenever a critical graph of weight zero occurs.
 
 ### Paper 2: Boundary-ray factorization
 
 [`boundary-ray-factorization/boundary-ray-factorization.pdf`](boundary-ray-factorization/boundary-ray-factorization.pdf)
-proves unique increasing-slope factorization of primary transitions and
-coefficientwise factorization for descendents on finite divisor-closed
-coefficient sets. It constructs the two extremal systems, reconstructs every
-open potential from its initial coefficients, and realizes every finite
-factorization by a concatenation of GKT canonical homotopies. Its exact
-`x^5+y^5` calculations include a complete Sage/admcycles check of the relevant
-open topological recursion.
+proves that the wall term of each critical disk lies on the ray spanned by its
+numbers of boundary marked points, and that the transformation between the
+two extremal systems of invariants factors uniquely into automorphisms
+supported on these rays, ordered by slope. With descendents the
+factorization holds in every finite truncation, where it is realized by a
+homotopy of boundary conditions whose jumps occur ray by ray; in general a
+single homotopy in the normal form of the GKT extension lemma does not
+achieve this. In each finite truncation the invariants between consecutive
+rays are obtained by transport across the rays from initial constants, not
+all of which wall-crossing produces. Exact `x^5+y^5` calculations give the
+first ray factors, and the closed correlators are checked against the open
+topological recursion with Sage and admcycles.
 
 Paper 2 does not prove that the finite realizing homotopies can be chosen
-compatibly as the coefficient set grows. For `x^4+y^4`, Paper 3 proves this
-for finite systems closed under the boundary and component dependencies of
-the GKT construction (its Appendix B).
+compatibly as the truncation grows. For `x^4+y^4`, Paper 3 proves this for
+finite systems closed under the boundary and component dependencies of the
+GKT construction (its Appendix B).
 
 ### Paper 3: Annular scattering in quartic open FJRW theory
 
 [`fjrw-annular-scattering/fjrw-annular-scattering.pdf`](fjrw-annular-scattering/fjrw-annular-scattering.pdf)
-shows that the first descendent generators of the quartic theory have
-fractional exponents, which force an index-eight enlargement of the exponent
-lattice of the Carl--Pumperla--Siebert base. The smallest cover
-of the natural disk-shaped base that preserves it is an integral-affine
-annulus with four singular points and hyperbolic core holonomy of trace 18.
-On this annulus the paper constructs a coefficient system of Kummer
-extensions that no finite root stack contains, a Jacobi--Kirillov bracket on a
-twisted volume line, and a scattering diagram that is consistent at every
-finite order; the walls leave through the two
-boundary circles, and the finite root-stack presentations have a regular
-dominating presentation.
+treats `x^4+y^4`. With `x^4` and `y^4` matched to the coordinate divisors of
+weight one of `P(1,1,2)`, the two first-descendent generators of a single
+marking of twist (1,0) or (0,1) have fractional exponents, and the smallest cover of the
+Carl--Pumperla--Siebert disk on which monodromy preserves the lattice they
+span with the integral exponents is an integral-affine annulus with four
+singular points and hyperbolic holonomy along its core loop. On the annulus
+the slab functions need roots generating an infinite Kummer extension, the
+volume form glues only in a line bundle carrying a Jacobi bracket, and there
+is a wall structure consistent at its two joints at every finite order, in a
+sense weaker than that of Gross and Siebert.
 
-It then compares this structure with GKT open FJRW theory: the GKT critical
-Lie algebra embeds in the wall algebra without change of coefficients, but the
-diagram is not GKT wall-crossing (on the first mixed ray its coefficient is
--3/4, against GKT's 1/4), each wall factor splits into a GKT factor and a
-residual factor, the finite GKT
-homotopies can be chosen compatibly, and the primary Frobenius structure,
-including Saito's primitive form, is transported through the annular charts.
-For positive descendents the paper computes the first truncations: the
-consistent diagram does not carry one extremal GKT potential to the other, a
-maximal normal form removes the difference, and its geometric realization is
-stated as an open problem. Theta functions on the annulus and a logarithmic
-compactification of the finite stages are also left open.
+The paper then compares this wall structure with GKT wall-crossing. On the
+two generators they agree; on the first wall carrying one marking of each,
+the coefficient is -3/4 against GKT's 1/4, a difference that leaves periods
+unchanged and is removed by a normal form whose geometric origin is left
+open. The paper also shows that the GKT homotopies realizing the transition
+between the extremal boundary conditions can be chosen compatibly as labels
+are added, and transports the primary Frobenius structure, including Saito's
+primitive form, through the annular charts.
 
 ## Repository layout
 
@@ -118,7 +122,7 @@ three-insertion instances.
 - M. Gross, T. L. Kelly, and R. J. Tessler, [*Open enumerative geometries for
   Landau--Ginzburg models*](https://arxiv.org/abs/2602.12707).
 - R. Maher, [*Predictions in open Fan--Jarvis--Ruan--Witten theory via mirror
-  symmetry, modularity, and wall-crossing*](https://etheses.bham.ac.uk/id/eprint/15556/),
+  symmetry, modularity and wall-crossing*](https://etheses.bham.ac.uk/id/eprint/15556/),
   Ph.D. thesis, University of Birmingham, 2024.
 
 ## License

@@ -5,21 +5,22 @@ Gross-Kelly-Tessler open topological recursion ([GKT] Thm 0.5 / eq 0.8) for x^5+
 
 This is the extended (Ramond, tw=-1) completion of src/verify_thm05.py: every closed
 FJRW invariant -- NS and extended alike -- is computed with SageMath's admcycles via
-Witten's r-spin class (Wittenrspin = the Chiodo/PPZ class), so the previously "narrow"
-sum over node twists a,b in {0..r-2} is replaced by the FULL sum over {-1..r-2}.
+Witten's r-spin class (Wittenrspin = the Chiodo/PPZ class), so the narrow sum of
+verify_thm05.py over node twists a,b in {0..r-2} is replaced by the FULL sum over {-1..r-2}.
 
 REQUIRES: SageMath + admcycles  (sage -pip install admcycles). This is the one
 Sage-dependent script; the pure-Python verify_thm05.py covers the narrow sector alone.
 
-Convention (VALIDATED, see below): the tensor invariant of x^5+y^5 is
+Convention: the tensor invariant of x^5+y^5 is
     < prod tau_{d_i}^{(a_i,b_i)} > = (-1)^{e_1+e_2} int_{Mbar_{0,n}} W^5(a) W^5(b) prod psi_i^{d_i},
-with W^5 = Wittenrspin(0, ., r_coeff=5). admcycles reproduces every rspin.py/Saito value
-exactly under this rule (incl. the (2,2)@n=7 = 34/625 case and descendents). Ramond twists
+with W^5 = Wittenrspin(0, ., r_coeff=5). Under this rule admcycles reproduces the
+rspin.py/Saito values exactly (incl. the (2,2)@n=7 = 34/625 case and descendents;
+Paper 2, Appendix A). Ramond twists
 are passed as -1 (admcycles distinguishes -1 from r-1: only -1 gives the correct nonzero
 class); the continuation twist z=(r-2-a,s-2-b) is reduced r-1 -> -1.
 
-A(A,d) is the survey [GKTsurvey] Thm 5.4 form (no leading sign); eq 0.8 is checked as an
-identity between admcycles-computed invariants.
+A(A,d) is given by [GKT] Cor. 5.11 (= [GKTsurvey] Thm 5.4; no leading sign); eq 0.8 is
+checked as an identity between admcycles-computed invariants.
 
 Run:  sage src/verify_thm05_full.sage
 """
@@ -121,9 +122,9 @@ def run():
             print(f"    MISMATCH J={J} j1={j1}: lhs={lhs} rhs-base={rhs}")
         assert mismatch == 0, "recursion mismatch"
     print("\n" + "=" * 74)
-    print("GKT's open topological recursion holds for x^5+y^5 in EVERY instance -- NS and")
-    print("extended (Ramond) alike -- with all invariants computed by admcycles. The narrow")
-    print("restriction of verify_thm05.py is removed; the recursion is confirmed in full.")
+    print("GKT's open topological recursion holds for x^5+y^5 in every instance above -- NS")
+    print("and extended (Ramond) alike -- with all closed invariants computed by admcycles,")
+    print("including the extended sectors omitted in verify_thm05.py.")
     print("=" * 74)
 
 

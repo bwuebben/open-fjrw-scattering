@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-The accumulation of Prop. 7.12, made exact, and where it bites.
+Checks for Paper 2, Proposition 6.14 (descendent rays accumulate; primary rays are
+locally finite): claims A and C exactly, claim B by explicit approximation.
 
 CLAIM A (structure of a singleton descendent tower). For J = {(a,b)} and descendent d,
   N = d  and the critical graphs have boundary degrees (rays)
@@ -13,7 +14,7 @@ CLAIM B (density). The slopes of R(a,b) are dense in (0, infinity), for every (r
   with r,s >= 2 -- including the simple (ADE) models.
 
 CLAIM C (the primary sector is different). For d = 0, each t-degree m carries only
-  finitely many rays, so the PRIMARY diagram is locally finite order-by-order.
+  finitely many rays, so the PRIMARY factorization is locally finite order-by-order.
 """
 from itertools import combinations_with_replacement
 from math import gcd
@@ -89,7 +90,7 @@ if __name__ == "__main__":
             cumcounts.append(len(cum))
         print(f"  r={r},s={s}:  per-degree {counts}   cumulative {cumcounts}")
 
-    print("\n=== THE PILOT, isolated ===")
+    print("\n=== x^4+y^4 (parabolic): primary rays ===")
     per = primary_rays_by_degree(4, 4, 10)
     allr = set().union(*per.values())
     print(f"  x^4+y^4 primary rays, |J| <= 10:  {sorted(allr)}")

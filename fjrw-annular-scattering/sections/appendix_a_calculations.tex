@@ -5,19 +5,19 @@ This appendix collects the basis conventions and local algebra used in the
 main proofs.  It records the lattice data, the widths of the monodromies
 and the separation estimate in explicit coordinates.  The conventions for
 the two sides of the discrete Legendre transform are those of
-Section~\ref{subsec:parity-cover}: frames and developments are in the plane
+Section~\ref{subsec:parity-cover}: affine charts and developments are in the plane
 $M^\vee\otimes\RR$ of $\Delta$, and monodromies of characters act on the fan
 lattice $M$.  Elements of $M$ and of $M^\vee$ are written in standard
 coordinates, which on $M^\vee\otimes\RR$ are the coordinates $(s_1,s_2)$ of
 \eqref{eq:polygons}; elements of $\widetilde M$ and $\widetilde M^\vee$ are
 written in $F$-coordinates (Section~\ref{subsec:exponent-lattices}).
 
-\subsection{Straight-boundary frames}
+\subsection{Straight-boundary charts}
 
 At a vertex $p_V$ of $\Delta$, let $\ell_V,r_V$ be the primitive boundary
 tangents toward its two neighbors, and let $-p_V$ be the inward radial
 vector.  Both $(\ell_V,-p_V)$ and $(r_V,-p_V)$ are unimodular.  Define the
-left and right straight-boundary frames by
+left and right straight-boundary charts by
 \[
  \mathcal B_{V,L}\ell_V=(-1,0),\quad \mathcal B_{V,L}(-p_V)=(0,1),
  \qquad
@@ -106,8 +106,8 @@ final local matrix in \eqref{eq:lifted-monodromies}.  The primitive
 factorizations \eqref{eq:primitive-factorizations} follow by subtracting the
 identity.
 
-The kinks of $\varphi$ across the bounded edges of the Legendre-dual
-decomposition are, up to sign, the vertices of $\Delta$.  Equivalently, they
+The kinks of $\varphi$ across the bounded edges of the decomposition of
+the dual intersection complex are, up to sign, the vertices of $\Delta$.  Equivalently, they
 are the primitive facet conormals of $\Delta^\vee$, which in the coordinates
 $(s_1,s_2)$ are $-p_A=(1,1)$, $-p_B=(1,-1)$ and $-p_C=(-3,1)$, each taking
 the value $1$ on its facet.  Their $F$-coordinates are
@@ -116,11 +116,14 @@ the value $1$ on its facet.  Their $F$-coordinates are
  F^T(1,-1)=(\tfrac14,\tfrac14),\quad
  F^T(-3,1)=(-\tfrac34,\tfrac14).
 \end{equation}
-The kinks across the unbounded edges are the edge vectors of $\Delta$, which
+For the polarization of the discrete Legendre transform
+(Section~\ref{subsec:parity-cover}), the kinks across the unbounded edges
+are the edge vectors of $\Delta$, which
 are $(0,2)$, $(4,-2)$ and $(-4,0)$ in the coordinates $(s_1,s_2)$ and have
-the integral $F$-coordinates $(0,-1)$, $(1,0)$ and $(-1,1)$.  Thus
-$p^*\varphi$ is quarter-integral and $4p^*\varphi$ is the minimal integral
-multiple.
+the integral $F$-coordinates $(0,-1)$, $(1,0)$ and $(-1,1)$ in the chart of
+$S_0$; in the frame of $S_1$ two of them are half-integral (proof of
+Theorem~\ref{thm:parity-cover}).  Thus $p^*\varphi$ is quarter-integral and
+$4p^*\varphi$ is the minimal integral multiple.
 
 \subsection{Core and boundary holonomy}
 
@@ -151,17 +154,17 @@ and $U_0=H_{B,1}K^{-1}H_C$, $U_1=H_AH_{B,0}K$.  They factor as
  \qquad
  U_1-\mathrm{Id}=16\binom21(1,-2).
 \]
-Using the invariant tangent--normal bases
+In the invariant tangent--normal bases given by the columns of
 \[
- P_0=\begin{pmatrix}1&0\\1&1\end{pmatrix},
+ \begin{pmatrix}1&0\\1&1\end{pmatrix}\ \text{for }U_0,
  \qquad
- P_1=\begin{pmatrix}2&1\\1&1\end{pmatrix},
+ \begin{pmatrix}2&1\\1&1\end{pmatrix}\ \text{for }U_1,
 \]
-one obtains
+the matrices of $U_0$ and $U_1$ are
 \[
- P_0^{-1}U_0P_0=\begin{pmatrix}1&-4\\0&1\end{pmatrix},
+ \begin{pmatrix}1&-4\\0&1\end{pmatrix},
  \qquad
- P_1^{-1}U_1P_1=\begin{pmatrix}1&-16\\0&1\end{pmatrix}.
+ \begin{pmatrix}1&-16\\0&1\end{pmatrix}.
 \]
 This gives the two global widths used in Section~\ref{sec:compactification}.
 
@@ -194,7 +197,23 @@ data of the two boundary circles are
 Here $w_i$ is the width of the boundary monodromy, $\ell_i=w_ih_i$ is the
 length of the boundary circle in these coordinates, and $(\phi_i,h_i)$ is
 the common apex of the developed facets, in the coordinates
-$(\mathsf x,\mathsf y)$.  Affine lengths measured in $\widetilde M^\vee$
+$(\mathsf x,\mathsf y)$.  For $i=0$ the data are obtained as follows.
+Starting from the facet $s_2=-1$ in the chart of $S_0$, develop the facet
+$s_1+2s_2=1$ through the vertex $p_C$ and then the facet $s_1=-1$ through
+$p_B$, by the transitions between the straight-boundary charts
+\eqref{eq:straight-boundary-frames} at these vertices, which fix the vertex
+and $O$.  The three facets develop onto the line $s_2=-1$, and the vertex
+$p_A=(-1,-1)$ returns at $(7,-1)$.  In the coordinates
+$\mathsf x=(7-s_1)/2$ and $\mathsf y=s_2+1$, in which $\widetilde M^\vee$ is
+$2\ZZ^2$, the developed image of $O$ lies at $(\frac72,1)$ and the
+boundary circle has length $4$.  For $\partial_1\overline\Acal$ one starts
+from the facet $s_2=-1$ in the chart of $S_1$ pulled back from $\Delta$, in
+which $\widetilde M^\vee$ is $2\ZZ\oplus4\ZZ$ in the coordinates $(s_1,s_2)$,
+develops in the same way, and uses
+$\mathsf x=7-s_1+\frac12(s_2+1)$ and $\mathsf y=\frac12(s_2+1)$, in which
+$\widetilde M^\vee$ is $2\ZZ^2$; the developed image of $O$ lies at
+$(\frac{15}2,\frac12)$, and the boundary circle has length $8$.  Affine
+lengths measured in $\widetilde M^\vee$
 are half the coordinate lengths; the widths and the slopes below do not
 depend on this normalization.  In the coordinate $\mathsf r=-\mathsf y$, a
 support of slope $\xi$ lies on the line
@@ -204,8 +223,14 @@ translation by $w_i(\mathsf r_0+h_i)$, so its $k$th power maps the line of
 slope $\xi$ to the line of slope $\xi-kw_i$.
 
 By Proposition~\ref{prop:proper-supports} no support meets an arc carrying a
-transition, so each support has direction $Lq$ in the chart of its sheet,
-or $-Lq$ for a negative half-chord.  Write $q=c_1(2,1)+c_2(1,2)$ with
+transition, so each support has direction $Lq$, or $-Lq$ for a negative
+half-chord, in the chart of its sheet pulled back from $\Delta$.  The
+supports through $O_1$ are the deck images of those through $O_0$; the frame
+of $S_1$ of Section~\ref{subsec:kummer-charts} differs from the
+identification given by the chart of $S_1$ pulled back from $\Delta$ by the
+affine monodromy about $A$, and in the frame of $S_1$ their directions are
+the images of $\pm Lq$ under this monodromy.  The
+development below uses the pulled-back charts.  Write $q=c_1(2,1)+c_2(1,2)$ with
 $c_1,c_2\geq0$, as in \eqref{eq:outgoing-cofactor}.  A support of
 direction $-Lq$ leaves $\Delta$ through the facet $s_2=-1$, and one of
 direction $Lq$ through the facet $s_1=-1$ if $c_1\geq c_2$ and through
@@ -221,22 +246,27 @@ $\partial_0\overline\Acal$ into the coordinates above gives the slopes
  \end{cases}
 \]
 for the directions $-Lq$ and $Lq$; along $\partial_1\overline\Acal$ the
-slopes are $4\xi_\pm+1$.  We call the slopes of supports of direction
-$-Lq$ and $Lq$ the \emph{negative} and \emph{positive slopes}, after the
-signs of these directions; as numbers, all of them are positive.  Each of
+slopes are $4\xi_\pm+1$.  Each slope is read off from the developed point at
+which the support meets its facet.  For instance, a support of direction
+$-Lq$ meets $s_2=-1$ at $s_1=(4c_1+2c_2)/(3(c_1+c_2))$, and
+$\mathsf x=\phi_0-\xi_-h_0$ there gives $\xi_-$; for the direction $Lq$ the
+meeting point on $s_1+2s_2=1$ is developed through $p_C$, and that on
+$s_1=-1$ through $p_C$ and $p_B$, as above.  All of these slopes are
+positive numbers.  Each of
 the functions above is decreasing in $c_2/c_1\in[0,\infty]$, and the two
-expressions for $\xi_+$ agree at $c_1=c_2$.  The negative and positive
-slopes therefore lie in the closed intervals bounded by their values at
-$c_2=0$ and at $c_1=0$:
+expressions for $\xi_+$ agree at $c_1=c_2$.  The slopes of the supports of
+direction $-Lq$, respectively $Lq$, therefore lie in the closed intervals
+bounded by their values at $c_2=0$ and at $c_1=0$:
 \begin{equation}\label{eq:slope-envelopes}
 \begin{array}{c|c|c}
- i&\text{negative slopes}&\text{positive slopes}\\ \hline
+ i&\text{direction }-Lq&\text{direction }Lq\\ \hline
  0&[1/3,2/3]&[19/8,21/8]\\
  1&[7/3,11/3]&[21/2,23/2].
 \end{array}
 \end{equation}
-For $i=0$, every difference between a positive and a negative slope lies in
-$(0,4)$, and for $i=1$ it lies in $(0,16)$; each interval has width smaller
+For $i=0$, the slope of a support of direction $Lq$ exceeds that of a
+support of direction $-Lq$ by an amount in $(0,4)$, and for $i=1$ by an
+amount in $(0,16)$; each interval has width smaller
 than $w_i$.  Thus the slopes of two supports never differ by a nonzero
 multiple of $w_i$, and no nonzero power of the holonomy
 \eqref{eq:collar-holonomy} maps a support onto a support.  These are the
@@ -286,5 +316,5 @@ morphism, or finite collection of identities among composites over
 $R_{\mathrm{path}}^{\mathrm{root}}\otimes_\Bbbk R/\mathfrak m^N$ uses finitely many
 generators, relations, and matrix entries.  All therefore occur over
 $R_T^{\mathrm{root}}\otimes_\Bbbk R/\mathfrak m^N$ for one $T\in\mathfrak I$, after
-replacing the chosen stages by their rooted union.  This proves the
+replacing the chosen subtrees by their rooted union.  This proves the
 finite-presentation assertion in Theorem~\ref{thm:forced-category}.

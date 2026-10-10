@@ -3,12 +3,14 @@
 
 \subsection{The quartic degeneration}
 
-Let $M=\ZZ^2$ be the lattice of the fan of $\PP(1,1,2)$ (the lattice
-denoted $N$ in toric geometry), with primitive ray generators
+Let $M=\ZZ^2$ be the lattice of the fan of $\PP(1,1,2)$, with primitive
+ray generators
 \[
  v_X=(1,0),\qquad v_Y=(-1,-2),\qquad v_Z=(0,1).
 \]
-The torus of $\PP(1,1,2)$ has character lattice
+This is the lattice called $N$ in toric geometry;
+Appendix~\ref{app:notation} compares the two conventions.  The torus of
+$\PP(1,1,2)$ has character lattice
 $M^\vee=\operatorname{Hom}(M,\ZZ)$, and we write $(s_1,s_2)$ for the
 standard coordinates of the plane $M^\vee\otimes\RR$, dual to those of $M$.
 The anticanonical polygon $\Delta\subset M^\vee\otimes\RR$, with vertices
@@ -69,8 +71,14 @@ $\xi_0=x^2$, $\xi_1=xy$, $\xi_2=y^2$; since $\xi_0\xi_2=\xi_1^2$,
 eliminating $\xi_1$ gives $\xi_0\xi_2=\eta^2$ up to a unit.
 \end{proof}
 
-Let $u$ denote the primitive character along the length-two slab $\rho$.
-The slab function of $\rho$ may be written $f_\rho=1+a_\rho z^u+z^{2u}$, with a
+Let $\rho$ be the edge $[v_Y,v_X]$ of $\Delta^\vee$, the slab of lattice
+length two.  It is an edge of the dual intersection complex, the
+discrete Legendre transform of the CPS complex
+(Section~\ref{subsec:intro-notation}), in $M\otimes\RR$; the transform matches it with the edge of the star
+subdivision of $\Delta$ from the origin to the vertex $(-1,1)$
+(Section~\ref{subsec:exponent-lattices}), which carries the singular point
+$B$ of Section~\ref{subsec:parity-cover}.  Let $u$ denote the primitive
+character along $\rho$.  The slab function of $\rho$ may be written $f_\rho=1+a_\rho z^u+z^{2u}$, with a
 free coefficient $a_\rho$, the \emph{slab parameter}.  The associated curve is
 compared with
 \eqref{eq:quartic-pencil} by
@@ -78,18 +86,19 @@ compared with
  s^2=\frac{4a_\rho^2}{a_\rho^2-4},
  \qquad a_\rho^2=\frac{4s^2}{s^2-4}.
 \end{equation}
-Indeed, eliminating $U$ from
+Indeed, write $U=z^{v_X}$ and $V=z^{v_Z}$ for the coordinates of the torus
+$\Spec\Bbbk[M]$, in which the Landau--Ginzburg Laurent polynomial on the
+side of the CPS complex is $U+V+a_\rho V^{-1}+U^{-1}V^{-2}$
+(Section~\ref{subsec:exponent-lattices}).  Eliminating $U$ from
 $U+V+a_\rho V^{-1}+U^{-1}V^{-2}=0$ gives
 $Y^2=(V^2+a_\rho)^2-4$, and rescaling by a square root of $a_\rho^2-4$ gives the
 quartic.  Equation~\eqref{eq:curve-mirror-map} is a comparison of the
 anticanonical curves.  At the two values $a_\rho=\pm2$ the slab function
 $f_\rho=(1\pm z^u)^2$ is a square, the curve $Y^2=(V^2+a_\rho)^2-4$ acquires a
 node, and \eqref{eq:curve-mirror-map} gives $s=\infty$.  We call these
-values the \emph{cusps}; the term refers to degenerate values of the
-parameter, as for the cusps of a modular curve, and not to a cuspidal
-singularity.
+values the \emph{nodal values} of the slab parameter.
 
-\subsection{Exponent lattices and cofactor directions}
+\subsection{Exponent lattices and the placement of walls}
 \label{subsec:exponent-lattices}
 
 Let $\ZZ^2_{x,y}=\ZZ e_1\oplus\ZZ e_2$ be the lattice of bidegrees of Laurent
@@ -98,7 +107,8 @@ $(a,b)$ and read $(a,b)$ as the exponent of $x^ay^b$.  Bidegrees count
 boundary markings: for the GKT potentials and generators recalled in
 Section~\ref{subsec:gkt-recollections}, the bidegree of the monomial attached
 to a disk graph, a monomial $x^{k_1}y^{k_2}$ of a potential or the
-Hamiltonian $x^{k_1+1}y^{k_2+1}$ of a critical generator $X_k$, is the pair
+Hamiltonian function $x^{k_1+1}y^{k_2+1}$ of a critical generator $X_k$, is
+the pair
 of numbers of boundary tails of twists $(2,0)$ and $(0,2)$ on the graph.  The
 coordinate divisors give
 \begin{equation}\label{eq:iota}
@@ -144,7 +154,8 @@ of the dual torus $\Spec\Bbbk[M]$, on which the Laurent polynomial
 $U+V+a_\rho V^{-1}+U^{-1}V^{-2}$ above and the slab functions live.  As for the
 Landau--Ginzburg mirror of a toric variety, whose monomials have the rays of
 the fan as exponents, the exponents of slab functions, wall functions and
-derivations lie on the Legendre-dual side, in $M$ and $\widetilde M$, while
+derivations are tangent vectors of the dual intersection complex, in $M$
+and $\widetilde M$, while
 \eqref{eq:toric-degeneration} is written on the torus of $\PP(1,1,2)$, with
 character lattice $M^\vee$.  The character
 of $x^ay^b$ lies in $M$ exactly when $b$ is even and $a\equiv b\pmod4$.  In
@@ -253,8 +264,9 @@ derivation annihilates $z^{F(q)}$.
 supports lie in one real plane, and a wall is tangent to the exponent of its
 function.  Here the two lie on opposite sides of the discrete Legendre
 transform (Section~\ref{subsec:parity-cover}): the character $F(q)$ of the
-Hamiltonian $x^{q_1}y^{q_2}$ of $X^\kappa_q$ lies in
-$\widetilde M\subset M\otimes\QQ$, on the Legendre-dual side, whereas cuts
+Hamiltonian function $x^{q_1}y^{q_2}$ of $X^\kappa_q$ lies in
+$\widetilde M\subset M\otimes\QQ$, the tangent space of the dual
+intersection complex, whereas cuts
 and wall supports are drawn in the plane $M^\vee\otimes\RR$ of $\Delta$,
 through its central vertex $O$, the origin.  A support rule must therefore
 carry exponents across the transform.  The transform matches each cell with a
@@ -267,7 +279,7 @@ the edge to $(-1,1)$, and each star edge is annihilated by the invariant
 character $\bar u_V$ of the monodromy about its singular point $V$
 (Appendix~\ref{app:calculations}).  If a support through $O$ is regarded as
 an edge of a refinement of the star subdivision, the same rule matches a wall
-tangent to $F(q)$ on the Legendre-dual side with a support along the
+tangent to $F(q)$ on the dual intersection complex with a support along the
 annihilator of $F(q)$, that is, along $\widetilde n_q=F^{-T}q^\perp$, the
 direction of the derivation $X^\kappa_q$.  We do not use this rule, because it does not
 respect the exchange of $x$ and $y$.  The exchange $\sigma(a,b)=(b,a)$ acts
@@ -308,14 +320,18 @@ is symmetric, so $P$ is the composite of $F$ with the gradient map of the
 $\sigma$-invariant quadratic function $F(v)\mapsto\frac12v^TQv$, and $P$
 sends $(1,1)$ into the line through $O$ and $B$.  The cofactor is the case
 $Q=-\frac12\mathrm{Id}$.  Every negative definite $Q$ gives supports in the
-cyclic order of the exponents, with the diagonal support running from $O$
+cyclic order of the characters $F(q)$, with the diagonal support running from $O$
 along the star edge to $B$, and for all $Q$ except the multiples of
 $-\bigl(\begin{smallmatrix}7&-5\\-5&7\end{smallmatrix}\bigr)$, whose chords pass
-through $A$ and $C$, the supports avoid the singular points; among these the
+through $A$ and $C$, the other supports avoid the singular points; among these the
 choice is a convention.  The map $d\psi$ is symmetric and negative definite,
 of determinant $16$ for the standard orientation of $M$ and the dual
 orientation of $M^\vee$, so the supports occur about $O$ in the same cyclic
-order as the characters $F(q)$ about the origin.  This cyclic order is the only property of the
+order as the characters $F(q)$ about the origin.  Since $F$ reverses
+orientation ($\det F=-\frac18$), this is the reverse of the cyclic order of
+the exponents $q$ in $F$-coordinates, the form in which it is stated after
+Theorem~\ref{thm:intro-reconstruction}; equivalently, $L$
+reverses orientation.  This cyclic order is the only property of the
 placement used in the proof of consistency at the joints
 (Theorem~\ref{thm:annular-consistency}): a path passing above $O$ from left
 to right meets the supports in order of increasing slope of $q$, and its
@@ -345,7 +361,7 @@ whereas $\alpha+\beta$ has order two.  The total degree modulo four,
 \end{equation}
 is a homomorphism with kernel generated by $\alpha-\beta$.
 
-\subsection{The parity cover}
+\subsection{The annular double cover}
 \label{subsec:parity-cover}
 
 We keep the two sides of the discrete Legendre transform apart.  The polygon
@@ -356,29 +372,49 @@ star edges, it carries the integral-affine structure with straight boundary
 of Appendix~\ref{app:calculations}, whose tangent lattice is
 $M^\vee$.  Cuts, wall supports, flares and developed pictures are
 drawn in $\Delta$.  The dual lattice $M$ is the tangent lattice of the
-Legendre-dual side.  Exponents of slab
+dual intersection complex.  Exponents of slab
 functions, wall functions and derivations lie in $\widetilde M\subset
 M\otimes\QQ$, and the polarization $\varphi$ is a piecewise-linear function
-on the Legendre-dual side whose kinks are integral vectors of
-$M^\vee$.  As topological manifolds we identify the Legendre-dual
+on the dual intersection complex whose kinks are integral vectors of
+$M^\vee$.  As topological manifolds we identify the dual intersection
 complex with the interior of $\Delta$ by the correspondence between cells and
 dual cells of the discrete Legendre transform
-\cite[\S1.4]{grosssiebert2006}, under which the singular points correspond
+\cite[\S1.4]{grosssiebert2006} (for a polygon with boundary,
+\cite[\S7.1]{carletal2024}), under which the singular points correspond
 to $A,B,C$; in particular $\varphi$ is a function on the interior of
 $\Delta$, and it pulls back along the covers of $\Delta$ constructed below.
 Along a loop, the monodromy of $M$ is the inverse
 transpose of the monodromy of $M^\vee$.  The \emph{width} of a
-unipotent monodromy $T\neq\mathrm{Id}$ is the positive integer $w$ with
-$T-\mathrm{Id}=\pm w\,u\,n^T$ for primitive vectors $u$ and $n$, so that $T$
+unipotent monodromy $H\neq\mathrm{Id}$ is the positive integer $w$ with
+$H-\mathrm{Id}=\pm w\,u\,n^T$ for primitive vectors $u$ and $n$, so that $H$
 is conjugate in $\mathrm{GL}_2(\ZZ)$ to
-$\left(\begin{smallmatrix}1&-w\\0&1\end{smallmatrix}\right)$; $T$ is
+$\left(\begin{smallmatrix}1&-w\\0&1\end{smallmatrix}\right)$; $H$ is
 \emph{primitive} when $w=1$.  Widths, traces and
 primitivity of a monodromy do not change under inverse transposition, so
-statements about them refer to either lattice.  On the double cover
+statements about them refer to either lattice.  For the monodromy about a
+singular point with width $w>1$, \cite[\S8.1]{carletal2024} call $w$ the
+order of the singular point.  The monodromies about $A$, $B$
+and $C$ have widths $1$, $2$ and $1$ (Appendix~\ref{app:calculations});
+$B$ is the singular point on the star edge matched with the slab $\rho$.
+On the double cover
 constructed below, $\widetilde M$ and its dual
 $\widetilde M^\vee=F^{-T}(\ZZ^2)\subset M^\vee\otimes\QQ$ take the
 places of $M$ and $M^\vee$; we call the pulled-back structure with
-these lattices the \emph{$\widetilde M$-affine structure}.
+these lattices the \emph{$\widetilde M$-affine structure}.  Over a simply
+connected region of the double cover, away from its singular points, a
+\emph{frame} is a trivialization of the local system $\widetilde M$, that
+is, an identification of it with the fixed lattice
+$\widetilde M=F(\ZZ^2_{x,y})$, equivalently of the algebra of characters
+over the region with $\Bbbk[\widetilde M]$; exponents, monodromy matrices
+and $F$-coordinates are read in a frame.  A chart pulled back from $\Delta$
+identifies $\widetilde M\otimes\QQ$ over the region with $M\otimes\QQ$.  On
+the sheet $S_0$ this identification carries $\widetilde M$ onto
+$F(\ZZ^2_{x,y})$, and it is the frame we fix there; the frames used below
+are transported from $S_0$ across the cuts
+(Section~\ref{subsec:kummer-charts}).  On the sheet $S_1$ the pulled-back
+chart carries $\widetilde M$ onto $T_AF(\ZZ^2_{x,y})\neq F(\ZZ^2_{x,y})$, with
+the monodromy $T_A$ of \eqref{eq:disk-monodromies} below, and induces no
+frame.
 
 For the loops $\gamma_A,\gamma_B,\gamma_C$ oriented as in
 Appendix~\ref{app:calculations}, the monodromies of $M$ about the three
@@ -397,6 +433,9 @@ singular points $A,B,C$ removed, and define
  \qquad \chi(\gamma_B)=0
  \quad\text{in }\ZZ/2.
 \end{equation}
+We call $\chi(\gamma)$ the \emph{parity} of a loop $\gamma$, $\ker\chi$ the
+\emph{parity subgroup}, and the double cover classified by $\chi$ the
+\emph{parity cover}.
 
 \begin{theorem}[Annular parity cover]\label{thm:parity-cover}
 The connected double cover of $\Delta_{\mathrm{aff}}^\circ$ classified by
@@ -464,16 +503,32 @@ at $\widetilde C$.  Winding numbers of developed loops are invariant under
 affine isomorphism of germs, so the germs at $\widetilde A,\widetilde C$ are
 not focus--focus germs.  The preimage of the star edge through $A$ consists
 of two arcs crossing at $\widetilde A$, so $\widetilde A$ and $\widetilde C$
-are four-valent vertices of the lifted decomposition.
+are four-valent vertices of the lifted decomposition.  In the polarized
+complexes of \cite{grosssiebert2006,carletal2024} the discriminant locus is
+disjoint from the vertices \cite[\S1]{carletal2024}, so the lifted
+decomposition is not of that kind at $\widetilde A$ and $\widetilde C$; the
+last assertion of the theorem concerns only the integrality of
+$4p^*\varphi$.
 
-The kinks of $\varphi$ across the three bounded edges of the Legendre-dual
-decomposition are, up to sign, the vertices $p_A,p_B,p_C$ of $\Delta$,
-since the star edges from $O$ to these vertices have lattice length one.
-Their $F$-coordinates have denominator exactly four
-(Appendix~\ref{app:calculations}).  The kinks across the unbounded edges are
-the edge vectors of $\Delta$, whose $F$-coordinates are integral.
-Multiplication by four therefore makes $p^*\varphi$ integral, and no
-smaller positive multiple does.
+The polarization $\varphi$ is that of the discrete Legendre transform
+\cite[\S1.4]{grosssiebert2006}: its kink across an edge of the
+decomposition of the dual intersection complex is the lattice vector of the dual edge of the
+star subdivision.  The kinks across the three bounded edges are therefore,
+up to sign, the vertices $p_A,p_B,p_C$ of $\Delta$, since the star edges
+from $O$ to these vertices have lattice length one.  Their $F$-coordinates
+have denominator exactly four (Appendix~\ref{app:calculations}).  The kinks
+across the unbounded edges are the edge vectors of $\Delta$, whose
+$F$-coordinates are integral in the frame of $S_0$; they are not the
+primitive edge directions of the normalization of
+\cite[\S7.1]{carletal2024}, in which the slope changes by one along the
+unbounded edges.  The frame of $S_1$ differs from the identification given by
+the chart of $S_1$ pulled back from $\Delta$ by the monodromy about $A$, which
+acts on $F$-coordinates of $\widetilde M^\vee$ by $(F^{-1}T_AF)^{-T}$; in the
+frame of $S_1$ the bounded kinks again have denominator exactly four, and the
+unbounded kinks have
+$F$-coordinates $(-\tfrac12,\tfrac12)$, $(\tfrac52,-\tfrac92)$ and $(-2,4)$.
+Multiplication by four therefore makes $p^*\varphi$ integral on both sheets,
+and no smaller positive multiple does.
 \end{proof}
 
 The two boundary circles of $\overline\Acal$ are the lifts of the boundary
@@ -535,12 +590,24 @@ unramified lifts $B_0,B_1$.}
 \end{figure}
 
 The annulus $\overline\Acal$ with its $\widetilde M$-affine structure is thus
-determined by the lattice $\widetilde M$ of the first descendent exponents.
+determined by the lattice $\widetilde M$ spanned by $M$ and the exponents of
+the two singleton fields.
 Section~\ref{sec:compactification} compares it with the affine bases of
 distinguished toric degenerations in the sense of \cite{carletal2024}.
 
 \subsection{Local Kummer charts}
 \label{subsec:kummer-charts}
+
+In outline, the coefficient system constructed in this subsection and the
+next is one inverse system of Kummer covers of the character torus
+$\Spec\Bbbk[\widetilde M]$, indexed by the finite rooted subtrees $T$ of the
+path tree, the universal covering tree of the graph whose vertices are the
+two sheets and whose edges are the cuts: the cover of $T$ adjoins roots of
+the slab functions transported along the paths of $T$, it is finite \'etale
+away from the zeros and poles of these functions, and
+$\pi_1(\Acal^\circ)$ acts on the colimit of their Kummer rings through
+transport.  The chart algebras, Kummer rings, finite root stacks and the
+annular coefficient system defined below are parts of this one system.
 
 Each matrix in \eqref{eq:lifted-monodromies} exchanges $\alpha$ and $\beta$
 in $\widetilde M/M$, while the core matrix $K$ acts trivially.  The
@@ -579,9 +646,10 @@ the branch segment, or near $O_0$ and $O_1$.  By
 Proposition~\ref{prop:proper-supports}, no wall support of
 Section~\ref{sec:jacobi-theta} meets an arc carrying a transition.
 
-We give $S_0$ a fixed frame and $S_1$ the continuation of that frame across the arc
-over $c_A$ that $\gamma_A$ crosses from $S_0$, so that this arc carries no
-transition.  We place the lifted slab map at each singular
+We give $S_0$ the frame of its chart pulled back from $\Delta$
+(Section~\ref{subsec:parity-cover}), and $S_1$ the continuation of that
+frame across the arc over $c_A$ that $\gamma_A$ crosses from $S_0$, so that
+this arc carries no transition.  We place the lifted slab map at each singular
 point on a single arc from that point to the boundary: at $B_0$ and $B_1$ on
 the arcs over $c_B$, at $\widetilde A$ on the arc over $c_A$ that $\gamma_A$
 crosses from $S_1$, and at $\widetilde C$ on the arc over $c_C$ that
@@ -596,21 +664,41 @@ parity subgroup for the transversal $\{1,\gamma_A\}$, and its five edges
 other than the transversal edge correspond to the generators
 \eqref{eq:parity-matrices}.
 
+\emph{Slabs and cuts.}  This placement is a convention on where transitions
+are drawn.  In the structures of \cite{grosssiebert2011} the transition at
+a singular point is carried by the slab through it, which carries a slab
+function at each of its points; under the identification of
+Section~\ref{subsec:parity-cover} the slab through $V$, the cell dual to the
+star edge through $V$, crosses that edge at $V$.  Here the lifted slab map
+at $V$ is carried instead by a single cut, which runs along the outer half
+$c_V$ of the star edge, and the inner half-edges carry no transition.  On
+the star edge through $B$ the two halves have different roles: the arcs
+over the outer half $c_B$ carry the lifted slab
+maps at $B_0$ and $B_1$, and over the inner half runs the diagonal wall of
+Section~\ref{subsec:cofactor-supports}, from $O_i$ to $B_i$ in the sheet
+$S_i$.  A small loop about $B_i$ therefore crosses the arc of the slab map
+at $B_i$ and the diagonal wall once each
+(Section~\ref{subsec:cofactor-supports}).
+
 \emph{Chart algebras.}  Every vertex of the path tree $\Tcal$ of
 Section~\ref{subsec:root-orbit}, a reduced edge path from $S_0$ to a sheet,
 carries the frame obtained from that of $S_0$ by transport along the path;
 the frames of $S_0$ and $S_1$ fixed above are those at the empty path and at
 the path that crosses the arc over $c_A$ carrying no transition.  The
 \emph{chart algebra} of a sheet, or of a point or a region of $\Acal^\circ$
-read in the frame at a vertex, is $\Bbbk[\widetilde M]$ in that frame, over
-the Kummer ring of the relevant finite stage: for a finite rooted subtree
-$T\subset\Tcal$ containing the vertex, it is the Kummer ring
-$R_T^{\mathrm{root}}$ of \eqref{eq:finite-kummer-ring}, into which
-$\Bbbk[\widetilde M]$ in that frame maps by pull-back along the path of the
-vertex (Section~\ref{subsec:root-stage-regularity}), tensored with the
-coefficient ring in use, such as $R/\mathfrak m^N$ in
-\eqref{eq:annular-root-object} or a truncated coefficient ring of
-Section~\ref{sec:compactification}.
+read in the frame at a vertex, is $\Bbbk[\widetilde M]$ in that frame over
+the Kummer ring of a finite level.  A \emph{finite level} is given by a
+finite rooted subtree $T\subset\Tcal$ and a truncated coefficient ring, such
+as $R/\mathfrak m^N$ in \eqref{eq:annular-root-object} or the ring
+$R_{\Wcal,N}$ of a labelled truncation
+(Definition~\ref{def:coefficient-window}); geometrically it is the finite
+root stack of $T$ (Section~\ref{subsec:root-orbit}) base-changed to that
+ring, written $\Xfrak_{T,\Wcal,N}$ in Section~\ref{sec:compactification}.
+Its Kummer ring is the Kummer ring $R_T^{\mathrm{root}}$ of
+\eqref{eq:finite-kummer-ring} tensored with the coefficient ring; when $T$
+contains the vertex, $\Bbbk[\widetilde M]$ in the frame of the vertex maps
+into $R_T^{\mathrm{root}}$ by pull-back along the path of the vertex
+(Section~\ref{subsec:root-stage-regularity}).
 
 For $V\in\{\widetilde A,B_0,B_1,\widetilde C\}$ let $u_V\in\widetilde M$ be
 the primitive vector spanning the invariant line of $H_V$, and let
@@ -719,7 +807,7 @@ along $\gamma_{\mathrm{core}}$ has slab factors, powers of $f_C$ and of the
 transport of $f_A$, whereas the transport of the lifted system along
 $\gamma_{\mathrm{core}}$ is the monomial map with linear part $K$.
 
-At the two cusps $a_\rho=\pm2$ the degree at $B_0$ and $B_1$ drops to two.  If
+At the two nodal values $a_\rho=\pm2$ the degree at $B_0$ and $B_1$ drops to two.  If
 $f_B(a_\rho,z)=1+a_\rho z+z^2$, then
 \begin{equation}\label{eq:cusp-roots}
 \begin{aligned}
@@ -731,7 +819,7 @@ Away from the reduced zero divisor these are two connected quadratic
 torsors; their closures meet over the divisor.  We retain this fourth-root
 stack rather than replacing it by one connected square-root cover.
 
-\subsection{The infinite root orbit}
+\subsection{An infinite Kummer extension}
 \label{subsec:root-orbit}
 
 The failure of finite Kummer closure already occurs on the overlap of the
@@ -741,9 +829,12 @@ $\widetilde A$ and $B_0$ charts.  Write
  x_B=x_{B_0}=z^{2u_{B_0}},\qquad f_A=1+x_A,\qquad
  f_B(x)=1+a_\rho x+x^2,
 \]
-and let $\mathcal K=\Bbbk(x_A,x_B)$.  Since
+and let $\mathcal K=\Bbbk(x_A,x_B)$.  The lifted slab map
+$\widetilde\theta_{\widetilde A}$ of \eqref{eq:local-root-ring} multiplies
+each character by a power of the root $g_{\widetilde A}$ and does not change
+its exponent.  Since
 $\langle N_{\widetilde A},2u_{B_0}\rangle=8$ and $d_{\widetilde A}=2$, the
-$\widetilde A$-slab shear fixes $f_A$ and sends
+lifted slab map $\widetilde\theta_{\widetilde A}$ fixes $f_A$ and sends
 \begin{equation}\label{eq:shear}
  x_B\longmapsto f_A^4x_B.
 \end{equation}
@@ -754,56 +845,57 @@ write $f_B(x)=(1+\lambda x)(1+\lambda^{-1}x)$ with $\lambda+\lambda^{-1}=a_\rho$
 and $\lambda^2\neq1$.
 
 \begin{theorem}[Infinite Kummer orbit]\label{thm:infinite-root-orbit}
-Let $u\in\Bbbk(x_A)$ be nonconstant, and let $\omega_u$ be the automorphism
-of $\mathcal K$ fixing $x_A$ with $\omega_u(x_B)=ux_B$.  The slab shear
-\eqref{eq:shear}, with $u=f_A^4$, and the transport about $\widetilde A$,
-with $u=(1+x_A^{-1})^4$, are of this form.
+Let $h\in\Bbbk(x_A)$ be nonconstant, and let $\omega_h$ be the automorphism
+of $\mathcal K$ fixing $x_A$ with $\omega_h(x_B)=hx_B$.  The lifted slab
+map $\widetilde\theta_{\widetilde A}$, with $h=f_A^4$ by \eqref{eq:shear},
+and the transport about $\widetilde A$,
+with $h=(1+x_A^{-1})^4$, are of this form.
 \begin{enumerate}
 \item If $a_\rho\neq\pm2$, closure of a fourth root of $f_B(x_B)$ under all
-powers of $\omega_u$ requires the fourth roots $g_n$ of
+powers of $\omega_h$ requires the fourth roots $g_n$ of
 \begin{equation}\label{eq:root-tower}
- g_n^4=f_B(u^nx_B)
- =\bigl(1+\lambda u^nx_B\bigr)\bigl(1+\lambda^{-1}u^nx_B\bigr),
+ g_n^4=f_B(h^nx_B)
+ =\bigl(1+\lambda h^nx_B\bigr)\bigl(1+\lambda^{-1}h^nx_B\bigr),
  \qquad n\in\ZZ,
 \end{equation}
 and the classes of these radicands are linearly independent over $\ZZ/4$ in
 $\mathcal K^\times/\mathcal K^{\times4}$.
-\item If $a_\rho=\pm2$, then $f_B(u^nx_B)=(1\pm u^nx_B)^2$, and the classes of
-$1\pm u^nx_B$, $n\in\ZZ$, are linearly independent over $\ZZ/2$ in
+\item If $a_\rho=\pm2$, then $f_B(h^nx_B)=(1\pm h^nx_B)^2$, and the classes of
+$1\pm h^nx_B$, $n\in\ZZ$, are linearly independent over $\ZZ/2$ in
 $\mathcal K^\times/\mathcal K^{\times2}$.
 \item In either case no finite extension of $\mathcal K$ containing a fourth root
-of $f_B(x_B)$ admits an automorphism extending $\omega_u$.  In particular no
+of $f_B(x_B)$ admits an automorphism extending $\omega_h$.  In particular no
 finite algebraic Kummer extension containing the initial $\widetilde A$- and
-$B_0$-roots is stable under the slab shear or under transport about
-$\widetilde A$.
+$B_0$-roots is stable under the lifted slab map
+$\widetilde\theta_{\widetilde A}$ or under transport about $\widetilde A$.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 Suppose $a_\rho\neq\pm2$.  In the principal ideal domain $\Bbbk(x_A)[x_B]$,
 \[
- f_B(u^nx_B)
- =u^{2n}\bigl(x_B+\lambda^{-1}u^{-n}\bigr)\bigl(x_B+\lambda u^{-n}\bigr).
+ f_B(h^nx_B)
+ =h^{2n}\bigl(x_B+\lambda^{-1}h^{-n}\bigr)\bigl(x_B+\lambda h^{-n}\bigr).
 \]
-The elements $\lambda^{\pm1}u^{-n}$, $n\in\ZZ$, of $\Bbbk(x_A)$ are pairwise
-distinct: an equality $\lambda^{\epsilon}u^{-n}=\lambda^{\epsilon'}u^{-m}$
-makes $u^{m-n}$ constant, hence $m=n$ because $u$ is nonconstant, and then
+The elements $\lambda^{\pm1}h^{-n}$, $n\in\ZZ$, of $\Bbbk(x_A)$ are pairwise
+distinct: an equality $\lambda^{\epsilon}h^{-n}=\lambda^{\epsilon'}h^{-m}$
+makes $h^{m-n}$ constant, hence $m=n$ because $h$ is nonconstant, and then
 $\lambda^{\epsilon}=\lambda^{\epsilon'}$ forces $\epsilon=\epsilon'$ because
-$\lambda^2\neq1$.  Thus $\pi_n=x_B+\lambda^{-1}u^{-n}$ is a prime dividing the
+$\lambda^2\neq1$.  Thus $\pi_n=x_B+\lambda^{-1}h^{-n}$ is a prime dividing the
 $n$th radicand exactly once and no other radicand.  If a finite product
-$\prod_nf_B(u^nx_B)^{k_n}$ is a fourth power in $\mathcal K$, its $\pi_n$-adic
+$\prod_nf_B(h^nx_B)^{k_n}$ is a fourth power in $\mathcal K$, its $\pi_n$-adic
 valuation $k_n$ is divisible by four.  This proves (1).  For (2), the same
-argument applies to the primes $x_B\pm u^{-n}$ of $1\pm u^nx_B$.
+argument applies to the primes $x_B\pm h^{-n}$ of $1\pm h^nx_B$.
 
 For (3), let $\mathcal K'\supset\mathcal K$ be finite, let $\widetilde\omega$ be an
-automorphism of $\mathcal K'$ extending $\omega_u$, and let $h\in\mathcal K'$ satisfy
-$h^4=f_B(x_B)$.  Then $\widetilde\omega^n(h)^4=f_B(u^nx_B)$ for every
+automorphism of $\mathcal K'$ extending $\omega_h$, and let $g_0\in\mathcal K'$ satisfy
+$g_0^4=f_B(x_B)$.  Then $\widetilde\omega^n(g_0)^4=f_B(h^nx_B)$ for every
 $n\in\ZZ$.  If $a_\rho\neq\pm2$, the field $\Bbbk$ contains the fourth roots of
 unity, so by Kummer theory and (1) the subfield generated by the
-$\widetilde\omega^n(h)$ with $|n|\leq r$ has degree $4^{2r+1}$ over $\mathcal K$
+$\widetilde\omega^n(g_0)$ with $|n|\leq r$ has degree $4^{2r+1}$ over $\mathcal K$
 for every $r$, which is impossible.  If $a_\rho=\pm2$, then
-$\widetilde\omega^n(h)^2=\pm(1\pm u^nx_B)$, and since $-1$ is a square in
-$\Bbbk$, $\mathcal K'$ contains square roots of all $1\pm u^nx_B$; by (2) the same
+$\widetilde\omega^n(g_0)^2=\pm(1\pm h^nx_B)$, and since $-1$ is a square in
+$\Bbbk$, $\mathcal K'$ contains square roots of all $1\pm h^nx_B$; by (2) the same
 degree argument applies with $2^{2r+1}$.
 \end{proof}
 
@@ -862,8 +954,8 @@ $\mu_{d_e}$ with $z\in D_e$.  If $T\subset T'$, localization
 followed by adjunction of the new roots maps $R_T^{\mathrm{root}}$
 injectively to $R_{T'}^{\mathrm{root}}$, and forgetting the new roots gives
 $\Xfrak_{T'}\to\Xfrak_T$.  The paths $\gamma_{\widetilde A}^n$ followed by a
-crossing of the $B_0$-arc give the radicands $f_B(u^nx_B)$,
-$u=(1+x_A^{-1})^4$, of Theorem~\ref{thm:infinite-root-orbit}.
+crossing of the $B_0$-arc give the radicands $f_B(h^nx_B)$,
+$h=(1+x_A^{-1})^4$, of Theorem~\ref{thm:infinite-root-orbit}.
 
 \begin{definition}\label{def:pathwise-root-object}
 Let $R=\Bbbk[t_1,t_2]$ be the deformation coefficient algebra, where
@@ -912,13 +1004,14 @@ root groups $G_T$ do not commute with the lifted slab maps.  For this reason
 no quotient by $\Pi$ is formed: structures over the annular coefficient
 system are defined through the Kummer rings \eqref{eq:annular-root-object}
 and the action of $\Pi$ on them.  This inverse system is of the same
-formal kind as the infinite root stacks of \cite{talpovistoli2018}; the
+formal kind as the infinite root stacks of
+\cite[Def.~3.3 and Prop.~3.5]{talpovistoli2018}; the
 additional feature here is that the roots are indexed by reduced transport
 paths and permuted by the deck group $\Pi$.  Wall structures over this
 object and their consistency are the subject of
 Section~\ref{sec:jacobi-theta}.
 
-\begin{theorem}[Finite-stage definability and nonrepresentability]
+\begin{theorem}[Definability over finite subtrees; non-representability]
 \label{thm:forced-category}
 Every finite transport diagram modulo $\mathfrak m^N$ is defined over
 $R_T^{\mathrm{root}}\otimes_\Bbbk R/\mathfrak m^N$ for some finite rooted subtree $T$,
@@ -940,17 +1033,17 @@ presentation the finitely many generators, relations, arrows and identities
 are defined over one of them after a further finite enlargement.  Rooted union gives a common
 refinement.
 
-For the negative assertion, let $u=(1+x_A^{-1})^4$, let $\lambda$ be a root
+For the negative assertion, let $h=(1+x_A^{-1})^4$, let $\lambda$ be a root
 of $\lambda^2-a_\rho\lambda+1$ (so $\lambda=\pm1$ when $a_\rho=\pm2$), and let $w$ be a
 geometric point of $\mathbb T$ with $x_A=-\frac12$ and $x_B=-\lambda^{-1}$.  There
-$f_A=\frac12$ and $u=1$, so every radicand $f_B(u^nx_B)$ in
+$f_A=\frac12$ and $h=1$, so every radicand $f_B(h^nx_B)$ in
 \eqref{eq:root-tower} vanishes.  For a finite set $S\subset\ZZ$, let $T$ be
 the rooted union of the paths $\gamma_{\widetilde A}^n$ followed by a
 crossing of the $B_0$-arc, $n\in S$.  Since the transport about
 $\widetilde A$ fixes $f_A$, every root adjoined along
 $\gamma_{\widetilde A}^n$ has the radicand $f_A$, which does not vanish at
 $w$.  The root adjoined at the final crossing has the radicand
-$\varrho_n=f_B(u^nx_B)$, which is regular at $w$, because $x_A$ and $f_A$ are units
+$\varrho_n=f_B(h^nx_B)$, which is regular at $w$, because $x_A$ and $f_A$ are units
 there, and vanishes at $w$; hence $w\in D_n$.  The stabilizer of
 $\Xfrak_T$ at the point over $w$ is therefore $\prod_{n\in S}\mu_4$.
 The automorphism group of a compatible point of $\Xfrak_{\mathrm{path}}$ over
@@ -967,5 +1060,5 @@ have such a geometric stabilizer.
 
 Theorem~\ref{thm:forced-category} is the only property of the inverse
 system used later: every product, period and logarithmic chart below is
-constructed over the Kummer ring of a finite stage, and the pro-object
+constructed over the Kummer ring of a finite level, and the pro-object
 records the compatibility of these constructions.

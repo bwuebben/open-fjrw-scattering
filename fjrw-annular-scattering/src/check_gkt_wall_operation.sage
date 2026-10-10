@@ -10,7 +10,7 @@ increasing-slope GKT transition, and its raywise comparison with the
 diagram D.  With the coorientations of Section 3, the path gamma_+ crosses
 every wall through the joint positively: the chords carry
 Sigma_1=exp(-t1 X_10/2) and Sigma_2=exp(-t2 X_01/2), and the first mixed wall carries Z_{-3/4}, where
-Z_c=exp(c t1 t2 X_11).  Then Z_{-3/4} = G R with G=Z_{1/4} the GKT factor
+Z_c=exp(c t1 t2 X_11).  Then Z_{-3/4} = G R with G=Z_{1/4} the factor of the GKT transition
 and R=Z_{-1} the residual factor (-3/4 = 1/4 - 1).  All arithmetic is
 exact.  Operator products are displayed with the rightmost factor acting
 first.
@@ -172,7 +172,7 @@ after_A = chronological_product(W_min, [A])
 assert after_A[(1, 0)] == -2 * x**5
 assert after_A[(1, 1)] == 2 * x * y**5
 
-# Increasing shifted slope is (2,1), (1,1), (1,2), so the chronological
+# Increasing slope of the boundary rays orders them (2,1), (1,1), (1,2), so the chronological
 # product is A, M, B and the displayed operator product is exp(B)exp(M)exp(A).
 assert tuple(shifted_ray(generator[1]) for generator in (A, M, B)) == (
     (2, 1),

@@ -1,6 +1,6 @@
 """Exact checks of root data used in Sections 2 to 4.
 
-Checks the factorization of the fourth-root equation at the B cusps, the
+Checks the factorization of the fourth-root equation at the nodal values of the B-slab, the
 line weights <N_V, kappa> of the lifted slab maps (Section 3), the root-free
 form of the transported slab radicands used in Section 4 (the exponent of
 g_V met by a character z^(2m), m in the parity sublattice, is divisible by
@@ -24,7 +24,7 @@ tangents = {
     "C": vector(ZZ, (1, 3)),
 }
 
-# At either B cusp the fourth-root equation has two quadratic components.
+# At either nodal value of the B-slab the fourth-root equation has two quadratic components.
 LocalRing.<r, h> = PolynomialRing(QQ, 2)
 assert r**4 - h**2 == (r**2 - h) * (r**2 + h)
 

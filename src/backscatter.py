@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 r"""
-backscatter.py -- the no-backwards-bending theorem (paper Thm 7.5): the primitive-form
-shift is the monotone-bending mechanism; plus the exhaustive far-side census.
+backscatter.py -- the monotonicity of bends (Paper 2, Theorem 6.5): the
+primitive-form shift is the monotone-bending mechanism; plus the exhaustive far-side census.
 
-The no-backwards-bending theorem (paper Thm 7.5): a foreign transported seed
+Monotonicity of bends (Paper 2, Theorem 6.5): a foreign transported initial monomial
 contributes to slot m in m's OWN chamber only along paths whose bend rays lie strictly
-between dir(seed) and dir(m).  The exponent identity m + B(1,1) = w_sigma + sum(beta_f)
+between dir(initial monomial) and dir(m).  The exponent identity m + B(1,1) = w_sigma + sum(beta_f)
 (beta_f = boundary directions on the crossed rays, B = number of bend factors >= 1),
 crossed with m, forces
     B * (m1 - m2)  =  cross(m, w_sigma) + sum_f cross(m, beta_f),
@@ -13,22 +13,23 @@ whose right side has a definite sign for monotone paths: from below (all directi
 shallower than m) it is negative, so m1 < m2 is forced; from above, m1 > m2.  Hence:
   * slots with m1 >= m2 receive NOTHING from below;
   * slots with m1 <= m2 receive NOTHING from above;
-  * slots ON the diagonal direction (m1 = m2) receive NOTHING AT ALL -- the
-    own-chamber cancellation lemma holds unconditionally for them.
-Every survivor arrives from the (1,1)-side of the target's own ray.  The seed need NOT
-lie beyond the (1,1)-direction: same-side configurations (seed and target on one side of
-the diagonal) occur, and are the far-side bends of paper Ex 7.11.
+  * slots ON the (1,1)-direction (m1 = m2) receive NOTHING AT ALL -- the
+    cancellation condition of Paper 2, Lemma 6.6, holds unconditionally for them.
+Every survivor arrives from the (1,1)-side of the target's own ray.  The initial monomial need NOT
+lie beyond the (1,1)-direction: same-side configurations (initial monomial and target on one side of
+the (1,1)-direction) occur, and are the far-side bends of Paper 2, Example 6.13.
 
 This script:
  [1] verifies the sign identity on random configurations (the algebraic content of the
      theorem);
  [2] exhaustively enumerates candidate foreign own-chamber contributions in the two
      computed sectors of x^5+y^5 (all diagonals dividing t23^i t33^j, i+j <= 4):
-     result: NONE (so the verified anchors are fully explained by Thms 7.3 + 7.5 + 7.7);
+     result: none (so the computed anchored values are fully explained by Paper 2,
+     Proposition 6.3 and Theorems 6.5 and 6.7);
  [3] probes for the smallest far-side candidates over composite diagonals with
      descendents (l <= 2, d <= 3, r = s = 5) and checks each against the theorem:
      every candidate arrives from the (1,1)-side of its target's ray.  These are the
-     far-side bends absorbed by the canonical seeds (paper Thm 1.5; canonical_seeds.py).
+     far-side bends absorbed by the initial coefficients (Paper 2, Theorem 1.4; canonical_seeds.py).
 
 Run: ./venv/bin/python src/backscatter.py
 """
@@ -105,7 +106,7 @@ def candidates(r, s, D):
     """Foreign own-chamber contribution candidates for diagonal D (list of triples).
 
     Necessary conditions imposed: exponent identity; every bend ray strictly between
-    dir(seed) and dir(m) (with the on-ray conventions: seed on a bend ray => zero
+    dir(initial monomial) and dir(m) (with the on-ray conventions: initial monomial on a bend ray => zero
     coefficient => skip; m on a bend ray => counted for from-above only)."""
     out = []
     slots = [tuple(t) for t in part_boundaries(list(D), r, s)]
@@ -122,14 +123,14 @@ def candidates(r, s, D):
                 for v in vs:
                     beta = (v[0] + 1, v[1] + 1)
                     cw, cm = cross(beta, w), cross(beta, m)
-                    if cw == 0:          # seed on the bend ray: zero coefficient
+                    if cw == 0:          # initial monomial on the bend ray: zero coefficient
                         good = False
                         break
-                    if cw > 0:           # seed above the ray: from-above crossing
+                    if cw > 0:           # initial monomial above the ray: from-above crossing
                         if cm > 0:       # m also above: ray not between
                             good = False
                             break
-                    else:                # seed below: from-below crossing
+                    else:                # initial monomial below: from-below crossing
                         if cm <= 0:      # m below-or-on (strict-below convention)
                             good = False
                             break
@@ -139,7 +140,7 @@ def candidates(r, s, D):
 
 
 def main():
-    print("== The no-backwards-bending theorem (Thm 7.5) and the far-side census ==")
+    print("== Monotonicity of bends (Paper 2, Thm 6.5) and the far-side census ==")
     n = check_sign_identity()
     print(f"[1] sign identity B(m1-m2) = cross(m,w)+sum cross(m,beta): {n} random checks OK;")
     print("    sign forcing confirmed: from below only into slots above the diagonal,")
@@ -157,8 +158,8 @@ def main():
             total += len(cs)
             assert not cs, (D, cs)
     print("[2] computed sectors (all diagonals dividing t23^i t33^j, i+j <= 4):")
-    print(f"    foreign own-chamber candidates: {total} -- NONE.  The verified anchors")
-    print("    are fully explained by Thms 7.3 + 7.5 + 7.7.")
+    print(f"    foreign own-chamber candidates: {total} -- NONE.  The computed anchored values")
+    print("    are fully explained by Paper 2, Prop. 6.3 and Thms 6.5 and 6.7.")
 
     # [3] the probe: composite diagonals with descendents
     found = []
@@ -173,7 +174,7 @@ def main():
             cs = candidates(5, 5, D)
             for F, vs, w, m in cs:
                 # the theorem's check: arrival from the (1,1)-side of the
-                # target's own ray -- seed strictly, bend rays weakly (equality
+                # target's own ray -- initial monomial strictly, bend rays weakly (equality
                 # exactly for an on-ray target, counted one-sidedly)
                 sgn = m[0] - m[1]
                 assert sgn != 0, (D, F, vs, w, m)
@@ -185,11 +186,11 @@ def main():
     print(f"[3] probe (l = 2, twists <= (3,3), d <= 3, r = s = 5): "
           f"{len(found)} far-side candidates, every one arriving from the (1,1)-side")
     for D, F, vs, w, m in found[:8]:
-        print(f"      D = {list(D)}: seed {w} (on {list(F) if F else 'W0'}) "
+        print(f"      D = {list(D)}: initial monomial {w} (on {list(F) if F else 'W0'}) "
               f"--bends {list(vs)}--> slot {m}")
     if found:
-        print("    these are the far-side bends of Ex 7.11; the canonical seeds of")
-        print("    Thm 1.5 absorb them (canonical_seeds.py)")
+        print("    these are the far-side bends of Paper 2, Example 6.13; the initial coefficients of")
+        print("    Paper 2, Thm 1.4 absorb them (canonical_seeds.py)")
     print("ALL CHECKS PASSED")
 
 

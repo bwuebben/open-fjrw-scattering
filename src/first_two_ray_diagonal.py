@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 r"""
-The first PRIMARY diagonal of x^5+y^5 carrying two walls on two distinct rays.
+The first PRIMARY diagonal of x^5+y^5 carrying two walls on two distinct rays
+(Paper 2, Example 6.20).
 
 N_2 is the least number of primary insertions admitting a diagonal with N >= 2.
 For r = s = 5, N_2 = 5 and is realized by the multiset
@@ -8,23 +9,24 @@ For r = s = 5, N_2 = 5 and is realized by the multiset
     J = { (3,3) x 5 },   d = 0.
 
 This is the lowest primary degree for x^5+y^5 at which one global
-Lemma-3.39 normal-form family would have to carry two rays at once. The
-stagewise realization theorem separates the rays by using one such family per
-stage. Nothing in the earlier computed sectors reaches this obstruction: every
-diagonal there has N <= 1.
+[GKT] Lemma-3.40 normal-form family would have to carry two rays at once. The
+concatenated realization (Paper 2, Theorem 6.15) separates the rays by using one such
+family per leg. The diagonals of the other x^5+y^5 computations in this
+directory all have N <= 1.
 
 Computed here, exactly:
   (1) the structure of the diagonal -- N = 2, the three balanced profiles, the
       two critical graphs and their rays, and that those rays are distinct;
-  (2) the two wall vectors w_p = a_p e_p - b_p e_{p-1};
+  (2) the two wall vectors v_p = lambda_p eps_p - mu_p eps_{p-1};
   (3) the chamber-index condition, which is A(J,0,nu) = 0 since d(J,0) < 0, as a
       Gamma-weighted linear relation on the three balanced coefficients with
       right-hand side supplied by the lower orders;
   (4) the resulting extreme value nu^min_{(0,10)}.
 
-Lower-order input, in the minimal gauge of Thm 1.3 (only the e_0 coefficient
-survives on each diagonal), all previously verified in this repository:
-    |J| = 1   nu_{(3,3)}  = 1        (Thm 5.1 normalization)
+Lower-order input, in the minimal normal form of Paper 2, Theorem 1.2 (only the
+eps_0 coefficient survives on each diagonal), computed in canonical_diagram.py and
+a_invariants.py and re-derived in check_lower_orders below:
+    |J| = 1   nu_{(3,3)}  = 1        ([GKT] Thm 5.1 normalization)
     |J| = 2   nu_{(1,6)}  = -2/5,  nu_{(6,1)} = 0
     |J| = 3   nu_{(4,4)}  = 1/5     (N = 0; gauge independent)
     |J| = 4   nu_{(2,7)}  = -12/25, nu_{(7,2)} = 0
@@ -55,11 +57,11 @@ def diagonal_structure(J, r, s):
 
 
 def check_lower_orders():
-    """Re-derive the |J| = 2, 3, 4 values with the SAME engine and the same gauge.
+    """Re-derive the |J| = 2, 3, 4 values with the same A-routine and the same gauge.
 
-    If the engine reproduces the published -2/5, 1/5 and -12/25 from the
-    chamber-index conditions alone, the order-5 value computed below rests on a
-    validated pipeline rather than on transcribed inputs.
+    These are the values -2/5, 1/5 and -12/25 of Paper 2 (Example 5.1, eq. (3),
+    Remark 4.2), obtained here from the chamber-index conditions alone, so the
+    order-5 value computed below does not depend on transcribed inputs.
     """
     print("=" * 68)
     print("[0] self-check: re-derive the lower orders from the conditions")
@@ -77,12 +79,12 @@ def check_lower_orders():
     got_sum = sp.nsimplify(sp.solve(e2.subs(b, sp.Symbol("S_") - a), sp.Symbol("S_"))[0])
     print(f"  |J|=2  profiles {bnd2}:  A = 0  =>  sum = {got_sum}")
     assert got_sum == sp.Rational(-2, 5), got_sum
-    # minimal gauge: e_1 = 0
+    # minimal gauge: eps_1 = 0
     v_min2 = sp.nsimplify(sp.solve(e2.subs(b, 0), a)[0])
     assert v_min2 == sp.Rational(-2, 5), v_min2
     known[((T,) * 2, bnd2[0][0], bnd2[0][1])] = sp.Rational(-2, 5)
     known[((T,) * 2, bnd2[1][0], bnd2[1][1])] = sp.Integer(0)
-    print(f"         minimal gauge nu_{bnd2[0]} = {v_min2}   [paper Ex. 5.1]  OK")
+    print(f"         minimal gauge nu_{bnd2[0]} = {v_min2}   [Paper 2, Ex. 5.1]  OK")
 
     # |J| = 3 : N = 0, a single balanced point, absolutely determined
     J3 = [T] * 3
@@ -91,11 +93,11 @@ def check_lower_orders():
     known[((T,) * 3, bnd3[0][0], bnd3[0][1])] = c
     e3 = sp.expand(A_invariant(J3, R, S, nu_from_dict(known)))
     v3 = sp.nsimplify(sp.solve(e3, c)[0])
-    print(f"  |J|=3  profile  {bnd3}:  nu = {v3}   [paper eq. (3)]  OK")
+    print(f"  |J|=3  profile  {bnd3}:  nu = {v3}   [Paper 2, eq. (3)]  OK")
     assert v3 == sp.Rational(1, 5), v3
     known[((T,) * 3, bnd3[0][0], bnd3[0][1])] = v3
 
-    # |J| = 4 : two balanced points; minimal gauge kills e_1
+    # |J| = 4 : two balanced points; minimal gauge kills eps_1
     J4 = [T] * 4
     bnd4 = part_boundaries(J4, R, S)
     p, q = sp.symbols("p q")
@@ -103,9 +105,9 @@ def check_lower_orders():
     known[((T,) * 4, bnd4[1][0], bnd4[1][1])] = q
     e4 = sp.expand(A_invariant(J4, R, S, nu_from_dict(known)))
     v4 = sp.nsimplify(sp.solve(e4.subs(q, 0), p)[0])
-    print(f"  |J|=4  profiles {bnd4}:  nu^min_{bnd4[0]} = {v4}   [paper Rem. 4.2]  OK")
+    print(f"  |J|=4  profiles {bnd4}:  nu^min_{bnd4[0]} = {v4}   [Paper 2, Rem. 4.2]  OK")
     assert v4 == sp.Rational(-12, 25), v4
-    print("  engine reproduces every published value on this tower.")
+    print("  the A-routine reproduces the Paper 2 values on this tower.")
     print()
 
 
@@ -121,7 +123,7 @@ def main():
     print(f"  r(J), s(J)  = {r_of(J5, R)}, {s_of(J5, S)}")
     print(f"  N           = {N}")
     print(f"  balanced    = {bal}")
-    assert bal == part_boundaries(J5, R, S), "balanced set must match the engine"
+    assert bal == part_boundaries(J5, R, S), "balanced set must match a_invariants.part_boundaries"
     print(f"  critical    = {crit}   (boundary degrees = rays)")
 
     # the two rays, as primitive directions
@@ -139,20 +141,20 @@ def main():
 
     print()
     print("=" * 68)
-    print("[2] wall vectors  w_p = a_p e_p - b_p e_{p-1}")
+    print("[2] wall vectors  v_p = lambda_p eps_p - mu_p eps_{p-1}")
     print("=" * 68)
     for p, (k1, k2) in enumerate(crit, start=1):
         a_p, b_p = R * k2, S * k1
-        print(f"  Lambda_{p}: boundary {(k1,k2)}  ->  w_{p} = {a_p} e_{p} - {b_p} e_{p-1}")
+        print(f"  Lambda_{p}: boundary {(k1,k2)}  ->  v_{p} = {a_p} eps_{p} - {b_p} eps_{p-1}")
     print("  (triangular, hence independent: 3 coefficients - 2 torsor directions")
-    print("   = 1 invariant combination, matching Thm 1.4)")
+    print("   = 1 invariant combination, matching Paper 2, Thm 1.5)")
 
     print()
     print("=" * 68)
     print("[3] the chamber-index condition")
     print("=" * 68)
     dJ = d_of(J5, R, S)
-    print(f"  d(J,0) = {dJ} < 0, so the condition is  A(J,0,nu) = 0  [GKT Def 3.46]")
+    print(f"  d(J,0) = {dJ} < 0, so the condition is  A(J,0,nu) = 0  [GKT Thm 0.7(3), Def 3.47(3)]")
 
     # lower-order data, minimal gauge
     known = {
@@ -180,11 +182,11 @@ def main():
     sol = sp.solve(expr.subs({v1: 0, v2: 0}), v0)
     assert len(sol) == 1
     nu_min = sp.nsimplify(sol[0])
-    print(f"  Thm 1.3 minimal gauge kills e_1, e_2; the condition then gives")
+    print(f"  the minimal normal form (Paper 2, Thm 1.2) kills eps_1, eps_2; the condition then gives")
     print(f"      nu^min_({bal[0][0]},{bal[0][1]}) = {nu_min}")
     print(f"  i.e.  <tau_0^(3,3)^5 sigma_1^{bal[0][0]} sigma_2^{bal[0][1]} sigma_12>^min = {nu_min}")
 
-    # cross-check: the maximal gauge kills e_0, e_1
+    # cross-check: the maximal gauge kills eps_0, eps_1
     sol_max = sp.solve(expr.subs({v0: 0, v1: 0}), v2)
     print(f"  and symmetrically nu^max_({bal[2][0]},{bal[2][1]}) = {sp.nsimplify(sol_max[0])}")
 

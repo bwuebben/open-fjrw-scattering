@@ -1,7 +1,8 @@
 \documentclass[11pt]{amsart}
 
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{booktabs,tabularx,array}
+\usepackage{mathrsfs}
+\usepackage{booktabs,tabularx,array,xltabular}
 \usepackage{graphicx}
 \usepackage{tikz,tikz-cd}
 \usetikzlibrary{arrows.meta,calc,decorations.markings,patterns,positioning,shapes.geometric}
@@ -60,7 +61,7 @@ pro-al-ge-bra-ic Kum-mer log-a-rith-mic}
 \subjclass[2020]{14T90 (primary); 14B07, 14D06, 14J33, 14N35, 32S25, 32S30 (secondary)}
 \keywords{Scattering diagrams, integral-affine manifolds, logarithmic mirror
 symmetry, root stacks, Jacobi structures, open FJRW theory}
-\date{September 29, 2026}
+\date{Initial version: September 29, 2026. This version: October 9, 2026}
 \hypersetup{
   pdftitle={Annular scattering in quartic open FJRW theory},
   pdfauthor={Bernd Johannes Wuebben},
@@ -71,35 +72,24 @@ symmetry, root stacks, Jacobi structures, open FJRW theory}
 \begin{document}
 
 \begin{abstract}
-Gross--Siebert mirrors come from integral-affine bases with
-singularities; we ask whether open Landau--Ginzburg wall-crossing supplies
-such a base.  For the open FJRW theory of $x^4+y^4$ of Gross, Kelly and
-Tessler (GKT), a double cover of the Carl--Pumperla--Siebert disk
-is forced; it carries walls, but not GKT wall-crossing.  Send $x^ay^b$
-to $z^{F(a,b)}$, for $F$ linear sending $x^4,y^4$ to the rays of $\{X=0\}$,
-$\{Y=0\}$ in the fan lattice of $\PP(1,1,2)$, which is the exponent lattice
-of that disk.  The two first-order descendent GKT generators have
-fractional exponents, spanning an overlattice of index eight.  The minimal
-cover preserving it is an integral-affine annulus with two focus--focus
-singularities, two points at which it is a focus--focus singularity pulled
-back by $z\mapsto z^2$, and core holonomy of trace $18$.  The slab-function
-roots lifting the monodromy have an infinite transport orbit and rescale
-$dx\wedge dy$, whose Poisson bracket glues only as a Jacobi bracket.
-Placed along gradient images of their exponents for an $x$--$y$ symmetric
-quadratic function, the two generators and their Kontsevich--Soibelman
-factors give walls consistent to all orders at the two lifts of the central
-vertex.
-
-The GKT Lie algebra embeds in this bracket's Hamiltonian derivations, but on
-the lowest-order wall involving both generators the coefficient is $-3/4$
-where GKT's is $1/4$.  The potentials $W^{\min}$, $W^{\max}$ of GKT's
-extremal boundary conditions keep, for each label set, only the
-balanced-graph coefficient of least, respectively greatest, $x$-degree.  For
-two labels with one descendent each, transport through the walls carries
-$W^{\min}$ to $W^{\max}$ up to the flow of one GKT generator, which the
-normal form keeping only coefficients of greatest $x$-degree removes; its
-geometric realization is open.  GKT's canonical homotopies can be chosen
-compatibly as the label set grows.
+For the open FJRW theory of $x^4+y^4$ of Gross, Kelly and Tessler (GKT), we
+prove that the first-descendent wall-crossing generators force the
+Carl--Pumperla--Siebert base of $\PP(1,1,2)$ to be replaced by an
+integral-affine annulus, a double cover branched at two of its three singular
+points.  Precisely, with the two monomials of the potential matched to the
+coordinate divisors of weight one, the annulus is the smallest cover on
+which the affine monodromy preserves the lattice spanned by the exponents of
+the base and those of the two generators of a single internal marking of
+twist $(1,0)$ or $(0,1)$; only one of the three local monodromies preserves
+it.  On the annulus the core holonomy is hyperbolic, and the slab functions
+need roots whose transports generate an infinite Kummer extension.  The
+annulus carries a wall structure consistent at its two joints, in a sense
+weaker than that of Gross and Siebert.  On the two generators its
+wall-crossing agrees with the GKT transition between the extremal boundary
+conditions, but not on the first wall carrying one marking of each; the
+difference leaves periods unchanged and is removed by a normal form of
+unknown geometric origin.  The GKT homotopies realizing this transition can
+be chosen compatibly as markings are added.
 \end{abstract}
 
 \maketitle

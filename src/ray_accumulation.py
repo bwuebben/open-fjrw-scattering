@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Do the rays of the scattering diagram D^{r,s} accumulate?  (paper, Prop. 7.12)
+Do the rays of the boundary-ray factorization D^{r,s} accumulate?
+(Paper 2, Proposition 6.14)
 
 Ray of a critical graph Lambda_{J,p} = its BOUNDARY degree (= Lie bidegree + (1,1)):
     K = ( r(J) + (p-1)r + 1 ,  s(J) + (N-p)s + 1 ),   1 <= p <= N
@@ -13,7 +14,7 @@ Reports, separately for the primary (d=0) sector and for descendent towers:
 
 The distinction needed by the geometric picture is whether the ray set is
 LOCALLY FINITE, so that chambers are open regions, or ACCUMULATING. The primary
-diagram is locally finite at each deformation order; dense descendent transport
+factorization is locally finite at each deformation order; dense descendent transport
 is therefore formulated coefficientwise by one-sided slope cuts.
 """
 from fractions import Fraction
@@ -77,14 +78,14 @@ if __name__ == "__main__":
     prim = primary_sector(r, s, 6)
     tow = descendent_tower(r, s, 0, 0, 60)
 
-    print("\n=== VERDICT INPUT ===")
+    print("\n=== SUMMARY ===")
     print(f"primary rays (|J|<=6):            {len(prim)}")
     print(f"one descendent tower (d<=60):     {len(tow)}   at t-degree 1")
     both = prim | tow
     print(f"union max angular gap:            {max_gap(both):.5f} rad")
 
-    # x^4+y^4, the parabolic pilot
-    print("\n\n########## PILOT: x^4+y^4 (parabolic) ##########")
+    # x^4+y^4, the parabolic case
+    print("\n\n########## x^4+y^4 (parabolic) ##########")
     p4 = primary_sector(4, 4, 8)
     print(f"\n  primary rays for x^4+y^4, |J|<=8: {sorted(p4)}")
     t4 = descendent_tower(4, 4, 2, 2, 20)

@@ -2,13 +2,13 @@
 r"""
 Are BOTH walls of the first two-ray primary diagonal actually crossed?
 
-Prop 7.16 is conditional: a family of simple canonical homotopies cannot give
-ray-supported jumps "once two of a diagonal's walls are actually crossed", since
-all walls of a diagonal share the one time t_J. This script discharges that
-hypothesis in the smallest case, turning the conditional into a concrete
-impossibility with a witness.
+Paper 2, Proposition 6.19 is conditional: a family of simple canonical homotopies
+cannot give ray-supported jumps "once two of a diagonal's walls are actually crossed",
+since all walls of a diagonal share the one time t_J. This script checks that
+hypothesis in the smallest case (Paper 2, Example 6.20 and Corollary 6.21), so that
+the conditional statement applies with an explicit witness.
 
-Setting: r = s = 5, J = {(3,3) x 5}, d = 0 -- the diagonal of Ex 7.17, N = 2,
+Setting: r = s = 5, J = {(3,3) x 5}, d = 0 -- the diagonal of Paper 2, Example 6.20, N = 2,
 balanced profiles (0,10),(5,5),(10,0), walls of boundary degree (1,6),(6,1) on the
 two distinct rays (1,6),(6,1).
 
@@ -55,13 +55,14 @@ def main():
     N, bal, crit = diagonal(m)
     assert N == 2 and bal == [(0, 10), (5, 5), (10, 0)] and crit == [(1, 6), (6, 1)]
 
-    # nu^min keeps only e_0, nu^max only e_N (Thm 1.3); the value is Ex 7.17's.
+    # nu^min keeps only e_0, nu^max only e_N (Paper 2, Thm 1.2); the value is that of
+    # Paper 2, Example 6.20.
     v = Fraction(34, 625)
     nu_min = [v, Fraction(0), Fraction(0)]
     nu_max = [Fraction(0), Fraction(0), v]
     target = [b - a for a, b in zip(nu_min, nu_max)]
     print(f"  nu^min = {nu_min}")
-    print(f"  nu^max = {nu_max}   (equal by the x<->y symmetry of Ex 7.17)")
+    print(f"  nu^max = {nu_max}   (equal by the x<->y symmetry of Paper 2, Example 6.20)")
     print(f"  nu^max - nu^min = {target}")
 
     # wall vectors w_p = a_p e_p - b_p e_{p-1}, boundary degrees from crit
@@ -119,12 +120,12 @@ def main():
     print("CONCLUSION")
     print("=" * 70)
     print("  Both zero counts Delta_1, Delta_2 on this diagonal are nonzero, and by")
-    print("  [GKT Lem 3.39(3)(a)] both walls fire at the single time t_J. So the jump")
+    print("  [GKT Lem 3.40(3)(a)] both walls fire at the single time t_J. So the jump")
     print("  at t_J is supported on the two distinct rays (1,6) and (6,1).")
     print()
-    print("  Therefore NO family of simple canonical homotopies as in [GKT Lem 3.39]")
-    print("  has all jumps ray-supported for x^5+y^5 modulo m^6. Prop 7.16's hypothesis")
-    print("  is discharged in the smallest case, with an explicit witness.")
+    print("  Therefore NO family of simple canonical homotopies as in [GKT Lem 3.40]")
+    print("  has all jumps ray-supported for x^5+y^5 modulo m^6 (Paper 2, Corollary 6.21):")
+    print("  the hypothesis of Paper 2, Proposition 6.19 holds in this smallest case.")
     print()
     print("ALL CHECKS PASSED")
 

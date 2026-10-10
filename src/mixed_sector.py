@@ -1,34 +1,36 @@
 #!/usr/bin/env python3
 r"""
-mixed_sector.py -- the t23-t33 sector of x^5+y^5 through order t^4: the first true
-scattering vertex of the corrected theory (noncommuting walls; the commutator of the
-order-2 walls feeds the (1,2)-direction wall), and the anchor test with bending-generated
-N=0 slots.
+mixed_sector.py -- the t23-t33 sector of x^5+y^5 through order t^4: the first
+noncommuting walls of the boundary-ray factorization (the commutator of the order-2
+walls feeds the wall X_{1,2} on the ray (2,3)), and the transport representation with
+bending-generated N=0 slots.
 
 Sector diagonals (d=0, variables a := t_{2,3}, b := t_{3,3}), all A-conditions reduce to
-vanishings (closed values die by fractional degree or the string equation):
-  order 2: ab  (N=1, wall X_{0,1} ray (1,2)): (2/5)nu06+(1/5)nu51 = -2/25   [known]
-           b^2 (N=1, wall X_{1,1} ray (1,1)): nu16+nu61 = -2/5              [known]
-           a^2 (marginal, N=0, invariant): nu41 = -2/5  [NEW absolute invariant
+vanishings (closed values vanish by fractional degree or by the string equation):
+  order 2: ab  (N=1, wall X_{0,1} ray (1,2)): (2/5)nu06+(1/5)nu51 = -2/25   [Paper 2, Ex. 5.1]
+           b^2 (N=1, wall X_{1,1} ray (1,1)): nu16+nu61 = -2/5              [Paper 2, Ex. 5.1]
+           a^2 (marginal, N=0, invariant): nu41 = -2/5  [new absolute invariant
                <tau0^{(2,3)}tau0^{(2,3)} sigma_1^4 sigma_2 sigma_12> = -2/5]
-  order 3: b^3 (N=0, jump-safe): nu44 = 1/5 [known]; a b^2 (N=0, (3,4)-slot, JUMPS);
+  order 3: b^3 (N=0, no wall): nu44 = 1/5 [Paper 2, eq. (3)]; a b^2 (N=0, (3,4)-slot, JUMPS);
            a^2 b (N=0, (2,4)-slot); a^3 (marginal, (1,4)-slot)
   order 4: a b^3 (N=1: (1,7),(6,2); wall X_{1,2} ray (2,3));
            a^2 b^2 (N=1: (0,7),(5,2); wall X_{0,2} ray (1,3));
            b^4 (N=1: known, wall coefficient 0); a^3 b ((4,2)); a^4 ((3,2), marginal)
 
-Certified here:
+Checked here:
  [1] the A-conditions solved on every sector diagonal in the min and max gauges
-     (labeled-convention engine); in particular the new absolute invariant nu41 = -2/5;
- [2] the canonical boundary-ray factorization
+     (labeled-partition convention, a_invariants.py); in particular the new absolute
+     invariant nu41 = -2/5;
+ [2] the canonical boundary-ray factorization (Paper 2, Theorem 1.2)
      g^{min->max} = theta_(1,3) o theta_(1,2) o theta_(2,3) o theta_(1,1)
      (slope-ordered, bottom-up: rays (1,1) < (2,3) < (1,2) < (1,3)),
-     with the two order-4 wall coefficients (c12 on ray (2,3), c02 on ray (1,3))
-     solved from g(W^min) = W^max -- an overdetermined nonlinear system whose consistency
-     tests the framework INCLUDING the commutator [theta_(1,2), theta_(1,1)] contribution;
- [3] (deferred) the ANCHOR with own-direction-chamber seed values; the 2026-07-18f
-     "open inconsistency" was resolved 2026-07-18g as THIS script's bug (|Aut|=2 dressing
-     missing on a b^2; a^3 b and a^4 slots omitted) -- framework fully consistent.
+     with the two order-4 wall coefficients (c12 on ray (2,3), c02 on ray (1,3);
+     Paper 2, Section 7: -1/750 and -1/1250) solved from g(W^min) = W^max -- an
+     overdetermined nonlinear system whose consistency includes the commutator
+     [theta_(1,2), theta_(1,1)] contribution;
+ [3] the transport representation (Paper 2, Theorem 1.4) on this sector: seeding each
+     monomial with its anchored value (its coefficient at its anchor cut, Paper 2,
+     Definition 6.4) reproduces the potential in all five chambers.
 
 Run: ./venv/bin/python src/mixed_sector.py
 """
@@ -77,7 +79,7 @@ def solve_diagonal(J, numap, unknowns, rhs=0):
 
 
 def main():
-    print("== The t23-t33 sector through t^4: scattering vertex + anchor ==")
+    print("== The t23-t33 sector through t^4: noncommuting walls + transport ==")
 
     # ---------------- [1] A-condition solves --------------------------------
     # a^2 (marginal, single slot (4,1)):
@@ -85,7 +87,7 @@ def main():
     A, _ = solve_diagonal([T23, T23], {((T23, T23), 4, 1): nu41}, [nu41])
     v41 = sp.solve(sp.Eq(A, 0), nu41)[0]
     assert v41 == sp.Rational(-2, 5), A
-    print(f"[1] NEW absolute invariant <tau0^(2,3)^2 s1^4 s2 s12> = {v41}  (marginal)")
+    print(f"[1] new absolute invariant <tau0^(2,3)^2 s1^4 s2 s12> = {v41}  (marginal)")
 
     # a b^2, (3,4)-slot (jumps; per-gauge value from its vanishing condition):
     nu34 = sp.Symbol("nu34")
@@ -99,7 +101,7 @@ def main():
     v34_min = sp.solve(sp.Eq(A, 0), nu34)[0]
     A, _ = solve_diagonal(J_ab2, {**known_max, (tuple(sorted(J_ab2)), 3, 4): nu34}, [nu34])
     v34_max = sp.solve(sp.Eq(A, 0), nu34)[0]
-    print(f"    a b^2 (3,4)-slot: min {v34_min}, max {v34_max}  (jumps, as predicted)")
+    print(f"    a b^2 (3,4)-slot: min {v34_min}, max {v34_max}  (jumps between the normal forms)")
 
     # a^2 b, (2,4)-slot:
     nu24 = sp.Symbol("nu24")
@@ -156,7 +158,7 @@ def main():
     print(f"    a b^3: min nu17 = {v17_min}; max nu62 = {v62_max}")
     print(f"    a^2b^2: min nu07 = {v07_min}; max nu52 = {v52_max}")
 
-    # a^3 b ((4,2)-slot, N=0) and a^4 ((3,2)-slot, marginal) -- omitted before:
+    # a^3 b ((4,2)-slot, N=0) and a^4 ((3,2)-slot, marginal):
     nu42, nu32 = sp.symbols("nu42 nu32")
     J_a3b = [T23, T23, T23, T33]
     assert part_boundaries(J_a3b, 5, 5) == [(4, 2)]
@@ -223,13 +225,10 @@ def main():
     c12v, c02v = sol[0][c12], sol[0][c02]
     resid = sp.expand(diff.subs({c12: c12v, c02: c02v}))
     assert resid == 0, resid
-    print(f"[2] canonical factorization CONSISTENT (all slots, incl. the commutator")
+    print(f"[2] canonical factorization consistent (all slots, incl. the commutator")
     print(f"    [theta_(1,2), theta_(1,1)] feeding ray (2,3)):  c_(1,2) = {c12v},  c_(0,2) = {c02v}")
-    print("    (2026-07-18g: the earlier 'open inconsistency' was OUR test-script bug --")
-    print("     |Aut|=2 dressing missing on the a b^2 diagonal + omitted a^3 b, a^4 slots;")
-    print("     the invisible-diagonal A-weights are VINDICATED)")
 
-    # ---------------- [3] the ANCHOR: own-direction-chamber seeding ---------
+    # ---------------- [3] transport with anchored seeds -----------------------
     from fractions import Fraction
 
     def mk(c):
@@ -286,11 +285,11 @@ def main():
     ok = all(sp.expand(T[c] - Wc[c]) == 0 for c in range(5))
     assert ok, [sp.expand(T[c] - Wc[c]) for c in range(5)]
     zero_seeds = len(slots) - n_seeds
-    print(f"[3] ANCHOR HOLDS in the mixed sector through t^4: {n_seeds} nonzero seeds")
-    print(f"    (one per slot, valued in its own-direction chamber; {zero_seeds} slots have")
-    print(f"    ZERO home value = fully bending-generated, incl. all wall-diagonal extremes)")
-    print("    T(c) = W(c) for ALL five chambers -- the broken-line/transport potential")
-    print("    reproduces the entire chamber family from own-chamber seed data")
+    print(f"[3] transport with anchored seeds, mixed sector through t^4: {n_seeds} nonzero seeds")
+    print(f"    (each slot seeded by its value in its own-direction chamber; {zero_seeds} slots have")
+    print(f"    ZERO anchored value = generated entirely by bending, incl. all wall-diagonal extremes)")
+    print("    T(c) = W(c) for ALL five chambers -- the transported seeds")
+    print("    reproduce the potential in every chamber")
     print("ALL CHECKS PASSED")
 
 if __name__ == "__main__":
