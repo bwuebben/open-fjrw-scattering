@@ -26,7 +26,7 @@ Two routines, each validated before use:
 Selection rule (genus 0): e=(sum a_i-(r-2))/r in Z>=0, and sum d_i + e = n-3.
 
 The class TensorSebastianiThom computes the genus-0 correlators of
-x^r + y^s = A_{r-1}(x) (x) A_{s-1}(y) from these (Paper 2, Example A.1).
+x^r + y^s = A_{r-1}(x) (x) A_{s-1}(y) from these (Paper 2, Section 7).
 """
 
 from fractions import Fraction as F

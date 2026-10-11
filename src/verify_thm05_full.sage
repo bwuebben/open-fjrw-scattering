@@ -15,7 +15,7 @@ Convention: the tensor invariant of x^5+y^5 is
     < prod tau_{d_i}^{(a_i,b_i)} > = (-1)^{e_1+e_2} int_{Mbar_{0,n}} W^5(a) W^5(b) prod psi_i^{d_i},
 with W^5 = Wittenrspin(0, ., r_coeff=5). Under this rule admcycles reproduces the
 rspin.py/Saito values exactly (incl. the (2,2)@n=7 = 34/625 case and descendents;
-Paper 2, Appendix A). Ramond twists
+Paper 2, Section 7). Ramond twists
 are passed as -1 (admcycles distinguishes -1 from r-1: only -1 gives the correct nonzero
 class); the continuation twist z=(r-2-a,s-2-b) is reduced r-1 -> -1.
 

@@ -4,7 +4,7 @@ closed_fjrw.py -- the closed FJRW invariants of the Landau-Ginzburg A-model
 (x^r + y^s, mu_r x mu_s), genus zero. These are the VERTEX WEIGHTS of the
 Gross-Kelly-Tessler open topological recursion (Thm 0.5 and eqn (6.5) of
 arXiv:2203.02435v3); for x^5+y^5 (hyperbolic, central charge chat = 6/5) they are
-the closed vertex weights of Paper 2, Example A.1.
+the closed correlators of Paper 2, Section 7.
 
 WHAT IS COMPUTED
 ----------------
@@ -228,7 +228,7 @@ def run_5spin_extension():
     string/dilaton/TRR); then the x^5+y^5 tensor correlators: the factorizing ones
     (e_1=0 or e_2=0), the fully mixed ones with min(e_1,e_2)=1 (genus-0 boundary
     reconstruction on M_{0,n}), and the symmetric case e_1=e_2=2 at n=7 (codimension-two
-    strata). Paper 2, Example A.1 tabulates these values."""
+    strata). Paper 2, Section 7 quotes representative values."""
     print("\n" + "=" * 74)
     print("5-SPIN (A_4) SINGLE-VARIABLE BUILDING BLOCKS  (src/rspin.py, validated)")
     print("=" * 74)

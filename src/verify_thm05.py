@@ -3,7 +3,7 @@
 verify_thm05.py -- NARROW numerical verification of the Gross-Kelly-Tessler open
 topological recursion ([GKT] Thm 0.5 / eq 0.8) for x^5+y^5, using the independently
 computed closed FJRW invariants of rspin.py, restricted to narrow node twists. The full
-check of Paper 2, Appendix A, including the extended sectors, is verify_thm05_full.sage.
+check of Paper 2, Section 7, including the extended sectors, is verify_thm05_full.sage.
 
 The values of A ([GKT] Cor. 5.11 = survey Thm 5.4; NO leading sign):
     A(A,d) = (-1)^{d_1}                                            if A={(a_1,b_1)} singleton

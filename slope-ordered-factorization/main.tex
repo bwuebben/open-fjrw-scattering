@@ -1,6 +1,7 @@
 \documentclass[11pt]{amsart}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
+\usepackage{tikz}
 \usepackage[margin=1.15in]{geometry}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{microtype}
@@ -45,7 +46,7 @@ factorization of wall-crossing\\ in two-variable open FJRW theory}
 \subjclass[2020]{14N35 (primary); 14J33, 14T90, 53D45 (secondary)}
 \keywords{Open FJRW theory, wall-crossing, tropical vertex,
 Landau--Ginzburg models, boundary conditions}
-\date{Initial version: August 24, 2026. This version: October 9, 2026}
+\date{Initial version: August 24, 2026. This version: October 11, 2026}
 \hypersetup{
   pdftitle={Slope-ordered factorization of wall-crossing in two-variable open FJRW theory},
   pdfauthor={Bernd Johannes Wuebben},
@@ -56,24 +57,24 @@ Landau--Ginzburg models, boundary conditions}
 \begin{document}
 
 \begin{abstract}
-We prove that for the genus-zero open FJRW invariants of $x^r+y^s$ of Gross,
-Kelly and Tessler, which depend on boundary conditions through a wall-crossing
-group, the transformation between the two extremal systems of invariants
-factors uniquely into automorphisms supported on rays in the quadrant of
-boundary-marking numbers, ordered by slope; in the extremal systems, among
-invariants related by walls only the one of least, respectively greatest,
-$x$-degree can be nonzero.  Each critical graph contributes on the ray of its
-boundary-marking numbers, the unique ray whose monomials its wall-crossing
-term fixes.  The proof combines the Kontsevich--Soibelman
-ordered-product lemma, with a filtration in place of a grading, and the simply
-transitive action of the group once a torus direction is adjoined.  With
-descendents the factorization holds in every finite truncation and is realized
-there by a homotopy of boundary conditions whose jumps occur ray by ray; in
-general no single homotopy from the Gross--Kelly--Tessler extension lemma does
-this.  In each truncation the potential between consecutive rays is obtained
-by transport from constants analogous to theta-function coefficients, and
-nonzero constants occur beyond those of $x^r$, $y^s$ and the terms with one
-internal marking.
+For the genus-zero open FJRW invariants of Gross, Kelly and Tessler attached to
+a two-variable Fermat polynomial, we prove that the wall-crossing
+transformation between the two extremal systems of invariants factors
+uniquely, in every finite truncation, into automorphisms supported on rays in
+the quadrant of boundary-marking numbers, ordered by slope.  In these two
+systems, within each set of invariants mixed by wall-crossing, all vanish
+except the one with the fewest, respectively most, boundary markings of the
+first type.
+Each critical graph contributes a generator on the ray of its boundary-marking
+numbers, the only ray whose monomials that generator fixes.  The proof
+combines the Kontsevich--Soibelman ordered-product lemma, run with a
+filtration in place of a grading, with the simply transitive action of the
+wall-crossing group enlarged by a torus direction.  The factorization is realized ray by ray by
+concatenated homotopies of boundary conditions, though in general not by a
+single homotopy from the extension lemma of Gross, Kelly and Tessler.
+Finally, in each truncation the potentials between consecutive rays are
+transported from one set of initial coefficients, analogous to theta-function coefficients, which can
+be nonzero on terms with several internal markings.
 \end{abstract}
 
 \maketitle
@@ -113,17 +114,6 @@ graph has no $\sigma_{12}$-point and rank one more than its dimension
 the zero section vanishes at finitely many points of $[0,1]$ times its moduli
 space.
 
-On the boundary of a balanced moduli space the homotopy can vanish only
-on the strata where a critical graph and a balanced graph meet at a boundary
-node, and the invariants change only through these zeros.  GKT assemble the
-change at each time at which such zeros occur into an automorphism of the
-potential below: the exponential of the wall terms of the critical graphs, the
-Hamiltonian vector fields attached to them (see the notation in
-\S\ref{ssec:results}), weighted, up to explicit signs, by their zero counts.
-The total change is the time-ordered product of these exponentials
-\cite[proofs of Thms.~5.4 and~5.9]{GKT}; this jump formula is restated in
-\S\ref{sec:presentation}.
-
 The invariants are collected in the
 potential \cite[(4.11)]{GKT}
 \[
@@ -143,10 +133,22 @@ empty multiset contributes $x^r+y^s$, by the normalization $\nu=-1$ for
 balanced graphs without internal markings, and over the labeled ring of
 \cite[Def.~4.6]{GKT}
 the same formula holds without the symmetry factor.  Up to the sign and
-symmetry factor, which are constant along each diagonal (see the notation in
+symmetry factor, which are constant along each balanced string (see the notation in
 \S\ref{ssec:results}),
 the coefficient of $u_{J,\mathbf d}x^{\beta_1}y^{\beta_2}$ is thus the invariant
 of the balanced graph of boundary degree $\beta$ over $(J,\mathbf d)$.
+
+On the boundary of a balanced moduli space a homotopy of boundary conditions
+can vanish only
+on the strata where a critical graph and a balanced graph meet at a boundary
+node, and the invariants change only through these zeros.  GKT assemble the
+change at each time at which such zeros occur into an automorphism of the
+potential: the exponential of the wall terms of the critical graphs, the
+Hamiltonian vector fields attached to them (see the notation in
+\S\ref{ssec:results}), multiplied, up to explicit signs, by their zero counts.
+The total change is the time-ordered product of these exponentials
+\cite[proofs of Thms.~5.4 and~5.9]{GKT}; this jump formula is restated in
+\S\ref{sec:presentation}.
 
 Three of GKT's results organize the dependence on boundary conditions
 completely. First, the systems
@@ -161,7 +163,7 @@ when balanced graphs over $(J,\mathbf d)$ exist (the integer
 $N(J,\mathbf d)$ is defined in Definition~\ref{def:diagonal}, and
 \S\ref{sec:algebra}
 shows that this is the inequality of \cite[Def.~3.47]{GKT}).  Here $\Ascr$ is a
-$\Gamma$-function-weighted polynomial in the invariants, recalled in
+polynomial in the invariants with Gamma-function coefficients, recalled in
 \eqref{eq:Apoly}.  A system satisfying these
 conditions is a \emph{chamber index} in GKT's terminology; the word does not
 refer to a chamber of the wall complement in the quadrant used below.  Since
@@ -202,7 +204,7 @@ points; it is not one of the two edge rays of the quadrant, which we call
 the \emph{edges} of the quadrant.  The paper then shows that in each finite
 truncation the factorization of the \emph{transition element}
 $g^{\min\to\max}$, the wall-crossing transformation between the two extremal
-systems, in which the coefficients on every wall-bearing diagonal
+systems, in which the coefficients on every wall-bearing string
 (\S\ref{ssec:results}) vanish except at one end, is realized by homotopies of
 boundary conditions; the ray factors, but not the chosen homotopies, are
 compatible in the coefficientwise limit.
@@ -255,15 +257,16 @@ critical graphs with the same internal markings jump at once and so cannot in
 general separate their rays (Theorem~\ref{thm:georealization}).
 \item[(c)] The invariants at every slope cut are transported through the ray
 factors from initial coefficients (Theorem~\ref{thm:transport}); nonzero
-initial coefficients occur beyond those of $x^r$, $y^s$ and the monomials with
-one internal marking, so the open theory is strictly richer than the part
-generated from these by wall-crossing (Observation~\ref{obs:richer}).
+initial coefficients can occur beyond those of $x^r$, $y^s$ and the monomials
+with one internal marking, so the open theory is not in general generated from
+these by wall-crossing; for $x^5+y^5$ it is strictly richer
+(Observation~\ref{obs:richer}).
 \end{enumerate}
 Theorems~\ref{thm:canonical}, \ref{thm:georealization}
 and~\ref{thm:transport} below state (a)--(c) in this order; they rest on the
 ordered factorization of Proposition~\ref{prop:ordered}, discussed below.
 Under \emph{Further results},
-Theorem~\ref{thm:effective} makes explicit on each diagonal how the conditions
+Theorem~\ref{thm:effective} makes explicit on each string how the conditions
 of GKT determine the invariants, and Theorem~\ref{thm:trichotomy} classifies
 the wall terms by weight.
 
@@ -277,7 +280,7 @@ Rem.~3.1]{note}; the proof extends the invariance of the polynomials $\Ascr$,
 which GKT derive from a period formula stated for residues at most
 $(r-2,s-2)$, to all residues through a Laplace integral.  Here the torsor property is
 proved over the labeled ring of \cite[Def.~4.6]{GKT} as well
-(Lemma~\ref{lem:enlarged}), as the realization theorem requires.  The proof
+(Lemma~\ref{lem:enlarged}), as Theorem~\ref{thm:georealization} requires.  The proof
 uses the all-residue invariance (Lemma~\ref{lem:allresidue}), whose Laplace
 computation \cite[proof of Prop.~1.4]{note} already carries out over that
 ring.  Proposition~\ref{prop:nontransitive} adds an explicit primary instance of the
@@ -297,16 +300,17 @@ $t_{a,b}=t_{a,b,0}$) and
 X_{k}=X_{k_{1},k_{2}}=x^{k_{1}}y^{k_{2}}\bigl((k_{2}{+}1)x\partial_{x}-(k_{1}{+}1)
 y\partial_{y}\bigr)
 \]
-is the Hamiltonian vector field of $x^{k_{1}+1}y^{k_{2}+1}$ for $dx\wedge dy$,
-subject to the dimension constraint
+is the Hamiltonian vector field of $x^{k_{1}+1}y^{k_{2}+1}$ for the area form
+$dx\wedge dy$, subject to the dimension constraint
 \begin{equation}
 \label{eq:dimconstraint}
-sk_{1}+rk_{2}=m(J,\mathbf d)-rs,
+sk_{1}+rk_{2}=w(J,\mathbf d),
 \qquad
-m(J,\mathbf d)=rs+\sum_{j}\bigl(sa_{j}+rb_{j}+rs(d_{j}-1)\bigr),
+w(J,\mathbf d)=\sum_{j}\bigl(sa_{j}+rb_{j}+rs(d_{j}-1)\bigr),
 \end{equation}
-whose right-hand side is the \emph{Euler weight} $w(J,\mathbf d)$ of
-$u_{J,\mathbf d}$, and to the congruences $k_1\equiv r(J)\ (\mathrm{mod}\ r)$,
+where $w(J,\mathbf d)$ is the \emph{Euler weight} of $u_{J,\mathbf d}$ (the
+integer $m(J,\mathbf d)$ of \cite[Not.~2.30]{GKT} is $w(J,\mathbf d)+rs$),
+and to the congruences $k_1\equiv r(J)\ (\mathrm{mod}\ r)$,
 $k_2\equiv s(J)\ (\mathrm{mod}\ s)$, where
 $\sum_{j}a_j=r(J)+r\ell_1$ and $\sum_{j}b_j=s(J)+s\ell_2$ with
 $0\le r(J)<r$ and $0\le s(J)<s$.  We call $k$ the \emph{Lie bidegree}, or
@@ -325,22 +329,28 @@ for factors $\exp(\eta_i)$ on rays $\rho_i$ with
 $\operatorname{slope}(\rho_1)<\cdots<\operatorname{slope}(\rho_L)$ the product
 is $\exp(\eta_L)\circ\cdots\circ\exp(\eta_1)$.  \emph{Primary} means that all
 descendent exponents $d_j$ vanish, and the \emph{deformation ideal}
-$\mathfrak m$ is the ideal generated by the parameters $t_{a,b,d}$.
+$\mathfrak m$ is the ideal generated by the parameters $t_{a,b,d}$.  For a
+primary monomial, $-w(J,\mathbf 0)/rs$ is the degree of $u_{J,\mathbf 0}$
+for which $x^r+y^s+\sum t_{a,b}x^ay^b$ is quasi-homogeneous of degree one,
+with $\deg x=1/r$ and $\deg y=1/s$; thus a single parameter $t_{a,b}$ has
+$w>0$, $w=0$ or $w<0$ exactly when the deformation $x^ay^b$ is irrelevant,
+marginal or relevant.
 
 For fixed $(J,\mathbf d)$ let
 $N=N(J,\mathbf d)=\ell_1+\ell_2-|J|+1+\sum_{j}d_j$
 (Definition~\ref{def:diagonal}).  There are $N+1$ balanced graphs when
 $N\ge0$ and $N$ critical graphs when $N\ge1$ \cite[Not.~2.40]{GKT}.  The $N+1$
 coefficients of the balanced graphs in the potential, the \emph{balanced
-coefficients}, form the \emph{$(J,\mathbf d)$-diagonal}, also called the
-diagonal of $u_{J,\mathbf d}$; their boundary degrees are spaced by $(r,-s)$
-along a line.  The wall term of each of the $N$ intervening critical graphs
-changes $x^r+y^s$ by a \emph{wall vector} supported on two adjacent points of
-the diagonal \eqref{eq:wallvector}.  The diagonal and its monomial are
+coefficients}, form the \emph{$(J,\mathbf d)$-string}, also called the
+\emph{balanced string} of $u_{J,\mathbf d}$; their boundary degrees form an
+arithmetic progression with step $(r,-s)$.  The wall term of each of the $N$
+intervening critical graphs changes $x^r+y^s$ by a \emph{wall vector}
+supported on two adjacent coefficients of the string \eqref{eq:wallvector}
+(Figure~\ref{fig:string}).  The string and its monomial are
 \emph{wall-bearing} if $N\ge1$, and \emph{marginal} if $w(J,\mathbf d)=0$.
 The \emph{enlarged algebra} $\widetilde\gfrak^{\,r,s}$ adjoins to
 $\gfrak^{r,s}$ the wall terms $u_{J,\mathbf d}(x\partial_x-y\partial_y)$ of
-bidegree $(0,0)$ of the critical graphs on marginal diagonals with
+bidegree $(0,0)$ of the critical graphs on marginal strings with
 $J\ne\varnothing$; their critical graphs have boundary degree $(1,1)$.  The
 group $\widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s})$ acts freely and
 transitively on the set $\Om(I)$ of realizable systems, the \emph{torsor
@@ -351,6 +361,42 @@ statements are for the enlarged algebra and its group.  A finite set $S$ of
 deformation monomials is \emph{divisor-closed} if every monomial dividing an
 element of $S$ belongs to $S$, and \emph{reduction to $S$} means quotienting
 out all other deformation monomials.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.3]
+\draw[->] (0,0) -- (16.2,0) node[below] {$\beta_1$};
+\draw[->] (0,0) -- (0,16.2) node[left] {$\beta_2$};
+\draw[dashed,gray] (0,0) -- (15.2,15.2) node[above right] {$(1,1)$};
+\draw[thick] (0,0) -- (6.756,15.2);
+\draw[thick] (0,0) -- (15.2,6.756);
+\draw[gray] (3,13) -- (13,3);
+\draw[->,thick,gray] (3,8) -- (3.75,8.75);
+\draw[->,thick,gray] (8,3) -- (8.75,3.75);
+\fill[gray] (3,8) circle (4pt);
+\fill[gray] (8,3) circle (4pt);
+\fill (3,13) circle (7pt) node[above=3pt] {$(3,13)$};
+\fill (8,8) circle (7pt) node[right=3pt] {$(8,8)$};
+\fill (13,3) circle (7pt) node[below=3pt] {$(13,3)$};
+\draw[fill=white] (4,9) circle (7pt) node[above left=1pt] {$(4,9)$};
+\draw[fill=white] (9,4) circle (7pt) node[above left=1pt] {$(9,4)$};
+\node at (15.8,2.2) {I};
+\node at (14.6,10.4) {II};
+\node at (1.5,15.8) {III};
+\end{tikzpicture}
+\caption{The balanced string of $t_{3,3,2}$ for $x^5+y^5$
+(Example~\ref{ex:middleseeds}).  Filled dots: the balanced boundary degrees;
+open dots: the boundary degrees of the two critical graphs, on their boundary
+rays (solid), obtained from the Lie bidegrees $(3,8)$ and $(8,3)$ by the
+$(1,1)$ shift (arrows).  Balanced and critical degrees interlace in slope.  In
+the three sectors I, II, III cut out by the two rays (after reduction to the
+divisors of $t_{3,3,2}$), the coefficients of $(3,13)$, $(8,8)$, $(13,3)$ are
+$(\tfrac{25}{36},0,0)$, $(\tfrac{25}{36},-\tfrac{25}{16},\tfrac{25}{36})$ and
+$(0,0,\tfrac{25}{36})$.  Sector I, along the $\beta_1$-axis, carries the
+minimal system $\nu^{\min}$ of Theorem~\ref{thm:canonical}, whose surviving
+coefficient is the one of least $x$-degree, at the far end of the string.}
+\label{fig:string}
+\end{figure}
 
 \subsection*{Main theorems}
 Every element of the enlarged group factors along the boundary rays
@@ -370,10 +416,11 @@ main theorem applies this to one canonical element.
 \S\ref{sec:canonical}]
 \label{thm:canonical}\mbox{}
 \begin{enumerate}
-\item[(i)] On every wall-bearing diagonal, including a marginal diagonal, the
-wall action on the $N{+}1$ balanced coefficients is triangular; consequently
-there exist unique realizable systems $\nu^{\min}$ and $\nu^{\max}$ in which,
-on every such diagonal, only the coefficient of least, respectively greatest,
+\item[(i)] On every wall-bearing string, including a marginal string, the
+wall vectors of its $N$ critical graphs are supported on the $N$
+pairs of adjacent balanced coefficients, one pair each, with nonzero entries
+at both; consequently there exist unique realizable systems $\nu^{\min}$ and $\nu^{\max}$ in which,
+on every such string, only the coefficient of least, respectively greatest,
 $x$-degree survives.
 \item[(ii)] In the primary algebra, modulo every power of the deformation
 ideal, the transition element $g^{\min\to\max}$ from $\nu^{\min}$ to
@@ -389,7 +436,7 @@ that graph.
 \end{theorem}
 
 We call $\nu^{\min}$ and $\nu^{\max}$ the \emph{minimal} and \emph{maximal
-systems}, together the \emph{extremal systems}: on each wall-bearing diagonal
+systems}, together the \emph{extremal systems}: on each wall-bearing string
 the surviving coefficient is the one of least $x$-degree in $\nu^{\min}$ and
 the one of greatest $x$-degree in $\nu^{\max}$.  For a finite labeled set $I$,
 $\nu^{\min}_I$ and $\nu^{\max}_I$ denote the restrictions of $\nu^{\min}$ and
@@ -402,12 +449,11 @@ $\Dscr^{r,s}$ of $\Dscr^{r,s}_{0}$.  Part~(iii) is the identity
 $X_{k}(x^{\alpha_1}y^{\alpha_2})=\bigl((k_2{+}1)\alpha_1-(k_1{+}1)\alpha_2\bigr)
 x^{\alpha_1+k_1}y^{\alpha_2+k_2}$ (Proposition~\ref{prop:placement}): the
 factors are placed on the boundary rays, and not on the rays of the Lie
-bidegrees, because these are the rays whose monomials they fix.  The wall
-action is triangular because
-the $N$ wall vectors of a diagonal are supported on the $N$ pairs of adjacent
-points with indices $\{p-1,p\}$, $1\le p\le N$, one pair each, with nonzero
-entries at both points ($\lambda_p,\mu_p>0$ in \eqref{eq:wallvector}).  The existence
-of $\nu^{\min}$ and $\nu^{\max}$ in (i) is the triangular elimination of
+bidegrees, because these are the rays whose monomials they fix.  In (i) the
+wall vector of the $p$th critical graph is supported on the coefficients
+with indices $p-1$ and $p$, $1\le p\le N$ ($\lambda_p,\mu_p>0$ in
+\eqref{eq:wallvector}), so the wall vectors form a triangular system, and the
+existence of $\nu^{\min}$ and $\nu^{\max}$ is the triangular elimination of
 \cite[proof of Thm.~4.27, Step~3]{GKT}, with the torus direction adjoined;
 the new statements in Theorem~\ref{thm:canonical} are the factorization (ii)
 of $g^{\min\to\max}$ along the boundary rays, which involves no choices, and
@@ -422,8 +468,8 @@ $x^{5}+y^{5}$ the walls of $\Dscr^{5,5}$ begin
 \theta_{(1,1)}=\exp\bigl(\tfrac1{50}\,t_{3,3}^{2}X_{1,1}
 +\tfrac1{25}(t_{2,2}t_{3,3}+t_{2,3}t_{3,2})X_{0,0}+\cdots\bigr),
 \end{gather*}
-where the subscripts are the primitive boundary degrees on the rays.  The ray
-factors are computed by solving $\nu^{\max}-\nu^{\min}$ diagonal by diagonal,
+where the subscripts are the primitive vectors on the rays.  The ray
+factors are computed by solving $\nu^{\max}-\nu^{\min}$ string by string,
 order by order, against the wall vectors (Example~\ref{ex:walls}).
 
 In each finite truncation the factorization of an element $g$ is a finite
@@ -448,7 +494,7 @@ $\widetilde\gfrak^{\,r,s}$ (Proposition~\ref{prop:shift}), so the standard
 bijection does not apply verbatim, and Proposition~\ref{prop:ordered}
 supplies the factorization instead.
 
-The worked case $x^{5}+y^{5}$ (\S\ref{sec:canonical} and Appendix~\ref{sec:x5y5})
+The worked case $x^{5}+y^{5}$ (\S\S\ref{sec:diagonal}--\ref{sec:canonical})
 produces, beyond the ray factors above, the invariant relations and values
 \begin{gather}
 \langle(\tau_{0}^{(3,3)})^{2}\sigma_{1}\sigma_{2}^{6}\sigma_{12}\rangle
@@ -464,22 +510,27 @@ produces, beyond the ray factors above, the invariant relations and values
 the first a wall relation (only the sum is invariant; the difference changes
 across the $(1,1)$-ray, which carries the first symmetric positive-weight primary wall
 term $t_{3,3}^{2}X_{1,1}$), the second and third absolute: they live on
-diagonals with no wall terms, the second on a broad diagonal, where
-$r(J)=r-1$ or $s(J)=s-1$.  The \emph{two-insertion relation}, satisfied by every realizable system, takes the uniform form
+strings with no wall terms, the second on a broad string, where
+$r(J)=r-1$ or $s(J)=s-1$.  For the third, $J=\{(1,2),(2,1),(2,2)\}$ has
+$N=0$, every term of $\Ascr(J,\mathbf 0,\nu)$ with two blocks vanishes
+because each pair of these twists has $N=-1$, and the term with three blocks,
+the product of the three one-marking normalizations, has Gamma coefficient
+$\Gamma(\tfrac65)^2/\Gamma(\tfrac15)^2=\tfrac1{25}$; so the condition
+$\Ascr=0$ gives $-\tfrac1{25}$.  The \emph{two-insertion relation}, satisfied by every realizable system, takes the uniform form
 \begin{equation}
 \label{eq:seed}
 \frac{\nu_{(r,0)}}{r}+\frac{\nu_{(0,s)}}{s}=-\frac1{rs}
 \qquad\text{(e.g. }\langle\sigma_{1}^{r}\sigma_{12}\cdots\rangle
 +\langle\sigma_{2}^{r}\sigma_{12}\cdots\rangle=-\tfrac1r\ \text{at }r=s),
 \end{equation}
-for every two-insertion diagonal $\{(a_{1},b_{1}),(a_{2},b_{2})\}$,
+for every two-insertion string $\{(a_{1},b_{1}),(a_{2},b_{2})\}$,
 $|J|=2$, with $a_{1}+a_{2}=r$, $b_{1}+b_{2}=s$ (Remark~\ref{rem:ex55}). Here
 $\nu_{\beta}$ denotes the invariant of boundary degree $\beta=(\beta_1,\beta_2)$,
 with boundary insertions $\sigma_{1}^{\beta_{1}}\sigma_{2}^{\beta_{2}}\sigma_{12}$, and
 the suppressed
 insertions are the two interior markings $(a_1,b_1)$ and $(a_2,b_2)$.
 
-The realization theorem concerns homotopies of boundary conditions.  A
+Theorem~\ref{thm:georealization} concerns homotopies of boundary conditions.  A
 \emph{homotopy of boundary conditions} is a family of simple canonical
 homotopies \cite[Defs.~3.36--3.37]{GKT}, a homotopy of families of canonical
 multisections compatible on boundary strata.  A \emph{normal-form homotopy}
@@ -554,20 +605,20 @@ $g^{\min\to\max}$ also factors uniquely in decreasing order of slopes, and the
 same construction realizes that factorization (Remark~\ref{rem:conjform}).
 
 Part~(ii) is Corollary~\ref{cor:nosimple}, an instance of a general
-obstruction: a concatenation is needed whenever a diagonal carries two wall terms with
+obstruction: a concatenation is needed whenever a string carries two wall terms with
 nonzero reduced coefficients that receive no contribution from lower-order
 terms, as for
 $t_{3,3}^5$ in $x^5+y^5$ or for any descendent singleton $t_{a,b,2}$: a single
 normal-form homotopy of \cite[Lem.~3.40]{GKT} cannot separate them, since all
-wall terms of a diagonal jump at one time (Proposition~\ref{prop:obstruction}).
-The exact first order at which two primary wall terms share a diagonal is
+wall terms of a string jump at one time (Proposition~\ref{prop:obstruction}).
+The exact first order at which two primary wall terms share a string is
 computed for every hyperbolic pair, that is, every pair with $rs>2r+2s$
 (Proposition~\ref{prop:parabolicgeom},
 Remark~\ref{rem:thresholdgeom}).  Realizing each boundary-ray factor by its
 own normal-form homotopy avoids the obstruction.  On the punctured quadrant the
 product of ray factors along a path transverse to the walls depends only on
 the chambers of its angular endpoints
-(Proposition~\ref{thm:positionobstruction7}).
+(Remark~\ref{thm:positionobstruction7}).
 
 The last main result is algebraic and concerns transport through the
 \emph{boundary-degree quadrant} $C_\partial$, the closed first quadrant of
@@ -583,8 +634,7 @@ from the $\sigma_1$-edge cut up to $q$, that is, the path-ordered product, in
 the sense of \cite{GPS10}, along a path from the $\sigma_1$-edge to $q$, taken
 coefficientwise (Definition~\ref{def:sector}).  The \emph{cut potential} at
 $q$ is $W(q)=\Psi(q)(W^{\nu^{\min}})$.  Here $m$ denotes a monomial
-$u_{J,\mathbf d}x^{\beta_1}y^{\beta_2}$ of the potential; the integer
-$m(J,\mathbf d)$ of \eqref{eq:dimconstraint} always carries its arguments.
+$u_{J,\mathbf d}x^{\beta_1}y^{\beta_2}$ of the potential.
 The \emph{anchor cut} $q_m$ of $m$ is the slope cut through the direction of
 its exponent, on the side toward the $(1,1)$-direction
 (Definition~\ref{def:anchor}), and the coefficient of $m$ at $q_m$ is its
@@ -602,7 +652,7 @@ of $m$.  On every monomial $u_{J,\mathbf d}$ the difference between the
 coefficient vector of $W(q)$ and the transported contributions of the
 constants $\mathrm{init}_m$ of the proper divisor monomials is
 \emph{independent of the cut} $q$, and it equals the vector of the constants
-$\mathrm{init}_m$ on the diagonal of $u_{J,\mathbf d}$.
+$\mathrm{init}_m$ on the string of $u_{J,\mathbf d}$.
 \end{theorem}
 
 We call $\mathrm{init}_m$ the \emph{initial coefficient} of $m$; the initial
@@ -611,16 +661,16 @@ are determined recursively in the divisibility order of deformation monomials.
 
 The proof of Theorem~\ref{thm:transport} is an induction in the divisibility
 order of deformation monomials: on
-the diagonal of a monomial $u$, the change of the potential across a wall and
+the string of a monomial $u$, the change of the potential across a wall and
 the change of the transported lower initial coefficients are the same universal
 expression in lower-order data, so their difference does not depend on the
 cut.  This part is formal.  What gives the representation content is that
-the initial system is not generated by wall-crossing
-(Observation~\ref{obs:richer}): transport through the ray factors from
-$x^r+y^s$ and the monomials with one internal marking does not produce the
-potential, because nonzero initial coefficients occur beyond these, for
+the initial system is not in general generated by wall-crossing
+(Observation~\ref{obs:richer}): for $x^5+y^5$, transport through the ray
+factors from $x^r+y^s$ and the monomials with one internal marking does not
+produce the potential, because nonzero initial coefficients occur beyond these, for
 instance the invariant $\tfrac15$ of \eqref{eq:newinvariants}, with three
-internal markings, on a diagonal without wall terms, which no ray action can
+internal markings, on a string without wall terms, which no ray action can
 produce.  In the smooth Fano case of \cite{Gross10,CPS}, by
 contrast, the potential is generated by broken lines from its initial
 monomials.  A coefficient whose initial
@@ -646,34 +696,35 @@ initial coefficients do not depend on the side of the anchor cut, since the
 factor on the ray of $m$ fixes $m$ (Proposition~\ref{prop:placement}); the
 anchored values do, and the $(1,1)$-side is the one for which
 Proposition~\ref{thm:nobackscatter} controls the foreign bending at the anchor
-cut.  The ordered-chain formula of
+cut.  The triangular inversion of
 Proposition~\ref{thm:seedinversion} expresses each initial coefficient as an
-alternating sum of anchored values weighted by bend chains.
+alternating sum of anchored values multiplied by sums of bend chains.
 
 \subsubsection*{Further results}
-The \emph{good-basis period functional} of a diagonal is the linear functional
-given by the coefficient, on that diagonal, of the oscillatory periods of
+The \emph{good-basis period functional} of a string is the linear functional
+given by the coefficient, on that string, of the oscillatory periods of
 \cite[Thm.~0.3]{GKT} (Lemma~\ref{lem:periods}).  We call the
-$(J,\mathbf d)$-diagonal \emph{narrow} if $r(J)\le r-2$ and $s(J)\le s-2$, and
+$(J,\mathbf d)$-string \emph{narrow} if $r(J)\le r-2$ and $s(J)\le s-2$, and
 \emph{broad} if $r(J)=r-1$ or $s(J)=s-1$: as for marked points in
 \cite[\S1.1]{GKT}, its residue twist $(r(J),s(J))$ is then Neveu--Schwarz for
 both bundles, respectively Ramond for one of them.  The good-basis periods
-vanish on the broad diagonals, which are therefore invisible to them.
+vanish on the broad strings, which are therefore invisible to them.
 
 \begin{theorem}[Effective determination; \S\ref{sec:diagonal}]
 \label{thm:effective}
-(i) On each narrow $(J,\mathbf d)$-diagonal the wall vectors span exactly
+(i) On each narrow $(J,\mathbf d)$-string the wall vectors span exactly
 the kernel of the good-basis period functional.  (ii) On each
-$(J,\mathbf d)$-diagonal the chamber-index conditions of \cite{GKT} amount to
-one linear condition, with the Gamma-function weights of \eqref{eq:Apoly} and
+$(J,\mathbf d)$-string the chamber-index conditions of \cite{GKT} amount to
+one linear condition, with the Gamma coefficients of \eqref{eq:Apoly} and
 with right-hand side determined by strictly lower order.  (iii) Together with
 the characterization of $\Om(I)$ as the set of solutions of the chamber-index
 conditions \cite[Cor.~5.14]{GKT}, this determines all open FJRW invariants of
 $x^{r}+y^{s}$, up to the torsor action, from the normalizations alone.  (iv) On
-every diagonal that carries a balanced coefficient the prescribed value of
+every string that carries a balanced coefficient the prescribed value of
 $\Ascr$ is $0$ or, for a single marking with descendent exponent $d_1$,
 $(-1)^{d_1}$; the closed extended invariants occur only as the values of
-$\Ascr$ on diagonals without balanced coefficients \cite[Cor.~5.11(3)]{GKT}.
+$\Ascr$ for $(J,\mathbf d)$ with $N(J,\mathbf d)<0$, which have no balanced
+coefficients \cite[Cor.~5.11(3)]{GKT}.
 \end{theorem}
 
 Theorem~\ref{thm:effective} says that the boundary-ray action, together with
@@ -682,9 +733,9 @@ the chamber-index conditions determine the invariants up to the action
 follows from the transitivity of \cite[Thm.~4.27]{GKT} together with
 \cite[Cor.~5.14]{GKT}, once the Lie algebra is enlarged
 (Lemma~\ref{lem:enlarged}).  What is added is the explicit identification of
-the wall vectors on each diagonal. On a narrow diagonal they span exactly
+the wall vectors on each string. On a narrow string they span exactly
 the kernel of the good-basis period functional, which also follows from
-Steps~1 and~3 of \cite[proof of Thm.~4.27]{GKT}. On a broad diagonal, where
+Steps~1 and~3 of \cite[proof of Thm.~4.27]{GKT}. On a broad string, where
 the good-basis periods vanish and \cite[Thm.~4.9]{GKT} does not apply, the
 Laplace functional of Lemma~\ref{lem:allresidue} replaces the period formula.
 Lemma~\ref{lem:allresidue} shows, by integration by parts, that every
@@ -695,7 +746,7 @@ proof of Theorem~\ref{thm:effective} has two ingredients.  Each wall vector is
 annihilated by the period functional, because the period moments obey the
 recurrence of Lemma~\ref{lem:periods}, which is the form that
 $\Gamma(z+1)=z\Gamma(z)$ takes on the good-basis cycles.  The $N$ wall vectors
-of a diagonal with $N+1$ coefficients are independent and lie in the kernel of
+of a string with $N+1$ coefficients are independent and lie in the kernel of
 the linear part of $\Ascr$, a nonzero functional on these coefficients, so
 they span that kernel, which has dimension $N$.
 
@@ -792,8 +843,8 @@ The argument combines the grading and torsor action of the GKT wall-crossing
 group with ordered factorization in a strictly convex cone, the
 Kontsevich--Soibelman ordered-product lemma over the boundary rays (Proposition~\ref{prop:ordered} and the discussion before
 Theorem~\ref{thm:canonical}).  The period
-relations determine the transverse coordinate on each diagonal, with the
-Laplace functional of Lemma~\ref{lem:allresidue} on the broad diagonals.  The
+relations determine the transverse coordinate on each string, with the
+Laplace functional of Lemma~\ref{lem:allresidue} on the broad strings.  The
 GKT extension lemma realizes each prescribed finite
 sequence of group factors by canonical homotopies.
 Theorem~\ref{thm:trichotomy} is proved here (\S\ref{sec:algebra}) and also in
@@ -801,9 +852,12 @@ Theorem~\ref{thm:trichotomy} is proved here (\S\ref{sec:algebra}) and also in
 dependence of the primary invariants on boundary conditions, and the
 first-wall count, the least number of primary interior insertions that admits
 a critical graph.  The exact calculations for $x^5+y^5$ in
-Section~\ref{sec:cert} and Appendix~\ref{sec:x5y5} are consistency checks and
-enter no proof; the programs are available at
+Section~\ref{sec:cert} are consistency checks and enter no proof; the programs are available at
 \url{https://github.com/bwuebben/open-fjrw-scattering}.
+
+\subsection*{Acknowledgements}
+I am grateful to Mark Gross for inspiring me to work on these problems.
+The author used LLMs during the development of this work for literature exploration, editorial and coding assistance and as an adversarial reader.
 
 \section{The wall-crossing algebra of critical graphs}
 \label{sec:algebra}
@@ -824,7 +878,7 @@ $k_{2}\equiv s(J)\ (\mathrm{mod}\ s)$ and to \eqref{eq:dimconstraint}.  The
 integer $N(J,\mathbf d)=\ell_1+\ell_2-|J|+1+\sum_{j\in J}d_j$ of
 Definition~\ref{def:diagonal} counts the balanced and the critical graphs over
 $(J,\mathbf d)$; below the respective thresholds $N\ge0$ and $N\ge1$ those
-sets are empty.  The points of the $(J,\mathbf d)$-diagonal are
+sets are empty.  The points of the $(J,\mathbf d)$-string are
 $(r(J)+pr,\ s(J)+(N-p)s)$, $0\le p\le N$.
 
 Including the wall terms of bidegree $(0,0)$ that occur when $w=0$, the
@@ -838,12 +892,8 @@ r(J)=s(J)=0}}
 \widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s}).
 \]
 Remark~\ref{rem:torus} proves that this is a Lie algebra; its marginal torus
-summands are omitted from \cite[Def.~4.23]{GKT}.  The enlarged group acts
-freely and transitively on $\Om(I)$, the \emph{torsor action}
-(Lemma~\ref{lem:enlarged}; \cite[Prop.~1.4]{note}), while the transitivity
-asserted in \cite[Thm.~4.27]{GKT} fails without these summands as soon as a
-marginal critical graph occurs (\cite[Rem.~3.1]{note};
-Remark~\ref{rem:torus}, Proposition~\ref{prop:nontransitive}).
+summands are omitted from \cite[Def.~4.23]{GKT}.  Lemma~\ref{lem:enlarged}
+proves the torsor property of \S\ref{ssec:results}.
 
 As in GKT, a \emph{family} is indexed by graphs, and a \emph{homotopy} is a
 one-parameter deformation, of a single multisection or of a family.  A
@@ -853,8 +903,7 @@ strata.  The extension lemma \cite[Lem.~3.40]{GKT}, recalled as
 Lemma~\ref{lem:gktextension}, constructs such a homotopy between any two
 families of canonical multisections that are transverse to the zero section;
 its jumps are given by the jump formula of \cite[proof of Thm.~5.9]{GKT},
-restated in \S\ref{sec:presentation}.  Reduction to a finite divisor-closed
-set $S$ means quotienting out all other deformation monomials.  Because the
+restated in \S\ref{sec:presentation}.  Because the
 descendent walls are dense in $C_\partial$ (Proposition~\ref{prop:localfinite}),
 slope cuts replace the chambers of a finite set of walls
 (Definition~\ref{def:sector}).
@@ -863,7 +912,7 @@ slope cuts replace the chambers of a finite set of walls
 \label{ssec:critical}
 We recall the objects of \cite[\S2.4, \S4.3]{GKT} in the notation used
 throughout, with the internal and boundary markings of \S\ref{ssec:theory}
-and with $r(J)$, $s(J)$ as in \S\ref{ssec:setting} and $m(J,\mathbf d)$ as in
+and with $r(J)$, $s(J)$ as in \S\ref{ssec:setting} and $w(J,\mathbf d)$ as in
 \eqref{eq:dimconstraint}.
 
 \begin{definition}[{\cite[Not.~2.40]{GKT}}]
@@ -874,14 +923,13 @@ graphs over $(J,\mathbf d)$ are $\Gamma_{J,p}$, $0\le p\le N$, with boundary
 degrees $\beta=(r(J)+pr,\ s(J)+(N{-}p)s)$ and one $\sigma_{12}$-point; the
 \emph{critical} graphs are $\Lambda_{J,p}$, $1\le p\le N$, with boundary degrees
 $(r(J)+(p{-}1)r+1,\ s(J)+(N{-}p)s+1)$ and no $\sigma_{12}$-point. We refer to the
-set of balanced coefficients over a fixed $(J,\mathbf d)$ as its \emph{diagonal}.
+set of balanced coefficients over a fixed $(J,\mathbf d)$ as its \emph{balanced string}.
 The balanced range is empty for $N<0$, and the critical range is empty for
-$N<1$. By \cite[Prop.~2.31]{GKT}, the diagonal is the set of boundary degrees
-$\beta\in\ZZ_{\ge0}^2$ with $s\beta_{1}+r\beta_{2}=m(J,\mathbf d)$,
+$N<1$. By \cite[Prop.~2.31]{GKT}, the boundary degrees of the string are the
+$\beta\in\ZZ_{\ge0}^2$ with $s\beta_{1}+r\beta_{2}=w(J,\mathbf d)+rs$,
 $\beta_1\equiv r(J)\ (\mathrm{mod}\ r)$ and
-$\beta_2\equiv s(J)\ (\mathrm{mod}\ s)$.  A diagonal thus lies on a segment
-parallel to $(r,-s)$ in the boundary-degree plane; it is not the $(1,1)$-ray of
-that plane.
+$\beta_2\equiv s(J)\ (\mathrm{mod}\ s)$, so a string lies on a segment
+parallel to $(r,-s)$ in the boundary-degree plane.
 \end{definition}
 
 A system of open invariants bounded by $I$ is a vector
@@ -906,21 +954,24 @@ $\Theta_i$, its numbers of boundary markings of types $\sigma_1$ and $\sigma_2$.
 \emph{chamber index} is a system with $\nu_{\Gamma,\mathbf 0}=1$ when $\Gamma$
 has one internal marking, $\nu_{\Gamma,\mathbf 0}=-1$ when it has none,
 $\Ascr(J,\mathbf d,\nu)=(-1)^d$ when $J=\{j\}$ and $\mathbf d=(d)$, and
-$\Ascr(J,\mathbf d,\nu)=0$ when $|J|\ge2$ and
-$m(J,\mathbf d)\ge s\,r(J)+r\,s(J)$ \cite[Definition~3.47]{GKT}; we write
+$\Ascr(J,\mathbf d,\nu)=0$ when $|J|\ge2$ and $N(J,\mathbf d)\ge0$
+\cite[Definition~3.47]{GKT}; we write
 $\Upsilon_{r,s}(I)$ for the set of chamber indices bounded by $I$.  By
 \cite[Corollary~5.14]{GKT}, $\Om(I)=\Upsilon_{r,s}(I)$: the chamber indices are
 exactly the systems realized by canonical boundary conditions, the
 \emph{realizable} systems of \S\ref{ssec:theory}.
-Since $m(J,\mathbf d)=s\,r(J)+r\,s(J)+rs\,N(J,\mathbf d)$, the inequality in
-the last condition says $N(J,\mathbf d)\ge0$.
+The inequality of \cite[Def.~3.47]{GKT} in the last condition reads
+$N(J,\mathbf d)\ge0$, because
+\[
+w(J,\mathbf d)+rs=s\,r(J)+r\,s(J)+rs\,N(J,\mathbf d).
+\]
 
-\begin{proposition}[The primitive-form shift]
+\begin{proposition}[The $(1,1)$ shift]
 \label{prop:shift}
 The Lie bidegree of the critical graph $\Lambda_{J,p}$, in the sense of
 \eqref{eq:dimconstraint}, is its boundary degree minus $(1,1)$
 (\cite[Prop.~2.39]{GKT}); equivalently, the vector field of the wall term attached
-to $\Lambda$ is the Hamiltonian vector field, for the primitive form $dx\wedge dy$, of the boundary
+to $\Lambda$ is the Hamiltonian vector field, for the area form $dx\wedge dy$, of the boundary
 monomial $x^{\#\sigma_{1}}y^{\#\sigma_{2}}$ of the critical graph. With
 $g_{\alpha}=z^{\alpha}(\alpha_{2}x\partial_{x}-\alpha_{1}y\partial_{y})$ the corresponding vector
 field of the tropical vertex (Hamiltonian for $d\log x\wedge d\log y$), one has
@@ -981,7 +1032,7 @@ the proof of \cite[Thm.~5.9]{GKT}, the jump sets $Q_{0}(A,\mathbf d)$ of the
 jump formula (\S\ref{sec:presentation}) impose
 only the congruences and \eqref{eq:dimconstraint}, which admit the bidegree
 $(0,0)$ when $r(A)=s(A)=0$.  In the
-proof of \cite[Thm.~5.13]{GKT} (which gives \cite[Cor.~5.14]{GKT}), the
+proof of \cite[Thm.~5.13]{GKT}, the
 realizability step modifies the
 multisection of a critical graph $\Lambda$ by a homotopy
 \cite[Lem.~5.17]{GKT}.  This moves the two adjacent balanced coefficients by
@@ -989,16 +1040,10 @@ $h_\Lambda\cdot((-1)^{\beta_{2}(\Lambda)}s\,\beta_{1}(\Lambda),
 (-1)^{\beta_{2}(\Lambda)+1}r\,\beta_{2}(\Lambda))$, where $\beta(\Lambda)$ is the
 boundary degree of $\Lambda$ and $h_\Lambda\in\QQ$ is the signed number of
 zeros of that homotopy, the number $h_{p,\mathbf d}$ of
-\cite[(5.52)--(5.54)]{GKT}.  On a marginal diagonal this vector is exactly the
+\cite[(5.52)--(5.54)]{GKT}.  On a marginal string this vector is exactly the
 antisymmetric torus motion.
-We therefore work with the enlarged algebra
-\[
-\widetilde\gfrak^{\,r,s}=\gfrak^{r,s}\ \oplus\
-\bigoplus_{\substack{\varnothing\ne J,\ w(J,\mathbf d)=0,\ N(J,\mathbf d)\ge1\\
-r(J)=s(J)=0}}
-\QQ\,u_{J,\mathbf d}\,(x\partial_{x}-y\partial_{y}),
-\]
-whose new summands commute with one another and preserve the bidegree of
+We therefore work with the enlarged algebra $\widetilde\gfrak^{\,r,s}$ of
+\S\ref{ssec:setting}, whose new summands commute with one another and preserve the bidegree of
 every wall term. This is a Lie algebra: with $X_{0,0}=x\partial_x-y\partial_y$,
 $[uX_{0,0},vX_{k}]=(k_1-k_2)uvX_{k}$ and $[uX_{0,0},vX_{0,0}]=0$; since a
 marginal coefficient
@@ -1006,15 +1051,10 @@ $u$ has weight and residues zero, $uv$ satisfies the same wall-term
 constraints as $v$. In the primary algebra nothing is added when $\chat_{W}<1$; for the parabolic pairs the primary
 group is purely torus, matching the elliptic wall-crossing group of Maher
 \cite[\S5.2.2]{Maher}; for $\chat_{W}>1$ the torus summands sit over the marginal
-submonomials.  Without the torus summands transitivity fails: for $r=s=4$
-and two labels of twist $(2,2)$, the chamber-index conditions leave a
-one-parameter set of values for the coefficients of the product of the two
-primary label variables, the set exhibited in \cite[Ex.~4.9]{GKTsurvey}, and no
-generator of $\gfrak^{4,4}$ changes them
-(Proposition~\ref{prop:nontransitive}). All statements below are over $\widetilde\gfrak^{\,r,s}$ and its
-group $\widetilde G^{r,s}=\exp(\widetilde\gfrak^{\,r,s})$; the next two lemmas
-supply the torsor properties over the enlargement, which over the symmetric
-ring are \cite[Prop.~1.4]{note}.
+submonomials.  Without the torus summands transitivity fails
+(Proposition~\ref{prop:nontransitive}).  The next two lemmas supply the
+torsor properties over the enlargement, which over the symmetric ring are
+\cite[Prop.~1.4]{note}.
 \end{remark}
 
 \begin{lemma}[All-residue $\Gamma$-functionals]
@@ -1090,23 +1130,23 @@ $\Upsilon_{r,s}(I)$.
 Transitivity: first work modulo a finite divisor-closed set of deformation
 monomials and order those monomials by any linear extension of proper
 divisibility.  Suppose two realizable systems have already been made equal on
-every proper divisor of $u=u_{J,\mathbf d}$.  On the diagonal of $u$, all
+every proper divisor of $u=u_{J,\mathbf d}$.  On the string of $u$, all
 $h\ge2$ terms of $\Ascr(J,\mathbf d,-)$ involve proper divisors and hence
 already agree.  The difference of the two coefficient vectors therefore lies
-in the kernel of the nonzero $h=1$ Gamma functional.  If the diagonal has
+in the kernel of the nonzero $h=1$ Gamma functional.  If the string has
 $N+1$ balanced coefficients, that kernel has dimension $N$.  In the basis
-$\varepsilon_0,\dots,\varepsilon_N$ of the coefficients of the diagonal, the $N$
+$\varepsilon_0,\dots,\varepsilon_N$ of the coefficients of the string, the $N$
 adjacent wall vectors (computed in \S\ref{sec:diagonal})
 \[
  v_p=\lambda_p\varepsilon_p-\mu_p\varepsilon_{p-1},\qquad \lambda_p,\mu_p>0,\qquad 1\le p\le N,
 \]
 are independent and lie in the kernel by Lemma~\ref{lem:allresidue}; hence
-they span it.  On a wall-bearing marginal diagonal $N=1$, and the sole vector is the
+they span it.  On a wall-bearing marginal string $N=1$, and the sole vector is the
 adjoined torus vector
 $r\varepsilon_1-s\varepsilon_0=X_{0,0}(W_0)$.  A unique combination of
 wall terms with coefficient $u$ therefore removes the difference.  Its action
 on every nonconstant term of the potential carries a strict multiple of $u$, so
-it changes no coefficient on a proper divisor of $u$ and acts on the diagonal
+it changes no coefficient on a proper divisor of $u$ and acts on the string
 of $u$ only through $W_0$.  Induction proves
 transitivity in every finite quotient.  By the freeness proved below, whose
 argument applies verbatim modulo the monomials outside a finite
@@ -1115,7 +1155,7 @@ the elements for nested quotients are compatible; since only finitely many
 deformation monomials occur below each bound on the degree of the wall terms,
 they define an element of the completed group.
 
-The equality $\Om(I)=\Upsilon_{r,s}(I)$ remains the realization theorem
+The equality $\Om(I)=\Upsilon_{r,s}(I)$ remains GKT's realization theorem
 \cite[Thm.~5.13 and Cor.~5.14]{GKT}.  Its inclusion
 $\Upsilon_{r,s}(I)\subseteq\Om(I)$ does not require the omitted marginal
 transitivity: at equation (5.50) of \cite{GKT}, the two required
@@ -1127,15 +1167,15 @@ Freeness: let $g=\exp(\eta)$ with $\eta\ne0$, and let $u$ be minimal in the
 divisibility order among the monomials in the support of $\eta$ (labeled
 monomials over $A_I$, symmetric monomials over $A_{I,\mathrm{sym}}$; the
 argument is the same). The change of
-the $u$-diagonal of any potential is exactly $\eta_{u}(W_{0})$, $W_{0}=x^{r}+y^{s}$: contributions of
+the string of $u$ in any potential is exactly $\eta_{u}(W_{0})$, $W_{0}=x^{r}+y^{s}$: contributions of
 other wall terms, or of higher exponential terms, carry monomials properly
 containing a support monomial, which cannot equal $u$ by minimality. And
-$\eta_{u}(W_{0})\ne0$. Indeed, on the diagonal belonging to $u$, the $N$
+$\eta_{u}(W_{0})\ne0$. Indeed, on the string belonging to $u$, the $N$
 positive-weight wall terms act by the adjacent vectors
 $\lambda_{p}\varepsilon_{p}-\mu_{p}\varepsilon_{p-1}$ with $\lambda_{p},\mu_{p}>0$. These
 vectors are linearly independent: reading a relation successively in the
 $\varepsilon_{N},\varepsilon_{N-1},\ldots,\varepsilon_{1}$ coordinates kills all its
-coefficients. On a marginal diagonal there is instead the single nonzero torus
+coefficients. On a marginal string there is instead the single nonzero torus
 vector $r\varepsilon_{1}-s\varepsilon_{0}$. Thus no nonzero linear combination of the wall terms in
 $\eta_u$ can cancel. (Individually, a positive-weight wall term contributes
 $r(k_{2}{+}1)x^{k_{1}+r}y^{k_{2}}-s(k_{1}{+}1)x^{k_{1}}y^{k_{2}+s}$, while a
@@ -1161,8 +1201,9 @@ $\Om(I)$.
 \begin{proof}
 For $J=\{i,j\}$ and $\mathbf d=\mathbf 0$ one has $r(J)=s(J)=0$,
 $\ell_1=\ell_2=1$, $N=1$ and $w=0$, with balanced boundary degrees $(0,4)$ and
-$(4,0)$.  The chamber-index condition on this diagonal is the single condition
-$\Ascr(J,\mathbf 0,\nu)=0$, whose linear part has two nonzero weights, so it
+$(4,0)$.  The chamber-index condition on this string is the single condition
+$\Ascr(J,\mathbf 0,\nu)=0$, whose linear part has two nonzero Gamma
+coefficients, so it
 leaves a one-parameter set of values for the two coefficients.  Since
 $u_iu_j$ divides no other monomial of the labeled ring, no other condition
 involves these coefficients, so every value in this set occurs in a chamber index, hence
@@ -1190,17 +1231,15 @@ $W^{\mathfrak s_T}$ of such a homotopy is constant in the homotopy time $T$ exce
 and at $T_A$ it changes by
 \[
 W\longmapsto\exp\Bigl(\sum_{\mathbf d}\sum_{\Lambda}
-(-1)^{|A|+k_2(\Lambda)}\,\Delta(\Lambda)\,u_{A,\mathbf d}X_{\Lambda}\Bigr)(W)
+(-1)^{|A|+\beta_2(\Lambda)-1}\,\Delta(\Lambda)\,u_{A,\mathbf d}X_{\Lambda}\Bigr)(W)
 \qquad\text{\cite[proof of Thm.~5.9]{GKT}},
 \]
 the sums over the descendent vectors $\mathbf d$ on $A$ and the critical graphs
 $\Lambda$ with internal marking set $A$ and descendent vector $\mathbf d$.
 Here $X_\Lambda=X_{k(\Lambda)}$, where $k(\Lambda)=\beta(\Lambda)-(1,1)$ is the
-Lie bidegree of $\Lambda$ (Proposition~\ref{prop:shift}) and $k_2(\Lambda)$ its
-second component, one less than the number of boundary points of $\Lambda$ of
-twist $(0,s-2)$ (elsewhere in \cite{GKT} that number itself is written
-$k_2(\Lambda)$, and in \cite[Not.~5.7]{GKT} the present $k_2(\Lambda)$
-appears as $k_2(0)$); $u_{A,\mathbf d}=\prod_{j\in A}u_{j,d_j}$ is the monomial of
+Lie bidegree of $\Lambda$ (Proposition~\ref{prop:shift}), so that the
+exponent $\beta_2(\Lambda)-1$ in the sign is its second component, written
+$k_2(0)$ in \cite[Not.~5.7]{GKT}; $u_{A,\mathbf d}=\prod_{j\in A}u_{j,d_j}$ is the monomial of
 the internal markings in the labeled ring of \cite[Def.~4.6]{GKT}, so that
 $u_{A,\mathbf d}X_\Lambda$ is the wall term of $\Lambda$; and $\Delta(\Lambda)$ is
 the signed count of zeros of the homotopy of
@@ -1364,7 +1403,7 @@ this section; by (3)(b), the slices of the homotopies of balanced graphs at
 the times $T_A$ are transverse on
 $\mathcal{PM}_\Gamma\setminus\partial\mathcal{PM}_\Gamma$.
 
-\section{Period relations on each diagonal}
+\section{Period relations on each balanced string}
 \label{sec:diagonal}
 
 Two structural facts from \cite{GKT} organize this section. The open
@@ -1374,10 +1413,12 @@ cohomological-field-theory node splitting: in
 invariant and continues as an open piece carrying the socle-dual twist
 $(a,b)\mapsto(r{-}2{-}a,s{-}2{-}b)$ of the Jacobi ring
 $\CC[x,y]/(x^{r-1},y^{s-1})$: the node is the residue pairing. And the
-$\Gamma$-weights in the invariant combinations $\Ascr$ are the periods of
+Gamma coefficients of the polynomials $\Ascr$ are periods of
 $x^{r}+y^{s}$: $\int_{0}^{\infty}e^{-x^{r}}x^{\beta_1}dx=\tfrac1r\Gamma(\tfrac{1+\beta_1}r)$,
-so the weight attached to a boundary degree $\beta$ is the period normalization of the
-primitive form. The good-basis period moments themselves are explicit:
+so the Gamma coefficient attached to a boundary degree $\beta$ is, up to a
+normalization depending only on $(r(J),s(J))$, the integral of
+$x^{\beta_1}y^{\beta_2}e^{-x^r-y^s}$ against Saito's primitive form
+$dx\wedge dy$ over the positive quadrant.  The good-basis period moments themselves are explicit:
 
 \begin{lemma}[Periods]
 \label{lem:periods}
@@ -1396,12 +1437,12 @@ $0=\int_{\Xi_{a}}\tfrac{d}{dx}(x^{q}e^{x^{r}/\hbar})
 
 \begin{proof}[Proof of Theorem~\ref{thm:effective}]
 \emph{The case $N=0$.}
-If $N=0$, there is no wall vector and the nonzero $h=1$ weight in
-$\Ascr$ determines the sole coefficient modulo lower monomials, so the claim is
+If $N=0$, there is no wall vector and the nonzero Gamma coefficient of
+the $h=1$ part of $\Ascr$ determines the sole coefficient modulo lower monomials, so the claim is
 immediate.
 
-\emph{Wall-bearing diagonals.}
-Fix now a wall-bearing diagonal $(J,\mathbf d)$, of positive or
+\emph{Wall-bearing strings.}
+Fix now a wall-bearing string $(J,\mathbf d)$, of positive or
 marginal weight, with coefficients $\nu_{p}$, $0\le p\le N$, as in
 Definition~\ref{def:diagonal}. The wall term of
 $\Lambda_{J,p}$ acts on $W_{0}=x^{r}+y^{s}$ by
@@ -1412,7 +1453,7 @@ u_{J,\mathbf d}X_{k_{1},k_{2}}(W_{0})
 -s(k_{1}{+}1)\,x^{k_{1}}y^{k_{2}+s}\bigr),
 \end{equation}
 which lands on the monomials of two adjacent balanced coefficients of the same
-diagonal: in the basis
+string: in the basis
 $\varepsilon_{0},\dots,\varepsilon_{N}$ of coefficients, it is the wall vector
 $v_{p}=\lambda_{p}\varepsilon_{p}-\mu_{p}\varepsilon_{p-1}$ with
 $\lambda_{p}=r(k_{2}{+}1)=r\,\beta_{2}(\Lambda_{J,p})>0$ and
@@ -1424,35 +1465,35 @@ Lemma~\ref{lem:periods}, $P_{a}(k_{1}{+}r)P_{b}(k_{2})
 =-\tfrac{\hbar(k_{1}+1)}{r}P_{a}(k_{1})P_{b}(k_{2})$ cancels against the second
 term of \eqref{eq:wallvector}.
 
-\emph{Narrow diagonals.}
-On a narrow diagonal the period functional is nonzero on each $\varepsilon_{p}$, so its kernel has
+\emph{Narrow strings.}
+On a narrow string the period functional is nonzero on each $\varepsilon_{p}$, so its kernel has
 dimension $N$ and coincides with $\mathrm{span}(v_{p})$. By
 \cite[Thm.~4.9]{GKT} the coefficient of $u_{J,\mathbf d}$ in
 $\int_{\Xi_{(r(J),s(J))}}e^{W^{\nu}/\hbar}\,dx\wedge dy$ equals
-$(-1)^{|J|}(-\hbar)^{-d(J,\mathbf d)-2}\Ascr(J,\mathbf d,\nu)$, with
-$d(J,\mathbf d)=\bigl(s\,r(J)+r\,s(J)-m(J,\mathbf d)\bigr)/rs-1$
-\cite[Def.~4.8]{GKT}.  The $h=1$ part of $\Ascr$
+$(-1)^{|J|}(-\hbar)^{N(J,\mathbf d)-1}\Ascr(J,\mathbf d,\nu)$; the
+exponent is $-d(J,\mathbf d)-2$ in the notation of \cite[Def.~4.8]{GKT},
+where $d(J,\mathbf d)=-N(J,\mathbf d)-1$ by the identity for
+$w(J,\mathbf d)+rs$ in \S\ref{ssec:critical}.  The $h=1$ part of $\Ascr$
 ($h$ the number of blocks in \eqref{eq:Apoly}) is
-the weighted sum $\sum_{p}\omega_{p}\nu_{p}$ over the diagonal, with
-$\omega_p$ the $h=1$ weights of \eqref{eq:Apoly}, and its
+the sum $\sum_{p}\omega_{p}\nu_{p}$ over the string, with
+$\omega_p$ the Gamma coefficients of the $h=1$ part of \eqref{eq:Apoly}, and its
 $h\ge2$ parts involve only strictly smaller monomials. The chamber-index
 conditions \cite[Def.~3.47]{GKT} prescribe the value of $\Ascr$.
 
-\emph{Broad diagonals.}
+\emph{Broad strings.}
 On broad
-diagonals ($r(J)=r-1$ or $s(J)=s-1$) the good-basis periods vanish identically
-on the diagonal (Lemma~\ref{lem:periods}), but the $h=1$ weights of $\Ascr$
+strings ($r(J)=r-1$ or $s(J)=s-1$) the good-basis periods vanish identically
+on the string (Lemma~\ref{lem:periods}), but the Gamma coefficients $\omega_p$
 remain nonzero there (their arguments $(1+\beta_1)/r$ and $(1+\beta_2)/s$ are
 positive, and $\Gamma$ does not vanish there), and $\mathrm{span}(v_{p})$ lies in the
-kernel of the weighted functional modulo strictly smaller monomials, by
+kernel of the functional $\sum_p\omega_p\nu_p$ modulo strictly smaller monomials, by
 Lemma~\ref{lem:allresidue}; so the same
 one-linear-condition structure holds, imposed directly by the conditions,
 which by \cite[Cor.~5.14]{GKT} characterize $\Om(I)$ completely. Ordering monomials by degree and descendents determines every
 invariant, up to the span of the $v_{p}$ (the torsor directions), proving the
-theorem.  The prescribed values of $\Ascr$ on diagonals with balanced
+theorem.  The prescribed values of $\Ascr$ on strings with balanced
 coefficients are $0$ or, for a single marking with descendent exponent
 $d_1$, $(-1)^{d_1}$, because
-$m(J,\mathbf d)=s\,r(J)+r\,s(J)+rs\,N(J,\mathbf d)$ gives
 $d(J,\mathbf d)=-N(J,\mathbf d)-1<0$ there \cite[Def.~4.8]{GKT}; this proves
 the last statement.  The open topological recursion \cite[Thm.~0.5]{GKT}
 then relates these invariants to the closed extended invariants; it is not
@@ -1465,7 +1506,7 @@ For $x^{5}+y^{5}$ the conditions produce, order by order over the
 $t_{3,3}$-monomials, the one-insertion normalization
 $\langle\tau_{0}^{(3,3)}\sigma_{1}^{3}\sigma_{2}^{3}\sigma_{12}\rangle=1$; the
 first-wall relation \eqref{eq:firstwallrel} at $t_{3,3}^{2}$; the absolute value
-$\tfrac15$ of \eqref{eq:newinvariants} at $t_{3,3}^{3}$ (a diagonal with $N=0$,
+$\tfrac15$ of \eqref{eq:newinvariants} at $t_{3,3}^{3}$ (a string with $N=0$,
 hence no wall terms, and $r(J)=4=r{-}1$, hence broad and invisible to the good-basis
 periods, so the condition that determines it is not a period condition); and at $t_{3,3}^{4}$
 a relation quadratic in the first-wall invariants, giving
@@ -1473,13 +1514,13 @@ $\nu^{\min}_{(2,7)}=-\tfrac{12}{25}$ in the minimal system of
 Theorem~\ref{thm:canonical}. The descendent singleton at $d=1$ gives
 $\langle\tau_{1}^{(3,3)}\sigma_{1}^{8}\sigma_{2}^{3}\sigma_{12}\rangle
 +\langle\tau_{1}^{(3,3)}\sigma_{1}^{3}\sigma_{2}^{8}\sigma_{12}\rangle
-=-\tfrac54$: on its diagonal ($N=1$, balanced boundary degrees $(3,8)$ and $(8,3)$)
-the condition $\Ascr=(-1)^1$ has only its $h=1$ part, and both weights in
-\eqref{eq:Apoly} equal $\Gamma(\tfrac95)/\Gamma(\tfrac45)=\tfrac45$.  The
+=-\tfrac54$: on its string ($N=1$, balanced boundary degrees $(3,8)$ and $(8,3)$)
+the condition $\Ascr=(-1)^1$ has only its $h=1$ part, and both Gamma
+coefficients in \eqref{eq:Apoly} equal $\Gamma(\tfrac95)/\Gamma(\tfrac45)=\tfrac45$.  The
 values at $t_{3,3}^{3}$ and $t_{3,3}^{4}$ solve the condition $\Ascr=0$ on the
-diagonal of that monomial, with the lower values substituted into the terms
+string of that monomial, with the lower values substituted into the terms
 with $h\ge2$: at $t_{3,3}^{3}$ the term with $h=1$ is the single unknown
-coefficient, of weight $1$, and at $t_{3,3}^{4}$ ($N=1$, balanced boundary
+invariant, with Gamma coefficient $1$, and at $t_{3,3}^{4}$ ($N=1$, balanced boundary
 degrees $(2,7)$ and $(7,2)$) the minimal system sets the coefficient of
 $(7,2)$ to zero and the condition determines that of $(2,7)$.
 \end{remark}
@@ -1488,11 +1529,12 @@ $(7,2)$ to zero and the condition determines that of $(2,7)$.
 \label{rem:ex55}
 Imposing \cite[Thm.~0.3]{GKT} directly on the oscillatory expansion of the
 potential (the mechanism by which \cite[Thm.~0.2]{GKT} is proved, so that no
-combinatorial convention enters) forces, at every two-insertion diagonal
+combinatorial convention enters) forces, at every two-insertion string
 $\{(a_{1},b_{1}),(a_{2},b_{2})\}$ with $a_{1}{+}a_{2}=r$, $b_{1}{+}b_{2}=s$,
-$\mathbf d=0$, the relation \eqref{eq:seed}: the diagonal supports the boundary
-degrees $(r,0)$ and $(0,s)$ only, $d(J,0)<0$ so the mirror theorem admits no term
-there, and the linear and quadratic insertions contribute
+$\mathbf d=0$, the relation \eqref{eq:seed}: the string supports the boundary
+degrees $(r,0)$ and $(0,s)$ only, $N(J,\mathbf 0)=1$, so
+$d(J,\mathbf 0)=-N(J,\mathbf 0)-1<0$ in the notation of \cite[Def.~4.8]{GKT} and
+the mirror theorem admits no term there, and the linear and quadratic insertions contribute
 $\nu_{(r,0)}/r+\nu_{(0,s)}/s$ and $1/(rs)$ respectively
 (Lemma~\ref{lem:periods}).
 At $r=s=4$ this gives $-\tfrac14$ for the sum considered in
@@ -1507,12 +1549,13 @@ gives $-\tfrac14$.  The same count is determined independently by
 \cite[Cor.~5.11(3)]{GKT}: at $r=s=5$, $\Ascr(\{(1,1),(1,1)\},0)$ equals the closed
 three-point value $\langle(\tau_{0}^{(1,1)})^{3}\rangle=1$, which the labeled
 count reproduces and the halved count does not.  (The corresponding statement
-in \cite[Cor.~0.6]{GKT} carries an extra sign $(-1)^{d(J,\mathbf d)-1}$.  The
-diagonal of $t_{1,1}^2$ has $N=-1$, so the $t_{1,1}^2$-coefficient of
+in \cite[Cor.~0.6]{GKT} carries an extra sign $(-1)^{d(J,\mathbf d)-1}$, with
+$d(J,\mathbf d)=-N(J,\mathbf d)-1$ as in \cite[Def.~4.8]{GKT}.  For $t_{1,1}^2$
+one has $N=-1$, so the $t_{1,1}^2$-coefficient of
 $\int_{\Xi_{2,2}}e^{W/\hbar}$ is $P_2(2)^2/(2\hbar^2)=1/(2\hbar^2)$; by
 \cite[Thm.~0.3]{GKT} this equals $\hbar^{-2}\langle(\tau_{0}^{(1,1)})^{3}\rangle^{\mathrm{ext}}/2$,
 which confirms the sign of \cite[Cor.~5.11(3)]{GKT}.) On
-the marginal two-insertion diagonals the two
+the marginal two-insertion strings the two
 coefficients in \eqref{eq:seed} are moved (antisymmetrically) only by the torus
 direction of Remark~\ref{rem:torus}; at $r=s$ the point of this
 one-parameter set of values with equal coefficients has
@@ -1529,12 +1572,12 @@ affected.
 Part~(iii) is Proposition~\ref{prop:placement}.  For (i) and (ii), work in a primary quotient modulo $F^K$, or more generally on a finite
 divisor-closed coefficient set as in Proposition~\ref{prop:ordered}.
 For existence and uniqueness of $\nu^{\min}$, order its monomials by total
-degree. At each step, on each wall-bearing diagonal the span of the wall
+degree. At each step, on each wall-bearing string the span of the wall
 vectors $v_{p}=\lambda_{p}\varepsilon_{p}-\mu_{p}\varepsilon_{p-1}$ ($\lambda_{p},\mu_{p}>0$) is complementary to
 $\QQ\varepsilon_{0}$: a combination $\sum c_{p}v_{p}\in\QQ\varepsilon_{0}$ forces, reading the
 $\varepsilon_{N},\varepsilon_{N-1},\dots$ components in turn, $c_{N}=\dots=c_{1}=0$. Hence there is a
 unique group correction at this order making all $\nu_{p}$, $p\ge1$, vanish, and
-it does not disturb lower orders; on marginal diagonals the torus direction plays
+it does not disturb lower orders; on marginal strings the torus direction plays
 the role of the single wall term.  This triangular elimination is the argument of
 \cite[proof of Thm.~4.27, Step~3]{GKT}, with the torus direction adjoined. The resulting system is realizable because the group
 preserves $\Om(I)$ (Lemma~\ref{lem:enlarged}). Uniqueness follows from
@@ -1550,11 +1593,11 @@ completion and the coefficientwise descendent extension.
 
 \begin{example}[The first walls of $\Dscr^{5,5}$]
 \label{ex:walls}
-At order two in the deformation variables the three diagonals of
+At order two in the deformation variables the three strings of
 $x^{5}+y^{5}$ carrying positive-weight wall terms have balanced boundary degrees
 $(0,6),(5,1)$; $(6,0),(1,5)$; and $(1,6),(6,1)$ respectively, with the
 invariant relations and extremal values below (\S\ref{sec:cert}).  The two
-marginal diagonals $u=t_{2,2}t_{3,3}$ and $u=t_{2,3}t_{3,2}$, with balanced
+marginal strings $u=t_{2,2}t_{3,3}$ and $u=t_{2,3}t_{3,2}$, with balanced
 boundary degrees $(0,5)$ and $(5,0)$, carry the torus terms $\tfrac1{25}uX_{0,0}$
 on the $(1,1)$-ray, by the two-insertion relation \eqref{eq:seed}:
 {\small
@@ -1576,16 +1619,16 @@ t_{3,3}^{2} &
 \]
 }
 Each relation is the condition $\Ascr=0$ of \eqref{eq:Apoly}.  For
-$t_{2,3}t_{3,3}$ the $h=1$ weights are
+$t_{2,3}t_{3,3}$ the Gamma coefficients of the $h=1$ part are
 $\Gamma(\tfrac75)/\Gamma(\tfrac25)=\tfrac25$ and
 $\Gamma(\tfrac65)/\Gamma(\tfrac15)=\tfrac15$, and the $h=2$ term, the product
-of the two one-marking normalizations, has weight
+of the two one-marking normalizations, has Gamma coefficient
 $\Gamma(\tfrac65)\Gamma(\tfrac75)/(\Gamma(\tfrac15)\Gamma(\tfrac25))=\tfrac2{25}$;
-for $t_{3,3}^{2}$ the corresponding weights are $\tfrac25$, $\tfrac25$ and
+for $t_{3,3}^{2}$ the corresponding Gamma coefficients are $\tfrac25$, $\tfrac25$ and
 $(\tfrac25)^2$.  In $\nu^{\min}$ only the coefficient of least $x$-degree
 survives, and in $\nu^{\max}$ only that of greatest $x$-degree.  Solving
 $W^{\nu^{\max}}-W^{\nu^{\min}}=c\,\cdot u\,X_{k_{1},k_{2}}(W_{0})$ on each
-diagonal is an overdetermined system (two monomial components, one
+string is an overdetermined system (two monomial components, one
 coefficient); it is consistent because both systems satisfy the same linear
 relation, whose solutions differ by multiples of the wall vector, and it
 yields the ray factors of Theorem~\ref{thm:canonical}. The wall term
@@ -1608,15 +1651,16 @@ and isolates what is not.
 The product $g^{\min\to\max}$ is the transport
 along a path from one edge of $C_\partial$ to the other, whose two ends carry
 $\nu^{\min}$ and $\nu^{\max}$; it is not the holonomy of a loop
-(Proposition~\ref{thm:positionobstruction7}).
+(Remark~\ref{thm:positionobstruction7}).
 
 The section is organized as follows.  Section~\ref{ssec:sector} places the
 walls; \S\ref{ssec:transport} proves the transport representation and its
-ordered-chain inversion, and shows that the theory is strictly richer than the
-part generated from $x^r+y^s$ by wall-crossing; \S\ref{ssec:realization} realizes every finite coefficient
+triangular inversion, and shows that the theory is not in general generated
+by wall-crossing from $x^r$, $y^s$ and the monomials with one internal
+marking; \S\ref{ssec:realization} realizes every finite coefficient
 quotient by concatenated homotopies and proves the obstruction that makes the
 concatenation necessary; and \S\ref{ssec:missing} describes the punctured
-quadrant (Proposition~\ref{thm:positionobstruction7}) and what it does not
+quadrant (Remark~\ref{thm:positionobstruction7}) and what it does not
 supply (Remark~\ref{rem:interpretation}).
 
 \subsection{The quadrant and its rays}
@@ -1685,17 +1729,17 @@ $k_1+1,k_2+1>0$.
 If the two edges of the quadrant were identified, their ordered crossing would
 define a loop with holonomy $g^{\min\to\max}\ne\mathrm{id}$
 (Example~\ref{ex:walls}); in $C_\partial$ the edges remain distinct
-(Proposition~\ref{thm:positionobstruction7}).
+(Remark~\ref{thm:positionobstruction7}).
 
 \begin{proposition}[Interlacing and extreme support]
 \label{prop:interlace}
-On every diagonal the balanced monomials and the critical graphs interlace in
+On every string the balanced monomials and the critical graphs interlace in
 slope (writing $\mathrm{bal}_{p}$ for the balanced monomial of $\Gamma_{J,p}$),
 $\mathrm{bal}_{N}<\Lambda_{N}<\dots<\Lambda_{1}<\mathrm{bal}_{0}$, and the
 extremal systems of Theorem~\ref{thm:canonical} are the realizable systems at
 the two extreme chambers of every finite primary truncation, with the support
 of that theorem: near one edge only the monomial at the far end of each
-diagonal survives.
+string survives.
 \end{proposition}
 
 \begin{proof}
@@ -1741,8 +1785,8 @@ initial coefficient other than the coefficient's own.
 
 \begin{proposition}[Monotonicity of bends]
 \label{thm:nobackscatter}
-Along a path with $n_b$ bend factors, using wall terms of boundary degrees
-$\beta_f$, from an initial monomial of exponent $\alpha'$ into a
+Along a bend chain with $n_b$ bends, using wall terms of boundary degrees
+$\beta_f$, from an initial monomial of exponent $\alpha'$ to a
 monomial of exponent $\alpha$,
 \[
 n_b\det(\alpha,(1,1))
@@ -1786,41 +1830,44 @@ exactly under the stated cancellation.
 
 We call $x^{r}$ and $y^{s}$, the two monomials of $W_0$, the \emph{axis
 monomials}.  For a twist $(a,b)$, the \emph{tower} of $(a,b)$ is the set
-of singleton diagonals of $t_{a,b,d}$, $d\ge1$.
+of singleton strings of $t_{a,b,d}$, $d\ge1$.
 
 \begin{theorem}[Linear order and towers]
 \label{thm:linearorder}
-At linear order in the wall terms over a diagonal's monomial applied to the axis
-monomials $x^{r},y^{s}$, the cancellation of
-Lemma~\ref{lem:reduction} holds on every diagonal of every
-$(r,s,J,\mathbf d)$: transporting into the cut at $\mathrm{bal}_{p}$ from below
-crosses exactly the rays of the $\Lambda_{q}$, $q\ge p{+}1$, whose $x^{r}$-bends
-land on $\mathrm{bal}_{q}$, never on the target coefficient, while from above
-the $y^{s}$-bends at the crossed rays land on $\mathrm{bal}_{q-1}$, $q\le p$, again off
-the target. For singleton
-diagonals (one internal marking, any descendent) no contribution from another
-diagonal exists,
-the linearization is exact, and the transport representation holds with the
-anchored-value assignment on every such tower, with wall coefficients the
-chain $c_{q+1}=c_{q}\lambda_{q}/\mu_{q+1}$, with $c_1$ fixed by the condition
-$\Ascr=(-1)^{d}$ of the diagonal, where
-$\lambda_q,\mu_q$ are the coefficients of the wall vectors
-$v_q=\lambda_q\varepsilon_q-\mu_q\varepsilon_{q-1}$ of \S\ref{sec:diagonal}.
+\mbox{}
+\begin{enumerate}
+\item[(i)] On every string of every $(r,s,J,\mathbf d)$, no bend of an axis
+monomial by a wall term over the monomial of the string reaches a balanced
+coefficient of the string at the anchor cut of that coefficient.  Thus, at
+linear order in these wall terms, the foreign contributions of
+Lemma~\ref{lem:reduction} vanish.
+\item[(ii)] On a singleton string (one internal marking, any descendent
+exponent) there are no other contributions, and the transport representation
+holds with the anchored-value assignment on every tower.  The wall
+coefficients form the chain $c_{i+1}=c_{i}\lambda_{i}/\mu_{i+1}$, with $c_1$
+fixed by the condition $\Ascr=(-1)^{d}$ of the string, where
+$\lambda_i,\mu_i$ are the coefficients of the wall vectors
+$v_i=\lambda_i\varepsilon_i-\mu_i\varepsilon_{i-1}$ of \S\ref{sec:diagonal}.
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-The crossing sets and landing indices are those of
-Proposition~\ref{prop:interlace} together with the landing identities: by
-\eqref{eq:wallvector}, $X_{\Lambda_{q}}(x^{r})$ is a nonzero rational
-multiple of the monomial $\mathrm{bal}_{q}$ and $X_{\Lambda_{q}}(y^{s})$ of
-$\mathrm{bal}_{q-1}$. For a singleton
-monomial no proper divisor exists, so the only contributions are the linear
-ones.
+(i) By \eqref{eq:wallvector}, $X_{\Lambda_{i}}(x^{r})$ is a nonzero rational
+multiple of the monomial $\mathrm{bal}_{i}$ and $X_{\Lambda_{i}}(y^{s})$ of
+$\mathrm{bal}_{i-1}$.  By the interlacing of
+Proposition~\ref{prop:interlace}, transport into the anchor cut of
+$\mathrm{bal}_{p}$ from below crosses exactly the rays of the $\Lambda_{i}$
+with $i\ge p+1$, whose bends of $x^{r}$ land on $\mathrm{bal}_{i}\ne
+\mathrm{bal}_p$, and transport from above crosses exactly those with $i\le p$,
+whose bends of $y^{s}$ land on $\mathrm{bal}_{i-1}\ne\mathrm{bal}_p$.  (ii) A
+singleton monomial has no proper divisor other than $1$, so the only
+contributions are the linear ones of (i).
 \end{proof}
 
-The interlacing pattern of Theorem~\ref{thm:linearorder} is the analogue for
+The interlacing of Proposition~\ref{prop:interlace}, as used in
+Theorem~\ref{thm:linearorder}, is the analogue for
 this transport of the monotonicity of broken lines in \cite{CPS}.  Bends of
-initial coefficients of divisors by the wall terms of other diagonals lie outside
+initial coefficients of divisors by the wall terms of other strings lie outside
 the theorem; Example~\ref{ex:farside} shows that they can arrive.
 
 Two computed examples below (Examples~\ref{ex:middleseeds}
@@ -1845,25 +1892,28 @@ Induct on the divisibility order of deformation monomials; the induction
 starts at $W_{0}=x^{r}+y^{s}$, whose two coefficients are initial coefficients
 with value $1$ in every cut. Fix a monomial $u=u_{J,\mathbf d}$ and assume the
 initial coefficients are defined,
-with the transport identity holding, on every proper divisor of $u$. Write
-$D$ for the diagonal of $u$, so that $u_{D}=u$, and $E$ for the diagonal of a
-proper divisor $u_{E}$ of $u$. Let
+with the transport identity holding, on every proper divisor of $u$.  Write
+$W|_{u'}$ for the coefficients of $W$ on the string of a deformation monomial
+$u'$, so that $W|_1=W_0$, and let
 $W_{<u}(q)$ denote the $u$-component of the sum of the transported lower
 initial coefficients.
 
 \emph{Step 1: the change across a wall.}
-Across any wall $\theta=\exp(\eta)$ the coefficients on $D$ change by
+Across any wall $\theta=\exp(\eta)$ the coefficients on the string of $u$
+change by
 \[
-\Delta_{\theta}\bigl(W|_{D}\bigr)
+\theta\bigl(W\bigr)|_{u}-W|_{u}
 =\sum_{j\ge1}\frac1{j!}
-\sum_{\substack{\eta_{1},\dots,\eta_{j}\in\operatorname{supp}(\eta)\\
-u_{E}\,u_{\eta_{1}}\cdots\,u_{\eta_{j}}=u_{D}}}
-\bigl[\eta_{1}\cdots \eta_{j}\bigl(W|_{E}\bigr)\bigr]_{D},
+\sum_{\substack{u',\ \eta_{1},\dots,\eta_{j}\in\operatorname{supp}(\eta)\\
+u'\,u_{\eta_{1}}\cdots\,u_{\eta_{j}}=u}}
+\bigl[\eta_{1}\cdots \eta_{j}\bigl(W|_{u'}\bigr)\bigr]_{u},
 \]
-a universal expression in $\eta$ and the coefficients of $W$ on
-proper divisors $E$ of $D$ and on $W_{0}$: any other source overshoots
-$u$, and the wall terms over $u$ act on $D$'s coefficients only through $W_{0}$
-(their monomial is $u$ itself), so the change is exactly linear there.
+the sum over proper divisors $u'$ of $u$, $u'=1$ included, and over terms
+$\eta_i$ of $\eta$ with deformation coefficients $u_{\eta_i}$.  This is a
+universal expression in $\eta$ and the coefficients of $W$ on proper
+divisors of $u$: any other source overshoots $u$, and the wall terms over $u$
+act on the string of $u$ only through $W_{0}$ (their monomial is $u$ itself),
+so the change is exactly linear there.
 
 \emph{Step 2: cancellation, and chamber-independence of the residual.}
 The change of $W_{<u}$ across the same wall is the same universal expression
@@ -1871,15 +1921,15 @@ evaluated on the sum of transported lower initial coefficients, whose divisor
 coefficients equal
 $W$'s by the induction hypothesis and whose $W_{0}$-coefficients are the same
 constants $1$. Hence the two changes cancel in the difference and
-$V:=W(q)|_{D}-W_{<u}(q)$ is independent of $q$.
+$V:=W(q)|_{u}-W_{<u}(q)$ is independent of $q$.
 
-\emph{Step 3: the initial coefficient at $D$, and uniqueness.}
+\emph{Step 3: the initial coefficients on the string of $u$, and uniqueness.}
 A $u$-term transports with unchanged
 $u$-component (every wall action on it overshoots $u$), so taking as initial
-coefficients $\mathrm{init}_m$ of the monomials $m$ on $D$ the components of
-$V$, placed at the assigned anchor cuts, gives
-$\widetilde W|_{D}=V+W_{<u}=W|_{D}$ at every cut (all sums are coefficientwise finite: only
-finitely many initial coefficients of divisors and bend factors contribute to
+coefficients $\mathrm{init}_m$ of the monomials $m$ on the string of $u$ the
+components of $V$, placed at the assigned anchor cuts, gives
+$\widetilde W|_{u}=V+W_{<u}=W|_{u}$ at every cut (all sums are coefficientwise finite: only
+finitely many initial coefficients of divisors and bends contribute to
 a fixed monomial),
 completing the induction. Uniqueness is
 immediate: $V$ is determined by $W$ and the lower initial coefficients. Anchor
@@ -1893,7 +1943,7 @@ compatible with Proposition~\ref{thm:nobackscatter}.
 
 \emph{Consequences.}  (a) On a coefficient receiving no foreign bending at its
 anchor cut, the initial coefficient equals its anchored value.  (b) An extreme
-coefficient of a wall-bearing diagonal that receives no foreign bending at the
+coefficient of a wall-bearing string that receives no foreign bending at the
 cut where it vanishes in the corresponding extremal system, namely the
 $\sigma_1$-edge cut for the coefficient of greatest $x$-degree and the
 $\sigma_2$-edge cut for that of least $x$-degree, has initial coefficient
@@ -1908,7 +1958,7 @@ monomials; every other contribution is foreign.  At $q=q_m$ this gives (a), as
 in Lemma~\ref{lem:reduction}.  At the $\sigma_1$-edge cut the cut potential is
 $W^{\nu^{\min}}$, and at the $\sigma_2$-edge cut it is
 $g^{\min\to\max}(W^{\nu^{\min}})=W^{\nu^{\max}}$; there the coefficient of
-greatest, respectively least, $x$-degree of every wall-bearing diagonal
+greatest, respectively least, $x$-degree of every wall-bearing string
 vanishes (Theorem~\ref{thm:canonical}; Proposition~\ref{prop:interlace}
 identifies the extremal systems with the two extreme chambers), which gives
 (b).  Proposition~\ref{thm:nobackscatter} restricts the direction from which foreign
@@ -1920,27 +1970,29 @@ $(1,1)$-direction.
 \begin{lemma}[Ordered bend expansion]
 \label{lem:bendchain}
 Work in a finite divisor-closed coefficient quotient and write
-$z^\alpha=x^{\alpha_1}y^{\alpha_2}$.  Suppose a transport path crosses, in chronological
-order,
+$z^\alpha=x^{\alpha_1}y^{\alpha_2}$.  Suppose a transport path crosses, in
+chronological order, walls with automorphisms
 \[
- \Phi_j=\exp(\!\epsilon_j\eta_j),\qquad
- \eta_j=\sum_{f\in L_j}c_f u_f X_{k_f},
- \qquad \epsilon_j\in\{1,-1\}.
+ \Phi_j=\exp(\eta_j),\qquad
+ \eta_j=\sum_{f\in L_j}c_f u_f X_{k_f},\qquad 1\le j\le M,
 \]
-For nonnegative integers $n_j$ and ordered choices
-$f_{j,1},\ldots,f_{j,n_j}\in L_j$, read the decorations first by
-increasing $j$ and put $\alpha^h=\alpha^{h-1}+k_{f_h}$, starting from $\alpha^0=\alpha$.
-Then
+where for a negative crossing the $c_f$ are the negatives of the
+coefficients of the ray factor.  A \emph{bend chain} $\gamma$ is a choice of
+integers $n_j\ge0$ and of ordered $f_{j,1},\ldots,f_{j,n_j}\in L_j$; list
+its bends $f_1,\dots,f_{|\gamma|}$ by increasing $j$, and for fixed $j$ in
+the chosen order, and put $\alpha^h=\alpha^{h-1}+k_{f_h}$, starting from
+$\alpha^0=\alpha$.  Then, for a deformation monomial $u'$,
 \begin{equation}
 \label{eq:bendchain}
- (\Phi_M\circ\cdots\circ\Phi_1)(u_Ez^\alpha)
+ (\Phi_M\circ\cdots\circ\Phi_1)(u'\,z^\alpha)
  =\sum_\gamma
- \frac{\prod_h\epsilon_{j(h)}c_{f_h}
+ \frac{\prod_h c_{f_h}
   \det(\alpha^{h-1},k_{f_h}+(1,1))}
  {\prod_j n_j!}\,
- u_E\prod_hu_{f_h}\,z^{\alpha^{|\gamma|}},
+ u'\prod_hu_{f_h}\,z^{\alpha^{|\gamma|}},
 \end{equation}
-the finite sum over the surviving decorated bend chains $\gamma$.
+the finite sum over the bend chains $\gamma$ with nonzero coefficient in the
+quotient.
 \end{lemma}
 
 \begin{proof}
@@ -1958,20 +2010,20 @@ in its initial monomial.  Rooted Lie trees arise only after an additional
 BCH expansion of the ray factors, which depends on choices.  \qedhere
 \end{proof}
 
-Write each monomial of the potential as $m=u_Dz^\alpha$, where $D$ is a
-diagonal, $u_D$ its deformation monomial, and $\alpha$ an exponent on it, and
-let $q_m$ be its anchor cut.  For a second monomial $m'=u_Ez^{\alpha'}$, define
+Write each monomial of the potential as $m=u\,z^\alpha$, where $u$ is its
+deformation monomial and $\alpha$ a boundary degree on the string of $u$, and
+let $q_m$ be its anchor cut.  For a second monomial $m'=u'\,z^{\alpha'}$, define
 the strictly divisibility-triangular transport kernel
 \begin{equation}
 \label{eq:transportkernel}
  \mathcal K_{mm'}=
- [u_Dz^\alpha]\,\Psi(q_m)\Psi(q_{m'})^{-1}(u_Ez^{\alpha'})
- \quad\text{when }E\mid D, E\ne D,
+ [u\,z^\alpha]\,\Psi(q_m)\Psi(q_{m'})^{-1}(u'\,z^{\alpha'})
+ \quad\text{when }u'\mid u,\ u'\ne u,
  \qquad \mathcal K_{mm'}=0\quad\text{otherwise}.
 \end{equation}
 Lemma~\ref{lem:bendchain} is an explicit formula for $\mathcal K_{mm'}$: retain the
-chains whose deformation labels multiply $u_E$ to $u_D$ and whose exponent
-increments carry $\alpha'$ to $\alpha$.
+bend chains whose deformation coefficients multiply $u'$ to $u$ and whose
+exponent increments carry $\alpha'$ to $\alpha$.
 
 \begin{proposition}[Triangular inversion]
 \label{thm:seedinversion}
@@ -1993,7 +2045,7 @@ In particular,
 \end{equation}
 where $<$ includes strict divisibility of the deformation monomials and the
 intermediate boundary exponents are summed.  Thus every initial coefficient is
-a finite alternating sum of anchored values weighted by ordered
+a finite alternating sum of anchored values multiplied by sums of ordered
 bend chains.
 \end{proposition}
 
@@ -2012,27 +2064,29 @@ series inverse is finite and gives
 
 The following examples show that the initial coefficients contain
 information not generated by the ray factors themselves.  Consider the part of
-the potential obtained by transport through the ray factors from the axis
-monomials $x^r,y^s$ alone, that is, the part generated from $x^r+y^s$ by
-wall-crossing.  In the language of theta functions \cite{GHK15,GHKK}, the
-observation below says
-that the potential is not the analogue of
-$\vartheta_{(r,0)}+\vartheta_{(0,s)}$: it requires further summands, with
-coefficients $\mathrm{init}_m$.  The observation rests on
+the potential obtained by transport through the ray factors from $x^r$, $y^s$
+and the monomials with one internal marking, that is, the part generated from
+these by wall-crossing.  In the language of theta functions
+\cite{GHK15,GHKK}, the observation below says that for $x^5+y^5$ the
+potential is not the analogue of $\vartheta_{(r,0)}+\vartheta_{(0,s)}$ plus
+the theta functions of the one-marking monomials: it requires further
+summands, with coefficients $\mathrm{init}_m$.  The observation rests on
 Example~\ref{ex:middleseeds}, which follows it.
 \begin{observation}
 \label{obs:richer}
-The open theory is strictly richer than the part generated by wall-crossing
-from $x^r+y^s$ and the monomials with one internal marking. Bend chains
-generate exactly the part of the potential reachable by transport from the
-initial coefficients; the initial system is input that the ray factors do not
-produce, and it is not supported on these monomials. This has no analogue in the
-smooth Fano case of \cite{Gross10,CPS}, where the potential is generated by
-broken lines from its initial monomials. An example is the invariant $\tfrac15$ of
-\eqref{eq:newinvariants}, on a diagonal without wall terms, which no ray action
-can produce (Example~\ref{ex:middleseeds}).  With the anchor convention of
+Bend chains generate exactly the part of the potential reachable by transport
+from the initial coefficients, and the initial system is input that the ray
+factors do not produce.  It need not be supported on $x^r$, $y^s$ and the
+monomials with one internal marking: for $x^5+y^5$ the invariant $\tfrac15$ of
+\eqref{eq:newinvariants}, on a string without wall terms, which no ray action
+can produce, is a nonzero initial coefficient of a monomial with three internal
+markings (Example~\ref{ex:middleseeds}).  Hence the open theory is not in general generated
+by wall-crossing from these monomials, and for $x^5+y^5$ it is strictly richer;
+this has no analogue in the smooth Fano case of \cite{Gross10,CPS}, where the
+potential is generated by broken lines from its initial monomials.  With the
+anchor convention of
 Definition~\ref{def:anchor}, nonzero initial coefficients also occur at
-coefficients of wall-bearing diagonals, for instance the value $-\tfrac{25}{16}$ of a middle
+coefficients of wall-bearing strings, for instance the value $-\tfrac{25}{16}$ of a middle
 balanced monomial in the same example.
 \end{observation}
 
@@ -2053,22 +2107,22 @@ $t_{3,3,2}$, is an initial coefficient by Theorem~\ref{thm:linearorder}.
 \label{ex:middleseeds}
 Two things this example shows, for $x^5+y^5$: bending cannot generate
 everything, and, with the anchor convention of Definition~\ref{def:anchor},
-initial coefficients are not confined to diagonals without wall terms. For
+initial coefficients are not confined to strings without wall terms. For
 the first,
 the invariant
 $\langle(\tau_{0}^{(3,3)})^{3}\sigma_{1}^{4}\sigma_{2}^{4}\sigma_{12}\rangle
 =\tfrac15$ of \eqref{eq:newinvariants} has no bending source ($t$-monomials
 multiply along a bend chain, and the unique candidate wall term fixes the
 initial monomial of $t_{3,3}$ exactly), so such coefficients are initial data.
-For the second, take the diagonal of $t_{3,3,2}$ in the tower of the twist
-$(3,3)$.  Here $N=2$, the balanced boundary degrees are $(3,13)$, $(8,8)$ and
+For the second, take the string of $t_{3,3,2}$ in the tower of the twist
+$(3,3)$ (Figure~\ref{fig:string}).  Here $N=2$, the balanced boundary degrees are $(3,13)$, $(8,8)$ and
 $(13,3)$, and the wall terms lie on the rays of $(4,9)$ and $(9,4)$, with wall
 vectors $v_1=45\varepsilon_1-20\varepsilon_0$ and
 $v_2=20\varepsilon_2-45\varepsilon_1$ in the basis
 $\varepsilon_0,\varepsilon_1,\varepsilon_2$ of coefficients, whose coordinates
 we write $\nu_0,\nu_1,\nu_2$ (the coefficients $\nu_p$ of the proof of
 Theorem~\ref{thm:effective}).  The singleton
-condition $\Ascr=(-1)^2$ has only its $h=1$ part, with weights
+condition $\Ascr=(-1)^2$ has only its $h=1$ part, with Gamma coefficients
 $\Gamma(\tfrac45)\Gamma(\tfrac{14}5)/\Gamma(\tfrac45)^2=\tfrac{36}{25}$ at the
 two ends and $\Gamma(\tfrac95)^2/\Gamma(\tfrac45)^2=\tfrac{16}{25}$ in the
 middle:
@@ -2098,30 +2152,57 @@ coefficient of the middle balanced monomial,
 $\langle\tau_{2}^{(3,3)}\sigma_{1}^{8}\sigma_{2}^{8}\sigma_{12}
 \rangle^{\mathrm{mid}}=-\tfrac{25}{16}$, where the superscript denotes the
 value in the middle chamber.  The $\Ascr$-condition holds in all
-three chambers, since both wall vectors are annihilated by the weights.
+three chambers, since both wall vectors lie in the kernel of its left-hand
+side.
 \end{example}
 
 \begin{example}[An anchored value need not be an initial coefficient]
 \label{ex:farside}
 Proposition~\ref{thm:nobackscatter} excludes foreign contributions only from beyond
 the target's own direction; contributions from the $(1,1)$-side may remain at
-the anchor cut.  Composite diagonals (those of monomials with at least two
+the anchor cut.  Composite strings (those of monomials with at least two
 internal markings) with descendents exhibit this behavior.  For $x^5+y^5$ we
-consider the composite diagonals of $J=\{(0,0,2),(1,1,0)\}$, whose wall
+consider the composite strings of $J=\{(0,0,2),(1,1,0)\}$, whose wall
 term (the one over the composite monomial itself) lies on the $(1,1)$-ray, and
 of $J=\{(0,0,2),(2,1,0)\}$, the smallest example whose wall term lies off the
 $(1,1)$-ray, on the ray of $(3,2)$.  For each of them we solve
-the $\Ascr$-conditions on the diagonals of all divisors of the composite
+the $\Ascr$-conditions on the strings of all divisors of the composite
 monomial and transport the resulting cut potentials across every ray carrying
-a wall term of these finitely many diagonals: the diagonal of $t_{0,0,2}$ in
-the tower of the twist $(0,0)$ carries
-nonzero wall coefficients $\tfrac56$ on both of its rays, those of $(1,6)$ and
-$(6,1)$; the maximal system forces the coefficient $1$ of the wall term over
-each composite monomial; and the $\Ascr$-conditions hold in every chamber
-(these exact calculations are listed in Section~\ref{sec:cert}).
+a wall term of these finitely many strings.  With $\nu'$ the coefficients on
+the string of $t_{0,0,2}$, with balanced boundary degrees $(0,10)$, $(5,5)$,
+$(10,0)$, and $\nu$ those on the composite strings, with balanced boundary
+degrees $(1,6),(6,1)$ and $(2,6),(7,1)$, the conditions read
+\begin{align*}
+t_{0,0,2}:&\quad \tfrac6{25}\nu'_{(0,10)}+\tfrac1{25}\nu'_{(5,5)}
++\tfrac6{25}\nu'_{(10,0)}=1,\\
+t_{0,0,2}t_{1,1}:&\quad \tfrac25\nu_{(1,6)}+\tfrac25\nu_{(6,1)}
++\tfrac{14}{25}\nu'_{(0,10)}+\tfrac4{25}\nu'_{(5,5)}+\tfrac{14}{25}\nu'_{(10,0)}=0,\\
+t_{0,0,2}t_{2,1}:&\quad \tfrac25\nu_{(2,6)}+\tfrac35\nu_{(7,1)}
++\tfrac{14}{25}\nu'_{(0,10)}+\tfrac6{25}\nu'_{(5,5)}+\tfrac{24}{25}\nu'_{(10,0)}=0;
+\end{align*}
+the first is the singleton condition $\Ascr=(-1)^2$, and in the other two
+the last three terms are the parts with $h=2$, which contain the one-marking
+normalization $1$ of $t_{1,1}$, respectively $t_{2,1}$.  Hence
+$\nu'^{\min}=(\tfrac{25}6,0,0)$ and $\nu'^{\max}=(0,0,\tfrac{25}6)$.  With
+the wall vectors $v_1=30\varepsilon_1-5\varepsilon_0$ and
+$v_2=5\varepsilon_2-30\varepsilon_1$ on the rays of $(1,6)$ and $(6,1)$,
+$\nu'^{\max}-\nu'^{\min}=c_1v_1+c_2v_2$ gives $c_1=c_2=\tfrac56$, nonzero
+because $\nu'^{\min}_{(0,10)}\ne0$, as in the proof of
+Proposition~\ref{prop:localfinite}.  The extremal values on the composite
+strings are $\nu^{\min}_{(1,6)}=\nu^{\max}_{(6,1)}=-\tfrac{35}6$ and
+$\nu^{\min}_{(2,6)}=-\tfrac{35}6$, $\nu^{\max}_{(7,1)}=-\tfrac{20}3$, and the
+potential carries them with the sign $(-1)^{|J|-1}=-1$.  In the second case
+the potential coefficients of $(2,6),(7,1)$, transported from
+$(\tfrac{35}6,0)$ at the $\sigma_1$-edge cut across the rays of $(6,1)$,
+$(3,2)$ and $(1,6)$, with the term $c\,t_{0,0,2}t_{2,1}X_{2,1}$ on the ray of
+$(3,2)$, become successively $(\tfrac{35}6,-\tfrac{10}3)$,
+$(\tfrac{35}6-15c,-\tfrac{10}3+10c)$ and $(15-15c,-\tfrac{10}3+10c)$; both
+components agree with the maximal values $(0,\tfrac{20}3)$ exactly when
+$c=1$.  The same computation forces the coefficient $1$ on the $(1,1)$-ray in
+the first case, and the $\Ascr$-conditions hold in every chamber
+(Section~\ref{sec:cert}).
 In the second
-case the balanced boundary degrees are $(2,6)$ and $(7,1)$; the coefficient of
-$(7,1)$ vanishes in $\nu^{\min}$, so its anchored value, read below the ray of
+case the coefficient of $(7,1)$ vanishes in $\nu^{\min}$, so its anchored value, read below the ray of
 $(6,1)$, is $0$.  The monomial $t_{2,1}x^2y$ has initial coefficient $1$ and
 is anchored in the chamber between the rays of $(6,1)$ and $(3,2)$, so its
 transport to that anchor cut crosses the ray of $(6,1)$ negatively, where the
@@ -2180,7 +2261,7 @@ $j_2 s\in[\,\xi(a+j_1r+1)-1-b,\ \xi(a+j_1r+1)-1-b+s)$, whence
 \Bigl|\frac{b+j_2 s+1}{a+j_1r+1}-\xi\Bigr|\ <\ \frac{s}{a+j_1r+1}\
 \xrightarrow[\ j_1\to\infty\ ]{}\ 0 .
 \]
-For the coefficients: on a singleton diagonal the chamber-index
+For the coefficients: on a singleton string the chamber-index
 condition is $\Ascr(J,\mathbf d,\nu)=(-1)^{d}\ne0$, whose $h=1$ part is
 $\sum_{p}\omega_{p}\nu_{p}$ with all $\omega_{p}>0$, so $\nu^{\max}_{N}\ne0$;
 solving $W^{\nu^{\max}}-W^{\nu^{\min}}=\sum_{p}c_{p}v_{p}$ with
@@ -2191,7 +2272,7 @@ where the monomials are distinct.
 For the primary statement, modulo $\mathfrak m^{n}$ only monomials
 $u_{J,\mathbf 0}$ with $|J|<n$ occur, and for each such $|J|$ the twists range
 over the finite range of narrow residues $0\le a\le r-2$, $0\le b\le s-2$, so
-only finitely many diagonals, hence
+only finitely many strings, hence
 finitely many walls, contribute; finitely many rays through the origin cut the
 quadrant into open angular sectors.
 \end{proof}
@@ -2361,12 +2442,12 @@ in the stated quotient but may have jumps on several rays outside it.
 \end{remark}
 
 A single normal-form homotopy already suffices below the first degree at which
-one diagonal carries two wall terms.
+one string carries two wall terms.
 
 \begin{proposition}[Exact first two-wall order; realization by one
 normal-form homotopy]
 \label{prop:parabolicgeom}
-For $n\ge1$, the maximum of the numerical diagonal count
+For $n\ge1$, the maximum of
 $N(J,\mathbf0)$ over primary multisets with $\lvert J\rvert=n$ is
 \[
 N_{\max}(r,s;n)
@@ -2374,7 +2455,7 @@ N_{\max}(r,s;n)
 -\left\lceil\frac{2n}{s}\right\rceil ,
 \]
 attained by $J=\{(r-2,s-2)^n\}$. Consequently the least primary degree
-admitting a diagonal with two wall terms is
+admitting a string with two wall terms is
 \[
 N_2(r,s)=
 \min\left\{n\ge3:
@@ -2423,17 +2504,17 @@ For (ii), put $K=N_2$ when $N_2<\infty$ and otherwise fix an arbitrary finite
 $K$. Work modulo $\mathfrak q_K=(\mathfrak m^K,\text{descendent parameters})$ and choose
 at least $K-1$ labels of every primary twist, so the symmetrization map used in
 Theorem~\ref{conj:geometric} is injective in the degrees retained by the quotient. Then every
-retained diagonal has $N\le1$, and a marking subset $A\subseteq I$ determines
-the single primary diagonal $(A,\mathbf0)$. Choose transverse symmetric families
+retained string has $N\le1$, and a marking subset $A\subseteq I$ determines
+the single primary string $(A,\mathbf0)$. Choose transverse symmetric families
 realizing $\nu_I^{\min}$ and $\nu_I^{\max}$ and take the one normal-form
 homotopy between them. Its jumps occur at the subset times $T_A$. By the jump
 formula of \cite[proof of Thm.~5.9]{GKT} (\S\ref{sec:presentation}), the
 reduction of the jump at
 $T_A$ is a sum over the critical graphs with marking set $A$: it is zero if
 $|A|\ge K$ or no retained wall term exists, and otherwise is supported on the
-unique wall term of that diagonal.
+unique wall term of that string.
 
-Order the times of all subsets whose retained primary diagonal carries its
+Order the times of all subsets whose retained primary string carries its
 unique wall term by the slope of that term's ray; place the remaining subset
 times arbitrarily. A resulting zero jump is harmless. This prescription is legitimate:
 \cite[Lem.~3.40]{GKT} constrains the times only to be distinct in $(0,1)$, and its
@@ -2454,7 +2535,7 @@ reduced jump on $\rho_i$ is $\theta_{\rho_i}$.
 The ordering step above is the only place the freedom in the times of
 \cite[Lem.~3.40]{GKT} is used; the times $T_A$ there may be prescribed
 arbitrarily as distinct points of $(0,1)$. What the ordering does
-\emph{not} do is separate the wall terms of a single diagonal: those all carry the one
+\emph{not} do is separate the wall terms of a single string: those all carry the one
 marking set $J$, so they share the one time $T_{J}$ whatever order is chosen, which
 is Proposition~\ref{prop:obstruction}.
 \end{remark}
@@ -2463,18 +2544,18 @@ At the first two-wall degree, one global normal-form homotopy provably
 does not suffice. This explains why the concatenation of legs in
 Theorem~\ref{conj:geometric} is necessary.
 
-\begin{proposition}[One normal-form homotopy cannot separate a diagonal's wall terms]
+\begin{proposition}[One normal-form homotopy cannot separate a string's wall terms]
 \label{prop:obstruction}
-Let $(J,\mathbf 0)$ be a primary diagonal with $N\ge2$ and let $H^{*}$ be a family
+Let $(J,\mathbf 0)$ be a primary string with $N\ge2$ and let $H^{*}$ be a family
 of simple canonical homotopies with times $(T_{A})_{A\subseteq I}$ as in
-\cite[Lem.~3.40]{GKT}. Then every possible contribution from the diagonal's
+\cite[Lem.~3.40]{GKT}. Then every possible contribution from the string's
 $N$ wall terms is concentrated at the single time $T_{J}$, with wall term $p$
 actually contributing if and only if $\Delta(\Lambda_{J,p})\ne0$. The primary part of
 the jump there, modulo the descendent parameters, is supported on one ray if
 and only if at most one of these zero counts is nonzero.
 In particular no single
 such normal-form homotopy gives the ray-by-ray realization of
-Theorem~\ref{conj:geometric} once two of the diagonal's wall terms actually
+Theorem~\ref{conj:geometric} once two of the string's wall terms actually
 contribute.
 \end{proposition}
 
@@ -2484,7 +2565,7 @@ marking set $J$, so by Lemma~\ref{lem:gktextension}(3)(a) their zeros occur at t
 time $T_{J}$. By the jump formula of \cite[proof of Thm.~5.9]{GKT}
 (\S\ref{sec:presentation}), the logarithm of the jump there is
 \[
-\sum_{p=1}^{N}(-1)^{|J|+k_{2}(\Lambda_{J,p})}\,\Delta(\Lambda_{J,p})\,
+\sum_{p=1}^{N}(-1)^{|J|+\beta_{2}(\Lambda_{J,p})-1}\,\Delta(\Lambda_{J,p})\,
 u_{J,\mathbf0}X_{\Lambda_{J,p}},
 \]
 with $\beta(\Lambda_{J,p})=k(\Lambda_{J,p})+(1,1)$ the boundary degree of
@@ -2503,16 +2584,15 @@ several leg times. Proposition~\ref{prop:parabolicgeom} succeeds with a
 single leg because when $N\le1$ the at-most-one condition on
 $\Delta(\Lambda_{J,p})$ holds for free.
 
-\begin{example}[The first two-ray diagonal of $x^5+y^5$]
+\begin{example}[The first two-ray string of $x^5+y^5$]
 \label{ex:tworay}
 For $x^{5}+y^{5}$ the order $N_{2}=5$ of
 Proposition~\ref{prop:parabolicgeom} is attained by $J=\{(3,3)^{5}\}$,
-$\mathbf d=\mathbf 0$: here $m(J,\mathbf 0)=50$, the Euler weight is $25$, and
+$\mathbf d=\mathbf 0$: here the Euler weight is $25$ and
 $N=2$, with balanced boundary degrees $(0,10),(5,5),(10,0)$ and critical graphs of
 boundary degrees $(1,6)$ and $(6,1)$: two wall terms on two \emph{distinct} rays,
-the first such diagonal for this Fermat pair. Their wall vectors are
-$v_{1}=30\varepsilon_{1}-5\varepsilon_{0}$ and $v_{2}=5\varepsilon_{2}-30\varepsilon_{1}$. Since $|J|\ge2$ and $N\ge0$ (so
-$d(J,\mathbf 0)=-N-1=-3<0$), the
+the first such string for this Fermat pair. Their wall vectors are
+$v_{1}=30\varepsilon_{1}-5\varepsilon_{0}$ and $v_{2}=5\varepsilon_{2}-30\varepsilon_{1}$. Since $|J|\ge2$ and $N\ge0$, the
 chamber-index condition is $\Ascr(J,\mathbf 0,\nu)=0$, which reads
 \[
 \tfrac{6}{25}\,\nu_{(0,10)}+\tfrac1{25}\,\nu_{(5,5)}+\tfrac{6}{25}\,\nu_{(10,0)}
@@ -2534,13 +2614,13 @@ for $x^5+y^5$
 at which the jump of a single normal-form homotopy would have to carry two rays,
 hence the first primary degree at which the realization of
 Theorem~\ref{conj:geometric} differs from one global normal-form homotopy
-(Corollary~\ref{cor:nosimple}); every other primary diagonal computed
+(Corollary~\ref{cor:nosimple}); every other primary string computed
 in \S\ref{sec:canonical} and in \S\ref{sec:geometric} has $N\le1$, which is
 why the difficulty does not surface there.
 
 The hypothesis of Proposition~\ref{prop:obstruction} is met here. Take $I$ to carry
 at least five markings of twist $(3,3)$.  For each five-element set $A$ of these
-labels the labeled diagonal $(A,\mathbf 0)$ carries the same two wall terms, at
+labels the labeled string $(A,\mathbf 0)$ carries the same two wall terms, at
 the one time $T_A$, and the argument below applies to it verbatim. Writing
 $\nu^{\max}-\nu^{\min}=c_{1}v_{1}+c_{2}v_{2}$ and reading the extreme rows gives
 $c_{1}=c_{2}=\tfrac{34}{3125}$, the middle row being consistent; more generally
@@ -2573,7 +2653,7 @@ rays.
 \end{corollary}
 
 \begin{proof}
-By Example~\ref{ex:tworay} both wall terms of the diagonal $J=\{(3,3)^{5}\}$ contribute,
+By Example~\ref{ex:tworay} both wall terms of the string $J=\{(3,3)^{5}\}$ contribute,
 and by Proposition~\ref{prop:obstruction} they share the single time $T_{J}$, so the
 jump there meets two distinct rays.
 \end{proof}
@@ -2587,7 +2667,7 @@ Proposition~\ref{prop:localfinite}, though, the descendent walls of the same
 model are dense in the same quadrant. The parabolic pairs are the first
 case with primary content, and there the unique
 ray is $(1,1)$, carrying the marginal torus direction; the change it effects is
-the one exhibited in \cite[Ex.~4.9]{GKTsurvey}. In the hyperbolic regime diagonals
+the one exhibited in \cite[Ex.~4.9]{GKTsurvey}. In the hyperbolic regime strings
 with $N\ge2$ occur and the jump of a single normal-form homotopy can then carry
 several rays at once.
 The exact first degree is given by Proposition~\ref{prop:parabolicgeom}.
@@ -2637,20 +2717,11 @@ $g^{\min\to\max}$ in decreasing order of slopes.
 \subsection{The punctured boundary-degree quadrant}
 \label{ssec:missing}
 
-On the punctured quadrant $C_\partial^\times=C_\partial\setminus\{0\}$ only
-slope matters.  Items (1), (2), (4) of
-Proposition~\ref{thm:positionobstruction7} and the algebraic part of (3) hold
-for any finitely many rays through the vertex of a closed strictly convex
-cone; what is specific to boundary conditions is that backtracking is realized
-by pullback homotopies (Lemma~\ref{lem:polytopeextension}).  For a finite
-divisor-closed coefficient set $S$, let $\Dscr_S$ be the union of the wall rays
-in the quotient.  A \emph{generic path} in $C_\partial^\times$ has off-wall endpoints and is piecewise smooth and transverse to $\Dscr_S$;
-homotopies of generic paths are taken relative endpoints, avoid the vertex,
-and pass through finitely many simple tangencies to $\Dscr_S$.  For a compact
-polygon $P$, a \emph{$P$-homotopy}, a two-parameter homotopy, is a family of multisections of the
-descendent Witten bundles over $P\times\mathcal{PM}_\Gamma$ satisfying the
-canonical boundary identities of \cite[Def.~3.22]{GKT} on every parameter
-slice, with no transversality required.
+For a compact polygon $P$, a \emph{$P$-homotopy} is a two-parameter family of
+multisections of the descendent Witten bundles over
+$P\times\mathcal{PM}_\Gamma$ satisfying the canonical boundary identities of
+\cite[Def.~3.22]{GKT} on every parameter slice, with no transversality
+required.
 
 \begin{lemma}[Pullback fillers]
 \label{lem:polytopeextension}
@@ -2670,68 +2741,36 @@ conditions, and every slice of a pullback is a slice $\mathfrak s_T$ of $H$; a c
 values in it and is constant on $\partial P$, where the maps agree.
 \end{proof}
 
-\begin{proposition}[The punctured boundary-degree quadrant]
+\begin{remark}[The punctured quadrant]
 \label{thm:positionobstruction7}
-Let $S$ be finite and divisor-closed.
-\begin{enumerate}
-\item As a wall-stratified space, $C_\partial^\times$ is isomorphic to
-$(0,\infty)\times[0,1]$ with walls the products of $(0,\infty)$ with points,
-and it admits a stratum-preserving strong deformation retraction onto a
-constant-radius interval.
-\item The crossing word of a generic path is determined by its angular
-projection.  A homotopy of generic paths inserts or deletes only adjacent inverse
-crossings, and every crossing word reduces uniquely to the monotone path in
-the chamber-adjacency graph, which is a path.
-\item Choose the intermediate families and ray legs supplied by
-Theorem~\ref{conj:geometric}.  Assigning $\theta_{\rho,S}$ to a positive
-crossing of $\rho$ and $\theta_{\rho,S}^{-1}$ to a negative crossing gives a
-reduced automorphism depending only on the angular endpoint chambers.  A
-backtracking cancellation is realized by a $P$-homotopy, for a polygon $P$,
-pulled back from the corresponding leg, relative to the boundary, and any
-two homotopies of this kind are joined by a $(P\times[0,1])$-homotopy of the
-same kind.  With $\pi:C_\partial^\times\to\mathbb P(C_\partial)\cong[0,\infty]$ the
-projection to the slope space, this reduced path-ordered product factors
-through $\pi$: radial paths act by the identity, and positive dilation changes
-neither crossing words nor their reduced automorphisms.
-\item $C_\partial^\times$ is contractible; every closed generic path has
-trivial reduced path-ordered product, and $g^{\min\to\max}$ is the reduced
-path-ordered product of a path from one edge of the quadrant to the other.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-(1), (2) and (4).  For $q=q_1e_1+q_2e_2$ put $\varrho(q)=q_1+q_2$ and
-$\zeta(q)=q_2/(q_1+q_2)$, an increasing function of the slope.  The map
-\begin{equation}
-\label{eq:sectorproduct}
- (\varrho,\zeta):C_\partial^\times\xrightarrow{\ \sim\ }(0,\infty)\times[0,1],
- \qquad\text{with inverse}\quad
- (\varrho,\zeta)\longmapsto \varrho\,\bigl((1-\zeta)e_1+\zeta e_2\bigr),
-\end{equation}
-carries each wall $\rho_i\setminus\{0\}$ to $(0,\infty)\times\{\zeta_i\}$, and
-the linear homotopy of $\varrho$ to $1$ with $\zeta$ fixed is the retraction of
-(1), so $C_\partial^\times$ is contractible and crossing words are those of the
-angular projections.  A homotopy of generic
-paths changes a word only at simple tangencies, each inserting or deleting
-$\chi_i\chi_i^{-1}$ or $\chi_i^{-1}\chi_i$ ($\chi_i^{\pm1}$ a positive or
-negative crossing of the $i$th wall), and crossings of distinct walls cannot
-exchange order.  Since the chamber-adjacency graph is a finite path, every
-word reduces uniquely to the monotone edge path between its endpoint chambers:
-the empty word for a closed path, and the word through all rays, with product
-$g^{\min\to\max}$ (Theorem~\ref{thm:canonical}), for a path from the
-$\sigma_1$-edge to the $\sigma_2$-edge.
-
-(3) Assign to the $i$th chamber the intermediate family $\mathfrak s_i$ of
-Theorem~\ref{conj:geometric} and to $\chi_i^{\pm1}$ the ray leg
-$H_i:\mathfrak s_{i-1}\to\mathfrak s_i$, parametrized by $[T_i^-,T_i^+]$, or
-its reverse.  The loop $H_i*H_i^{-1}$ is the reparametrization of $H_i$ by a
-map $\partial P\to[T_i^-,T_i^+]$ for a polygon $P$; any smooth extension
-$\varphi:P\to[T_i^-,T_i^+]$, which exists because the target is an interval,
-gives by Lemma~\ref{lem:polytopeextension} a filler
-relative to the boundary, and two fillers are joined by the pullback along the
-linear interpolation of their maps.  The remaining assertions follow from (2),
-since radial paths and positive dilations preserve angular projections.
-\end{proof}
+Let $S$ be finite and divisor-closed, and let $\Dscr_S$ be the union of the
+wall rays $\rho_1,\dots,\rho_L$ of the quotient factorization.  The map
+$q\mapsto\bigl(q_1+q_2,\,q_2/(q_1+q_2)\bigr)$ identifies the punctured
+quadrant $C_\partial^\times=C_\partial\setminus\{0\}$ with
+$(0,\infty)\times[0,1]$, and the walls with the half-lines
+$(0,\infty)\times\{\zeta_i\}$.  Hence $C_\partial^\times$ is contractible, and
+the crossing word of a generic path, one with off-wall endpoints that is
+piecewise smooth and transverse to $\Dscr_S$, is that of its angular
+projection.  A homotopy of generic paths relative to the endpoints, through
+finitely many simple tangencies to $\Dscr_S$, inserts or deletes only adjacent
+inverse crossings, and the chamber-adjacency graph is a path.  Assigning to a
+positive or negative crossing of $\rho$ the reduction $\theta_{\rho,S}$ of
+$\theta_\rho$ to $S$ or its inverse, the reduced path-ordered product therefore depends only on the endpoint chambers:
+it is trivial on closed generic paths and equals $g^{\min\to\max}$ on a path
+from the $\sigma_1$-edge to the $\sigma_2$-edge, radial paths act by the
+identity, and the product factors through the slope space
+$\mathbb P(C_\partial)\cong[0,\infty]$.  These statements hold for any finitely
+many rays through the vertex of a closed strictly convex cone.  What is
+specific to boundary conditions is that the cancellations are realized by
+homotopies.  Assign to the $i$th chamber the intermediate family
+$\mathfrak s_i$ of Theorem~\ref{conj:geometric} and to a crossing of $\rho_i$
+the ray leg $H_i:\mathfrak s_{i-1}\to\mathfrak s_i$, parametrized by
+$[T_i^-,T_i^+]$, or its reverse.  A backtracking $H_i*H_i^{-1}$ is the
+reparametrization of $H_i$ by a map $\partial P\to[T_i^-,T_i^+]$ for a polygon
+$P$; any smooth extension $\varphi:P\to[T_i^-,T_i^+]$ gives a filler relative
+to the boundary by Lemma~\ref{lem:polytopeextension}, and two fillers are
+joined by the pullback along the linear interpolation of their maps.
+\end{remark}
 
 \begin{remark}[Interpretation]
 \label{rem:interpretation}
@@ -2779,12 +2818,34 @@ differentiation verifies bracket closure and the $(1,1)$ exponent shift.
 
 \emph{Periods, closed correlators, and recursion.}
 Expansion of the oscillatory integral gives the two-insertion relation
-\eqref{eq:seed} and the Gamma functional of Lemma~\ref{lem:periods}.
-The closed correlators printed in Example~\ref{ex:x5y5} are obtained
-independently from Saito flat coordinates, genus-zero tautological
-intersection theory, and Chiodo's formula for Witten's $r$-spin class.  With
-these values, both sides of \cite[Thm.~0.5]{GKT} agree in the $72$ and $105$
-instances described in Appendix~\ref{sec:x5y5}.
+\eqref{eq:seed} and the Gamma functional of Lemma~\ref{lem:periods}.  The
+closed FJRW correlators of $x^5+y^5$, which enter the open theory only as
+values of $\Ascr$ for $(J,\mathbf d)$ with $N(J,\mathbf d)<0$
+\cite[Cor.~5.11(3)]{GKT}, are computed as well.  By Sebastiani--Thom
+\cite{FJR13} the state space and cohomological field theory factor as
+$A_4(x)\otimes A_4(y)$, so a closed correlator
+$\langle\prod_i\tau_{d_i}^{(a_i,b_i)}\rangle$ is the tensor correlator
+$\int_{\Mbar_{0,n}}c^{1/5}(\mathbf a)\,c^{1/5}(\mathbf b)\,\psi^{\mathbf d}$
+of two Witten $5$-spin classes.  The single-variable $A_4$ correlators come
+from the Saito primitive form in flat coordinates, validated against the
+$A_2$ normalization $\langle(\tau_0^1)^4\rangle=\tfrac13$, WDVV and the
+$r=2$ Witten--Kontsevich numbers \cite{Kontsevich92}; the tensor correlators
+in which one of the two classes has degree zero factorize, and those in which
+the smaller degree is one are obtained by reconstructing the class of degree
+one, a divisor on $\Mbar_{0,n}$, from its node-splitting restrictions and
+pairing it with the other class in the genus-zero tautological ring
+\cite{Keel92}.  An evaluation of Witten's class through Chiodo's formula
+\cite{Chiodo08} independently reproduces these values.  For instance
+$\langle(\tau_{0}^{(2,1)})^{3}\tau_{0}^{(2,0)}\rangle^{\mathrm{ext}}=\tfrac25$
+in the normalization of \cite[Thm.~0.3]{GKT}.  With these values, both sides
+of the open topological recursion \cite[Thm.~0.5]{GKT}, with the values of
+$\Ascr$ given by \cite[Cor.~5.11]{GKT}, agree in the $72$ instances with two
+internal markings of twists in
+$\{(1,1),(2,1),(1,2),(2,2),(1,3),(3,1),(2,3),(3,2)\}$ and in the $105$
+instances with three internal markings of twists in
+$\{(1,1),(2,1),(1,2),(2,2),(1,3)\}$, all without descendents and including
+the extended sectors, in which a twist component equals $-1$.  This checks
+the closed correlators and involves no open invariant.
 
 \emph{Ray factors and transport.}
 Exact expansion through deformation degree four reproduces the displayed
@@ -2795,81 +2856,8 @@ of $(1,3)$, the vanishing coefficient of $t_{3,3}^4$ on the $(1,1)$ ray, and
 the value $\nu^{\min}_{(2,7)}=-\tfrac{12}{25}$ of Remark~\ref{rem:tower}.
 The transport identities reproduce \eqref{eq:newinvariants}, the initial
 coefficient $-25/16$ in Example~\ref{ex:middleseeds}, the foreign
-contribution $10/3$ in Example~\ref{ex:farside}, and the bend weights
-entering \eqref{eq:seedchain} in that example.
-
-\appendix
-
-\section{Closed FJRW correlators for
-\texorpdfstring{$x^{5}+y^{5}$}{x5+y5} and the open topological recursion}
-\label{sec:x5y5}
-
-Theorem~\ref{thm:effective} determines the open invariants without closed
-input; the closed extended invariants occur as the values of $\Ascr$ on
-diagonals without balanced coefficients \cite[Cor.~5.11(3)]{GKT}.  For the
-first symmetric hyperbolic Fermat pair $x^{5}+y^{5}$ ($\chat_{W}=\tfrac65>1$)
-we compute them exactly.
-
-\begin{example}[Closed vertex weights for $x^{5}+y^{5}$]
-\label{ex:x5y5}
-By Sebastiani--Thom \cite{FJR13} the state space and cohomological field theory of the Fermat
-sum factor as $A_{4}(x)\otimes A_{4}(y)$, the tensor square of the $5$-spin
-($A_{4}$) theory; a closed invariant
-$\langle\prod_{i}\tau_{d_{i}}^{(a_{i},b_{i})}\rangle$ is the tensor correlator
-$\int_{\Mbar_{0,n}}c^{1/5}(\mathbf a)\,c^{1/5}(\mathbf b)\,\psi^{\mathbf d}$ of
-the Witten $5$-spin classes $c^{1/5}(\mathbf a)$ and $c^{1/5}(\mathbf b)$ of the
-two factors, of degrees $D_{1}=(\sum a_{i}-3)/5$ and
-$D_{2}=(\sum b_{i}-3)/5$. We tabulate these with the sign
-$(-1)^{D_{1}+D_{2}}$ of the Saito-residue (flat-coordinate)
-normalization.  The single-variable $A_{4}$ invariants come from the Saito
-primitive form, validated against the $A_{2}$ normalization
-$\langle(\tau_{0}^{1})^{4}\rangle=\tfrac13$, WDVV and the $r=2$
-Witten--Kontsevich numbers \cite{Kontsevich92}; the correlators with
-$D_{1}=0$ or $D_{2}=0$ factorize; and the fully mixed
-correlators with $\min(D_{1},D_{2})=1$ are obtained by
-reconstructing the class of degree one, a divisor $\sum_{U}c_{U}\delta_{U}$ on
-$\Mbar_{0,n}$, from its node-splitting restrictions and pairing it with the
-other class, by the genus-zero tautological intersection calculus
-\cite{Keel92}.
-Representative values (denominators $5^{\,n-3}$; the socle pairing is
-$\langle\tau_{0}^{(0,0)}\tau_{0}^{(0,0)}\tau_{0}^{(3,3)}\rangle=1$):
-\[
-\renewcommand{\arraystretch}{1.4}
-\begin{array}{lll}
-\langle(\tau_{0}^{(2,1)})^{3}\tau_{0}^{(2,0)}\rangle=-\tfrac25, &
-\langle\tau_{0}^{(1,3)}\tau_{0}^{(1,0)}(\tau_{0}^{(3,0)})^{2}\rangle=-\tfrac15
-& (D_{1},D_{2})=(1,0),\\
-\langle(\tau_{0}^{(2,1)})^{2}\tau_{0}^{(2,2)}(\tau_{0}^{(1,2)})^{2}\rangle
-=\tfrac{4}{25}, &
-\langle(\tau_{0}^{(2,2)})^{3}(\tau_{0}^{(1,1)})^{2}\rangle=\tfrac{2}{25}
-& (1,1),\\
-\langle(\tau_{0}^{(2,3)})^{2}\tau_{0}^{(1,3)}\tau_{0}^{(1,2)}
-(\tau_{0}^{(1,1)})^{2}\rangle=-\tfrac{4}{125}, &
-\langle(\tau_{0}^{(2,3)})^{2}(\tau_{0}^{(1,3)})^{3}\tau_{0}^{(1,2)}
-\tau_{0}^{(0,1)}\rangle=\tfrac{6}{625}
-& (1,2),\ (1,3).
-\end{array}
-\]
-In the smallest case with both classes of codimension two, $n=7$, the
-codimension-two stratum intersection form gives for instance
-$\langle\tau_{0}^{(3,1)}\tau_{0}^{(2,1)}(\tau_{0}^{(2,2)})^{3}\tau_{0}^{(1,2)}
-\tau_{0}^{(1,3)}\rangle=\tfrac{34}{625}$.  The
-closed extended invariants in the normalization of \cite[Thm.~0.3]{GKT} are
-obtained by removing the sign $(-1)^{D_1+D_2}$, for instance
-$\langle(\tau_{0}^{(2,1)})^{3}\tau_{0}^{(2,0)}\rangle^{\mathrm{ext}}=\tfrac25$.
-\end{example}
-
-Substituting these closed values into the open topological
-recursion of \cite[Thm.~0.5]{GKT}, with the values of $\Ascr$ given by
-\cite[Cor.~5.11]{GKT}, gives equality in the $72$ instances with two internal
-markings of twists in $\{(1,1),(2,1),(1,2),(2,2),(1,3),(3,1),(2,3),(3,2)\}$
-and in the $105$ instances with three internal markings of twists in
-$\{(1,1),(2,1),(1,2),(2,2),(1,3)\}$, all without descendents and including the
-extended sectors, in which a twist component equals $-1$ (a Ramond twist).  The recursion is invariant under
-the sign change above; it is a consistency check of the closed correlators and
-involves no open invariant.  An evaluation of Witten's $r$-spin class through
-Chiodo's formula \cite{Chiodo08} independently reproduces the values in
-Example~\ref{ex:x5y5}, including $\tfrac{34}{625}$.
+contribution $10/3$ in Example~\ref{ex:farside}, and the bend-chain
+coefficients entering \eqref{eq:seedchain} in that example.
 
 \begin{thebibliography}{GKT26}
 
@@ -2963,6 +2951,6 @@ theory}, companion note (2026),
 \end{thebibliography}
 
 \bigskip
-\noindent{\sc Bernd J. Wuebben, New York, NY,} \texttt{wuebben@gmail.com}
+\noindent{\sc Bernd Johannes Wuebben, New York, NY,} \texttt{wuebben@gmail.com}
 
 \end{document}

@@ -25,7 +25,8 @@ Topology* 30 (2026), 2779--2960.
 [`central-charge-threshold/central-charge-threshold.pdf`](central-charge-threshold/central-charge-threshold.pdf)
 proves that the genus-zero primary invariants are independent of the choice of
 symmetric canonical boundary conditions if and only if the central charge is
-less than one, that is, exactly for the Fermat simple singularities. It
+less than one, that is, exactly for the Fermat simple singularities, as GKT
+predicted. It
 determines the least number of interior insertions at which dependence
 appears, shows that a single descendent insertion produces dependence in
 every case, and writes each wall generator as the Hamiltonian vector field
@@ -46,8 +47,8 @@ homotopy of boundary conditions whose jumps occur ray by ray; in general a
 single homotopy in the normal form of the GKT extension lemma does not
 achieve this. In each finite truncation the potential between consecutive
 rays is obtained by transport across the rays from initial constants, and
-nonzero constants occur beyond `x^r`, `y^s` and the terms with one internal
-marking. Exact `x^5+y^5` calculations give the
+for `x^5+y^5` nonzero constants occur beyond `x^r`, `y^s` and the terms with
+one internal marking. Exact `x^5+y^5` calculations give the
 first ray factors, and the closed correlators are checked against the open
 topological recursion with Sage and admcycles.
 
