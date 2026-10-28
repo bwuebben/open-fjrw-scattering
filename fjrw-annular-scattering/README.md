@@ -31,7 +31,7 @@ for f in fjrw-annular-scattering/src/*.sage; do sage "$f"; done
 | `check_outward_cap_valuations.sage` | 4 | exit data of the walls at the boundary of the disk |
 | `check_outward_affine_caps.sage` | 4 | the outward flares on the two boundary circles |
 | `check_horizontal_cap_atlas.sage` | 4, App. A | development of the two boundary circles and separation of the exits |
-| `check_regular_log_refinement.sage` | 4 | the non-regular point where three root divisors meet, and the regular dominating presentation |
+| `check_regular_log_refinement.sage` | 4, App. C | the non-regular point where three root divisors meet, and the regular dominating presentation |
 | `check_gkt_labelled_transport.sage` | 5 | the labelled critical-algebra embedding and the retwisting obstruction |
 | `check_gkt_wall_operation.sage` | 5 | two labels of twists (1,0) and (0,1): the GKT transition and the wall factors |
 | `check_gkt_three_label_operation.sage` | 5 | three-label truncations of the all-order factorization |

@@ -2,6 +2,8 @@
 
 **Bernd Johannes Wuebben**: three manuscripts and their exact verification code.
 
+[Abstracts and citations](https://bwuebben.github.io/papers/#open-fjrw) · Zenodo: [Paper 1](https://zenodo.org/records/23643211), [Paper 2](https://zenodo.org/records/23643215), [Paper 3](https://zenodo.org/records/23643219)
+
 Gross, Kelly and Tessler constructed genus-zero open FJRW invariants for the
 Landau--Ginzburg model
 
@@ -115,6 +117,24 @@ sage src/verify_thm05_full.sage
 
 That check reports 72/72 matching two-insertion instances and 105/105 matching
 three-insertion instances.
+
+### Code map
+
+Statement numbers refer to the PDFs in this repository.
+
+| Programs | Statements checked |
+|---|---|
+| `census.py` | Paper 1: the ADE list, Theorem 1.2, Table 1, Propositions 1.3, 6.2 and 7.1, Lemma 6.1 |
+| `gkt_algebra.py` | the GKT wall algebra: the count `N(J,d)`, bracket closure and the (1,1) exponent shift |
+| `scattering.py` | the Hamiltonian bracket and leading-order scattering of two walls |
+| `diagonal_wall_count.py` | Paper 2, Proposition 6.17 and Remark 6.22: `N_max(r,s;n)` and `N_2(r,s)` |
+| `first_two_ray_diagonal.py`, `two_ray_forced.py` | Paper 2, Example 6.20 and Corollary 6.21: the two-ray string of `J = {(3,3)^5}` |
+| `ray_accumulation.py`, `ray_density_exact.py` | Paper 2, Proposition 6.14: the ray set `R(a,b)` |
+| `mirror_periods.py`, `oscillatory_check.py`, `a_invariants.py` | Paper 2: the periods and Gamma functional of Lemma 4.1, and the two-insertion relation (4) |
+| `rspin.py`, `closed_fjrw.py`, `taut_m0n.py` | Paper 2, Section 7: the closed `x^5+y^5` correlators |
+| `verify_thm05.py`, `verify_thm05_full.sage` | Paper 2, Section 7: the open topological recursion (narrow sectors; all 72 and 105 instances) |
+| `canonical_diagram.py`, `mixed_sector.py`, `transport_engine.py` | Paper 2: the ray factors of Theorem 1.1 through deformation degree four (Example 5.1, Remark 4.2, eq. (3)) and Theorem 1.3 in these sectors |
+| `anchor_induction.py`, `backscatter.py`, `canonical_seeds.py`, `farside_test.py`, `seed_chain_formula.py` | Paper 2, Section 6: Proposition 6.5, Theorem 6.7, Lemma 6.9, Proposition 6.10, Examples 6.12 and 6.13 |
 
 ## References
 
